@@ -1,0 +1,60 @@
+{
+  "name": "gas_overwrite_register",
+  "initial-regs": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "initial-pc": 0,
+  "initial-page-map": [],
+  "initial-memory": [],
+  "initial-gas": 10000,
+  "program": [
+    0,
+    0,
+    9,
+    130,
+    21,
+    200,
+    152,
+    5,
+    130,
+    85,
+    50,
+    5,
+    165,
+    0
+  ],
+  "expected-status": "panic",
+  "expected-regs": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "expected-pc": 0,
+  "expected-memory": [],
+  "expected-gas": 9952,
+  "block-gas-costs": {
+    "0": 48
+  }
+}

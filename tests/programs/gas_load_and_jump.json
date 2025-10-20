@@ -1,0 +1,58 @@
+{
+  "name": "gas_load_and_jump",
+  "initial-regs": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "initial-pc": 0,
+  "initial-page-map": [],
+  "initial-memory": [],
+  "initial-gas": 10000,
+  "program": [
+    0,
+    0,
+    7,
+    124,
+    121,
+    11,
+    81,
+    9,
+    253,
+    0,
+    73
+  ],
+  "expected-status": "panic",
+  "expected-regs": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "expected-pc": 0,
+  "expected-memory": [],
+  "expected-gas": 9974,
+  "block-gas-costs": {
+    "0": 26,
+    "6": 2
+  }
+}

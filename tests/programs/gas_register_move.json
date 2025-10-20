@@ -1,0 +1,60 @@
+{
+  "name": "gas_register_move",
+  "initial-regs": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "initial-pc": 0,
+  "initial-page-map": [],
+  "initial-memory": [],
+  "initial-gas": 10000,
+  "program": [
+    0,
+    0,
+    9,
+    51,
+    5,
+    1,
+    100,
+    87,
+    149,
+    120,
+    1,
+    0,
+    41,
+    1
+  ],
+  "expected-status": "panic",
+  "expected-regs": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    1,
+    2,
+    0,
+    0,
+    0,
+    0
+  ],
+  "expected-pc": 8,
+  "expected-memory": [],
+  "expected-gas": 9997,
+  "block-gas-costs": {
+    "0": 3
+  }
+}
