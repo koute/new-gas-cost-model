@@ -168,9 +168,9 @@
   ],
   "expected-pc": 1,
   "expected-memory": [],
-  "expected-gas": 9864,
+  "expected-gas": 9891,
   "block-gas-costs": {
-    "0": 136,
+    "0": 109,
     "111": 2
   }
 }
