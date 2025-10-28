@@ -217,6 +217,217 @@ Gas simulation at offset 111 with total cost of 2:
     DeeER  trap
 ```
 
+## gas_jump_trap_else
+
+```
+      :                          @0
+     0: 51 07 04                 jump 4 if r7 == 0
+      :                          @1
+     3: 00                       trap
+      :                          @2
+     4: 33 07 02                 r7 = 0x2
+     7: 00                       trap
+```
+
+Registers after execution (only changed registers):
+   * r7 = 0x2 (initially was 0x0)
+
+Program should end with: panic
+
+Final value of the program counter: 7
+
+Gas consumed: 10000 -> 9997
+
+Gas simulation at offset 0 with total cost of 1:
+
+```
+    DeER  jump 4 if r7 == 0
+```
+
+Gas simulation at offset 3 with total cost of 2:
+
+```
+    DeeER  trap
+```
+
+Gas simulation at offset 4 with total cost of 2:
+
+```
+    DeER.  r7 = 0x2
+    DeeER  trap
+```
+
+## gas_jump_trap_target
+
+```
+      :                          @0
+     0: 51 07 07                 jump 7 if r7 == 0
+      :                          @1
+     3: 33 07 01                 r7 = 0x1
+     6: 00                       trap
+      :                          @2
+     7: 00                       trap
+```
+
+Program should end with: panic
+
+Final value of the program counter: 7
+
+Gas consumed: 10000 -> 9997
+
+Gas simulation at offset 0 with total cost of 1:
+
+```
+    DeER  jump 7 if r7 == 0
+```
+
+Gas simulation at offset 3 with total cost of 2:
+
+```
+    DeER.  r7 = 0x1
+    DeeER  trap
+```
+
+Gas simulation at offset 7 with total cost of 2:
+
+```
+    DeeER  trap
+```
+
+## gas_jump_unlikely_both
+
+```
+      :                          @0
+     0: 51 07 08                 jump 8 if r7 == 0
+      :                          @1
+     3: 03                       unlikely
+     4: 33 07 01                 r7 = 0x1
+     7: 00                       trap
+      :                          @2
+     8: 03                       unlikely
+     9: 33 07 02                 r7 = 0x2
+    12: 00                       trap
+```
+
+Registers after execution (only changed registers):
+   * r7 = 0x2 (initially was 0x0)
+
+Program should end with: panic
+
+Final value of the program counter: 12
+
+Gas consumed: 10000 -> 9959
+
+Gas simulation at offset 0 with total cost of 1:
+
+```
+    DeER  jump 8 if r7 == 0
+```
+
+Gas simulation at offset 3 with total cost of 40:
+
+```
+    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
+    DeE---------------------------------------R  r7 = 0x1
+    DeeE--------------------------------------R  trap
+```
+
+Gas simulation at offset 8 with total cost of 40:
+
+```
+    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
+    DeE---------------------------------------R  r7 = 0x2
+    DeeE--------------------------------------R  trap
+```
+
+## gas_jump_unlikely_else
+
+```
+      :                          @0
+     0: 51 07 08                 jump 8 if r7 == 0
+      :                          @1
+     3: 03                       unlikely
+     4: 33 07 01                 r7 = 0x1
+     7: 00                       trap
+      :                          @2
+     8: 33 07 02                 r7 = 0x2
+    11: 00                       trap
+```
+
+Registers after execution (only changed registers):
+   * r7 = 0x2 (initially was 0x0)
+
+Program should end with: panic
+
+Final value of the program counter: 11
+
+Gas consumed: 10000 -> 9997
+
+Gas simulation at offset 0 with total cost of 1:
+
+```
+    DeER  jump 8 if r7 == 0
+```
+
+Gas simulation at offset 3 with total cost of 40:
+
+```
+    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
+    DeE---------------------------------------R  r7 = 0x1
+    DeeE--------------------------------------R  trap
+```
+
+Gas simulation at offset 8 with total cost of 2:
+
+```
+    DeER.  r7 = 0x2
+    DeeER  trap
+```
+
+## gas_jump_unlikely_target
+
+```
+      :                          @0
+     0: 51 07 07                 jump 7 if r7 == 0
+      :                          @1
+     3: 33 07 01                 r7 = 0x1
+     6: 00                       trap
+      :                          @2
+     7: 03                       unlikely
+     8: 33 07 02                 r7 = 0x2
+    11: 00                       trap
+```
+
+Registers after execution (only changed registers):
+   * r7 = 0x2 (initially was 0x0)
+
+Program should end with: panic
+
+Final value of the program counter: 11
+
+Gas consumed: 10000 -> 9959
+
+Gas simulation at offset 0 with total cost of 1:
+
+```
+    DeER  jump 7 if r7 == 0
+```
+
+Gas simulation at offset 3 with total cost of 2:
+
+```
+    DeER.  r7 = 0x1
+    DeeER  trap
+```
+
+Gas simulation at offset 7 with total cost of 40:
+
+```
+    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
+    DeE---------------------------------------R  r7 = 0x2
+    DeeE--------------------------------------R  trap
+```
+
 ## gas_load_and_jump
 
 ```
@@ -296,6 +507,82 @@ Gas simulation at offset 0 with total cost of 4:
     DeER...  r7 = r8 + r9
     D=eeeER  r11 = r7 * r10
     .DeeE-R  trap
+```
+
+## gas_multiple_register_moves_complex
+
+```
+      :                          @0
+     0: 33 05                    r5 = 0
+     2: 33 06 01                 r6 = 0x1
+     5: cc 65 07                 r7 = r5 /s r6
+     8: 64 78                    r8 = r7
+    10: 64 89                    r9 = r8
+    12: 64 99                    r9 = r9
+    14: c8 96 0a                 r10 = r6 + r9
+    17: 00                       trap
+```
+
+Registers after execution (only changed registers):
+   * r6 = 0x1 (initially was 0x0)
+   * r10 = 0x1 (initially was 0x0)
+
+Program should end with: panic
+
+Final value of the program counter: 17
+
+Gas consumed: 10000 -> 9938
+
+Gas simulation at offset 0 with total cost of 62:
+
+```
+    DeER.............................................................  r5 = 0
+    DeER.............................................................  r6 = 0x1
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = r5 /s r6
+    ..D..............................................................  r8 = r7
+    ..D..............................................................  r9 = r8
+    ..D..............................................................  r9 = r9
+    ...D==========================================================eER  r10 = r6 + r9
+    ...DeeE---------------------------------------------------------R  trap
+```
+
+## gas_multiple_register_moves_simple
+
+```
+      :                          @0
+     0: 64 79                    r9 = r7
+     2: 64 57                    r7 = r5
+     4: 52 09 fc                 jump 0 if r9 != 0
+      :                          @1
+     7: 01                       fallthrough
+      :                          @2
+     8: 00                       trap
+```
+
+Program should end with: panic
+
+Final value of the program counter: 8
+
+Gas consumed: 10000 -> 9976
+
+Gas simulation at offset 0 with total cost of 20:
+
+```
+    D......................  r9 = r7
+    D......................  r7 = r5
+    DeeeeeeeeeeeeeeeeeeeeER  jump 0 if r9 != 0
+```
+
+Gas simulation at offset 7 with total cost of 2:
+
+```
+    DeeER  fallthrough
+```
+
+Gas simulation at offset 8 with total cost of 2:
+
+```
+    DeeER  trap
 ```
 
 ## gas_overwrite_register

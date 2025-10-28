@@ -1,0 +1,62 @@
+{
+  "name": "gas_multiple_register_moves_simple",
+  "initial-regs": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "initial-pc": 0,
+  "initial-page-map": [],
+  "initial-memory": [],
+  "initial-gas": 10000,
+  "program": [
+    0,
+    0,
+    9,
+    100,
+    121,
+    100,
+    87,
+    82,
+    9,
+    252,
+    1,
+    0,
+    149,
+    1
+  ],
+  "expected-status": "panic",
+  "expected-regs": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "expected-pc": 8,
+  "expected-memory": [],
+  "expected-gas": 9976,
+  "block-gas-costs": {
+    "0": 20,
+    "7": 2,
+    "8": 2
+  }
+}
