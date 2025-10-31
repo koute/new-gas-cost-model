@@ -1,29 +1,6 @@
 {
   "name": "riscv_rv64uzbb_orc_b",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 13,
-  "initial-page-map": [
-    {
-      "address": 131072,
-      "length": 4096,
-      "is-writable": true
-    }
-  ],
-  "initial-memory": [],
   "initial-gas": 10000,
   "program": [
     0,
@@ -4528,48 +4505,62 @@
     73,
     6
   ],
-  "expected-status": "halt",
-  "expected-regs": [
-    4294901760,
-    0,
-    2,
-    255,
-    1095233437695,
-    26,
-    0,
-    0,
-    0,
-    0,
-    2,
-    1095233437695,
-    0
-  ],
-  "expected-pc": 11,
-  "expected-memory": [
+  "steps": [
     {
+      "kind": "map",
       "address": 131072,
-      "contents": [
-        255
-      ]
+      "length": 4096,
+      "is_writable": true
     },
     {
-      "address": 131080,
-      "contents": [
-        255,
-        255,
-        255,
-        255,
-        255
-      ]
+      "kind": "run"
     },
     {
-      "address": 131088,
-      "contents": [
-        255
+      "kind": "assert",
+      "status": "halt",
+      "gas": 8420,
+      "pc": 11,
+      "regs": [
+        4294901760,
+        0,
+        2,
+        255,
+        1095233437695,
+        26,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1095233437695,
+        0
+      ],
+      "memory": [
+        {
+          "address": 131072,
+          "contents": [
+            255
+          ]
+        },
+        {
+          "address": 131080,
+          "contents": [
+            255,
+            255,
+            255,
+            255,
+            255
+          ]
+        },
+        {
+          "address": 131088,
+          "contents": [
+            255
+          ]
+        }
       ]
     }
   ],
-  "expected-gas": 8420,
   "block-gas-costs": {
     "0": 26,
     "13": 54,

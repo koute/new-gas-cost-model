@@ -1,23 +1,6 @@
 {
   "name": "gas_resource_limits_mul",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 0,
-  "initial-page-map": [],
-  "initial-memory": [],
   "initial-gas": 10000,
   "program": [
     0,
@@ -32,25 +15,33 @@
     0,
     73
   ],
-  "expected-status": "panic",
-  "expected-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
+  "steps": [
+    {
+      "kind": "run"
+    },
+    {
+      "kind": "assert",
+      "status": "panic",
+      "gas": 9994,
+      "pc": 6,
+      "regs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "memory": []
+    }
   ],
-  "expected-pc": 6,
-  "expected-memory": [],
-  "expected-gas": 9994,
   "block-gas-costs": {
     "0": 6
   }

@@ -1,23 +1,6 @@
 {
   "name": "riscv_rv64ui_bge",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 13,
-  "initial-page-map": [],
-  "initial-memory": [],
   "initial-gas": 10000,
   "program": [
     0,
@@ -676,25 +659,33 @@
     201,
     0
   ],
-  "expected-status": "halt",
-  "expected-regs": [
-    4294901760,
-    0,
-    2,
-    0,
-    3,
-    24,
-    0,
-    0,
-    0,
-    0,
-    0,
-    2,
-    0
+  "steps": [
+    {
+      "kind": "run"
+    },
+    {
+      "kind": "assert",
+      "status": "halt",
+      "gas": 8748,
+      "pc": 11,
+      "regs": [
+        4294901760,
+        0,
+        2,
+        0,
+        3,
+        24,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "memory": []
+    }
   ],
-  "expected-pc": 11,
-  "expected-memory": [],
-  "expected-gas": 8748,
   "block-gas-costs": {
     "0": 26,
     "13": 21,

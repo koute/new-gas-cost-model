@@ -1,170 +1,6 @@
 {
   "name": "riscv_rv64ui_sw",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 13,
-  "initial-page-map": [
-    {
-      "address": 65536,
-      "length": 4096,
-      "is-writable": false
-    },
-    {
-      "address": 196608,
-      "length": 4096,
-      "is-writable": true
-    }
-  ],
-  "initial-memory": [
-    {
-      "address": 65538,
-      "contents": [
-        3
-      ]
-    },
-    {
-      "address": 65544,
-      "contents": [
-        2
-      ]
-    },
-    {
-      "address": 65552,
-      "contents": [
-        4
-      ]
-    },
-    {
-      "address": 65560,
-      "contents": [
-        6
-      ]
-    },
-    {
-      "address": 65568,
-      "contents": [
-        8
-      ]
-    },
-    {
-      "address": 65576,
-      "contents": [
-        28
-      ]
-    },
-    {
-      "address": 65578,
-      "contents": [
-        3
-      ]
-    },
-    {
-      "address": 65584,
-      "contents": [
-        10
-      ]
-    },
-    {
-      "address": 65592,
-      "contents": [
-        12
-      ]
-    },
-    {
-      "address": 65600,
-      "contents": [
-        14
-      ]
-    },
-    {
-      "address": 65608,
-      "contents": [
-        16
-      ]
-    },
-    {
-      "address": 65616,
-      "contents": [
-        32
-      ]
-    },
-    {
-      "address": 65618,
-      "contents": [
-        3
-      ]
-    },
-    {
-      "address": 65624,
-      "contents": [
-        36
-      ]
-    },
-    {
-      "address": 65626,
-      "contents": [
-        3
-      ]
-    },
-    {
-      "address": 196608,
-      "contents": [
-        239,
-        190,
-        173,
-        222,
-        239,
-        190,
-        173,
-        222,
-        239,
-        190,
-        173,
-        222,
-        239,
-        190,
-        173,
-        222,
-        239,
-        190,
-        173,
-        222,
-        239,
-        190,
-        173,
-        222,
-        239,
-        190,
-        173,
-        222,
-        239,
-        190,
-        173,
-        222,
-        239,
-        190,
-        173,
-        222,
-        239,
-        190,
-        173,
-        222
-      ]
-    }
-  ],
   "initial-gas": 10000,
   "program": [
     8,
@@ -1407,173 +1243,344 @@
     146,
     1
   ],
-  "expected-status": "halt",
-  "expected-regs": [
-    4294901760,
-    196608,
-    2,
-    0,
-    304295937,
-    23,
-    0,
-    2,
-    0,
-    196608,
-    18446744072582191787,
-    304295937,
-    16
-  ],
-  "expected-pc": 11,
-  "expected-memory": [
+  "steps": [
     {
+      "kind": "map",
+      "address": 65536,
+      "length": 4096,
+      "is_writable": false
+    },
+    {
+      "kind": "write",
       "address": 65538,
       "contents": [
         3
       ]
     },
     {
+      "kind": "write",
       "address": 65544,
       "contents": [
         2
       ]
     },
     {
+      "kind": "write",
       "address": 65552,
       "contents": [
         4
       ]
     },
     {
+      "kind": "write",
       "address": 65560,
       "contents": [
         6
       ]
     },
     {
+      "kind": "write",
       "address": 65568,
       "contents": [
         8
       ]
     },
     {
+      "kind": "write",
       "address": 65576,
       "contents": [
         28
       ]
     },
     {
+      "kind": "write",
       "address": 65578,
       "contents": [
         3
       ]
     },
     {
+      "kind": "write",
       "address": 65584,
       "contents": [
         10
       ]
     },
     {
+      "kind": "write",
       "address": 65592,
       "contents": [
         12
       ]
     },
     {
+      "kind": "write",
       "address": 65600,
       "contents": [
         14
       ]
     },
     {
+      "kind": "write",
       "address": 65608,
       "contents": [
         16
       ]
     },
     {
+      "kind": "write",
       "address": 65616,
       "contents": [
         32
       ]
     },
     {
+      "kind": "write",
       "address": 65618,
       "contents": [
         3
       ]
     },
     {
+      "kind": "write",
       "address": 65624,
       "contents": [
         36
       ]
     },
     {
+      "kind": "write",
       "address": 65626,
       "contents": [
         3
       ]
     },
     {
+      "kind": "map",
+      "address": 196608,
+      "length": 4096,
+      "is_writable": true
+    },
+    {
+      "kind": "write",
       "address": 196608,
       "contents": [
-        51,
-        34,
-        17
+        239,
+        190,
+        173,
+        222,
+        239,
+        190,
+        173,
+        222,
+        239,
+        190,
+        173,
+        222,
+        239,
+        190,
+        173,
+        222,
+        239,
+        190,
+        173,
+        222,
+        239,
+        190,
+        173,
+        222,
+        239,
+        190,
+        173,
+        222,
+        239,
+        190,
+        173,
+        222,
+        239,
+        190,
+        173,
+        222,
+        239,
+        190,
+        173,
+        222
       ]
     },
     {
-      "address": 196612,
-      "contents": [
-        35,
-        18,
-        1,
-        48,
-        34,
-        17
-      ]
+      "kind": "run"
     },
     {
-      "address": 196619,
-      "contents": [
-        51,
-        18,
-        1,
-        48,
-        35,
-        17
-      ]
-    },
-    {
-      "address": 196626,
-      "contents": [
-        51,
-        34,
-        1,
-        48,
-        35,
-        18,
-        160,
-        10,
-        160,
-        10,
-        10,
-        160,
-        10,
-        160,
-        120,
-        86,
-        52,
-        18,
-        152,
-        48,
-        33,
-        88
+      "kind": "assert",
+      "status": "halt",
+      "gas": 7898,
+      "pc": 11,
+      "regs": [
+        4294901760,
+        196608,
+        2,
+        0,
+        304295937,
+        23,
+        0,
+        2,
+        0,
+        196608,
+        18446744072582191787,
+        304295937,
+        16
+      ],
+      "memory": [
+        {
+          "address": 65538,
+          "contents": [
+            3
+          ]
+        },
+        {
+          "address": 65544,
+          "contents": [
+            2
+          ]
+        },
+        {
+          "address": 65552,
+          "contents": [
+            4
+          ]
+        },
+        {
+          "address": 65560,
+          "contents": [
+            6
+          ]
+        },
+        {
+          "address": 65568,
+          "contents": [
+            8
+          ]
+        },
+        {
+          "address": 65576,
+          "contents": [
+            28
+          ]
+        },
+        {
+          "address": 65578,
+          "contents": [
+            3
+          ]
+        },
+        {
+          "address": 65584,
+          "contents": [
+            10
+          ]
+        },
+        {
+          "address": 65592,
+          "contents": [
+            12
+          ]
+        },
+        {
+          "address": 65600,
+          "contents": [
+            14
+          ]
+        },
+        {
+          "address": 65608,
+          "contents": [
+            16
+          ]
+        },
+        {
+          "address": 65616,
+          "contents": [
+            32
+          ]
+        },
+        {
+          "address": 65618,
+          "contents": [
+            3
+          ]
+        },
+        {
+          "address": 65624,
+          "contents": [
+            36
+          ]
+        },
+        {
+          "address": 65626,
+          "contents": [
+            3
+          ]
+        },
+        {
+          "address": 196608,
+          "contents": [
+            51,
+            34,
+            17
+          ]
+        },
+        {
+          "address": 196612,
+          "contents": [
+            35,
+            18,
+            1,
+            48,
+            34,
+            17
+          ]
+        },
+        {
+          "address": 196619,
+          "contents": [
+            51,
+            18,
+            1,
+            48,
+            35,
+            17
+          ]
+        },
+        {
+          "address": 196626,
+          "contents": [
+            51,
+            34,
+            1,
+            48,
+            35,
+            18,
+            160,
+            10,
+            160,
+            10,
+            10,
+            160,
+            10,
+            160,
+            120,
+            86,
+            52,
+            18,
+            152,
+            48,
+            33,
+            88
+          ]
+        }
       ]
     }
   ],
-  "expected-gas": 7898,
   "block-gas-costs": {
     "0": 26,
     "13": 50,

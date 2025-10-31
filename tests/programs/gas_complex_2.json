@@ -1,23 +1,6 @@
 {
   "name": "gas_complex_2",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 0,
-  "initial-page-map": [],
-  "initial-memory": [],
   "initial-gas": 10000,
   "program": [
     0,
@@ -83,25 +66,33 @@
     130,
     4
   ],
-  "expected-status": "out-of-gas",
-  "expected-regs": [
-    36,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1318926965,
-    1174440960,
-    1915508,
-    1,
-    0,
-    0
+  "steps": [
+    {
+      "kind": "run"
+    },
+    {
+      "kind": "assert",
+      "status": "out-of-gas",
+      "gas": 12,
+      "pc": 0,
+      "regs": [
+        36,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1318926965,
+        1174440960,
+        1915508,
+        1,
+        0,
+        0
+      ],
+      "memory": []
+    }
   ],
-  "expected-pc": 0,
-  "expected-memory": [],
-  "expected-gas": 12,
   "block-gas-costs": {
     "0": 22
   }

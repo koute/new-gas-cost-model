@@ -1,23 +1,6 @@
 {
   "name": "inst_branch_greater_or_equal_unsigned_imm_nok",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 0,
-  "initial-page-map": [],
-  "initial-memory": [],
   "initial-gas": 10000,
   "program": [
     0,
@@ -45,25 +28,33 @@
     1,
     0
   ],
-  "expected-status": "panic",
-  "expected-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    10,
-    0,
-    0,
-    0,
-    0,
-    0
+  "steps": [
+    {
+      "kind": "run"
+    },
+    {
+      "kind": "assert",
+      "status": "panic",
+      "gas": 9996,
+      "pc": 7,
+      "regs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "memory": []
+    }
   ],
-  "expected-pc": 7,
-  "expected-memory": [],
-  "expected-gas": 9996,
   "block-gas-costs": {
     "0": 2,
     "7": 2,

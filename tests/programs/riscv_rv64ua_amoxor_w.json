@@ -1,47 +1,6 @@
 {
   "name": "riscv_rv64ua_amoxor_w",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 13,
-  "initial-page-map": [
-    {
-      "address": 65536,
-      "length": 4096,
-      "is-writable": false
-    },
-    {
-      "address": 196608,
-      "length": 4096,
-      "is-writable": true
-    }
-  ],
-  "initial-memory": [
-    {
-      "address": 65536,
-      "contents": [
-        8
-      ]
-    },
-    {
-      "address": 65538,
-      "contents": [
-        3
-      ]
-    }
-  ],
   "initial-gas": 10000,
   "program": [
     0,
@@ -228,55 +187,89 @@
     34,
     25
   ],
-  "expected-status": "halt",
-  "expected-regs": [
-    4294901760,
-    0,
-    0,
-    0,
-    18446744072635807745,
-    5,
-    0,
-    18446744071562067968,
-    3221225473,
-    0,
-    196616,
-    2147481600,
-    18446744072635807745
-  ],
-  "expected-pc": 11,
-  "expected-memory": [
+  "steps": [
     {
+      "kind": "map",
+      "address": 65536,
+      "length": 4096,
+      "is_writable": false
+    },
+    {
+      "kind": "write",
       "address": 65536,
       "contents": [
         8
       ]
     },
     {
+      "kind": "write",
       "address": 65538,
       "contents": [
         3
       ]
     },
     {
-      "address": 196609,
-      "contents": [
-        248,
-        255,
-        127
-      ]
+      "kind": "map",
+      "address": 196608,
+      "length": 4096,
+      "is_writable": true
     },
     {
-      "address": 196616,
-      "contents": [
-        1,
-        248,
-        255,
-        191
+      "kind": "run"
+    },
+    {
+      "kind": "assert",
+      "status": "halt",
+      "gas": 9749,
+      "pc": 11,
+      "regs": [
+        4294901760,
+        0,
+        0,
+        0,
+        18446744072635807745,
+        5,
+        0,
+        18446744071562067968,
+        3221225473,
+        0,
+        196616,
+        2147481600,
+        18446744072635807745
+      ],
+      "memory": [
+        {
+          "address": 65536,
+          "contents": [
+            8
+          ]
+        },
+        {
+          "address": 65538,
+          "contents": [
+            3
+          ]
+        },
+        {
+          "address": 196609,
+          "contents": [
+            248,
+            255,
+            127
+          ]
+        },
+        {
+          "address": 196616,
+          "contents": [
+            1,
+            248,
+            255,
+            191
+          ]
+        }
       ]
     }
   ],
-  "expected-gas": 9749,
   "block-gas-costs": {
     "0": 26,
     "13": 76,

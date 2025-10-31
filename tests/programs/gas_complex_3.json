@@ -1,23 +1,6 @@
 {
   "name": "gas_complex_3",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 0,
-  "initial-page-map": [],
-  "initial-memory": [],
   "initial-gas": 10000,
   "program": [
     0,
@@ -150,25 +133,33 @@
     74,
     146
   ],
-  "expected-status": "panic",
-  "expected-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
+  "steps": [
+    {
+      "kind": "run"
+    },
+    {
+      "kind": "assert",
+      "status": "panic",
+      "gas": 9891,
+      "pc": 1,
+      "regs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "memory": []
+    }
   ],
-  "expected-pc": 1,
-  "expected-memory": [],
-  "expected-gas": 9891,
   "block-gas-costs": {
     "0": 109,
     "111": 2

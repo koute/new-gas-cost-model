@@ -1,23 +1,6 @@
 {
   "name": "inst_jump_indirect_without_offset_ok",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 0,
-  "initial-page-map": [],
-  "initial-memory": [],
   "initial-gas": 10000,
   "program": [
     1,
@@ -43,25 +26,33 @@
     105,
     0
   ],
-  "expected-status": "panic",
-  "expected-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    2,
-    3735928559,
-    0,
-    0,
-    0,
-    0
+  "steps": [
+    {
+      "kind": "run"
+    },
+    {
+      "kind": "assert",
+      "status": "panic",
+      "gas": 9975,
+      "pc": 16,
+      "regs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        3735928559,
+        0,
+        0,
+        0,
+        0
+      ],
+      "memory": []
+    }
   ],
-  "expected-pc": 16,
-  "expected-memory": [],
-  "expected-gas": 9975,
   "block-gas-costs": {
     "0": 23,
     "5": 2,

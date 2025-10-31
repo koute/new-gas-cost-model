@@ -1,23 +1,6 @@
 {
   "name": "inst_count_trailing_zero_bits_64",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1152921505412153344,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 0,
-  "initial-page-map": [],
-  "initial-memory": [],
   "initial-gas": 10000,
   "program": [
     0,
@@ -27,25 +10,38 @@
     121,
     1
   ],
-  "expected-status": "panic",
-  "expected-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1152921505412153344,
-    0,
-    28,
-    0,
-    0,
-    0
+  "steps": [
+    {
+      "kind": "set-reg",
+      "reg": 7,
+      "value": 1152921505412153344
+    },
+    {
+      "kind": "run"
+    },
+    {
+      "kind": "assert",
+      "status": "panic",
+      "gas": 9998,
+      "pc": 2,
+      "regs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1152921505412153344,
+        0,
+        28,
+        0,
+        0,
+        0
+      ],
+      "memory": []
+    }
   ],
-  "expected-pc": 2,
-  "expected-memory": [],
-  "expected-gas": 9998,
   "block-gas-costs": {
     "0": 2
   }

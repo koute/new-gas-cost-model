@@ -1,23 +1,6 @@
 {
   "name": "inst_rotate_right_32",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    34359738377,
-    3,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 0,
-  "initial-page-map": [],
-  "initial-memory": [],
   "initial-gas": 10000,
   "program": [
     0,
@@ -28,25 +11,43 @@
     9,
     1
   ],
-  "expected-status": "panic",
-  "expected-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    34359738377,
-    3,
-    536870913,
-    0,
-    0,
-    0
+  "steps": [
+    {
+      "kind": "set-reg",
+      "reg": 7,
+      "value": 34359738377
+    },
+    {
+      "kind": "set-reg",
+      "reg": 8,
+      "value": 3
+    },
+    {
+      "kind": "run"
+    },
+    {
+      "kind": "assert",
+      "status": "panic",
+      "gas": 9997,
+      "pc": 3,
+      "regs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        34359738377,
+        3,
+        536870913,
+        0,
+        0,
+        0
+      ],
+      "memory": []
+    }
   ],
-  "expected-pc": 3,
-  "expected-memory": [],
-  "expected-gas": 9997,
   "block-gas-costs": {
     "0": 3
   }

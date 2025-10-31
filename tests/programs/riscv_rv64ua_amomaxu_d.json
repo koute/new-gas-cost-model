@@ -1,47 +1,6 @@
 {
   "name": "riscv_rv64ua_amomaxu_d",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 13,
-  "initial-page-map": [
-    {
-      "address": 65536,
-      "length": 4096,
-      "is-writable": false
-    },
-    {
-      "address": 196608,
-      "length": 4096,
-      "is-writable": true
-    }
-  ],
-  "initial-memory": [
-    {
-      "address": 65536,
-      "contents": [
-        16
-      ]
-    },
-    {
-      "address": 65538,
-      "contents": [
-        3
-      ]
-    }
-  ],
   "initial-gas": 10000,
   "program": [
     0,
@@ -219,51 +178,85 @@
     37,
     25
   ],
-  "expected-status": "halt",
-  "expected-regs": [
-    4294901760,
-    0,
-    0,
-    0,
-    18446744073709551615,
-    5,
-    0,
-    18446744071562067968,
-    18446744073709551615,
-    0,
-    196624,
-    0,
-    18446744073709551615
-  ],
-  "expected-pc": 11,
-  "expected-memory": [
+  "steps": [
     {
+      "kind": "map",
+      "address": 65536,
+      "length": 4096,
+      "is_writable": false
+    },
+    {
+      "kind": "write",
       "address": 65536,
       "contents": [
         16
       ]
     },
     {
+      "kind": "write",
       "address": 65538,
       "contents": [
         3
       ]
     },
     {
-      "address": 196624,
-      "contents": [
-        255,
-        255,
-        255,
-        255,
-        255,
-        255,
-        255,
-        255
+      "kind": "map",
+      "address": 196608,
+      "length": 4096,
+      "is_writable": true
+    },
+    {
+      "kind": "run"
+    },
+    {
+      "kind": "assert",
+      "status": "halt",
+      "gas": 9742,
+      "pc": 11,
+      "regs": [
+        4294901760,
+        0,
+        0,
+        0,
+        18446744073709551615,
+        5,
+        0,
+        18446744071562067968,
+        18446744073709551615,
+        0,
+        196624,
+        0,
+        18446744073709551615
+      ],
+      "memory": [
+        {
+          "address": 65536,
+          "contents": [
+            16
+          ]
+        },
+        {
+          "address": 65538,
+          "contents": [
+            3
+          ]
+        },
+        {
+          "address": 196624,
+          "contents": [
+            255,
+            255,
+            255,
+            255,
+            255,
+            255,
+            255,
+            255
+          ]
+        }
       ]
     }
   ],
-  "expected-gas": 9742,
   "block-gas-costs": {
     "0": 26,
     "13": 81,

@@ -1,141 +1,6 @@
 {
   "name": "riscv_rv64ui_ld",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 13,
-  "initial-page-map": [
-    {
-      "address": 65536,
-      "length": 4096,
-      "is-writable": false
-    },
-    {
-      "address": 196608,
-      "length": 4096,
-      "is-writable": true
-    }
-  ],
-  "initial-memory": [
-    {
-      "address": 65538,
-      "contents": [
-        3
-      ]
-    },
-    {
-      "address": 65544,
-      "contents": [
-        24
-      ]
-    },
-    {
-      "address": 65546,
-      "contents": [
-        3
-      ]
-    },
-    {
-      "address": 65552,
-      "contents": [
-        8
-      ]
-    },
-    {
-      "address": 65554,
-      "contents": [
-        3
-      ]
-    },
-    {
-      "address": 65560,
-      "contents": [
-        16
-      ]
-    },
-    {
-      "address": 65562,
-      "contents": [
-        3
-      ]
-    },
-    {
-      "address": 196608,
-      "contents": [
-        255
-      ]
-    },
-    {
-      "address": 196610,
-      "contents": [
-        255
-      ]
-    },
-    {
-      "address": 196612,
-      "contents": [
-        255
-      ]
-    },
-    {
-      "address": 196614,
-      "contents": [
-        255
-      ]
-    },
-    {
-      "address": 196617,
-      "contents": [
-        255
-      ]
-    },
-    {
-      "address": 196619,
-      "contents": [
-        255
-      ]
-    },
-    {
-      "address": 196621,
-      "contents": [
-        255
-      ]
-    },
-    {
-      "address": 196623,
-      "contents": [
-        255,
-        240,
-        15,
-        240,
-        15,
-        240,
-        15,
-        240,
-        15,
-        15,
-        240,
-        15,
-        240,
-        15,
-        240,
-        15,
-        240
-      ]
-    }
-  ],
   "initial-gas": 10000,
   "program": [
     0,
@@ -1299,109 +1164,119 @@
     146,
     1
   ],
-  "expected-status": "halt",
-  "expected-regs": [
-    4294901760,
-    2,
-    196608,
-    18374966859414961920,
-    2,
-    19,
-    0,
-    0,
-    2,
-    0,
-    196608,
-    18374966859414961920,
-    17298308644996116495
-  ],
-  "expected-pc": 11,
-  "expected-memory": [
+  "steps": [
     {
+      "kind": "map",
+      "address": 65536,
+      "length": 4096,
+      "is_writable": false
+    },
+    {
+      "kind": "write",
       "address": 65538,
       "contents": [
         3
       ]
     },
     {
+      "kind": "write",
       "address": 65544,
       "contents": [
         24
       ]
     },
     {
+      "kind": "write",
       "address": 65546,
       "contents": [
         3
       ]
     },
     {
+      "kind": "write",
       "address": 65552,
       "contents": [
         8
       ]
     },
     {
+      "kind": "write",
       "address": 65554,
       "contents": [
         3
       ]
     },
     {
+      "kind": "write",
       "address": 65560,
       "contents": [
         16
       ]
     },
     {
+      "kind": "write",
       "address": 65562,
       "contents": [
         3
       ]
     },
     {
+      "kind": "map",
+      "address": 196608,
+      "length": 4096,
+      "is_writable": true
+    },
+    {
+      "kind": "write",
       "address": 196608,
       "contents": [
         255
       ]
     },
     {
+      "kind": "write",
       "address": 196610,
       "contents": [
         255
       ]
     },
     {
+      "kind": "write",
       "address": 196612,
       "contents": [
         255
       ]
     },
     {
+      "kind": "write",
       "address": 196614,
       "contents": [
         255
       ]
     },
     {
+      "kind": "write",
       "address": 196617,
       "contents": [
         255
       ]
     },
     {
+      "kind": "write",
       "address": 196619,
       "contents": [
         255
       ]
     },
     {
+      "kind": "write",
       "address": 196621,
       "contents": [
         255
       ]
     },
     {
+      "kind": "write",
       "address": 196623,
       "contents": [
         255,
@@ -1422,9 +1297,140 @@
         15,
         240
       ]
+    },
+    {
+      "kind": "run"
+    },
+    {
+      "kind": "assert",
+      "status": "halt",
+      "gas": 8682,
+      "pc": 11,
+      "regs": [
+        4294901760,
+        2,
+        196608,
+        18374966859414961920,
+        2,
+        19,
+        0,
+        0,
+        2,
+        0,
+        196608,
+        18374966859414961920,
+        17298308644996116495
+      ],
+      "memory": [
+        {
+          "address": 65538,
+          "contents": [
+            3
+          ]
+        },
+        {
+          "address": 65544,
+          "contents": [
+            24
+          ]
+        },
+        {
+          "address": 65546,
+          "contents": [
+            3
+          ]
+        },
+        {
+          "address": 65552,
+          "contents": [
+            8
+          ]
+        },
+        {
+          "address": 65554,
+          "contents": [
+            3
+          ]
+        },
+        {
+          "address": 65560,
+          "contents": [
+            16
+          ]
+        },
+        {
+          "address": 65562,
+          "contents": [
+            3
+          ]
+        },
+        {
+          "address": 196608,
+          "contents": [
+            255
+          ]
+        },
+        {
+          "address": 196610,
+          "contents": [
+            255
+          ]
+        },
+        {
+          "address": 196612,
+          "contents": [
+            255
+          ]
+        },
+        {
+          "address": 196614,
+          "contents": [
+            255
+          ]
+        },
+        {
+          "address": 196617,
+          "contents": [
+            255
+          ]
+        },
+        {
+          "address": 196619,
+          "contents": [
+            255
+          ]
+        },
+        {
+          "address": 196621,
+          "contents": [
+            255
+          ]
+        },
+        {
+          "address": 196623,
+          "contents": [
+            255,
+            240,
+            15,
+            240,
+            15,
+            240,
+            15,
+            240,
+            15,
+            15,
+            240,
+            15,
+            240,
+            15,
+            240,
+            15,
+            240
+          ]
+        }
+      ]
     }
   ],
-  "expected-gas": 8682,
   "block-gas-costs": {
     "0": 26,
     "13": 53,

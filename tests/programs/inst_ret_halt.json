@@ -1,23 +1,6 @@
 {
   "name": "inst_ret_halt",
-  "initial-regs": [
-    4294901760,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 0,
-  "initial-page-map": [],
-  "initial-memory": [],
   "initial-gas": 10000,
   "program": [
     0,
@@ -27,25 +10,38 @@
     0,
     1
   ],
-  "expected-status": "halt",
-  "expected-regs": [
-    4294901760,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
+  "steps": [
+    {
+      "kind": "set-reg",
+      "reg": 0,
+      "value": 4294901760
+    },
+    {
+      "kind": "run"
+    },
+    {
+      "kind": "assert",
+      "status": "halt",
+      "gas": 9978,
+      "pc": 0,
+      "regs": [
+        4294901760,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "memory": []
+    }
   ],
-  "expected-pc": 0,
-  "expected-memory": [],
-  "expected-gas": 9978,
   "block-gas-costs": {
     "0": 22
   }

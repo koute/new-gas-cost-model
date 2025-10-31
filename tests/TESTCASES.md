@@ -7943,6 +7943,69 @@ Gas simulation at offset 0 with total cost of 2:
     DeeER  invalid
 ```
 
+## multistep_paging_in_the_middle_of_block
+
+Execution steps:
+   * Start execution
+   * Execution interrupted: status = 'page-fault' (address = 0x30000), gas = 9972, pc = 5
+   * Resume execution
+   * Execution interrupted: status = 'page-fault' (address = 0x30000), gas = 9972, pc = 5
+   * Map page: 0x30000-0x31000 (0x1000 bytes, RW)
+   * Write: 0x30000-0x30001 (0x1 bytes) = [0x01]
+   * Write: 0x30fff-0x31000 (0x1 bytes) = [0x02]
+   * Resume execution
+   * Execution interrupted: status = 'page-fault' (address = 0x31000), gas = 9972, pc = 11
+   * Map page: 0x31000-0x32000 (0x1000 bytes, RW)
+   * Write: 0x31fff-0x32000 (0x1 bytes) = [0x03]
+   * Set: r0 = 0xffff0000
+   * Resume execution
+   * Execution interrupted: status = 'halt', gas = 9972, pc = 21
+Final page map:
+   * RW: 0x30000-0x31000 (0x1000 bytes)
+   * RW: 0x31000-0x32000 (0x1000 bytes)
+
+```
+      :                          @0
+     0: 33 07 00 00 03           r7 = 0x30000
+     5: 7c 78                    r8 = u8 [r7 + 0]
+     7: 7c 79 ff 0f              r9 = u8 [r7 + 0xfff]
+    11: 7c 7a ff 1f              r10 = u8 [r7 + 0x1fff]
+    15: c8 98 0b                 r11 = r8 + r9
+    18: c8 ab 0b                 r11 = r11 + r10
+    21: 32 00                    jump [r0 + 0]
+```
+
+Registers after execution (only changed registers):
+   * r0 = 0xffff0000 (initially was 0x0)
+   * r7 = 0x30000 (initially was 0x0)
+   * r8 = 0x1 (initially was 0x0)
+   * r9 = 0x2 (initially was 0x0)
+   * r10 = 0x3 (initially was 0x0)
+   * r11 = 0x6 (initially was 0x0)
+
+Final non-zero memory chunks:
+   * 0x30000-0x30001 (0x1 bytes) = [0x01]
+   * 0x30fff-0x31000 (0x1 bytes) = [0x02]
+   * 0x31fff-0x32000 (0x1 bytes) = [0x03]
+
+Program should end with: halt
+
+Final value of the program counter: 21
+
+Gas consumed: 10000 -> 9972
+
+Gas simulation at offset 0 with total cost of 28:
+
+```
+    DeER...........................  r7 = 0x30000
+    D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [r7 + 0]
+    D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r9 = u8 [r7 + 0xfff]
+    D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r10 = u8 [r7 + 0x1fff]
+    .D=========================eER.  r11 = r8 + r9
+    .D==========================eER  r11 = r11 + r10
+    .DeeeeeeeeeeeeeeeeeeeeeeE-----R  jump [r0 + 0]
+```
+
 ## riscv_rv64ua_amoadd_d
 
 Initial page map:

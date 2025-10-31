@@ -1,39 +1,6 @@
 {
   "name": "inst_load_indirect_u16_without_offset",
-  "initial-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    131072,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
   "initial-pc": 0,
-  "initial-page-map": [
-    {
-      "address": 131072,
-      "length": 4096,
-      "is-writable": true
-    }
-  ],
-  "initial-memory": [
-    {
-      "address": 131072,
-      "contents": [
-        129,
-        130,
-        131,
-        132
-      ]
-    }
-  ],
   "initial-gas": 10000,
   "program": [
     0,
@@ -43,25 +10,15 @@
     120,
     1
   ],
-  "expected-status": "panic",
-  "expected-regs": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    131072,
-    33409,
-    0,
-    0,
-    0,
-    0
-  ],
-  "expected-pc": 2,
-  "expected-memory": [
+  "steps": [
     {
+      "kind": "map",
+      "address": 131072,
+      "length": 4096,
+      "is_writable": true
+    },
+    {
+      "kind": "write",
       "address": 131072,
       "contents": [
         129,
@@ -69,9 +26,48 @@
         131,
         132
       ]
+    },
+    {
+      "kind": "set-reg",
+      "reg": 7,
+      "value": 131072
+    },
+    {
+      "kind": "run"
+    },
+    {
+      "kind": "assert",
+      "status": "panic",
+      "gas": 9975,
+      "pc": 2,
+      "regs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        131072,
+        33409,
+        0,
+        0,
+        0,
+        0
+      ],
+      "memory": [
+        {
+          "address": 131072,
+          "contents": [
+            129,
+            130,
+            131,
+            132
+          ]
+        }
+      ]
     }
   ],
-  "expected-gas": 9975,
   "block-gas-costs": {
     "0": 25
   }
