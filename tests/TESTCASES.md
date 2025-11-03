@@ -663,6 +663,33 @@ Gas simulation at offset 0 with total cost of 3:
     .DeeER  trap
 ```
 
+## gas_register_move_use_all_decode_slots
+
+```
+      :                          @0
+     0: 64 85                    r5 = r8
+     2: 64 87                    r7 = r8
+     4: 64 28                    r8 = r2
+     6: 64 69                    r9 = r6
+     8: 00                       trap
+```
+
+Program should end with: panic
+
+Final value of the program counter: 8
+
+Gas consumed: 10000 -> 9997
+
+Gas simulation at offset 0 with total cost of 3:
+
+```
+    D.....  r5 = r8
+    D.....  r7 = r8
+    D.....  r8 = r2
+    D.....  r9 = r6
+    .DeeER  trap
+```
+
 ## gas_resource_limits_mul
 
 ```
@@ -740,6 +767,37 @@ Gas simulation at offset 0 with total cost of 3:
     DeER..  r7 = r8 + r9
     D=eER.  r8 = r7 + r9
     .DeeER  trap
+```
+
+## gas_xor_and_shift
+
+```
+      :                          @0
+     0: 85 88 ff                 r8 = r8 ^ 0xffffffffffffffff
+     3: d0 87 08                 r8 = r7 >> r8
+     6: 01                       fallthrough
+      :                          @1
+     7: 00                       trap
+```
+
+Program should end with: panic
+
+Final value of the program counter: 7
+
+Gas consumed: 10000 -> 9995
+
+Gas simulation at offset 0 with total cost of 3:
+
+```
+    DeER..  r8 = r8 ^ 0xffffffffffffffff
+    D=eER.  r8 = r7 >> r8
+    .DeeER  fallthrough
+```
+
+Gas simulation at offset 7 with total cost of 2:
+
+```
+    DeeER  trap
 ```
 
 ## inst_add_32
@@ -7960,6 +8018,7 @@ Execution steps:
    * Set: r0 = 0xffff0000
    * Resume execution
    * Execution interrupted: status = 'halt', gas = 9972, pc = 21
+
 Final page map:
    * RW: 0x30000-0x31000 (0x1000 bytes)
    * RW: 0x31000-0x32000 (0x1000 bytes)
