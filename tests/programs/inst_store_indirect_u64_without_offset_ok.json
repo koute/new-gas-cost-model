@@ -12,62 +12,69 @@
   ],
   "steps": [
     {
-      "kind": "map",
-      "address": 131072,
-      "length": 4096,
-      "is_writable": true
+      "map": {
+        "address": 131072,
+        "length": 4096,
+        "is-writable": true
+      }
     },
     {
-      "kind": "set-reg",
-      "reg": 7,
-      "value": 131072
+      "set-reg": {
+        "reg": 7,
+        "value": 131072
+      }
     },
     {
-      "kind": "set-reg",
-      "reg": 8,
-      "value": 9332165983064197000
+      "set-reg": {
+        "reg": 8,
+        "value": 9332165983064197000
+      }
     },
     {
-      "kind": "run"
+      "run": {}
     },
     {
-      "kind": "assert",
-      "status": "panic",
-      "gas": 9975,
-      "pc": 2,
-      "regs": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        131072,
-        9332165983064197000,
-        0,
-        0,
-        0,
-        0
-      ],
-      "memory": [
-        {
-          "address": 131072,
-          "contents": [
-            136,
-            135,
-            134,
-            133,
-            132,
-            131,
-            130,
-            129
-          ]
-        }
-      ]
+      "assert": {
+        "status": "panic",
+        "gas": 9975,
+        "pc": 2,
+        "regs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          131072,
+          9332165983064197000,
+          0,
+          0,
+          0,
+          0
+        ],
+        "memory": [
+          {
+            "address": 131072,
+            "contents": [
+              136,
+              135,
+              134,
+              133,
+              132,
+              131,
+              130,
+              129
+            ]
+          }
+        ]
+      }
     }
   ],
-  "block-gas-costs": {
-    "0": 25
-  }
+  "block-gas-costs": [
+    {
+      "pc": 0,
+      "cost": 25
+    }
+  ]
 }

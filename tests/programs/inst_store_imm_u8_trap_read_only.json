@@ -16,38 +16,44 @@
   ],
   "steps": [
     {
-      "kind": "map",
-      "address": 65536,
-      "length": 4096,
-      "is_writable": false
+      "map": {
+        "address": 65536,
+        "length": 4096,
+        "is-writable": false
+      }
     },
     {
-      "kind": "run"
+      "run": {}
     },
     {
-      "kind": "assert",
-      "status": "panic",
-      "gas": 9975,
-      "pc": 0,
-      "regs": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "memory": []
+      "assert": {
+        "status": "page-fault",
+        "page-fault-address": 65536,
+        "gas": 9975,
+        "pc": 0,
+        "regs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "memory": []
+      }
     }
   ],
-  "block-gas-costs": {
-    "0": 25
-  }
+  "block-gas-costs": [
+    {
+      "pc": 0,
+      "cost": 25
+    }
+  ]
 }

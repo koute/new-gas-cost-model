@@ -320,99 +320,134 @@
   ],
   "steps": [
     {
-      "kind": "map",
-      "address": 65536,
-      "length": 4096,
-      "is_writable": false
+      "map": {
+        "address": 65536,
+        "length": 4096,
+        "is-writable": false
+      }
     },
     {
-      "kind": "write",
-      "address": 65536,
-      "contents": [
-        24
-      ]
+      "write": {
+        "address": 65536,
+        "contents": [
+          24
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65538,
-      "contents": [
-        3
-      ]
+      "write": {
+        "address": 65538,
+        "contents": [
+          3
+        ]
+      }
     },
     {
-      "kind": "map",
-      "address": 196608,
-      "length": 4096,
-      "is_writable": true
+      "map": {
+        "address": 196608,
+        "length": 4096,
+        "is-writable": true
+      }
     },
     {
-      "kind": "run"
+      "run": {}
     },
     {
-      "kind": "assert",
-      "status": "halt",
-      "gas": 9596,
-      "pc": 11,
-      "regs": [
-        4294901760,
-        0,
-        0,
-        0,
-        18446744071562067968,
-        7,
-        0,
-        1,
-        2147483648,
-        0,
-        196632,
-        1,
-        18446744071562067968
-      ],
-      "memory": [
-        {
-          "address": 65536,
-          "contents": [
-            24
-          ]
-        },
-        {
-          "address": 65538,
-          "contents": [
-            3
-          ]
-        },
-        {
-          "address": 196624,
-          "contents": [
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255,
-            255
-          ]
-        },
-        {
-          "address": 196635,
-          "contents": [
-            128
-          ]
-        }
-      ]
+      "assert": {
+        "status": "halt",
+        "gas": 9596,
+        "pc": 11,
+        "regs": [
+          4294901760,
+          0,
+          0,
+          0,
+          18446744071562067968,
+          7,
+          0,
+          1,
+          2147483648,
+          0,
+          196632,
+          1,
+          18446744071562067968
+        ],
+        "memory": [
+          {
+            "address": 65536,
+            "contents": [
+              24
+            ]
+          },
+          {
+            "address": 65538,
+            "contents": [
+              3
+            ]
+          },
+          {
+            "address": 196624,
+            "contents": [
+              255,
+              255,
+              255,
+              255,
+              255,
+              255,
+              255,
+              255
+            ]
+          },
+          {
+            "address": 196635,
+            "contents": [
+              128
+            ]
+          }
+        ]
+      }
     }
   ],
-  "block-gas-costs": {
-    "0": 26,
-    "13": 81,
-    "91": 40,
-    "107": 80,
-    "168": 40,
-    "180": 81,
-    "253": 40,
-    "268": 1,
-    "271": 2,
-    "272": 15
-  }
+  "block-gas-costs": [
+    {
+      "pc": 0,
+      "cost": 26
+    },
+    {
+      "pc": 13,
+      "cost": 81
+    },
+    {
+      "pc": 91,
+      "cost": 40
+    },
+    {
+      "pc": 107,
+      "cost": 80
+    },
+    {
+      "pc": 168,
+      "cost": 40
+    },
+    {
+      "pc": 180,
+      "cost": 81
+    },
+    {
+      "pc": 253,
+      "cost": 40
+    },
+    {
+      "pc": 268,
+      "cost": 1
+    },
+    {
+      "pc": 271,
+      "cost": 2
+    },
+    {
+      "pc": 272,
+      "cost": 15
+    }
+  ]
 }

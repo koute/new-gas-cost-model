@@ -911,7 +911,7 @@ Gas simulation at offset 1402 with total cost of 25:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r5 + 0x68]
     DeE------------------------R  r8 = 0x3ff0000000000000
-    DeeeeeeeeeeeeeeeE----------R  r0 = 24, jump 33257
+    DeeeeeeeeeeeeeeeE----------R  r0 = 24, jump 33311
 ```
 
 Gas simulation at offset 1420 with total cost of 26:
@@ -936,7 +936,7 @@ Gas simulation at offset 1459 with total cost of 15:
 
 ```
     DeER..............  r8 = 0xc0144ace15b7e8e7
-    DeeeeeeeeeeeeeeeER  r0 = 26, jump 33257
+    DeeeeeeeeeeeeeeeER  r0 = 26, jump 33311
 ```
 
 Gas simulation at offset 1474 with total cost of 26:
@@ -1089,12 +1089,12 @@ Gas simulation at offset 1661 with total cost of 15:
     DeeeeeeeeeeeeeeeER  jump 1402
 ```
 
-Gas simulation at offset 1664 with total cost of 22:
+Gas simulation at offset 1664 with total cost of 3:
 
 ```
-    DeER.....................  r7 = r7 + r8
-    D=eER....................  r7 = zext16 r7
-    D==eeeeeeeeeeeeeeeeeeeeER  jump 1777 if r7 <=u 2046
+    DeER..  r7 = r7 + r8
+    D=eER.  r7 = zext16 r7
+    D==eER  jump 1777 if r7 <=u 2046
 ```
 
 Gas simulation at offset 1674 with total cost of 2:
@@ -1109,7 +1109,7 @@ Gas simulation at offset 1677 with total cost of 40:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r8 = u8 [r5 + 0x23]
-    D=========================eE--------------R  jump 1888 if r8 == 0
+    D=========================eE--------------R  jump 1889 if r8 == 0
 ```
 
 Gas simulation at offset 1685 with total cost of 40:
@@ -1118,7 +1118,7 @@ Gas simulation at offset 1685 with total cost of 40:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r9 = u16 [r5 + 0x1e]
     DeE---------------------------------------R  r8 = 0
-    D=========================eE--------------R  jump 1888 if r9 <u 8
+    D=========================eE--------------R  jump 1889 if r9 <u 8
 ```
 
 Gas simulation at offset 1696 with total cost of 40:
@@ -1126,7 +1126,7 @@ Gas simulation at offset 1696 with total cost of 40:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r10 = u8 [r5 + 0x24]
-    D=========================eE--------------R  jump 1888 if r10 == 0
+    D=========================eE--------------R  jump 1889 if r10 == 0
 ```
 
 Gas simulation at offset 1704 with total cost of 40:
@@ -1134,7 +1134,7 @@ Gas simulation at offset 1704 with total cost of 40:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r8 = u8 [r5 + 0x25]
-    D=========================eE--------------R  jump 1927 if r8 == 0
+    D=========================eE--------------R  jump 1928 if r8 == 0
 ```
 
 Gas simulation at offset 1712 with total cost of 40:
@@ -1153,7 +1153,7 @@ Gas simulation at offset 1728 with total cost of 45:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.....  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R.....  r10 = u8 [r5 + 0x28]
-    D=========================eeeeeeeeeeeeeeeeeeeeER  jump 1913 if r10 == 0
+    D=========================eeeeeeeeeeeeeeeeeeeeER  jump 1914 if r10 == 0
 ```
 
 Gas simulation at offset 1736 with total cost of 22:
@@ -1167,76 +1167,77 @@ Gas simulation at offset 1736 with total cost of 22:
 Gas simulation at offset 1746 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 1927
+    DeeeeeeeeeeeeeeeER  jump 1928
 ```
 
-Gas simulation at offset 1749 with total cost of 3:
+Gas simulation at offset 1749 with total cost of 22:
 
 ```
-    DeER..  r8 = r8 + r9
-    D=eER.  r8 = zext16 r8
-    D==eER  jump 1927 if r8 <=u 2046
+    DeER.....................  r8 = r8 + r9
+    D=eER....................  r8 = zext16 r8
+    D==eeeeeeeeeeeeeeeeeeeeER  jump 1928 if r8 <=u 2046
 ```
 
 Gas simulation at offset 1760 with total cost of 15:
 
 ```
     DeER..............  r8 = 0
-    DeeeeeeeeeeeeeeeER  jump 1888
+    DeeeeeeeeeeeeeeeER  jump 1889
 ```
 
-Gas simulation at offset 1764 with total cost of 23:
+Gas simulation at offset 1764 with total cost of 4:
 
 ```
-    DeER......................  r7 = r7 ^ 0xffffffffffffffff
-    D=eER.....................  r7 = r7 + r8
-    D==eER....................  r7 = zext16 r7
-    D===eeeeeeeeeeeeeeeeeeeeER  jump 1674 if r7 >u 2046
+    DeER...  r7 = r7 ^ 0xffffffffffffffff
+    D=eER..  r7 = r7 + r8
+    D==eER.  r7 = zext16 r7
+    D===eER  jump 1674 if r7 >u 2046
 ```
 
 Gas simulation at offset 1777 with total cost of 109:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER....................................................................................  r3 = u8 [r5 + 0]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER....................................................................................  r8 = u8 [r5 + 0x11]
-    DeE------------------------R....................................................................................  r9 = 0x172d0
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER....................................................................................  r10 = u8 [r5 + 0x16]
-    .DeE-----------------------R....................................................................................  r2 = r1 + 0x58
-    .D========================eER...................................................................................  r8 = r8 << 0x3
-    .D=========================eER..................................................................................  r8 = r8 + r9
+    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.....................................................................  unlikely
+    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R.....................................................................  r3 = u8 [r5 + 0]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R.....................................................................  r8 = u8 [r5 + 0x11]
+    DeE---------------------------------------R.....................................................................  r9 = 0x172d0
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R.....................................................................  r10 = u8 [r5 + 0x16]
+    .DeE--------------------------------------R.....................................................................  r2 = r1 + 0x58
+    .D========================eE--------------R.....................................................................  r8 = r8 << 0x3
+    ..D========================eE-------------R.....................................................................  r8 = r8 + r9
     ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r9 = u8 [r8 + 0]
     ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r12 = u8 [r8 + 0x1]
     ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r6 = u8 [r8 + 0x2]
-    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r11 = u8 [r8 + 0x3]
-    ...D======================eE--------------------------R.........................................................  r10 = r10 + r2
+    ...D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r11 = u8 [r8 + 0x3]
+    ...D=======================eE-------------------------R.........................................................  r10 = r10 + r2
     ...D=================================================eER........................................................  r12 = r12 << 0x8
     ...D=================================================eER........................................................  r6 = r6 << 0x10
-    ...D=================================================eER........................................................  r11 = r11 << 0x18
+    ....D================================================eER........................................................  r11 = r11 << 0x18
     ....D=================================================eER.......................................................  r9 = r9 | r12
     ....D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER................................  r12 = u8 [r8 + 0x4]
     ....D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER...............................  r7 = u8 [r8 + 0x5]
-    ....D=================================================eE------------------------R...............................  r11 = r11 | r6
+    .....D================================================eE------------------------R...............................  r11 = r11 | r6
     .....D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................  r6 = u8 [r8 + 0x6]
     .....D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................  r8 = u8 [r8 + 0x7]
     .....D=========================================================================eER..............................  r7 = r7 << 0x8
-    .....D==========================================================================eER.............................  r7 = r7 | r12
+    ......D=========================================================================eER.............................  r7 = r7 | r12
     ......D=========================================================================eER.............................  r6 = r6 << 0x10
     ......D=========================================================================eER.............................  r8 = r8 << 0x18
     ......D==========================================================================eER............................  r8 = r8 | r6
-    ......D=======================================================================eE---R............................  r9 = r9 | r11
+    .......D======================================================================eE---R............................  r9 = r9 | r11
     .......D==========================================================================eER...........................  r7 = r7 | r8
     .......D==================eE--------------------------------------------------------R...........................  r8 = r5 - r3
-    .......D===========================================================================eER..........................  r7 = r7 << 0x20
+    ........D==========================================================================eER..........................  r7 = r7 << 0x20
     ........D===========================================================================eER.........................  r7 = r7 | r9
-    ........D============================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x58] = r7
-    ............................D==================================================eeeeeeeeeeeeeeeeeeeeeeeeeE------R  r7 = u8 [r10 + 0]
-    ............................D====================================================eeeeeeeeeeeeeeeeeeeeeeeeeE----R  r8 = u8 [r8 + 0x4]
-    ............................D=============================================================================eeeE-R  r7 = r8 * r7
-    ............................D====================================================eeeeeeeeeeeeeeeeeeeeeeeeeE----R  r8 = u8 [r5 + 0x23]
-    .............................D============================================================================eE---R  jump 1685 if r8 != 0
+    ...........................................D=========================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x58] = r7
+    ...........................................D===================================eeeeeeeeeeeeeeeeeeeeeeeeeE------R  r7 = u8 [r10 + 0]
+    ...........................................D=====================================eeeeeeeeeeeeeeeeeeeeeeeeeE----R  r8 = u8 [r8 + 0x4]
+    ...........................................D==============================================================eeeE-R  r7 = r8 * r7
+    ............................................D====================================eeeeeeeeeeeeeeeeeeeeeeeeeE----R  r8 = u8 [r5 + 0x23]
+    ............................................D=============================================================eE---R  jump 1685 if r8 != 0
 ```
 
-Gas simulation at offset 1888 with total cost of 40:
+Gas simulation at offset 1889 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -1244,7 +1245,7 @@ Gas simulation at offset 1888 with total cost of 40:
     D=========================eE--------------R  jump 2044 if r9 >=u 2
 ```
 
-Gas simulation at offset 1897 with total cost of 40:
+Gas simulation at offset 1898 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -1254,63 +1255,62 @@ Gas simulation at offset 1897 with total cost of 40:
     .D========================eE--------------R  jump 2077 if r9 != 0
 ```
 
-Gas simulation at offset 1910 with total cost of 15:
+Gas simulation at offset 1911 with total cost of 15:
 
 ```
     DeeeeeeeeeeeeeeeER  jump 2113
 ```
 
-Gas simulation at offset 1913 with total cost of 4:
+Gas simulation at offset 1914 with total cost of 23:
 
 ```
-    DeER...  r8 = r8 ^ 0xffffffffffffffff
-    D=eER..  r8 = r8 + r9
-    D==eER.  r8 = zext16 r8
-    D===eER  jump 1760 if r8 >u 2046
+    DeER......................  r8 = r8 ^ 0xffffffffffffffff
+    D=eER.....................  r8 = r8 + r9
+    D==eER....................  r8 = zext16 r8
+    D===eeeeeeeeeeeeeeeeeeeeER  jump 1760 if r8 >u 2046
 ```
 
-Gas simulation at offset 1927 with total cost of 110:
+Gas simulation at offset 1928 with total cost of 109:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......................................................................  unlikely
-    DeE---------------------------------------R......................................................................  r2 = r5 + 0x18
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R......................................................................  r10 = u8 [r5 + 0x18]
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R......................................................................  r9 = u8 [r5 + 0x29]
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R......................................................................  r11 = u8 [r5 + 0x2e]
-    .DeE--------------------------------------R......................................................................  r12 = 0x172d0
-    ..DeE-------------------------------------R......................................................................  r6 = r1 + 0x58
-    ..D========================eE-------------R......................................................................  r9 = r9 << 0x3
-    ...D=======================eE-------------R......................................................................  r3 = r6 + r11
-    ...D========================eE------------R......................................................................  r9 = r9 + r12
-    ...D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r12 = u8 [r9 + 0]
-    ....D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r6 = u8 [r9 + 0x1]
-    ....D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r8 = u8 [r9 + 0x2]
-    ....D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r11 = u8 [r9 + 0x3]
-    ....D=====================eE---------------------------R.........................................................  r2 = r2 - r10
-    .....D================================================eER........................................................  r6 = r6 << 0x8
-    .....D================================================eER........................................................  r8 = r8 << 0x10
-    .....D================================================eER........................................................  r11 = r11 << 0x18
-    .....D=================================================eER.......................................................  r12 = r12 | r6
-    ......D===============================================eeeeeeeeeeeeeeeeeeeeeeeeeER................................  r6 = u8 [r9 + 0x4]
-    ......D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER...............................  r10 = u8 [r9 + 0x5]
-    ......D================================================eE------------------------R...............................  r8 = r8 | r11
-    ......D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................  r11 = u8 [r9 + 0x6]
-    .......D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................  r9 = u8 [r9 + 0x7]
-    .......D========================================================================eER..............................  r10 = r10 << 0x8
-    .......D=========================================================================eER.............................  r10 = r10 | r6
-    .......D=========================================================================eER.............................  r11 = r11 << 0x10
-    ........D========================================================================eER.............................  r9 = r9 << 0x18
-    ........D=========================================================================eER............................  r9 = r9 | r11
-    ........D======================================================================eE---R............................  r8 = r8 | r12
-    ........D==========================================================================eER...........................  r9 = r9 | r10
-    .........D==========================================================================eER..........................  r9 = r9 << 0x20
-    ...........................................D=========================================eER.........................  r8 = r8 | r9
-    ...........................................D==========================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x58] = r8
-    ...........................................D====================================eeeeeeeeeeeeeeeeeeeeeeeeeE------R  r8 = u8 [r3 + 0]
-    ...........................................D======================================eeeeeeeeeeeeeeeeeeeeeeeeeE----R  r9 = u8 [r2 + 0x4]
-    ............................................D==============================================================eeeE-R  r8 = r9 * r8
-    ............................................D=====================================eeeeeeeeeeeeeeeeeeeeeeeeeE----R  r9 = u16 [r5 + 0x70]
-    ............................................D==============================================================eE---R  jump 1897 if r9 <u 2
+    DeER............................................................................................................  r2 = r5 + 0x18
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER....................................................................................  r10 = u8 [r5 + 0x18]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER....................................................................................  r9 = u8 [r5 + 0x29]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................................................  r11 = u8 [r5 + 0x2e]
+    .DeE------------------------R...................................................................................  r12 = 0x172d0
+    .DeE------------------------R...................................................................................  r6 = r1 + 0x58
+    ..D=======================eER...................................................................................  r9 = r9 << 0x3
+    ..D========================eER..................................................................................  r3 = r6 + r11
+    ..D========================eER..................................................................................  r9 = r9 + r12
+    ...D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r12 = u8 [r9 + 0]
+    ...D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r6 = u8 [r9 + 0x1]
+    ...D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r8 = u8 [r9 + 0x2]
+    ...D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r11 = u8 [r9 + 0x3]
+    ....D=====================eE--------------------------R.........................................................  r2 = r2 - r10
+    ....D================================================eER........................................................  r6 = r6 << 0x8
+    ....D================================================eER........................................................  r8 = r8 << 0x10
+    ....D================================================eER........................................................  r11 = r11 << 0x18
+    .....D================================================eER.......................................................  r12 = r12 | r6
+    .....D===============================================eeeeeeeeeeeeeeeeeeeeeeeeeER................................  r6 = u8 [r9 + 0x4]
+    .....D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER...............................  r10 = u8 [r9 + 0x5]
+    .....D================================================eE------------------------R...............................  r8 = r8 | r11
+    ......D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................  r11 = u8 [r9 + 0x6]
+    ......D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................  r9 = u8 [r9 + 0x7]
+    ......D========================================================================eER..............................  r10 = r10 << 0x8
+    ......D=========================================================================eER.............................  r10 = r10 | r6
+    .......D========================================================================eER.............................  r11 = r11 << 0x10
+    .......D========================================================================eER.............................  r9 = r9 << 0x18
+    .......D=========================================================================eER............................  r9 = r9 | r11
+    .......D======================================================================eE---R............................  r8 = r8 | r12
+    ........D=========================================================================eER...........................  r9 = r9 | r10
+    ........D==========================================================================eER..........................  r9 = r9 << 0x20
+    ........D===========================================================================eER.........................  r8 = r8 | r9
+    ........D============================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x58] = r8
+    ............................D==================================================eeeeeeeeeeeeeeeeeeeeeeeeeE------R  r8 = u8 [r3 + 0]
+    ............................D====================================================eeeeeeeeeeeeeeeeeeeeeeeeeE----R  r9 = u8 [r2 + 0x4]
+    .............................D============================================================================eeeE-R  r8 = r9 * r8
+    .............................D===================================================eeeeeeeeeeeeeeeeeeeeeeeeeE----R  r9 = u16 [r5 + 0x70]
+    .............................D============================================================================eE---R  jump 1898 if r9 <u 2
 ```
 
 Gas simulation at offset 2044 with total cost of 40:
@@ -1437,13 +1437,13 @@ Gas simulation at offset 2191 with total cost of 22:
     ......D=eE----R..........  r9 = r10 + 0x4e800000
     ......D======eeER........  i32 r8 = r8 + r9
     .......DeE------R........  r0 = 0x1c
-    .......DeeeeeeeeeeeeeeeER  jump 33775
+    .......DeeeeeeeeeeeeeeeER  jump 33829
 ```
 
 Gas simulation at offset 2238 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  r0 = 28, jump 33775
+    DeeeeeeeeeeeeeeeER  r0 = 28, jump 33829
 ```
 
 Gas simulation at offset 2243 with total cost of 16:
@@ -1451,7 +1451,7 @@ Gas simulation at offset 2243 with total cost of 16:
 ```
     DeeER..............  i32 r8 = r7 + 0
     DeE-R..............  r7 = 0x45fe0000
-    .DeeeeeeeeeeeeeeeER  r0 = 30, jump 34691
+    .DeeeeeeeeeeeeeeeER  r0 = 30, jump 34745
 ```
 
 Gas simulation at offset 2256 with total cost of 15:
@@ -1459,7 +1459,7 @@ Gas simulation at offset 2256 with total cost of 15:
 ```
     DeeER.............  i32 r7 = r7 + 0
     DeE-R.............  r8 = 0x42c80000
-    DeeeeeeeeeeeeeeeER  r0 = 32, jump 33775
+    DeeeeeeeeeeeeeeeER  r0 = 32, jump 33829
 ```
 
 Gas simulation at offset 2269 with total cost of 16:
@@ -1467,7 +1467,7 @@ Gas simulation at offset 2269 with total cost of 16:
 ```
     DeeER..............  i32 r8 = r7 + 0
     DeE-R..............  r7 = 0x42bfc28f
-    .DeeeeeeeeeeeeeeeER  r0 = 34, jump 34691
+    .DeeeeeeeeeeeeeeeER  r0 = 34, jump 34745
 ```
 
 Gas simulation at offset 2282 with total cost of 25:
@@ -1514,14 +1514,14 @@ Gas simulation at offset 2315 with total cost of 22:
     ......D======eeER........  i32 r7 = r7 + r8
     .......DeE------R........  r8 = 0x46008c00
     .......DeE------R........  r0 = 0x24
-    .......DeeeeeeeeeeeeeeeER  jump 34691
+    .......DeeeeeeeeeeeeeeeER  jump 34745
 ```
 
 Gas simulation at offset 2368 with total cost of 15:
 
 ```
     DeER..............  r8 = 0x46008c00
-    DeeeeeeeeeeeeeeeER  r0 = 36, jump 34691
+    DeeeeeeeeeeeeeeeER  r0 = 36, jump 34745
 ```
 
 Gas simulation at offset 2379 with total cost of 27:
@@ -1550,7 +1550,7 @@ Gas simulation at offset 2387 with total cost of 23:
     .......D=====eeER.........  i32 r7 = r7 + r8
     ........DeE-----R.........  r8 = 0x463f4400
     ........DeE-----R.........  r0 = 0x26
-    ........DeeeeeeeeeeeeeeeER  jump 34691
+    ........DeeeeeeeeeeeeeeeER  jump 34745
 ```
 
 Gas simulation at offset 2440 with total cost of 50:
@@ -1576,7 +1576,7 @@ Gas simulation at offset 2464 with total cost of 15:
 ```
     DeER..............  r7 = 0
     DeER..............  r8 = 0x463f4400
-    DeeeeeeeeeeeeeeeER  r0 = 38, jump 34691
+    DeeeeeeeeeeeeeeeER  r0 = 38, jump 34745
 ```
 
 Gas simulation at offset 2477 with total cost of 25:
@@ -1584,7 +1584,7 @@ Gas simulation at offset 2477 with total cost of 25:
 ```
     DeeER.......................  i32 r8 = r7 + 0
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0x30]
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 40, jump 33775
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 40, jump 33829
 ```
 
 Gas simulation at offset 2487 with total cost of 45:
@@ -1613,7 +1613,7 @@ Gas simulation at offset 2495 with total cost of 22:
     ......D======eeER........  i32 r7 = r7 + r8
     .......DeE------R........  r8 = 0x46b0dc00
     .......DeE------R........  r0 = 0x2a
-    .......DeeeeeeeeeeeeeeeER  jump 34691
+    .......DeeeeeeeeeeeeeeeER  jump 34745
 ```
 
 Gas simulation at offset 2548 with total cost of 15:
@@ -1621,7 +1621,7 @@ Gas simulation at offset 2548 with total cost of 15:
 ```
     DeER..............  r7 = 0
     DeER..............  r8 = 0x46b0dc00
-    DeeeeeeeeeeeeeeeER  r0 = 42, jump 34691
+    DeeeeeeeeeeeeeeeER  r0 = 42, jump 34745
 ```
 
 Gas simulation at offset 2561 with total cost of 16:
@@ -1629,7 +1629,7 @@ Gas simulation at offset 2561 with total cost of 16:
 ```
     DeeER..............  i32 r8 = r7 + 0
     D..................  r7 = r6
-    .DeeeeeeeeeeeeeeeER  r0 = 44, jump 33775
+    .DeeeeeeeeeeeeeeeER  r0 = 44, jump 33829
 ```
 
 Gas simulation at offset 2570 with total cost of 16:
@@ -1637,7 +1637,7 @@ Gas simulation at offset 2570 with total cost of 16:
 ```
     DeeER..............  i32 r8 = r7 + 0
     DeE-R..............  r7 = 0x3f800000
-    .DeeeeeeeeeeeeeeeER  r0 = 46, jump 34691
+    .DeeeeeeeeeeeeeeeER  r0 = 46, jump 34745
 ```
 
 Gas simulation at offset 2583 with total cost of 15:
@@ -1645,7 +1645,7 @@ Gas simulation at offset 2583 with total cost of 15:
 ```
     DeeER.............  i32 r7 = r7 + 0
     DeE-R.............  r8 = 0x42c80000
-    DeeeeeeeeeeeeeeeER  r0 = 48, jump 33775
+    DeeeeeeeeeeeeeeeER  r0 = 48, jump 33829
 ```
 
 Gas simulation at offset 2596 with total cost of 16:
@@ -1653,7 +1653,7 @@ Gas simulation at offset 2596 with total cost of 16:
 ```
     DeeER..............  i32 r8 = r7 + 0
     DeE-R..............  r7 = 0x431fca3d
-    .DeeeeeeeeeeeeeeeER  r0 = 50, jump 34691
+    .DeeeeeeeeeeeeeeeER  r0 = 50, jump 34745
 ```
 
 Gas simulation at offset 2609 with total cost of 25:
@@ -1669,7 +1669,7 @@ Gas simulation at offset 2613 with total cost of 17:
     DeeER...............  i32 r9 = r9 + 0
     .DeeER..............  i32 r8 = r7 + 0
     .D..................  r7 = r9
-    ..DeeeeeeeeeeeeeeeER  r0 = 52, jump 33775
+    ..DeeeeeeeeeeeeeeeER  r0 = 52, jump 33829
 ```
 
 Gas simulation at offset 2624 with total cost of 25:
@@ -1678,7 +1678,7 @@ Gas simulation at offset 2624 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = i32 [r5 + 0x64]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x18] = r7
     DeE------------------------R  r7 = 0x3f639ff9
-    DeeeeeeeeeeeeeeeE----------R  r0 = 54, jump 34247
+    DeeeeeeeeeeeeeeeE----------R  r0 = 54, jump 34301
 ```
 
 Gas simulation at offset 2641 with total cost of 50:
@@ -1688,7 +1688,7 @@ Gas simulation at offset 2641 with total cost of 50:
     D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x38] = r8
     DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  u64 [r1 + 0x30] = r7
     DeE-------------------------------------------------R  r7 = 0xffffffffbfe7002f
-    .DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 56, jump 34247
+    .DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 56, jump 34301
 ```
 
 Gas simulation at offset 2661 with total cost of 25:
@@ -1698,7 +1698,7 @@ Gas simulation at offset 2661 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x28] = r7
     DeE------------------------R  r7 = 0x3f8b0904
     D...........................  r8 = r6
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 58, jump 34247
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 58, jump 34301
 ```
 
 Gas simulation at offset 2680 with total cost of 50:
@@ -1708,7 +1708,7 @@ Gas simulation at offset 2680 with total cost of 50:
     D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x50] = r8
     DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  u64 [r1 + 0x20] = r7
     DeE-------------------------------------------------R  r7 = 0xffffffffc0000000
-    .DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 60, jump 34247
+    .DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 60, jump 34301
 ```
 
 Gas simulation at offset 2700 with total cost of 25:
@@ -1717,7 +1717,7 @@ Gas simulation at offset 2700 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x10] = r7
     DeE------------------------R  r7 = 0x3f79896a
     D...........................  r8 = r6
-    DeeeeeeeeeeeeeeeE----------R  r0 = 62, jump 34247
+    DeeeeeeeeeeeeeeeE----------R  r0 = 62, jump 34301
 ```
 
 Gas simulation at offset 2716 with total cost of 25:
@@ -1726,7 +1726,7 @@ Gas simulation at offset 2716 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = i32 [r5 + 0x5c]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
     DeE------------------------R  r7 = 0x3f4eba39
-    DeeeeeeeeeeeeeeeE----------R  r0 = 64, jump 34247
+    DeeeeeeeeeeeeeeeE----------R  r0 = 64, jump 34301
 ```
 
 Gas simulation at offset 2732 with total cost of 25:
@@ -1735,7 +1735,7 @@ Gas simulation at offset 2732 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x8] = r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = i32 [r1 + 0x18]
     DeE------------------------R  r7 = 0x3cb94332
-    DeeeeeeeeeeeeeeeE----------R  r0 = 66, jump 34247
+    DeeeeeeeeeeeeeeeE----------R  r0 = 66, jump 34301
 ```
 
 Gas simulation at offset 2749 with total cost of 50:
@@ -1745,7 +1745,7 @@ Gas simulation at offset 2749 with total cost of 50:
     D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x18] = r8
     D....................................................  r6 = r7
     DeE-------------------------------------------------R  r7 = 0xffffffffbfe4746c
-    .DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 68, jump 34247
+    .DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 68, jump 34301
 ```
 
 Gas simulation at offset 2768 with total cost of 16:
@@ -1754,7 +1754,7 @@ Gas simulation at offset 2768 with total cost of 16:
     DeER...............  r7 = r7 ^ 0xffffffff80000000
     DeeER..............  i32 r8 = r6 + 0
     .DeeER.............  i32 r7 = r7 + 0
-    .DeeeeeeeeeeeeeeeER  r0 = 70, jump 33775
+    .DeeeeeeeeeeeeeeeER  r0 = 70, jump 33829
 ```
 
 Gas simulation at offset 2783 with total cost of 28:
@@ -1764,7 +1764,7 @@ Gas simulation at offset 2783 with total cost of 28:
     D=========================eER..  r8 = r8 ^ 0xffffffff80000000
     DeeE------------------------R..  i32 r7 = r7 + 0
     .D=========================eeER  i32 r8 = r8 + 0
-    .DeeeeeeeeeeeeeeeE------------R  r0 = 72, jump 33775
+    .DeeeeeeeeeeeeeeeE------------R  r0 = 72, jump 33829
 ```
 
 Gas simulation at offset 2801 with total cost of 25:
@@ -1773,7 +1773,7 @@ Gas simulation at offset 2801 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x8] = r7
     DeeE-----------------------R  i32 r8 = r7 + 0
     .DeE-----------------------R  r7 = 0x3d34a6a0
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 74, jump 34247
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 74, jump 34301
 ```
 
 Gas simulation at offset 2817 with total cost of 25:
@@ -1782,7 +1782,7 @@ Gas simulation at offset 2817 with total cost of 25:
     D...........................  r6 = r7
     DeER........................  r7 = 0xffffffffbfeccd54
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u64 [r1 + 0x50]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 76, jump 34247
+    DeeeeeeeeeeeeeeeE----------R  r0 = 76, jump 34301
 ```
 
 Gas simulation at offset 2833 with total cost of 16:
@@ -1791,7 +1791,7 @@ Gas simulation at offset 2833 with total cost of 16:
     DeER...............  r7 = r7 ^ 0xffffffff80000000
     DeeER..............  i32 r8 = r6 + 0
     .DeeER.............  i32 r7 = r7 + 0
-    .DeeeeeeeeeeeeeeeER  r0 = 78, jump 33775
+    .DeeeeeeeeeeeeeeeER  r0 = 78, jump 33829
 ```
 
 Gas simulation at offset 2848 with total cost of 28:
@@ -1801,7 +1801,7 @@ Gas simulation at offset 2848 with total cost of 28:
     D=========================eER..  r8 = r8 ^ 0xffffffff80000000
     DeeE------------------------R..  i32 r7 = r7 + 0
     .D=========================eeER  i32 r8 = r8 + 0
-    .DeeeeeeeeeeeeeeeE------------R  r0 = 80, jump 33775
+    .DeeeeeeeeeeeeeeeE------------R  r0 = 80, jump 33829
 ```
 
 Gas simulation at offset 2865 with total cost of 25:
@@ -1810,7 +1810,7 @@ Gas simulation at offset 2865 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
     DeeE-----------------------R  i32 r8 = r7 + 0
     .DeE-----------------------R  r7 = 0x3f8b3765
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 82, jump 34247
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 82, jump 34301
 ```
 
 Gas simulation at offset 2880 with total cost of 25:
@@ -1818,7 +1818,7 @@ Gas simulation at offset 2880 with total cost of 25:
 ```
     DeeER.......................  i32 r7 = r7 + 0
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = i32 [r1 + 0x10]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 84, jump 33775
+    DeeeeeeeeeeeeeeeE----------R  r0 = 84, jump 33829
 ```
 
 Gas simulation at offset 2890 with total cost of 25:
@@ -1826,7 +1826,7 @@ Gas simulation at offset 2890 with total cost of 25:
 ```
     DeeER.......................  i32 r7 = r7 + 0
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = i32 [r1 + 0x20]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 86, jump 33775
+    DeeeeeeeeeeeeeeeE----------R  r0 = 86, jump 33829
 ```
 
 Gas simulation at offset 2900 with total cost of 28:
@@ -1837,7 +1837,7 @@ Gas simulation at offset 2900 with total cost of 28:
     D=========================eER..  r8 = r8 ^ r6
     .DeeE-----------------------R..  i32 r7 = r7 + 0
     .D=========================eeER  i32 r8 = r8 + 0
-    ..DeeeeeeeeeeeeeeeE-----------R  r0 = 88, jump 33775
+    ..DeeeeeeeeeeeeeeeE-----------R  r0 = 88, jump 33829
 ```
 
 Gas simulation at offset 2921 with total cost of 28:
@@ -1847,7 +1847,7 @@ Gas simulation at offset 2921 with total cost of 28:
     D=========================eER..  r8 = r8 ^ r6
     DeeE------------------------R..  i32 r7 = r7 + 0
     .D=========================eeER  i32 r8 = r8 + 0
-    .DeeeeeeeeeeeeeeeE------------R  r0 = 90, jump 33775
+    .DeeeeeeeeeeeeeeeE------------R  r0 = 90, jump 33829
 ```
 
 Gas simulation at offset 2936 with total cost of 100:
@@ -1978,7 +1978,7 @@ Gas simulation at offset 3186 with total cost of 15:
 ```
     DeER..............  r7 = 0xf00
     DeER..............  r8 = 0
-    DeeeeeeeeeeeeeeeER  r0 = 92, jump 26590
+    DeeeeeeeeeeeeeeeER  r0 = 92, jump 26592
 ```
 
 Gas simulation at offset 3197 with total cost of 51:
@@ -1988,7 +1988,7 @@ Gas simulation at offset 3197 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r8 = u64 [r1 + 0x50]
     D=========================eER.........................  r7 = r8 + 0x2000
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 1872] = 0
-    .DeE-------------------------------------------------R  jump 32277 if r6 == 0
+    .DeE-------------------------------------------------R  jump 32329 if r6 == 0
 ```
 
 Gas simulation at offset 3214 with total cost of 15:
@@ -1997,7 +1997,7 @@ Gas simulation at offset 3214 with total cost of 15:
     DeER..............  r9 = 0x1e000
     D.................  r7 = r6
     DeER..............  r8 = 0
-    DeeeeeeeeeeeeeeeER  r0 = 94, jump 35586
+    DeeeeeeeeeeeeeeeER  r0 = 94, jump 28080
 ```
 
 Gas simulation at offset 3228 with total cost of 25:
@@ -2497,7 +2497,7 @@ Gas simulation at offset 3966 with total cost of 15:
 ```
     DeER..............  r7 = 0xf00
     DeER..............  r8 = 0
-    DeeeeeeeeeeeeeeeER  r0 = 104, jump 26590
+    DeeeeeeeeeeeeeeeER  r0 = 104, jump 26592
 ```
 
 Gas simulation at offset 3977 with total cost of 51:
@@ -2507,7 +2507,7 @@ Gas simulation at offset 3977 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r8 = u64 [r1 + 0x38]
     D=========================eER.........................  r7 = r8 + 0x2000
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 1872] = 0
-    .DeE-------------------------------------------------R  jump 32277 if r6 == 0
+    .DeE-------------------------------------------------R  jump 32329 if r6 == 0
 ```
 
 Gas simulation at offset 3994 with total cost of 15:
@@ -2516,7 +2516,7 @@ Gas simulation at offset 3994 with total cost of 15:
     DeER..............  r9 = 0x1e000
     D.................  r7 = r6
     DeER..............  r8 = 0
-    DeeeeeeeeeeeeeeeER  r0 = 106, jump 35586
+    DeeeeeeeeeeeeeeeER  r0 = 106, jump 28080
 ```
 
 Gas simulation at offset 4008 with total cost of 25:
@@ -2862,7 +2862,7 @@ Gas simulation at offset 4565 with total cost of 15:
 ```
     DeER..............  r7 = 0xf00
     DeER..............  r8 = 0
-    DeeeeeeeeeeeeeeeER  r0 = 112, jump 26590
+    DeeeeeeeeeeeeeeeER  r0 = 112, jump 26592
 ```
 
 Gas simulation at offset 4576 with total cost of 51:
@@ -2872,7 +2872,7 @@ Gas simulation at offset 4576 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r8 = u64 [r1 + 0x38]
     D=========================eER.........................  r7 = r8 + 0x2000
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 1872] = 0
-    .DeE-------------------------------------------------R  jump 32277 if r6 == 0
+    .DeE-------------------------------------------------R  jump 32329 if r6 == 0
 ```
 
 Gas simulation at offset 4593 with total cost of 15:
@@ -2881,7 +2881,7 @@ Gas simulation at offset 4593 with total cost of 15:
     DeER..............  r9 = 0x1e000
     D.................  r7 = r6
     DeER..............  r8 = 0
-    DeeeeeeeeeeeeeeeER  r0 = 114, jump 35586
+    DeeeeeeeeeeeeeeeER  r0 = 114, jump 28080
 ```
 
 Gas simulation at offset 4607 with total cost of 25:
@@ -3628,7 +3628,7 @@ Gas simulation at offset 5644 with total cost of 50:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r6 = u8 [r5 + 0x279]
     D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x269] = r8
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE------------------------R  r7 = u64 [r1 + 0x50]
-    .DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 122, jump 22576
+    .DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 122, jump 22578
 ```
 
 Gas simulation at offset 5665 with total cost of 25:
@@ -3686,7 +3686,7 @@ Gas simulation at offset 5707 with total cost of 51:
     .D=========================eE------------------------R  r8 = zext16 r7
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r6 = u64 [r1 + 0x50]
     .D....................................................  r7 = r6
-    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 124, jump 22576
+    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 124, jump 22578
 ```
 
 Gas simulation at offset 5731 with total cost of 76:
@@ -3725,7 +3725,7 @@ Gas simulation at offset 5780 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r5 + 0x271]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r6 = u64 [r1 + 0x50]
     D...........................  r7 = r6
-    DeeeeeeeeeeeeeeeE----------R  r0 = 126, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 126, jump 22578
 ```
 
 Gas simulation at offset 5794 with total cost of 51:
@@ -3738,7 +3738,7 @@ Gas simulation at offset 5794 with total cost of 51:
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 0x277] = a0
     .D========================eE-------------------------R  r8 = r8 | 0x100
     .D....................................................  r7 = r6
-    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 128, jump 23114
+    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 128, jump 23116
 ```
 
 Gas simulation at offset 5826 with total cost of 51:
@@ -3751,7 +3751,7 @@ Gas simulation at offset 5826 with total cost of 51:
     .D=========================eE------------------------R  r7 = r7 & 0xff
     .D==========================eE-----------------------R  r8 = r7 | 0x100
     .D....................................................  r7 = r6
-    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 130, jump 23114
+    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 130, jump 23116
 ```
 
 Gas simulation at offset 5857 with total cost of 77:
@@ -3770,7 +3770,7 @@ Gas simulation at offset 5857 with total cost of 77:
     ...D=======================eE--------------------------------------------------R  r7 = r7 & 0xff
     ...D========================eE-------------------------------------------------R  r8 = r7 | 0x100
     ...D............................................................................  r7 = r6
-    ....DeeeeeeeeeeeeeeeE----------------------------------------------------------R  r0 = 132, jump 23114
+    ....DeeeeeeeeeeeeeeeE----------------------------------------------------------R  r0 = 132, jump 23116
 ```
 
 Gas simulation at offset 5907 with total cost of 53:
@@ -3787,7 +3787,7 @@ Gas simulation at offset 5907 with total cost of 53:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER..  r9 = u64 [r1 + 0x38]
     ..D=================================================eeER  r8 = r7 if r9 == 0
     ..D.....................................................  r7 = r6
-    ...DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 134, jump 22576
+    ...DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 134, jump 22578
 ```
 
 Gas simulation at offset 5948 with total cost of 25:
@@ -3796,7 +3796,7 @@ Gas simulation at offset 5948 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 0x271] = a0
     D...........................  r7 = r6
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u64 [r1 + 0x40]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 136, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 136, jump 22578
 ```
 
 Gas simulation at offset 5963 with total cost of 26:
@@ -3846,7 +3846,7 @@ Gas simulation at offset 6019 with total cost of 25:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r5 + 0x26b]
     D...........................  r7 = r6
-    DeeeeeeeeeeeeeeeE----------R  r0 = 140, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 140, jump 22578
 ```
 
 Gas simulation at offset 6031 with total cost of 25:
@@ -7811,46 +7811,47 @@ Gas simulation at offset 13841 with total cost of 27:
 Gas simulation at offset 13852 with total cost of 124:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................................................................  r2 = i16 [r5 + 0x211]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................................................................  r9 = u16 [r5 + 0x213]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................................................................  r3 = u16 [r5 + 0x219]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................................................................  r11 = u8 [r5 + 0x22b]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER....................................................................................  unlikely
+    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R....................................................................................  r2 = i16 [r5 + 0x211]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R....................................................................................  r9 = u16 [r5 + 0x213]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R....................................................................................  r3 = u16 [r5 + 0x219]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R....................................................................................  r11 = u8 [r5 + 0x22b]
     .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................................................................  r12 = u8 [r5 + 0x22c]
     .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................................................................  r8 = u16 [r5 + 0x215]
     .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................................................................  r10 = u16 [r5 + 0x217]
-    .D========================eE------------------------R..........................................................................  r9 = r9 & 0xffffffffffffff00
+    ..D========================eE-----------------------R..........................................................................  r9 = r9 & 0xffffffffffffff00
     ..D================================================eER.........................................................................  r9 = r9 | r12
-    ..D========================eE------------------------R.........................................................................  r7 = r7 & 0xff
+    ..D=========================eE-----------------------R.........................................................................  r7 = r7 & 0xff
     ..D================================================eER.........................................................................  r8 = r8 & 0xffffffffffffff00
-    ..D================================================eER.........................................................................  r10 = r10 & 0xffffffffffffff00
+    ...D===============================================eER.........................................................................  r10 = r10 & 0xffffffffffffff00
     ...D================================================eER........................................................................  r7 = r7 | r8
-    ...D========================eE------------------------R........................................................................  r8 = r11 << 0x3f
-    ...D=========================eE-----------------------R........................................................................  r8 = r8 >>a 0x3f
-    ....D=========================eE----------------------R........................................................................  r8 = r8 & 0xff
+    ...D=========================eE-----------------------R........................................................................  r8 = r11 << 0x3f
+    ....D=========================eE----------------------R........................................................................  r8 = r8 >>a 0x3f
+    ....D==========================eE---------------------R........................................................................  r8 = r8 & 0xff
     ....D===============================================eER........................................................................  r8 = r8 | r10
-    ....D==========================eE---------------------R........................................................................  r10 = r3 & 0xffffffffffffff00
-    .....D==========================eE--------------------R........................................................................  r11 = r11 << 0x6
-    .....D===========================eE-------------------R........................................................................  r11 = sext8 r11
-    .....D============================eE------------------R........................................................................  r11 = r11 << 0x31
-    .....D=============================eE-----------------R........................................................................  r11 = r11 >> 0x38
-    ......D=============================eE----------------R........................................................................  r10 = r10 | r11
-    ......D==============================eE---------------R........................................................................  r2 = r2 + 0x1
-    ......D=============================================eER........................................................................  r9 = r9 << 0x1
-    ......D==============================================eER.......................................................................  r7 = r7 << 0x1
+    .....D==========================eE--------------------R........................................................................  r10 = r3 & 0xffffffffffffff00
+    .....D===========================eE-------------------R........................................................................  r11 = r11 << 0x6
+    .....D============================eE------------------R........................................................................  r11 = sext8 r11
+    ......D============================eE-----------------R........................................................................  r11 = r11 << 0x31
+    ......D=============================eE----------------R........................................................................  r11 = r11 >> 0x38
+    ......D==============================eE---------------R........................................................................  r10 = r10 | r11
+    ......D===============================eE--------------R........................................................................  r2 = r2 + 0x1
+    .......D============================================eER........................................................................  r9 = r9 << 0x1
+    .......D=============================================eER.......................................................................  r7 = r7 << 0x1
     .......D=============================================eER.......................................................................  r8 = r8 << 0x1
-    .......D==============================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................................................  u16 [r5 + 0x211] = r2
-    .......D=============================================eeeeeeeeeeeeeeeeeeeeeeeeeER...............................................  u16 [r5 + 0x213] = r9
-    .......D==============================================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................................  u16 [r5 + 0x215] = r7
+    .......D===============================eeeeeeeeeeeeeeeeeeeeeeeeeER.............................................................  u16 [r5 + 0x211] = r2
+    ........D============================================eeeeeeeeeeeeeeeeeeeeeeeeeER...............................................  u16 [r5 + 0x213] = r9
+    ........D=============================================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................................  u16 [r5 + 0x215] = r7
     ........D=============================================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................................  u16 [r5 + 0x217] = r8
-    ........D======================================================eE---------------R..............................................  r10 = r10 << 0x1
-    ............................D===================================eeeeeeeeeeeeeeeeeeeeeeeeeER....................................  u16 [r5 + 0x219] = r10
-    ............................D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER......................  r0 = u64 [r1 + 0x8]
-    ............................D==================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.....................  r5 = u64 [r1 + 0]
-    ............................D==================================================eE------------------------R.....................  r1 = r1 + 0x10
+    ...........................................D====================eE--------------R..............................................  r10 = r10 << 0x1
+    ...........................................D=====================eeeeeeeeeeeeeeeeeeeeeeeeeER...................................  u16 [r5 + 0x219] = r10
+    ...........................................D==================================eeeeeeeeeeeeeeeeeeeeeeeeeER......................  r0 = u64 [r1 + 0x8]
+    ...........................................D===================================eeeeeeeeeeeeeeeeeeeeeeeeeER.....................  r5 = u64 [r1 + 0]
+    ............................................D==================================eE------------------------R.....................  r1 = r1 + 0x10
     .....................................................D=================================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 13978 with total cost of 29:
+Gas simulation at offset 13979 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -7859,10 +7860,10 @@ Gas simulation at offset 13978 with total cost of 29:
     .DeE------------------------R...  r5 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
-    ..D==========================eER  jump 14049 if r9 >=u 63
+    ..D==========================eER  jump 14050 if r9 >=u 63
 ```
 
-Gas simulation at offset 14001 with total cost of 74:
+Gas simulation at offset 14002 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -7876,22 +7877,22 @@ Gas simulation at offset 14001 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 334, jump [r10 + 0]
 ```
 
-Gas simulation at offset 14033 with total cost of 27:
+Gas simulation at offset 14034 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [r5 + 0x227]
     D=========================eER.  r8 = r8 & 0x18
     DeeeeeeeeeeeeeeeeeeeeeeeeeE-R.  u8 [r5 + 0x22d] = a0
-    D==========================eER  jump 14078 if r8 != 0
+    D==========================eER  jump 14079 if r8 != 0
 ```
 
-Gas simulation at offset 14047 with total cost of 15:
+Gas simulation at offset 14048 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 14114
+    DeeeeeeeeeeeeeeeER  jump 14115
 ```
 
-Gas simulation at offset 14049 with total cost of 53:
+Gas simulation at offset 14050 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -7902,28 +7903,28 @@ Gas simulation at offset 14049 with total cost of 53:
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R.............  r8 = u8 [r5 + 0x227]
     .D=========================eE-------------R.............  r8 = r8 & 0x18
     .D===========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 0x22d] = a0
-    ..D=========================eE-------------------------R  jump 14114 if r8 == 0
+    ..D=========================eE-------------------------R  jump 14115 if r8 == 0
 ```
 
-Gas simulation at offset 14078 with total cost of 46:
+Gas simulation at offset 14079 with total cost of 46:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R......  r8 = u16 [r5 + 0x209]
     D=========================eE--------------R......  r9 = r8 & 0x1f
     .D========================eE--------------R......  r8 = r8 & 0xffffffffffffffe0
-    .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 14103 if r9 != 31
+    .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 14104 if r9 != 31
 ```
 
-Gas simulation at offset 14093 with total cost of 26:
+Gas simulation at offset 14094 with total cost of 26:
 
 ```
     DeER.........................  r8 = r8 ^ 0x400
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x209] = r8
-    DeeeeeeeeeeeeeeeE-----------R  jump 14114
+    DeeeeeeeeeeeeeeeE-----------R  jump 14115
 ```
 
-Gas simulation at offset 14103 with total cost of 27:
+Gas simulation at offset 14104 with total cost of 27:
 
 ```
     DeER..........................  r8 = r8 | r9
@@ -7932,7 +7933,7 @@ Gas simulation at offset 14103 with total cost of 27:
     DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 14114 with total cost of 98:
+Gas simulation at offset 14115 with total cost of 98:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........................................................  unlikely
@@ -7956,7 +7957,7 @@ Gas simulation at offset 14114 with total cost of 98:
     ....D========================================================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 14174 with total cost of 54:
+Gas simulation at offset 14175 with total cost of 54:
 
 ```
     DeER.....................................................  r7 = r7 + 0x7ff
@@ -7972,7 +7973,7 @@ Gas simulation at offset 14174 with total cost of 54:
     ..DeeeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 14212 with total cost of 29:
+Gas simulation at offset 14213 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -7982,10 +7983,10 @@ Gas simulation at offset 14212 with total cost of 29:
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
     ..DeE-------------------------R.  r10 = 0x3f
-    ..D==========================eER  jump 14271 if r9 >=u r10
+    ..D==========================eER  jump 14272 if r9 >=u r10
 ```
 
-Gas simulation at offset 14237 with total cost of 74:
+Gas simulation at offset 14238 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -7999,13 +8000,13 @@ Gas simulation at offset 14237 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 340, jump [r10 + 0]
 ```
 
-Gas simulation at offset 14269 with total cost of 15:
+Gas simulation at offset 14270 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 14286
+    DeeeeeeeeeeeeeeeER  jump 14287
 ```
 
-Gas simulation at offset 14271 with total cost of 28:
+Gas simulation at offset 14272 with total cost of 28:
 
 ```
     DeER...........................  r8 = r8 & 0x1f
@@ -8015,7 +8016,7 @@ Gas simulation at offset 14271 with total cost of 28:
     .DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 14286 with total cost of 51:
+Gas simulation at offset 14287 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r8 = i16 [r5 + 0x211]
@@ -8028,7 +8029,7 @@ Gas simulation at offset 14286 with total cost of 51:
     .D=========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 14311 with total cost of 29:
+Gas simulation at offset 14312 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -8038,10 +8039,10 @@ Gas simulation at offset 14311 with total cost of 29:
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
     ..DeE-------------------------R.  r10 = 0x3f
-    ..D==========================eER  jump 14370 if r9 >=u r10
+    ..D==========================eER  jump 14371 if r9 >=u r10
 ```
 
-Gas simulation at offset 14336 with total cost of 74:
+Gas simulation at offset 14337 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -8055,13 +8056,13 @@ Gas simulation at offset 14336 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 344, jump [r10 + 0]
 ```
 
-Gas simulation at offset 14368 with total cost of 15:
+Gas simulation at offset 14369 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 14385
+    DeeeeeeeeeeeeeeeER  jump 14386
 ```
 
-Gas simulation at offset 14370 with total cost of 28:
+Gas simulation at offset 14371 with total cost of 28:
 
 ```
     DeER...........................  r8 = r8 & 0x1f
@@ -8071,7 +8072,7 @@ Gas simulation at offset 14370 with total cost of 28:
     .DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 14385 with total cost of 51:
+Gas simulation at offset 14386 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r8 = i16 [r5 + 0x20f]
@@ -8085,7 +8086,7 @@ Gas simulation at offset 14385 with total cost of 51:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 14414 with total cost of 77:
+Gas simulation at offset 14415 with total cost of 77:
 
 ```
     DeER............................................................................  r1 = r1 + 0xfffffffffffffff0
@@ -8101,10 +8102,10 @@ Gas simulation at offset 14414 with total cost of 77:
     ...D================================================eER.........................  r9 = r9 & 0x10
     ...D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r5 + 0x23e] = a3
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 575] = 0
-    ...D=================================================eeeeeeeeeeeeeeeeeeeeE-----R  jump 14480 if r9 == 0
+    ...D=================================================eeeeeeeeeeeeeeeeeeeeE-----R  jump 14481 if r9 == 0
 ```
 
-Gas simulation at offset 14465 with total cost of 25:
+Gas simulation at offset 14466 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 548] = 0
@@ -8113,14 +8114,14 @@ Gas simulation at offset 14465 with total cost of 25:
     DeeeeeeeeeeeeeeeE----------R  jump 6145
 ```
 
-Gas simulation at offset 14480 with total cost of 25:
+Gas simulation at offset 14481 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 566] = 0
     DeeeeeeeeeeeeeeeE----------R  r0 = 348, jump 6145
 ```
 
-Gas simulation at offset 14490 with total cost of 98:
+Gas simulation at offset 14491 with total cost of 98:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................................  r7 = i16 [r5 + 0x211]
@@ -8144,7 +8145,7 @@ Gas simulation at offset 14490 with total cost of 98:
     ....D========================================================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 14555 with total cost of 26:
+Gas simulation at offset 14556 with total cost of 26:
 
 ```
     DeER.........................  r1 = r1 + 0xffffffffffffffe8
@@ -8156,7 +8157,7 @@ Gas simulation at offset 14555 with total cost of 26:
     .DeeeeeeeeeeeeeeeE----------R  r0 = 352, jump 6954
 ```
 
-Gas simulation at offset 14578 with total cost of 54:
+Gas simulation at offset 14579 with total cost of 54:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.............................  r7 = u8 [r6 + 0x226]
@@ -8174,14 +8175,14 @@ Gas simulation at offset 14578 with total cost of 54:
     ...DeeeeeeeeeeeeeeeE------------------------------------R  r0 = 354, jump 7236
 ```
 
-Gas simulation at offset 14623 with total cost of 15:
+Gas simulation at offset 14624 with total cost of 15:
 
 ```
     D.................  r7 = r5
     DeeeeeeeeeeeeeeeER  r0 = 356, jump 6145
 ```
 
-Gas simulation at offset 14631 with total cost of 122:
+Gas simulation at offset 14632 with total cost of 122:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.................................................................................................  r7 = i16 [r6 + 0x211]
@@ -8209,7 +8210,7 @@ Gas simulation at offset 14631 with total cost of 122:
     .....D===============================================================================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 14710 with total cost of 52:
+Gas simulation at offset 14711 with total cost of 52:
 
 ```
     DeER...................................................  r7 = r7 + 0x7ff
@@ -8219,7 +8220,7 @@ Gas simulation at offset 14710 with total cost of 52:
     .DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 14727 with total cost of 52:
+Gas simulation at offset 14728 with total cost of 52:
 
 ```
     DeER...................................................  r7 = r7 + 0x7ff
@@ -8231,15 +8232,15 @@ Gas simulation at offset 14727 with total cost of 52:
     .DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 14752 with total cost of 27:
+Gas simulation at offset 14753 with total cost of 27:
 
 ```
     DeER..........................  r7 = r7 + 0x7ff
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER.  r8 = u8 [r7 + 0x239]
-    D==========================eER  jump 14777 if r8 != 0
+    D==========================eER  jump 14778 if r8 != 0
 ```
 
-Gas simulation at offset 14763 with total cost of 51:
+Gas simulation at offset 14764 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
@@ -8249,7 +8250,7 @@ Gas simulation at offset 14763 with total cost of 51:
     .DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 14777 with total cost of 51:
+Gas simulation at offset 14778 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
@@ -8259,7 +8260,7 @@ Gas simulation at offset 14777 with total cost of 51:
     .DeeeeeeeeeeeeeeeeeeeeeeE----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 14791 with total cost of 54:
+Gas simulation at offset 14792 with total cost of 54:
 
 ```
     DeER.....................................................  r7 = r7 + 0x7ff
@@ -8275,7 +8276,7 @@ Gas simulation at offset 14791 with total cost of 54:
     ..DeeeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 14829 with total cost of 54:
+Gas simulation at offset 14830 with total cost of 54:
 
 ```
     DeER.....................................................  r7 = r7 + 0x7ff
@@ -8292,7 +8293,7 @@ Gas simulation at offset 14829 with total cost of 54:
     ..DeeeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 14871 with total cost of 54:
+Gas simulation at offset 14872 with total cost of 54:
 
 ```
     DeER.....................................................  r7 = r7 + 0x7ff
@@ -8312,7 +8313,7 @@ Gas simulation at offset 14871 with total cost of 54:
     ...DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 14924 with total cost of 102:
+Gas simulation at offset 14925 with total cost of 102:
 
 ```
     DeER.....................................................................................................  r7 = r7 + 0x7ff
@@ -8342,7 +8343,7 @@ Gas simulation at offset 14924 with total cost of 102:
     ......DeeeeeeeeeeeeeeeeeeeeeeE--------------------------------------------------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 15014 with total cost of 105:
+Gas simulation at offset 15015 with total cost of 105:
 
 ```
     DeER........................................................................................................  r7 = r7 + 0x7ff
@@ -8376,7 +8377,7 @@ Gas simulation at offset 15014 with total cost of 105:
     .......DeeeeeeeeeeeeeeeeeeeeeeE----------------------------------------------------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 15119 with total cost of 29:
+Gas simulation at offset 15120 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -8385,10 +8386,10 @@ Gas simulation at offset 15119 with total cost of 29:
     .DeE------------------------R...  r5 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
-    ..D==========================eER  jump 15176 if r9 >=u 63
+    ..D==========================eER  jump 15177 if r9 >=u 63
 ```
 
-Gas simulation at offset 15142 with total cost of 74:
+Gas simulation at offset 15143 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -8402,13 +8403,13 @@ Gas simulation at offset 15142 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 376, jump [r10 + 0]
 ```
 
-Gas simulation at offset 15174 with total cost of 15:
+Gas simulation at offset 15175 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 15191
+    DeeeeeeeeeeeeeeeER  jump 15192
 ```
 
-Gas simulation at offset 15176 with total cost of 28:
+Gas simulation at offset 15177 with total cost of 28:
 
 ```
     DeER...........................  r8 = r8 & 0x1f
@@ -8418,7 +8419,7 @@ Gas simulation at offset 15176 with total cost of 28:
     .DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 15191 with total cost of 124:
+Gas simulation at offset 15192 with total cost of 124:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................................................................  r8 = u8 [r5 + 0x226]
@@ -8449,7 +8450,7 @@ Gas simulation at offset 15191 with total cost of 124:
     .......D===============================================================================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 15281 with total cost of 48:
+Gas simulation at offset 15282 with total cost of 48:
 
 ```
     DeER...............................................  r7 = r7 + 0x7ff
@@ -8459,19 +8460,19 @@ Gas simulation at offset 15281 with total cost of 48:
     .D=========================eER.....................  r12 = r9 >> 0x4
     ..D=========================eER....................  r8 = zext16 r10
     ..D=========================eER....................  r10 = r12 & 0x38
-    ..D==========================eeeeeeeeeeeeeeeeeeeeER  jump 15322 if r8 >=u 64
+    ..D==========================eeeeeeeeeeeeeeeeeeeeER  jump 15323 if r8 >=u 64
 ```
 
-Gas simulation at offset 15309 with total cost of 16:
+Gas simulation at offset 15310 with total cost of 16:
 
 ```
     DeER...............  r8 = r9 & 0xcff
     D=eER..............  r8 = r8 | 0x2000
     .D=eER.............  r3 = r10 + r8
-    .DeeeeeeeeeeeeeeeER  jump 15343
+    .DeeeeeeeeeeeeeeeER  jump 15344
 ```
 
-Gas simulation at offset 15322 with total cost of 4:
+Gas simulation at offset 15323 with total cost of 4:
 
 ```
     DeER...  r11 = r9 & 0xc00
@@ -8483,7 +8484,7 @@ Gas simulation at offset 15322 with total cost of 4:
     ..DeeER  fallthrough
 ```
 
-Gas simulation at offset 15343 with total cost of 103:
+Gas simulation at offset 15344 with total cost of 103:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..............................................................................  r8 = i16 [r7 + 0x219]
@@ -8510,7 +8511,7 @@ Gas simulation at offset 15343 with total cost of 103:
     .....DeeeeeeeeeeeeeeeeeeeeeeE----------------------------------------------------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 15421 with total cost of 29:
+Gas simulation at offset 15422 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -8519,10 +8520,10 @@ Gas simulation at offset 15421 with total cost of 29:
     .DeE------------------------R...  r5 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
-    ..D==========================eER  jump 15478 if r9 >=u 63
+    ..D==========================eER  jump 15479 if r9 >=u 63
 ```
 
-Gas simulation at offset 15444 with total cost of 74:
+Gas simulation at offset 15445 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -8536,13 +8537,13 @@ Gas simulation at offset 15444 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 382, jump [r10 + 0]
 ```
 
-Gas simulation at offset 15476 with total cost of 15:
+Gas simulation at offset 15477 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 15493
+    DeeeeeeeeeeeeeeeER  jump 15494
 ```
 
-Gas simulation at offset 15478 with total cost of 28:
+Gas simulation at offset 15479 with total cost of 28:
 
 ```
     DeER...........................  r8 = r8 & 0x1f
@@ -8552,7 +8553,7 @@ Gas simulation at offset 15478 with total cost of 28:
     .DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 15493 with total cost of 127:
+Gas simulation at offset 15494 with total cost of 127:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................................................................................................  r3 = i16 [r5 + 0x217]
@@ -8591,7 +8592,7 @@ Gas simulation at offset 15493 with total cost of 127:
     ............................D==========================================================================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 15609 with total cost of 126:
+Gas simulation at offset 15610 with total cost of 126:
 
 ```
     DeER.............................................................................................................................  r1 = r1 + 0xfffffffffffffff8
@@ -8632,7 +8633,7 @@ Gas simulation at offset 15609 with total cost of 126:
     .............................DeeeeeeeeeeeeeeeeeeeeeeE---------------------------------------------------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 15731 with total cost of 29:
+Gas simulation at offset 15732 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -8641,10 +8642,10 @@ Gas simulation at offset 15731 with total cost of 29:
     .DeE------------------------R...  r5 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
-    ..D==========================eER  jump 15788 if r9 >=u 63
+    ..D==========================eER  jump 15789 if r9 >=u 63
 ```
 
-Gas simulation at offset 15754 with total cost of 74:
+Gas simulation at offset 15755 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -8658,13 +8659,13 @@ Gas simulation at offset 15754 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 388, jump [r10 + 0]
 ```
 
-Gas simulation at offset 15786 with total cost of 15:
+Gas simulation at offset 15787 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 15803
+    DeeeeeeeeeeeeeeeER  jump 15804
 ```
 
-Gas simulation at offset 15788 with total cost of 28:
+Gas simulation at offset 15789 with total cost of 28:
 
 ```
     DeER...........................  r8 = r8 & 0x1f
@@ -8674,7 +8675,7 @@ Gas simulation at offset 15788 with total cost of 28:
     .DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 15803 with total cost of 124:
+Gas simulation at offset 15804 with total cost of 124:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................................................................  r8 = u8 [r5 + 0x226]
@@ -8705,7 +8706,7 @@ Gas simulation at offset 15803 with total cost of 124:
     .......D===============================================================================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 15893 with total cost of 107:
+Gas simulation at offset 15894 with total cost of 107:
 
 ```
     DeER..........................................................................................................  r7 = r7 + 0x7ff
@@ -8742,7 +8743,7 @@ Gas simulation at offset 15893 with total cost of 107:
     ........DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------------------------------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 16005 with total cost of 29:
+Gas simulation at offset 16006 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -8751,10 +8752,10 @@ Gas simulation at offset 16005 with total cost of 29:
     .DeE------------------------R...  r5 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
-    ..D==========================eER  jump 16076 if r9 >=u 63
+    ..D==========================eER  jump 16077 if r9 >=u 63
 ```
 
-Gas simulation at offset 16028 with total cost of 74:
+Gas simulation at offset 16029 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -8768,22 +8769,22 @@ Gas simulation at offset 16028 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 394, jump [r10 + 0]
 ```
 
-Gas simulation at offset 16060 with total cost of 27:
+Gas simulation at offset 16061 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [r5 + 0x227]
     D=========================eER.  r8 = r8 & 0x18
     DeeeeeeeeeeeeeeeeeeeeeeeeeE-R.  u8 [r5 + 0x22d] = a0
-    D==========================eER  jump 16105 if r8 != 0
+    D==========================eER  jump 16106 if r8 != 0
 ```
 
-Gas simulation at offset 16074 with total cost of 15:
+Gas simulation at offset 16075 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 16141
+    DeeeeeeeeeeeeeeeER  jump 16142
 ```
 
-Gas simulation at offset 16076 with total cost of 53:
+Gas simulation at offset 16077 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -8794,28 +8795,28 @@ Gas simulation at offset 16076 with total cost of 53:
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R.............  r8 = u8 [r5 + 0x227]
     .D=========================eE-------------R.............  r8 = r8 & 0x18
     .D===========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 0x22d] = a0
-    ..D=========================eE-------------------------R  jump 16141 if r8 == 0
+    ..D=========================eE-------------------------R  jump 16142 if r8 == 0
 ```
 
-Gas simulation at offset 16105 with total cost of 46:
+Gas simulation at offset 16106 with total cost of 46:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R......  r8 = u16 [r5 + 0x209]
     D=========================eE--------------R......  r9 = r8 & 0x1f
     .D========================eE--------------R......  r8 = r8 & 0xffffffffffffffe0
-    .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 16130 if r9 != 31
+    .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 16131 if r9 != 31
 ```
 
-Gas simulation at offset 16120 with total cost of 26:
+Gas simulation at offset 16121 with total cost of 26:
 
 ```
     DeER.........................  r8 = r8 ^ 0x400
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x209] = r8
-    DeeeeeeeeeeeeeeeE-----------R  jump 16141
+    DeeeeeeeeeeeeeeeE-----------R  jump 16142
 ```
 
-Gas simulation at offset 16130 with total cost of 27:
+Gas simulation at offset 16131 with total cost of 27:
 
 ```
     DeER..........................  r8 = r8 | r9
@@ -8824,7 +8825,7 @@ Gas simulation at offset 16130 with total cost of 27:
     DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 16141 with total cost of 130:
+Gas simulation at offset 16142 with total cost of 130:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........................................................................................  unlikely
@@ -8873,7 +8874,7 @@ Gas simulation at offset 16141 with total cost of 130:
     ..............................................................................D==============================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 16289 with total cost of 105:
+Gas simulation at offset 16290 with total cost of 105:
 
 ```
     DeER........................................................................................................  r7 = r7 + 0x7ff
@@ -8906,7 +8907,7 @@ Gas simulation at offset 16289 with total cost of 105:
     .......DeeeeeeeeeeeeeeeeeeeeeeE----------------------------------------------------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 16389 with total cost of 29:
+Gas simulation at offset 16390 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -8915,10 +8916,10 @@ Gas simulation at offset 16389 with total cost of 29:
     .DeE------------------------R...  r5 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
-    ..D==========================eER  jump 16460 if r9 >=u 63
+    ..D==========================eER  jump 16461 if r9 >=u 63
 ```
 
-Gas simulation at offset 16412 with total cost of 74:
+Gas simulation at offset 16413 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -8932,22 +8933,22 @@ Gas simulation at offset 16412 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 400, jump [r10 + 0]
 ```
 
-Gas simulation at offset 16444 with total cost of 27:
+Gas simulation at offset 16445 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [r5 + 0x227]
     D=========================eER.  r8 = r8 & 0x18
     DeeeeeeeeeeeeeeeeeeeeeeeeeE-R.  u8 [r5 + 0x22d] = a0
-    D==========================eER  jump 16489 if r8 != 0
+    D==========================eER  jump 16490 if r8 != 0
 ```
 
-Gas simulation at offset 16458 with total cost of 15:
+Gas simulation at offset 16459 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 16525
+    DeeeeeeeeeeeeeeeER  jump 16526
 ```
 
-Gas simulation at offset 16460 with total cost of 53:
+Gas simulation at offset 16461 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -8958,28 +8959,28 @@ Gas simulation at offset 16460 with total cost of 53:
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R.............  r8 = u8 [r5 + 0x227]
     .D=========================eE-------------R.............  r8 = r8 & 0x18
     .D===========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 0x22d] = a0
-    ..D=========================eE-------------------------R  jump 16525 if r8 == 0
+    ..D=========================eE-------------------------R  jump 16526 if r8 == 0
 ```
 
-Gas simulation at offset 16489 with total cost of 46:
+Gas simulation at offset 16490 with total cost of 46:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R......  r9 = u16 [r5 + 0x209]
     D=========================eE--------------R......  r10 = r9 & 0x1f
     .D========================eE--------------R......  r9 = r9 & 0xffffffffffffffe0
-    .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 16514 if r10 != 31
+    .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 16515 if r10 != 31
 ```
 
-Gas simulation at offset 16504 with total cost of 26:
+Gas simulation at offset 16505 with total cost of 26:
 
 ```
     DeER.........................  r9 = r9 ^ 0x400
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x209] = r9
-    DeeeeeeeeeeeeeeeE-----------R  jump 16525
+    DeeeeeeeeeeeeeeeE-----------R  jump 16526
 ```
 
-Gas simulation at offset 16514 with total cost of 27:
+Gas simulation at offset 16515 with total cost of 27:
 
 ```
     DeER..........................  r9 = r9 | r10
@@ -8988,7 +8989,7 @@ Gas simulation at offset 16514 with total cost of 27:
     DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 16525 with total cost of 53:
+Gas simulation at offset 16526 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -9003,10 +9004,10 @@ Gas simulation at offset 16525 with total cost of 53:
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------------------R...  u8 [r5 + 0x215] = a0
     ...D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r5 + 0x217] = a4
     ...D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 0x219] = a2
-    ...DeE-------------------------------------------------R  jump 16671 if r8 == 0
+    ...DeE-------------------------------------------------R  jump 16672 if r8 == 0
 ```
 
-Gas simulation at offset 16567 with total cost of 47:
+Gas simulation at offset 16568 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -9014,34 +9015,34 @@ Gas simulation at offset 16567 with total cost of 47:
     DeE---------------------------------------R.......  r10 = 0x7
     .D========================eE--------------R.......  r9 = r7 << 0x31
     .D=========================eE-------------R.......  r9 = r9 >> 0x3d
-    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 16613 if r9 != r10
+    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 16614 if r9 != r10
 ```
 
-Gas simulation at offset 16584 with total cost of 22:
+Gas simulation at offset 16585 with total cost of 22:
 
 ```
     DeER.....................  r9 = r7 >> 0x5
     D=eER....................  r10 = r9 & 0x1f
     .DeER....................  r11 = 0x1d
-    .D=eeeeeeeeeeeeeeeeeeeeER  jump 16633 if r10 == r11
+    .D=eeeeeeeeeeeeeeeeeeeeER  jump 16634 if r10 == r11
 ```
 
-Gas simulation at offset 16596 with total cost of 21:
+Gas simulation at offset 16597 with total cost of 21:
 
 ```
     DeER....................  r11 = 0x1f
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 16648 if r10 != r11
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 16649 if r10 != r11
 ```
 
-Gas simulation at offset 16602 with total cost of 26:
+Gas simulation at offset 16603 with total cost of 26:
 
 ```
     DeER.........................  r7 = r7 & 0x8c1f
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x209] = r7
-    DeeeeeeeeeeeeeeeE-----------R  jump 16671
+    DeeeeeeeeeeeeeeeE-----------R  jump 16672
 ```
 
-Gas simulation at offset 16613 with total cost of 28:
+Gas simulation at offset 16614 with total cost of 28:
 
 ```
     DeER...........................  r9 = r9 + 0x1
@@ -9049,19 +9050,19 @@ Gas simulation at offset 16613 with total cost of 28:
     D=eER..........................  r9 = r9 << 0xc
     D==eER.........................  r7 = r7 | r9
     .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x209] = r7
-    .DeeeeeeeeeeeeeeeE------------R  jump 16671
+    .DeeeeeeeeeeeeeeeE------------R  jump 16672
 ```
 
-Gas simulation at offset 16633 with total cost of 27:
+Gas simulation at offset 16634 with total cost of 27:
 
 ```
     DeER..........................  r7 = r7 & 0x8c1f
     D=eER.........................  r7 = r7 ^ 0x800
     D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x209] = r7
-    DeeeeeeeeeeeeeeeE------------R  jump 16671
+    DeeeeeeeeeeeeeeeE------------R  jump 16672
 ```
 
-Gas simulation at offset 16648 with total cost of 29:
+Gas simulation at offset 16649 with total cost of 29:
 
 ```
     DeER............................  r9 = r9 << 0x5
@@ -9073,7 +9074,7 @@ Gas simulation at offset 16648 with total cost of 29:
     .DeeE--------------------------R  fallthrough
 ```
 
-Gas simulation at offset 16671 with total cost of 53:
+Gas simulation at offset 16672 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -9092,7 +9093,7 @@ Gas simulation at offset 16671 with total cost of 53:
     ...D========================eeeeeeeeeeeeeeeeeeeeeeE----R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 16714 with total cost of 54:
+Gas simulation at offset 16715 with total cost of 54:
 
 ```
     DeER.....................................................  r7 = r7 + 0x7ff
@@ -9103,10 +9104,10 @@ Gas simulation at offset 16714 with total cost of 54:
     ..D==========================eER.........................  r9 = r11 | 0x2000
     ..D========================eE--R.........................  r10 = r10 & 0x18
     ..D===========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r7 + 0x21b] = r9
-    ...D========================eE--------------------------R  jump 16767 if r10 == 0
+    ...D========================eE--------------------------R  jump 16768 if r10 == 0
 ```
 
-Gas simulation at offset 16746 with total cost of 52:
+Gas simulation at offset 16747 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -9118,7 +9119,7 @@ Gas simulation at offset 16746 with total cost of 52:
     .DeeE-------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 16767 with total cost of 53:
+Gas simulation at offset 16768 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -9134,7 +9135,7 @@ Gas simulation at offset 16767 with total cost of 53:
     ..DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 16802 with total cost of 29:
+Gas simulation at offset 16803 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -9143,10 +9144,10 @@ Gas simulation at offset 16802 with total cost of 29:
     .DeE------------------------R...  r5 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
-    ..D==========================eER  jump 16859 if r9 >=u 63
+    ..D==========================eER  jump 16860 if r9 >=u 63
 ```
 
-Gas simulation at offset 16825 with total cost of 74:
+Gas simulation at offset 16826 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -9160,13 +9161,13 @@ Gas simulation at offset 16825 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 406, jump [r10 + 0]
 ```
 
-Gas simulation at offset 16857 with total cost of 15:
+Gas simulation at offset 16858 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 16874
+    DeeeeeeeeeeeeeeeER  jump 16875
 ```
 
-Gas simulation at offset 16859 with total cost of 28:
+Gas simulation at offset 16860 with total cost of 28:
 
 ```
     DeER...........................  r8 = r8 & 0x1f
@@ -9176,7 +9177,7 @@ Gas simulation at offset 16859 with total cost of 28:
     .DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 16874 with total cost of 72:
+Gas simulation at offset 16875 with total cost of 72:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...............................................  r8 = u8 [r5 + 0x226]
@@ -9195,7 +9196,7 @@ Gas simulation at offset 16874 with total cost of 72:
     ...D===============================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 16920 with total cost of 48:
+Gas simulation at offset 16921 with total cost of 48:
 
 ```
     DeER...............................................  r7 = r7 + 0x7ff
@@ -9207,19 +9208,19 @@ Gas simulation at offset 16920 with total cost of 48:
     ..D=========================eER....................  r8 = zext16 r10
     ..DeE-------------------------R....................  r3 = 0x40
     ..D=========================eER....................  r10 = r12 & 0x38
-    ...D=========================eeeeeeeeeeeeeeeeeeeeER  jump 16967 if r8 >=u r3
+    ...D=========================eeeeeeeeeeeeeeeeeeeeER  jump 16968 if r8 >=u r3
 ```
 
-Gas simulation at offset 16954 with total cost of 16:
+Gas simulation at offset 16955 with total cost of 16:
 
 ```
     DeER...............  r8 = r9 & 0xcff
     D=eER..............  r8 = r8 | 0x2000
     .D=eER.............  r9 = r10 + r8
-    .DeeeeeeeeeeeeeeeER  jump 16988
+    .DeeeeeeeeeeeeeeeER  jump 16989
 ```
 
-Gas simulation at offset 16967 with total cost of 4:
+Gas simulation at offset 16968 with total cost of 4:
 
 ```
     DeER...  r11 = r9 & 0xc00
@@ -9231,7 +9232,7 @@ Gas simulation at offset 16967 with total cost of 4:
     ..DeeER  fallthrough
 ```
 
-Gas simulation at offset 16988 with total cost of 53:
+Gas simulation at offset 16989 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER............................  r8 = u8 [r7 + 0x226]
@@ -9246,7 +9247,7 @@ Gas simulation at offset 16988 with total cost of 53:
     ..DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 17022 with total cost of 29:
+Gas simulation at offset 17023 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -9255,10 +9256,10 @@ Gas simulation at offset 17022 with total cost of 29:
     .DeE------------------------R...  r5 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
-    ..D==========================eER  jump 17079 if r9 >=u 63
+    ..D==========================eER  jump 17080 if r9 >=u 63
 ```
 
-Gas simulation at offset 17045 with total cost of 74:
+Gas simulation at offset 17046 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -9272,13 +9273,13 @@ Gas simulation at offset 17045 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 412, jump [r10 + 0]
 ```
 
-Gas simulation at offset 17077 with total cost of 15:
+Gas simulation at offset 17078 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 17094
+    DeeeeeeeeeeeeeeeER  jump 17095
 ```
 
-Gas simulation at offset 17079 with total cost of 28:
+Gas simulation at offset 17080 with total cost of 28:
 
 ```
     DeER...........................  r8 = r8 & 0x1f
@@ -9288,7 +9289,7 @@ Gas simulation at offset 17079 with total cost of 28:
     .DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 17094 with total cost of 76:
+Gas simulation at offset 17095 with total cost of 76:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................  r8 = u8 [r5 + 0x226]
@@ -9315,7 +9316,7 @@ Gas simulation at offset 17094 with total cost of 76:
     ......D=============================================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 17166 with total cost of 47:
+Gas simulation at offset 17167 with total cost of 47:
 
 ```
     DeER..............................................  r7 = r7 + 0x7ff
@@ -9323,10 +9324,10 @@ Gas simulation at offset 17166 with total cost of 47:
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER.....................  r10 = u8 [r7 + 0x233]
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER.....................  r9 = i8 [r7 + 0x235]
     .D=========================eER....................  r11 = r8 & 0x20
-    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 17216 if r11 != 0
+    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 17217 if r11 != 0
 ```
 
-Gas simulation at offset 17188 with total cost of 30:
+Gas simulation at offset 17189 with total cost of 30:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.....  r11 = i16 [r7 + 0x20f]
@@ -9337,10 +9338,10 @@ Gas simulation at offset 17188 with total cost of 30:
     .D===========================eER.  r9 = r9 & 0x7
     ..DeE--------------------------R.  r10 = r10 << 0x4
     ..D===========================eER  r9 = r9 | r10
-    ..DeeeeeeeeeeeeeeeE-------------R  jump 17271
+    ..DeeeeeeeeeeeeeeeE-------------R  jump 17272
 ```
 
-Gas simulation at offset 17216 with total cost of 38:
+Gas simulation at offset 17217 with total cost of 38:
 
 ```
     DeeeER...................................  r9 = r9 <s 0
@@ -9364,7 +9365,7 @@ Gas simulation at offset 17216 with total cost of 38:
     .......DeeE-----------------------------R  fallthrough
 ```
 
-Gas simulation at offset 17271 with total cost of 52:
+Gas simulation at offset 17272 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...........................  r10 = u8 [r7 + 0x228]
@@ -9378,7 +9379,7 @@ Gas simulation at offset 17271 with total cost of 52:
     ..DeeeeeeeeeeeeeeeeeeeeeeE----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 17302 with total cost of 52:
+Gas simulation at offset 17303 with total cost of 52:
 
 ```
     DeER...................................................  r1 = r1 + 0xffffffffffffffe8
@@ -9391,10 +9392,10 @@ Gas simulation at offset 17302 with total cost of 52:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r9 = u8 [r6 + 0x233]
     ..D=========================eE-----------------------R.  r10 = r8 & 0x20
     ...D================================================eER  r7 = r9 << 0x4
-    ...D=========================eE-----------------------R  jump 17391 if r10 != 0
+    ...D=========================eE-----------------------R  jump 17392 if r10 != 0
 ```
 
-Gas simulation at offset 17336 with total cost of 40:
+Gas simulation at offset 17337 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -9405,10 +9406,10 @@ Gas simulation at offset 17336 with total cost of 40:
     .D===eeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  u8 [r6 + 0x21c] = a0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r8 = u16 [r6 + 0x21b]
     ..D========================eE-------------R  r7 = r8 >> 0x8
-    ..D=========================eE------------R  jump 17419 if r7 <u 63
+    ..D=========================eE------------R  jump 17420 if r7 <u 63
 ```
 
-Gas simulation at offset 17364 with total cost of 47:
+Gas simulation at offset 17365 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -9418,16 +9419,16 @@ Gas simulation at offset 17364 with total cost of 47:
     .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R.......  r7 = u8 [r7 + 0x1a1]
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R.......  r8 = u8 [r6 + 0x235]
     ..D========================eE-------------R.......  r8 = r8 & 0x40
-    ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 17461 if r8 != 0
+    ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 17462 if r8 != 0
 ```
 
-Gas simulation at offset 17389 with total cost of 15:
+Gas simulation at offset 17390 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 17508
+    DeeeeeeeeeeeeeeeER  jump 17509
 ```
 
-Gas simulation at offset 17391 with total cost of 40:
+Gas simulation at offset 17392 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -9438,10 +9439,10 @@ Gas simulation at offset 17391 with total cost of 40:
     .D===eeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  u8 [r6 + 0x21c] = a0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r8 = u16 [r6 + 0x21b]
     ..D========================eE-------------R  r7 = r8 >> 0x8
-    ..D=========================eE------------R  jump 17364 if r7 >=u 63
+    ..D=========================eE------------R  jump 17365 if r7 >=u 63
 ```
 
-Gas simulation at offset 17419 with total cost of 74:
+Gas simulation at offset 17420 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -9455,15 +9456,15 @@ Gas simulation at offset 17419 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 418, jump [r10 + 0]
 ```
 
-Gas simulation at offset 17451 with total cost of 46:
+Gas simulation at offset 17452 with total cost of 46:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.....................  r8 = u8 [r6 + 0x235]
     D=========================eER....................  r8 = r8 & 0x40
-    D==========================eeeeeeeeeeeeeeeeeeeeER  jump 17508 if r8 == 0
+    D==========================eeeeeeeeeeeeeeeeeeeeER  jump 17509 if r8 == 0
 ```
 
-Gas simulation at offset 17461 with total cost of 11:
+Gas simulation at offset 17462 with total cost of 11:
 
 ```
     DeER..........  r8 = r7 & 0xff
@@ -9482,7 +9483,7 @@ Gas simulation at offset 17461 with total cost of 11:
     ....DeeE-----R  fallthrough
 ```
 
-Gas simulation at offset 17508 with total cost of 77:
+Gas simulation at offset 17509 with total cost of 77:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER....................................................  r8 = u8 [r6 + 0x236]
@@ -9506,7 +9507,7 @@ Gas simulation at offset 17508 with total cost of 77:
     ....D===============================================eeeeeeeeeeeeeeeeeeeeeeE----R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 17571 with total cost of 47:
+Gas simulation at offset 17572 with total cost of 47:
 
 ```
     DeER..............................................  r7 = r7 + 0x7ff
@@ -9514,10 +9515,10 @@ Gas simulation at offset 17571 with total cost of 47:
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER.....................  r10 = u8 [r7 + 0x233]
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER.....................  r9 = i8 [r7 + 0x235]
     .D=========================eER....................  r11 = r8 & 0x20
-    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 17621 if r11 != 0
+    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 17622 if r11 != 0
 ```
 
-Gas simulation at offset 17593 with total cost of 30:
+Gas simulation at offset 17594 with total cost of 30:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.....  r11 = i16 [r7 + 0x20f]
@@ -9528,10 +9529,10 @@ Gas simulation at offset 17593 with total cost of 30:
     .D===========================eER.  r9 = r9 & 0x7
     ..DeE--------------------------R.  r10 = r10 << 0x4
     ..D===========================eER  r9 = r9 | r10
-    ..DeeeeeeeeeeeeeeeE-------------R  jump 17676
+    ..DeeeeeeeeeeeeeeeE-------------R  jump 17677
 ```
 
-Gas simulation at offset 17621 with total cost of 38:
+Gas simulation at offset 17622 with total cost of 38:
 
 ```
     DeeeER...................................  r9 = r9 <s 0
@@ -9555,7 +9556,7 @@ Gas simulation at offset 17621 with total cost of 38:
     .......DeeE-----------------------------R  fallthrough
 ```
 
-Gas simulation at offset 17676 with total cost of 52:
+Gas simulation at offset 17677 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...........................  r10 = u8 [r7 + 0x228]
@@ -9570,7 +9571,7 @@ Gas simulation at offset 17676 with total cost of 52:
     ..DeeeeeeeeeeeeeeeeeeeeeeE----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 17710 with total cost of 51:
+Gas simulation at offset 17711 with total cost of 51:
 
 ```
     DeER..................................................  r1 = r1 + 0xffffffffffffffe8
@@ -9582,20 +9583,20 @@ Gas simulation at offset 17710 with total cost of 51:
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER........................  r8 = u8 [r6 + 0x226]
     ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u8 [r6 + 0x233]
     ..D=========================eE-----------------------R  r9 = r8 & 0x20
-    ..D==========================eeeeeeeeeeeeeeeeeeeeE---R  jump 17755 if r9 != 0
+    ..D==========================eeeeeeeeeeeeeeeeeeeeE---R  jump 17756 if r9 != 0
 ```
 
-Gas simulation at offset 17741 with total cost of 16:
+Gas simulation at offset 17742 with total cost of 16:
 
 ```
     DeER...............  r8 = r8 & 0x8
     D=eER..............  r8 = r8 << 0x9
     DeE-R..............  r7 = r7 << 0x4
     D==eER.............  r7 = r7 | r8
-    .DeeeeeeeeeeeeeeeER  jump 17824
+    .DeeeeeeeeeeeeeeeER  jump 17825
 ```
 
-Gas simulation at offset 17755 with total cost of 38:
+Gas simulation at offset 17756 with total cost of 38:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.............  r8 = i16 [r6 + 0x20f]
@@ -9623,7 +9624,7 @@ Gas simulation at offset 17755 with total cost of 38:
     .........DeeE---------------------------R  fallthrough
 ```
 
-Gas simulation at offset 17824 with total cost of 27:
+Gas simulation at offset 17825 with total cost of 27:
 
 ```
     DeER..........................  r7 = r7 + 0x8
@@ -9631,10 +9632,10 @@ Gas simulation at offset 17824 with total cost of 27:
     D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0x21c] = a0
     DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r8 = u16 [r6 + 0x21b]
     .D========================eE-R  r7 = r8 >> 0x8
-    .D=========================eER  jump 17889 if r7 >=u 63
+    .D=========================eER  jump 17890 if r7 >=u 63
 ```
 
-Gas simulation at offset 17845 with total cost of 74:
+Gas simulation at offset 17846 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -9648,21 +9649,21 @@ Gas simulation at offset 17845 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 424, jump [r10 + 0]
 ```
 
-Gas simulation at offset 17877 with total cost of 46:
+Gas simulation at offset 17878 with total cost of 46:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.....................  r8 = u8 [r6 + 0x235]
     D=========================eER....................  r8 = r8 & 0x40
-    D==========================eeeeeeeeeeeeeeeeeeeeER  jump 17914 if r8 != 0
+    D==========================eeeeeeeeeeeeeeeeeeeeER  jump 17915 if r8 != 0
 ```
 
-Gas simulation at offset 17887 with total cost of 15:
+Gas simulation at offset 17888 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 17958
+    DeeeeeeeeeeeeeeeER  jump 17959
 ```
 
-Gas simulation at offset 17889 with total cost of 47:
+Gas simulation at offset 17890 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -9672,10 +9673,10 @@ Gas simulation at offset 17889 with total cost of 47:
     .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R.......  r7 = u8 [r7 + 0x1a1]
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R.......  r8 = u8 [r6 + 0x235]
     ..D========================eE-------------R.......  r8 = r8 & 0x40
-    ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 17958 if r8 == 0
+    ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 17959 if r8 == 0
 ```
 
-Gas simulation at offset 17914 with total cost of 11:
+Gas simulation at offset 17915 with total cost of 11:
 
 ```
     DeER..........  r8 = r7 & 0xff
@@ -9693,7 +9694,7 @@ Gas simulation at offset 17914 with total cost of 11:
     ....DeeE-----R  fallthrough
 ```
 
-Gas simulation at offset 17958 with total cost of 99:
+Gas simulation at offset 17959 with total cost of 99:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................................................................  r8 = u8 [r6 + 0x236]
@@ -9720,7 +9721,7 @@ Gas simulation at offset 17958 with total cost of 99:
     .....D========================================================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 18032 with total cost of 54:
+Gas simulation at offset 18033 with total cost of 54:
 
 ```
     DeER.....................................................  r7 = r7 + 0x7ff
@@ -9741,7 +9742,7 @@ Gas simulation at offset 18032 with total cost of 54:
     ....DeeeeeeeeeeeeeeeeeeeeeeE----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 18088 with total cost of 51:
+Gas simulation at offset 18089 with total cost of 51:
 
 ```
     DeER..................................................  r1 = r1 + 0xffffffffffffffe8
@@ -9753,20 +9754,20 @@ Gas simulation at offset 18088 with total cost of 51:
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER........................  r8 = u8 [r6 + 0x226]
     ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u8 [r6 + 0x233]
     ..D=========================eE-----------------------R  r9 = r8 & 0x20
-    ..D==========================eeeeeeeeeeeeeeeeeeeeE---R  jump 18133 if r9 != 0
+    ..D==========================eeeeeeeeeeeeeeeeeeeeE---R  jump 18134 if r9 != 0
 ```
 
-Gas simulation at offset 18119 with total cost of 16:
+Gas simulation at offset 18120 with total cost of 16:
 
 ```
     DeER...............  r8 = r8 & 0x8
     D=eER..............  r8 = r8 << 0x9
     DeE-R..............  r7 = r7 << 0x4
     D==eER.............  r7 = r7 | r8
-    .DeeeeeeeeeeeeeeeER  jump 18202
+    .DeeeeeeeeeeeeeeeER  jump 18203
 ```
 
-Gas simulation at offset 18133 with total cost of 38:
+Gas simulation at offset 18134 with total cost of 38:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.............  r8 = i16 [r6 + 0x20f]
@@ -9794,7 +9795,7 @@ Gas simulation at offset 18133 with total cost of 38:
     .........DeeE---------------------------R  fallthrough
 ```
 
-Gas simulation at offset 18202 with total cost of 27:
+Gas simulation at offset 18203 with total cost of 27:
 
 ```
     DeER..........................  r7 = r7 + 0x8
@@ -9802,10 +9803,10 @@ Gas simulation at offset 18202 with total cost of 27:
     D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0x21c] = a0
     DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r8 = u16 [r6 + 0x21b]
     .D========================eE-R  r7 = r8 >> 0x8
-    .D=========================eER  jump 18267 if r7 >=u 63
+    .D=========================eER  jump 18268 if r7 >=u 63
 ```
 
-Gas simulation at offset 18223 with total cost of 74:
+Gas simulation at offset 18224 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -9819,21 +9820,21 @@ Gas simulation at offset 18223 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 430, jump [r10 + 0]
 ```
 
-Gas simulation at offset 18255 with total cost of 46:
+Gas simulation at offset 18256 with total cost of 46:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.....................  r8 = u8 [r6 + 0x235]
     D=========================eER....................  r8 = r8 & 0x40
-    D==========================eeeeeeeeeeeeeeeeeeeeER  jump 18292 if r8 != 0
+    D==========================eeeeeeeeeeeeeeeeeeeeER  jump 18293 if r8 != 0
 ```
 
-Gas simulation at offset 18265 with total cost of 15:
+Gas simulation at offset 18266 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 18339
+    DeeeeeeeeeeeeeeeER  jump 18340
 ```
 
-Gas simulation at offset 18267 with total cost of 40:
+Gas simulation at offset 18268 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -9843,10 +9844,10 @@ Gas simulation at offset 18267 with total cost of 40:
     .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r7 = u8 [r7 + 0x1a1]
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r8 = u8 [r6 + 0x235]
     ..D========================eE-------------R  r8 = r8 & 0x40
-    ..D=========================eE------------R  jump 18339 if r8 == 0
+    ..D=========================eE------------R  jump 18340 if r8 == 0
 ```
 
-Gas simulation at offset 18292 with total cost of 11:
+Gas simulation at offset 18293 with total cost of 11:
 
 ```
     DeER..........  r8 = r7 & 0xff
@@ -9865,7 +9866,7 @@ Gas simulation at offset 18292 with total cost of 11:
     ....DeeE-----R  fallthrough
 ```
 
-Gas simulation at offset 18339 with total cost of 53:
+Gas simulation at offset 18340 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -9879,10 +9880,10 @@ Gas simulation at offset 18339 with total cost of 53:
     ..D========================eE--------------------------R  r7 = r7 + 0x1
     ..D========================eE--------------------------R  r8 = r8 & 0x18
     ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeE-R  u8 [r6 + 0x236] = a0
-    ..D=========================eE-------------------------R  jump 18408 if r8 == 0
+    ..D=========================eE-------------------------R  jump 18409 if r8 == 0
 ```
 
-Gas simulation at offset 18379 with total cost of 52:
+Gas simulation at offset 18380 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -9896,7 +9897,7 @@ Gas simulation at offset 18379 with total cost of 52:
     ..DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 18408 with total cost of 53:
+Gas simulation at offset 18409 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -9916,7 +9917,7 @@ Gas simulation at offset 18408 with total cost of 53:
     ...D========================eeeeeeeeeeeeeeeeeeeeeeE----R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 18454 with total cost of 54:
+Gas simulation at offset 18455 with total cost of 54:
 
 ```
     DeER.....................................................  r7 = r7 + 0x7ff
@@ -9927,10 +9928,10 @@ Gas simulation at offset 18454 with total cost of 54:
     ..D==========================eER.........................  r9 = r11 | 0x2000
     ..D========================eE--R.........................  r10 = r10 & 0x18
     ..D===========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r7 + 0x21b] = r9
-    ...D========================eE--------------------------R  jump 18511 if r10 == 0
+    ...D========================eE--------------------------R  jump 18512 if r10 == 0
 ```
 
-Gas simulation at offset 18486 with total cost of 52:
+Gas simulation at offset 18487 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -9943,7 +9944,7 @@ Gas simulation at offset 18486 with total cost of 52:
     .DeeE-------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 18511 with total cost of 53:
+Gas simulation at offset 18512 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -9959,7 +9960,7 @@ Gas simulation at offset 18511 with total cost of 53:
     ..DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 18546 with total cost of 29:
+Gas simulation at offset 18547 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -9969,10 +9970,10 @@ Gas simulation at offset 18546 with total cost of 29:
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
     ..DeE-------------------------R.  r10 = 0x3f
-    ..D==========================eER  jump 18619 if r9 >=u r10
+    ..D==========================eER  jump 18620 if r9 >=u r10
 ```
 
-Gas simulation at offset 18571 with total cost of 74:
+Gas simulation at offset 18572 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -9986,22 +9987,22 @@ Gas simulation at offset 18571 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 436, jump [r10 + 0]
 ```
 
-Gas simulation at offset 18603 with total cost of 27:
+Gas simulation at offset 18604 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [r5 + 0x227]
     D=========================eER.  r8 = r8 & 0x18
     DeeeeeeeeeeeeeeeeeeeeeeeeeE-R.  u8 [r5 + 0x22a] = a0
-    D==========================eER  jump 18648 if r8 != 0
+    D==========================eER  jump 18649 if r8 != 0
 ```
 
-Gas simulation at offset 18617 with total cost of 15:
+Gas simulation at offset 18618 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 18677
+    DeeeeeeeeeeeeeeeER  jump 18678
 ```
 
-Gas simulation at offset 18619 with total cost of 53:
+Gas simulation at offset 18620 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -10012,10 +10013,10 @@ Gas simulation at offset 18619 with total cost of 53:
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R.............  r8 = u8 [r5 + 0x227]
     .D=========================eE-------------R.............  r8 = r8 & 0x18
     .D===========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 0x22a] = a0
-    ..D=========================eE-------------------------R  jump 18677 if r8 == 0
+    ..D=========================eE-------------------------R  jump 18678 if r8 == 0
 ```
 
-Gas simulation at offset 18648 with total cost of 52:
+Gas simulation at offset 18649 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -10029,7 +10030,7 @@ Gas simulation at offset 18648 with total cost of 52:
     ..DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 18677 with total cost of 53:
+Gas simulation at offset 18678 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -10048,7 +10049,7 @@ Gas simulation at offset 18677 with total cost of 53:
     ...D========================eeeeeeeeeeeeeeeeeeeeeeE----R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 18720 with total cost of 29:
+Gas simulation at offset 18721 with total cost of 29:
 
 ```
     DeER............................  r7 = r7 + 0x7ff
@@ -10059,10 +10060,10 @@ Gas simulation at offset 18720 with total cost of 29:
     ..D=========================eER.  r8 = zext16 r10
     ..DeE-------------------------R.  r3 = 0x40
     ..D=========================eER.  r10 = r12 & 0x38
-    ...D=========================eER  jump 18781 if r8 >=u r3
+    ...D=========================eER  jump 18782 if r8 >=u r3
 ```
 
-Gas simulation at offset 18750 with total cost of 40:
+Gas simulation at offset 18751 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -10073,16 +10074,16 @@ Gas simulation at offset 18750 with total cost of 40:
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r8 = u8 [r7 + 0x227]
     .D=========================eE-------------R  r8 = r8 & 0x18
     ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r7 + 0x21b] = r10
-    ..D=========================eE------------R  jump 18819 if r8 != 0
+    ..D=========================eE------------R  jump 18820 if r8 != 0
 ```
 
-Gas simulation at offset 18779 with total cost of 15:
+Gas simulation at offset 18780 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 18847
+    DeeeeeeeeeeeeeeeER  jump 18848
 ```
 
-Gas simulation at offset 18781 with total cost of 40:
+Gas simulation at offset 18782 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -10096,10 +10097,10 @@ Gas simulation at offset 18781 with total cost of 40:
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r8 = u8 [r7 + 0x227]
     ...D========================eE------------R  r8 = r8 & 0x18
     ...D==eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u16 [r7 + 0x21b] = r10
-    ...D=========================eE-----------R  jump 18847 if r8 == 0
+    ...D=========================eE-----------R  jump 18848 if r8 == 0
 ```
 
-Gas simulation at offset 18819 with total cost of 52:
+Gas simulation at offset 18820 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -10113,7 +10114,7 @@ Gas simulation at offset 18819 with total cost of 52:
     ..DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 18847 with total cost of 53:
+Gas simulation at offset 18848 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -10128,7 +10129,7 @@ Gas simulation at offset 18847 with total cost of 53:
     ..DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 18878 with total cost of 29:
+Gas simulation at offset 18879 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -10137,10 +10138,10 @@ Gas simulation at offset 18878 with total cost of 29:
     .DeE------------------------R...  r5 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
-    ..D==========================eER  jump 18935 if r9 >=u 63
+    ..D==========================eER  jump 18936 if r9 >=u 63
 ```
 
-Gas simulation at offset 18901 with total cost of 74:
+Gas simulation at offset 18902 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -10154,13 +10155,13 @@ Gas simulation at offset 18901 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 442, jump [r10 + 0]
 ```
 
-Gas simulation at offset 18933 with total cost of 15:
+Gas simulation at offset 18934 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 18950
+    DeeeeeeeeeeeeeeeER  jump 18951
 ```
 
-Gas simulation at offset 18935 with total cost of 28:
+Gas simulation at offset 18936 with total cost of 28:
 
 ```
     DeER...........................  r8 = r8 & 0x1f
@@ -10170,7 +10171,7 @@ Gas simulation at offset 18935 with total cost of 28:
     .DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 18950 with total cost of 55:
+Gas simulation at offset 18951 with total cost of 55:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..............................  r8 = u16 [r5 + 0x209]
@@ -10184,10 +10185,10 @@ Gas simulation at offset 18950 with total cost of 55:
     ..D===========================eER.........................  r7 = r7 & 0x3
     ...D======================eE----R.........................  r9 = r9 & 0x18
     ...D===========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 0x22b] = a0
-    ...D=======================eE----------------------------R  jump 19015 if r9 == 0
+    ...D=======================eE----------------------------R  jump 19016 if r9 == 0
 ```
 
-Gas simulation at offset 18990 with total cost of 52:
+Gas simulation at offset 18991 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -10200,7 +10201,7 @@ Gas simulation at offset 18990 with total cost of 52:
     .DeeE-------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 19015 with total cost of 53:
+Gas simulation at offset 19016 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -10219,7 +10220,7 @@ Gas simulation at offset 19015 with total cost of 53:
     ...D========================eeeeeeeeeeeeeeeeeeeeeeE----R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 19058 with total cost of 28:
+Gas simulation at offset 19059 with total cost of 28:
 
 ```
     DeER...........................  r7 = r7 + 0x7ff
@@ -10227,10 +10228,10 @@ Gas simulation at offset 19058 with total cost of 28:
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r10 = u8 [r7 + 0x233]
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r9 = i8 [r7 + 0x235]
     .D=========================eER.  r11 = r8 & 0x20
-    .D==========================eER  jump 19123 if r11 != 0
+    .D==========================eER  jump 19124 if r11 != 0
 ```
 
-Gas simulation at offset 19080 with total cost of 55:
+Gas simulation at offset 19081 with total cost of 55:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...............  unlikely
@@ -10245,16 +10246,16 @@ Gas simulation at offset 19080 with total cost of 55:
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R...............  r10 = u8 [r7 + 0x227]
     ..D=========================eE------------R...............  r10 = r10 & 0x18
     ...D===========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 0x21b] = a2
-    ...D=========================eE--------------------------R  jump 19192 if r10 != 0
+    ...D=========================eE--------------------------R  jump 19193 if r10 != 0
 ```
 
-Gas simulation at offset 19121 with total cost of 15:
+Gas simulation at offset 19122 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 19224
+    DeeeeeeeeeeeeeeeER  jump 19225
 ```
 
-Gas simulation at offset 19123 with total cost of 63:
+Gas simulation at offset 19124 with total cost of 63:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......................  unlikely
@@ -10279,10 +10280,10 @@ Gas simulation at offset 19123 with total cost of 63:
     .......DeeeeeeeeeeeeeeeeeeeeeeeeeE--------R.......................  r10 = u8 [r7 + 0x227]
     ........D========================eE-------R.......................  r10 = r10 & 0x18
     ........D==============================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 0x21b] = a2
-    ........D=========================eE-----------------------------R  jump 19224 if r10 == 0
+    ........D=========================eE-----------------------------R  jump 19225 if r10 == 0
 ```
 
-Gas simulation at offset 19192 with total cost of 52:
+Gas simulation at offset 19193 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -10297,7 +10298,7 @@ Gas simulation at offset 19192 with total cost of 52:
     ..DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 19224 with total cost of 52:
+Gas simulation at offset 19225 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -10311,7 +10312,7 @@ Gas simulation at offset 19224 with total cost of 52:
     ..DeeeeeeeeeeeeeeeeeeeeeeE----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 19252 with total cost of 52:
+Gas simulation at offset 19253 with total cost of 52:
 
 ```
     DeER...................................................  r1 = r1 + 0xffffffffffffffe8
@@ -10324,10 +10325,10 @@ Gas simulation at offset 19252 with total cost of 52:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r9 = u8 [r6 + 0x233]
     ..D=========================eE-----------------------R.  r10 = r8 & 0x20
     ...D================================================eER  r7 = r9 << 0x4
-    ...D=========================eE-----------------------R  jump 19341 if r10 != 0
+    ...D=========================eE-----------------------R  jump 19342 if r10 != 0
 ```
 
-Gas simulation at offset 19286 with total cost of 40:
+Gas simulation at offset 19287 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -10338,10 +10339,10 @@ Gas simulation at offset 19286 with total cost of 40:
     .D===eeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  u8 [r6 + 0x21c] = a0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r8 = u16 [r6 + 0x21b]
     ..D========================eE-------------R  r7 = r8 >> 0x8
-    ..D=========================eE------------R  jump 19369 if r7 <u 63
+    ..D=========================eE------------R  jump 19370 if r7 <u 63
 ```
 
-Gas simulation at offset 19314 with total cost of 47:
+Gas simulation at offset 19315 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -10351,16 +10352,16 @@ Gas simulation at offset 19314 with total cost of 47:
     .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R.......  r7 = u8 [r7 + 0x1a1]
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R.......  r8 = u8 [r6 + 0x235]
     ..D========================eE-------------R.......  r8 = r8 & 0x40
-    ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 19411 if r8 != 0
+    ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 19412 if r8 != 0
 ```
 
-Gas simulation at offset 19339 with total cost of 15:
+Gas simulation at offset 19340 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 19458
+    DeeeeeeeeeeeeeeeER  jump 19459
 ```
 
-Gas simulation at offset 19341 with total cost of 40:
+Gas simulation at offset 19342 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -10371,10 +10372,10 @@ Gas simulation at offset 19341 with total cost of 40:
     .D===eeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  u8 [r6 + 0x21c] = a0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r8 = u16 [r6 + 0x21b]
     ..D========================eE-------------R  r7 = r8 >> 0x8
-    ..D=========================eE------------R  jump 19314 if r7 >=u 63
+    ..D=========================eE------------R  jump 19315 if r7 >=u 63
 ```
 
-Gas simulation at offset 19369 with total cost of 74:
+Gas simulation at offset 19370 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -10388,15 +10389,15 @@ Gas simulation at offset 19369 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 448, jump [r10 + 0]
 ```
 
-Gas simulation at offset 19401 with total cost of 27:
+Gas simulation at offset 19402 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [r6 + 0x235]
     D=========================eER.  r8 = r8 & 0x40
-    D==========================eER  jump 19458 if r8 == 0
+    D==========================eER  jump 19459 if r8 == 0
 ```
 
-Gas simulation at offset 19411 with total cost of 11:
+Gas simulation at offset 19412 with total cost of 11:
 
 ```
     DeER..........  r8 = r7 & 0xff
@@ -10415,7 +10416,7 @@ Gas simulation at offset 19411 with total cost of 11:
     ....DeeE-----R  fallthrough
 ```
 
-Gas simulation at offset 19458 with total cost of 53:
+Gas simulation at offset 19459 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -10426,10 +10427,10 @@ Gas simulation at offset 19458 with total cost of 53:
     .D==========================eE------------R.............  r8 = r8 + 0x7ff
     .D========================eE--------------R.............  r9 = r9 & 0x18
     .D===========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r8 + 0x1e1] = a0
-    ..D========================eE--------------------------R  jump 19516 if r9 == 0
+    ..D========================eE--------------------------R  jump 19517 if r9 == 0
 ```
 
-Gas simulation at offset 19487 with total cost of 52:
+Gas simulation at offset 19488 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -10443,7 +10444,7 @@ Gas simulation at offset 19487 with total cost of 52:
     ..DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 19516 with total cost of 53:
+Gas simulation at offset 19517 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -10463,7 +10464,7 @@ Gas simulation at offset 19516 with total cost of 53:
     ...D========================eeeeeeeeeeeeeeeeeeeeeeE----R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 19562 with total cost of 28:
+Gas simulation at offset 19563 with total cost of 28:
 
 ```
     DeER...........................  r7 = r7 + 0x7ff
@@ -10471,10 +10472,10 @@ Gas simulation at offset 19562 with total cost of 28:
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r10 = u8 [r7 + 0x233]
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r9 = i8 [r7 + 0x235]
     .D=========================eER.  r11 = r8 & 0x20
-    .D==========================eER  jump 19630 if r11 != 0
+    .D==========================eER  jump 19631 if r11 != 0
 ```
 
-Gas simulation at offset 19584 with total cost of 56:
+Gas simulation at offset 19585 with total cost of 56:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER................  unlikely
@@ -10490,16 +10491,16 @@ Gas simulation at offset 19584 with total cost of 56:
     ..D============================eE---------R................  r9 = r9 + 0x8
     ...D========================eE------------R................  r10 = r10 & 0x18
     ...D============================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 0x21b] = a2
-    ...D=========================eE---------------------------R  jump 19702 if r10 != 0
+    ...D=========================eE---------------------------R  jump 19703 if r10 != 0
 ```
 
-Gas simulation at offset 19628 with total cost of 15:
+Gas simulation at offset 19629 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 19734
+    DeeeeeeeeeeeeeeeER  jump 19735
 ```
 
-Gas simulation at offset 19630 with total cost of 64:
+Gas simulation at offset 19631 with total cost of 64:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER........................  unlikely
@@ -10525,10 +10526,10 @@ Gas simulation at offset 19630 with total cost of 64:
     ........D==============================eE-R........................  r9 = r9 + 0x8
     ........D========================eE-------R........................  r10 = r10 & 0x18
     ........D===============================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 0x21b] = a2
-    ........D=========================eE------------------------------R  jump 19734 if r10 == 0
+    ........D=========================eE------------------------------R  jump 19735 if r10 == 0
 ```
 
-Gas simulation at offset 19702 with total cost of 52:
+Gas simulation at offset 19703 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -10543,7 +10544,7 @@ Gas simulation at offset 19702 with total cost of 52:
     ..DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 19734 with total cost of 52:
+Gas simulation at offset 19735 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -10557,7 +10558,7 @@ Gas simulation at offset 19734 with total cost of 52:
     ..DeeeeeeeeeeeeeeeeeeeeeeE----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 19762 with total cost of 29:
+Gas simulation at offset 19763 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -10566,10 +10567,10 @@ Gas simulation at offset 19762 with total cost of 29:
     .DeE------------------------R...  r5 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
-    ..D==========================eER  jump 19833 if r9 >=u 63
+    ..D==========================eER  jump 19834 if r9 >=u 63
 ```
 
-Gas simulation at offset 19785 with total cost of 74:
+Gas simulation at offset 19786 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -10583,22 +10584,22 @@ Gas simulation at offset 19785 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 454, jump [r10 + 0]
 ```
 
-Gas simulation at offset 19817 with total cost of 27:
+Gas simulation at offset 19818 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r2 = u8 [r5 + 0x227]
     D=========================eER.  r9 = r2 & 0x18
     DeeeeeeeeeeeeeeeeeeeeeeeeeE-R.  u8 [r5 + 0x22d] = a0
-    .D=========================eER  jump 19862 if r9 != 0
+    .D=========================eER  jump 19863 if r9 != 0
 ```
 
-Gas simulation at offset 19831 with total cost of 15:
+Gas simulation at offset 19832 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 19898
+    DeeeeeeeeeeeeeeeER  jump 19899
 ```
 
-Gas simulation at offset 19833 with total cost of 53:
+Gas simulation at offset 19834 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -10609,28 +10610,28 @@ Gas simulation at offset 19833 with total cost of 53:
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R.............  r2 = u8 [r5 + 0x227]
     .D=========================eE-------------R.............  r9 = r2 & 0x18
     ..D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 0x22d] = a0
-    ..D=========================eE-------------------------R  jump 19898 if r9 == 0
+    ..D=========================eE-------------------------R  jump 19899 if r9 == 0
 ```
 
-Gas simulation at offset 19862 with total cost of 46:
+Gas simulation at offset 19863 with total cost of 46:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R......  r9 = u16 [r5 + 0x209]
     D=========================eE--------------R......  r10 = r9 & 0x1f
     .D========================eE--------------R......  r9 = r9 & 0xffffffffffffffe0
-    .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 19887 if r10 != 31
+    .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 19888 if r10 != 31
 ```
 
-Gas simulation at offset 19877 with total cost of 26:
+Gas simulation at offset 19878 with total cost of 26:
 
 ```
     DeER.........................  r9 = r9 ^ 0x400
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x209] = r9
-    DeeeeeeeeeeeeeeeE-----------R  jump 19898
+    DeeeeeeeeeeeeeeeE-----------R  jump 19899
 ```
 
-Gas simulation at offset 19887 with total cost of 27:
+Gas simulation at offset 19888 with total cost of 27:
 
 ```
     DeER..........................  r9 = r9 | r10
@@ -10639,41 +10640,42 @@ Gas simulation at offset 19887 with total cost of 27:
     DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 19898 with total cost of 123:
+Gas simulation at offset 19899 with total cost of 123:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER..................................................................................................  r3 = i16 [r5 + 0x211]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER..................................................................................................  r10 = u8 [r5 + 0x226]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER..................................................................................................  r11 = u8 [r5 + 0x228]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER..................................................................................................  r12 = u8 [r5 + 0x22b]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................................................  unlikely
+    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...................................................................................  r3 = i16 [r5 + 0x211]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...................................................................................  r10 = u8 [r5 + 0x226]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...................................................................................  r11 = u8 [r5 + 0x228]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R...................................................................................  r12 = u8 [r5 + 0x22b]
     .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................................  r8 = u8 [r5 + 0x22c]
     .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................................  r9 = u8 [r5 + 0x238]
     .D========================eE------------------------R.........................................................................  r10 = r10 & r11
-    .D========================eE------------------------R.........................................................................  r2 = r2 << 0x3c
-    ..D========================eE-----------------------R.........................................................................  r11 = r2 >> 0x3f
+    ..D========================eE-----------------------R.........................................................................  r2 = r2 << 0x3c
+    ..D=========================eE----------------------R.........................................................................  r11 = r2 >> 0x3f
     ..D================================================eER........................................................................  r9 = r9 & r11
     ...D=======================eE------------------------R........................................................................  r11 = r12 << 0x3f
     ...D========================eE-----------------------R........................................................................  r3 = r3 + 0x1
-    ...D========================eE-----------------------R........................................................................  r11 = r11 >>a 0x3f
+    ...D=========================eE----------------------R........................................................................  r11 = r11 >>a 0x3f
     ....D========================eeeeeeeeeeeeeeeeeeeeeeeeeER......................................................................  u16 [r5 + 0x211] = r3
     ....D==============================================eeeeeeeeeeeeeeeeeeeeeeeeeER................................................  u8 [r5 + 0x213] = a1
-    ....D========================eeeeeeeeeeeeeeeeeeeeeeeeeE----------------------R................................................  u8 [r5 + 0x215] = a0
+    ....D=========================eeeeeeeeeeeeeeeeeeeeeeeeeE---------------------R................................................  u8 [r5 + 0x215] = a0
     ....D===============================================eeeeeeeeeeeeeeeeeeeeeeeeeER...............................................  u8 [r5 + 0x217] = a4
     .....D================================================eE----------------------R...............................................  r12 = r12 << 0x6
     .....D=================================================eE---------------------R...............................................  r7 = sext8 r12
-    .....D================================================eE----------------------R...............................................  r10 = r10 << 0x38
+    .....D=================================================eE---------------------R...............................................  r10 = r10 << 0x38
     .....D==================================================eE--------------------R...............................................  r7 = r7 >> 0x7
-    ......D================================================eE---------------------R...............................................  r10 = r10 >> 0x3f
+    ......D=================================================eE--------------------R...............................................  r10 = r10 >> 0x3f
     ......D==================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................................  u8 [r5 + 0x219] = a0
-    ......D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeE-R..........................................  u8 [r5 + 0x23b] = a2
+    ......D==================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................................  u8 [r5 + 0x23b] = a2
     ......D=====================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.......................  u8 [r5 + 0x271] = a3
     .......D=====================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER......................  r0 = u64 [r1 + 0x8]
-    .......D=========================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..................  r5 = u64 [r1 + 0]
-    .......D==========================================================================eE-----------------------R..................  r1 = r1 + 0x10
+    .......D==========================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.................  r5 = u64 [r1 + 0]
+    .......D==========================================================================eE------------------------R.................  r1 = r1 + 0x10
     .......D==============================================================================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 19995 with total cost of 29:
+Gas simulation at offset 19997 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xfffffffffffffff0
@@ -10683,10 +10685,10 @@ Gas simulation at offset 19995 with total cost of 29:
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u16 [r5 + 0x21b]
     ..D=========================eER.  r9 = r8 >> 0x8
     ..DeE-------------------------R.  r10 = 0x3f
-    ..D==========================eER  jump 20054 if r9 >=u r10
+    ..D==========================eER  jump 20056 if r9 >=u r10
 ```
 
-Gas simulation at offset 20020 with total cost of 74:
+Gas simulation at offset 20022 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -10700,13 +10702,13 @@ Gas simulation at offset 20020 with total cost of 74:
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeER  r0 = 458, jump [r10 + 0]
 ```
 
-Gas simulation at offset 20052 with total cost of 15:
+Gas simulation at offset 20054 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 20069
+    DeeeeeeeeeeeeeeeER  jump 20071
 ```
 
-Gas simulation at offset 20054 with total cost of 28:
+Gas simulation at offset 20056 with total cost of 28:
 
 ```
     DeER...........................  r8 = r8 & 0x1f
@@ -10716,7 +10718,7 @@ Gas simulation at offset 20054 with total cost of 28:
     .DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 20069 with total cost of 53:
+Gas simulation at offset 20071 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER............................  r8 = u8 [r5 + 0x226]
@@ -10727,10 +10729,10 @@ Gas simulation at offset 20069 with total cost of 53:
     .D=========================eER..........................  r8 = r8 << 0x38
     .D==========================eER.........................  r8 = r8 >> 0x3f
     .D===========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 0x271] = a1
-    ..D=======================eE---------------------------R  jump 20109 if r7 == 0
+    ..D=======================eE---------------------------R  jump 20111 if r7 == 0
 ```
 
-Gas simulation at offset 20101 with total cost of 26:
+Gas simulation at offset 20103 with total cost of 26:
 
 ```
     DeER.........................  r7 = 0x1
@@ -10738,7 +10740,7 @@ Gas simulation at offset 20101 with total cost of 26:
     DeeE------------------------R  fallthrough
 ```
 
-Gas simulation at offset 20109 with total cost of 47:
+Gas simulation at offset 20111 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -10750,16 +10752,10 @@ Gas simulation at offset 20109 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20128 with total cost of 22:
+Gas simulation at offset 20130 with total cost of 22:
 
 ```
     DeER.....................  r7 = 0
-    DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
-```
-
-Gas simulation at offset 20132 with total cost of 22:
-
-```
     DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
@@ -10769,7 +10765,13 @@ Gas simulation at offset 20134 with total cost of 22:
     DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20136 with total cost of 52:
+Gas simulation at offset 20136 with total cost of 22:
+
+```
+    DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
+```
+
+Gas simulation at offset 20138 with total cost of 52:
 
 ```
     DeER...................................................  r1 = r1 + 0xffffffffffffffd0
@@ -10782,10 +10784,10 @@ Gas simulation at offset 20136 with total cost of 52:
     ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x10] = r7
     ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeE-R  r8 = u16 [r6 + 0x269]
     ..D....................................................  r7 = r5
-    ..DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 468, jump 22576
+    ..DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 468, jump 22578
 ```
 
-Gas simulation at offset 20173 with total cost of 51:
+Gas simulation at offset 20175 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r8 = i16 [r6 + 0x269]
@@ -10797,10 +10799,10 @@ Gas simulation at offset 20173 with total cost of 51:
     .D=========================eE------------------------R  r7 = r7 | r9
     ..D=========================eE-----------------------R  r8 = zext16 r7
     ..D...................................................  r7 = r5
-    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 470, jump 22576
+    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 470, jump 22578
 ```
 
-Gas simulation at offset 20205 with total cost of 29:
+Gas simulation at offset 20207 with total cost of 29:
 
 ```
     DeER............................  r7 = r7 & 0xff
@@ -10812,10 +10814,10 @@ Gas simulation at offset 20205 with total cost of 29:
     .D==========================eER.  r7 = r7 | r8
     .D===========================eER  r8 = zext16 r7
     ..D.............................  r7 = r5
-    ..DeeeeeeeeeeeeeeeE------------R  r0 = 472, jump 22576
+    ..DeeeeeeeeeeeeeeeE------------R  r0 = 472, jump 22578
 ```
 
-Gas simulation at offset 20237 with total cost of 53:
+Gas simulation at offset 20239 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER............................  r8 = u16 [r6 + 0x261]
@@ -10836,7 +10838,7 @@ Gas simulation at offset 20237 with total cost of 53:
     ....D========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20285 with total cost of 51:
+Gas simulation at offset 20287 with total cost of 51:
 
 ```
     DeER..................................................  r1 = r1 + 0xffffffffffffffe8
@@ -10846,10 +10848,10 @@ Gas simulation at offset 20285 with total cost of 51:
     .DeE------------------------R.........................  r5 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER........................  r6 = u8 [r5 + 0x265]
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r5 + 0x269]
-    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 476, jump 22576
+    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 476, jump 22578
 ```
 
-Gas simulation at offset 20314 with total cost of 53:
+Gas simulation at offset 20316 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER............................  r8 = u16 [r5 + 0x261]
@@ -10869,7 +10871,7 @@ Gas simulation at offset 20314 with total cost of 53:
     ....D========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20358 with total cost of 52:
+Gas simulation at offset 20360 with total cost of 52:
 
 ```
     DeER...................................................  r1 = r1 + 0xffffffffffffffe0
@@ -10882,19 +10884,19 @@ Gas simulation at offset 20358 with total cost of 52:
     ..D=========================eE-----------------------R.  r10 = r8 & 0x7
     ..DeE------------------------------------------------R.  r2 = 0x7
     ...D================================================eER  r5 = r9 + 0x1
-    ...D=========================eE-----------------------R  jump 20418 if r10 == r2
+    ...D=========================eE-----------------------R  jump 20420 if r10 == r2
 ```
 
-Gas simulation at offset 20394 with total cost of 25:
+Gas simulation at offset 20396 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x263]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 480, jump 23114
+    DeeeeeeeeeeeeeeeE----------R  r0 = 480, jump 23116
 ```
 
-Gas simulation at offset 20408 with total cost of 25:
+Gas simulation at offset 20410 with total cost of 25:
 
 ```
     DeER........................  r2 = 0x7
@@ -10903,7 +10905,7 @@ Gas simulation at offset 20408 with total cost of 25:
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 20418 with total cost of 53:
+Gas simulation at offset 20420 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -10917,17 +10919,17 @@ Gas simulation at offset 20418 with total cost of 53:
     ...D========================eE------------R.............  r10 = r10 | r12
     ....DeE-----------------------------------R.............  r11 = r8 & 0x7
     ....D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0x26f] = a3
-    ....D=eeeeeeeeeeeeeeeeeeeeE----------------------------R  jump 20485 if r11 != 7
+    ....D=eeeeeeeeeeeeeeeeeeeeE----------------------------R  jump 20487 if r11 != 7
 ```
 
-Gas simulation at offset 20457 with total cost of 2:
+Gas simulation at offset 20459 with total cost of 2:
 
 ```
     DeER.  r8 = r8 & 0x18
-    D=eER  jump 20511 if r8 != 8
+    D=eER  jump 20513 if r8 != 8
 ```
 
-Gas simulation at offset 20464 with total cost of 47:
+Gas simulation at offset 20466 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -10940,14 +10942,14 @@ Gas simulation at offset 20464 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20485 with total cost of 25:
+Gas simulation at offset 20487 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x263]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 482, jump 23114
+    DeeeeeeeeeeeeeeeE----------R  r0 = 482, jump 23116
 ```
 
-Gas simulation at offset 20495 with total cost of 47:
+Gas simulation at offset 20497 with total cost of 47:
 
 ```
     DeER..............................................  r7 = 0
@@ -10958,7 +10960,7 @@ Gas simulation at offset 20495 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20511 with total cost of 47:
+Gas simulation at offset 20513 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -10971,7 +10973,7 @@ Gas simulation at offset 20511 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20532 with total cost of 58:
+Gas simulation at offset 20534 with total cost of 58:
 
 ```
     DeER.........................................................  r7 = r7 + 0x7ff
@@ -10993,7 +10995,7 @@ Gas simulation at offset 20532 with total cost of 58:
     .....DeeeeeeeeeeeeeeeeeeeeeeE-------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20588 with total cost of 58:
+Gas simulation at offset 20590 with total cost of 58:
 
 ```
     DeER.........................................................  r7 = r7 + 0x7ff
@@ -11015,7 +11017,7 @@ Gas simulation at offset 20588 with total cost of 58:
     .....DeeeeeeeeeeeeeeeeeeeeeeE-------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20644 with total cost of 58:
+Gas simulation at offset 20646 with total cost of 58:
 
 ```
     DeER.........................................................  r7 = r7 + 0x7ff
@@ -11037,7 +11039,7 @@ Gas simulation at offset 20644 with total cost of 58:
     .....DeeeeeeeeeeeeeeeeeeeeeeE-------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20700 with total cost of 56:
+Gas simulation at offset 20702 with total cost of 56:
 
 ```
     DeER.......................................................  r7 = r7 + 0x7ff
@@ -11055,7 +11057,7 @@ Gas simulation at offset 20700 with total cost of 56:
     ....DeeeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20743 with total cost of 56:
+Gas simulation at offset 20745 with total cost of 56:
 
 ```
     DeER.......................................................  r7 = r7 + 0x7ff
@@ -11073,7 +11075,7 @@ Gas simulation at offset 20743 with total cost of 56:
     ....DeeeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20786 with total cost of 56:
+Gas simulation at offset 20788 with total cost of 56:
 
 ```
     DeER.......................................................  r7 = r7 + 0x7ff
@@ -11091,7 +11093,7 @@ Gas simulation at offset 20786 with total cost of 56:
     ....DeeeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20829 with total cost of 26:
+Gas simulation at offset 20831 with total cost of 26:
 
 ```
     DeER.........................  r1 = r1 + 0xfffffffffffffff8
@@ -11099,10 +11101,10 @@ Gas simulation at offset 20829 with total cost of 26:
     DeE-------------------------R  r9 = r7 + 0x7ff
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r9 + 0x263]
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER  r9 = u8 [r9 + 0x26b]
-    .DeeeeeeeeeeeeeeeE----------R  r0 = 498, jump 23114
+    .DeeeeeeeeeeeeeeeE----------R  r0 = 498, jump 23116
 ```
 
-Gas simulation at offset 20852 with total cost of 47:
+Gas simulation at offset 20854 with total cost of 47:
 
 ```
     DeER..............................................  r7 = 0
@@ -11111,7 +11113,7 @@ Gas simulation at offset 20852 with total cost of 47:
     D=========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20861 with total cost of 26:
+Gas simulation at offset 20863 with total cost of 26:
 
 ```
     DeER.........................  r1 = r1 + 0xfffffffffffffff8
@@ -11119,10 +11121,10 @@ Gas simulation at offset 20861 with total cost of 26:
     DeE-------------------------R  r9 = r7 + 0x7ff
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r9 + 0x263]
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER  r9 = u8 [r9 + 0x26c]
-    .DeeeeeeeeeeeeeeeE----------R  r0 = 502, jump 23114
+    .DeeeeeeeeeeeeeeeE----------R  r0 = 502, jump 23116
 ```
 
-Gas simulation at offset 20884 with total cost of 47:
+Gas simulation at offset 20886 with total cost of 47:
 
 ```
     DeER..............................................  r7 = 0
@@ -11131,7 +11133,7 @@ Gas simulation at offset 20884 with total cost of 47:
     D=========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20893 with total cost of 26:
+Gas simulation at offset 20895 with total cost of 26:
 
 ```
     DeER.........................  r1 = r1 + 0xfffffffffffffff8
@@ -11139,10 +11141,10 @@ Gas simulation at offset 20893 with total cost of 26:
     DeE-------------------------R  r9 = r7 + 0x7ff
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r9 + 0x263]
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER  r9 = u8 [r9 + 0x26d]
-    .DeeeeeeeeeeeeeeeE----------R  r0 = 506, jump 23114
+    .DeeeeeeeeeeeeeeeE----------R  r0 = 506, jump 23116
 ```
 
-Gas simulation at offset 20916 with total cost of 47:
+Gas simulation at offset 20918 with total cost of 47:
 
 ```
     DeER..............................................  r7 = 0
@@ -11151,7 +11153,7 @@ Gas simulation at offset 20916 with total cost of 47:
     D=========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 20925 with total cost of 52:
+Gas simulation at offset 20927 with total cost of 52:
 
 ```
     DeER...................................................  r1 = r1 + 0xffffffffffffffe0
@@ -11164,19 +11166,19 @@ Gas simulation at offset 20925 with total cost of 52:
     ..D=========================eE-----------------------R.  r10 = r8 & 0x7
     ..DeE------------------------------------------------R.  r2 = 0x7
     ...D================================================eER  r5 = r9 + 0xffffffffffffffff
-    ...D=========================eE-----------------------R  jump 20985 if r10 == r2
+    ...D=========================eE-----------------------R  jump 20987 if r10 == r2
 ```
 
-Gas simulation at offset 20961 with total cost of 25:
+Gas simulation at offset 20963 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x263]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 510, jump 23114
+    DeeeeeeeeeeeeeeeE----------R  r0 = 510, jump 23116
 ```
 
-Gas simulation at offset 20975 with total cost of 25:
+Gas simulation at offset 20977 with total cost of 25:
 
 ```
     DeER........................  r2 = 0x7
@@ -11185,7 +11187,7 @@ Gas simulation at offset 20975 with total cost of 25:
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 20985 with total cost of 53:
+Gas simulation at offset 20987 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -11199,17 +11201,17 @@ Gas simulation at offset 20985 with total cost of 53:
     ...D========================eE------------R.............  r10 = r10 | r12
     ....DeE-----------------------------------R.............  r11 = r8 & 0x7
     ....D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0x26f] = a3
-    ....D=eeeeeeeeeeeeeeeeeeeeE----------------------------R  jump 21052 if r11 != 7
+    ....D=eeeeeeeeeeeeeeeeeeeeE----------------------------R  jump 21054 if r11 != 7
 ```
 
-Gas simulation at offset 21024 with total cost of 2:
+Gas simulation at offset 21026 with total cost of 2:
 
 ```
     DeER.  r8 = r8 & 0x18
-    D=eER  jump 21078 if r8 != 8
+    D=eER  jump 21080 if r8 != 8
 ```
 
-Gas simulation at offset 21031 with total cost of 47:
+Gas simulation at offset 21033 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -11222,14 +11224,14 @@ Gas simulation at offset 21031 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21052 with total cost of 25:
+Gas simulation at offset 21054 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x263]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 512, jump 23114
+    DeeeeeeeeeeeeeeeE----------R  r0 = 512, jump 23116
 ```
 
-Gas simulation at offset 21062 with total cost of 47:
+Gas simulation at offset 21064 with total cost of 47:
 
 ```
     DeER..............................................  r7 = 0
@@ -11240,7 +11242,7 @@ Gas simulation at offset 21062 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21078 with total cost of 47:
+Gas simulation at offset 21080 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -11253,7 +11255,7 @@ Gas simulation at offset 21078 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21099 with total cost of 27:
+Gas simulation at offset 21101 with total cost of 27:
 
 ```
     DeER..........................  r1 = r1 + 0xfffffffffffffff8
@@ -11263,10 +11265,10 @@ Gas simulation at offset 21099 with total cost of 27:
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r10 = u8 [r8 + 0x26c]
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r8 = u16 [r8 + 0x263]
     .D=========================eER  r9 = r9 & r10
-    ..DeeeeeeeeeeeeeeeE----------R  r0 = 516, jump 23114
+    ..DeeeeeeeeeeeeeeeE----------R  r0 = 516, jump 23116
 ```
 
-Gas simulation at offset 21129 with total cost of 47:
+Gas simulation at offset 21131 with total cost of 47:
 
 ```
     DeER..............................................  r7 = 0
@@ -11275,7 +11277,7 @@ Gas simulation at offset 21129 with total cost of 47:
     D=========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21138 with total cost of 56:
+Gas simulation at offset 21140 with total cost of 56:
 
 ```
     DeER.......................................................  r7 = r7 + 0x7ff
@@ -11294,7 +11296,7 @@ Gas simulation at offset 21138 with total cost of 56:
     ....DeeeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21185 with total cost of 52:
+Gas simulation at offset 21187 with total cost of 52:
 
 ```
     DeER...................................................  r7 = r7 + 0x7ff
@@ -11305,7 +11307,7 @@ Gas simulation at offset 21185 with total cost of 52:
     .DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21205 with total cost of 52:
+Gas simulation at offset 21207 with total cost of 52:
 
 ```
     DeER...................................................  r7 = r7 + 0x7ff
@@ -11316,7 +11318,7 @@ Gas simulation at offset 21205 with total cost of 52:
     .DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21224 with total cost of 52:
+Gas simulation at offset 21226 with total cost of 52:
 
 ```
     DeER...................................................  r7 = r7 + 0x7ff
@@ -11327,7 +11329,7 @@ Gas simulation at offset 21224 with total cost of 52:
     .DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21244 with total cost of 52:
+Gas simulation at offset 21246 with total cost of 52:
 
 ```
     DeER...................................................  r7 = r7 + 0x7ff
@@ -11338,7 +11340,7 @@ Gas simulation at offset 21244 with total cost of 52:
     .DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21263 with total cost of 52:
+Gas simulation at offset 21265 with total cost of 52:
 
 ```
     DeER...................................................  r7 = r7 + 0x7ff
@@ -11349,7 +11351,7 @@ Gas simulation at offset 21263 with total cost of 52:
     .DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21283 with total cost of 52:
+Gas simulation at offset 21285 with total cost of 52:
 
 ```
     DeER...................................................  r7 = r7 + 0x7ff
@@ -11360,7 +11362,7 @@ Gas simulation at offset 21283 with total cost of 52:
     .DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21303 with total cost of 52:
+Gas simulation at offset 21305 with total cost of 52:
 
 ```
     DeER...................................................  r7 = r7 + 0x7ff
@@ -11371,7 +11373,7 @@ Gas simulation at offset 21303 with total cost of 52:
     .DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21322 with total cost of 28:
+Gas simulation at offset 21324 with total cost of 28:
 
 ```
     DeER...........................  r1 = r1 + 0xffffffffffffffe0
@@ -11380,10 +11382,10 @@ Gas simulation at offset 21322 with total cost of 28:
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  u64 [r1 + 0x8] = r6
     .DeE------------------------R..  r6 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER.  r8 = i8 [r6 + 0x26f]
-    .D==========================eER  jump 21362 if r8 <s 0
+    .D==========================eER  jump 21364 if r8 <s 0
 ```
 
-Gas simulation at offset 21345 with total cost of 47:
+Gas simulation at offset 21347 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -11395,15 +11397,15 @@ Gas simulation at offset 21345 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21362 with total cost of 25:
+Gas simulation at offset 21364 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x269]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
-    DeeeeeeeeeeeeeeeE----------R  r0 = 536, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 536, jump 22578
 ```
 
-Gas simulation at offset 21374 with total cost of 47:
+Gas simulation at offset 21376 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  r5 = i8 [r6 + 0x265]
@@ -11411,19 +11413,19 @@ Gas simulation at offset 21374 with total cost of 47:
     D=========================eER.....................  r5 = r5 + r7
     D=========================eER.....................  r7 = r7 & 0xffffffffffffff00
     .D=========================eER....................  r8 = r5 & 0xff00
-    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21412 if r7 == r8
+    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21414 if r7 == r8
 ```
 
-Gas simulation at offset 21397 with total cost of 25:
+Gas simulation at offset 21399 with total cost of 25:
 
 ```
     DeER........................  r8 = r5 & 0xff
     D=eER.......................  r8 = r8 | r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0]
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 538, jump 22576
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 538, jump 22578
 ```
 
-Gas simulation at offset 21412 with total cost of 47:
+Gas simulation at offset 21414 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  u16 [r6 + 0x269] = r5
@@ -11435,7 +11437,7 @@ Gas simulation at offset 21412 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21432 with total cost of 29:
+Gas simulation at offset 21434 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xffffffffffffffe0
@@ -11445,18 +11447,18 @@ Gas simulation at offset 21432 with total cost of 29:
     .DeE------------------------R...  r6 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [r6 + 0x26f]
     .D==========================eER.  r8 = r8 & 0x2
-    ..D==========================eER  jump 21513 if r8 == 0
+    ..D==========================eER  jump 21515 if r8 == 0
 ```
 
-Gas simulation at offset 21458 with total cost of 25:
+Gas simulation at offset 21460 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x269]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
-    DeeeeeeeeeeeeeeeE----------R  r0 = 542, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 542, jump 22578
 ```
 
-Gas simulation at offset 21470 with total cost of 47:
+Gas simulation at offset 21472 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  r5 = i8 [r6 + 0x265]
@@ -11464,26 +11466,26 @@ Gas simulation at offset 21470 with total cost of 47:
     D=========================eER.....................  r5 = r5 + r7
     D=========================eER.....................  r7 = r7 & 0xffffffffffffff00
     .D=========================eER....................  r8 = r5 & 0xff00
-    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21508 if r7 == r8
+    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21510 if r7 == r8
 ```
 
-Gas simulation at offset 21493 with total cost of 25:
+Gas simulation at offset 21495 with total cost of 25:
 
 ```
     DeER........................  r8 = r5 & 0xff
     D=eER.......................  r8 = r8 | r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0]
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 544, jump 22576
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 544, jump 22578
 ```
 
-Gas simulation at offset 21508 with total cost of 25:
+Gas simulation at offset 21510 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 0x269] = r5
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 21513 with total cost of 47:
+Gas simulation at offset 21515 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -11495,7 +11497,7 @@ Gas simulation at offset 21513 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21530 with total cost of 29:
+Gas simulation at offset 21532 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xffffffffffffffe0
@@ -11505,18 +11507,18 @@ Gas simulation at offset 21530 with total cost of 29:
     .DeE------------------------R...  r6 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [r6 + 0x26f]
     .D==========================eER.  r8 = r8 & 0x1
-    ..D==========================eER  jump 21611 if r8 == 0
+    ..D==========================eER  jump 21613 if r8 == 0
 ```
 
-Gas simulation at offset 21556 with total cost of 25:
+Gas simulation at offset 21558 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x269]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
-    DeeeeeeeeeeeeeeeE----------R  r0 = 548, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 548, jump 22578
 ```
 
-Gas simulation at offset 21568 with total cost of 47:
+Gas simulation at offset 21570 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  r5 = i8 [r6 + 0x265]
@@ -11524,26 +11526,26 @@ Gas simulation at offset 21568 with total cost of 47:
     D=========================eER.....................  r5 = r5 + r7
     D=========================eER.....................  r7 = r7 & 0xffffffffffffff00
     .D=========================eER....................  r8 = r5 & 0xff00
-    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21606 if r7 == r8
+    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21608 if r7 == r8
 ```
 
-Gas simulation at offset 21591 with total cost of 25:
+Gas simulation at offset 21593 with total cost of 25:
 
 ```
     DeER........................  r8 = r5 & 0xff
     D=eER.......................  r8 = r8 | r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0]
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 550, jump 22576
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 550, jump 22578
 ```
 
-Gas simulation at offset 21606 with total cost of 25:
+Gas simulation at offset 21608 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 0x269] = r5
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 21611 with total cost of 47:
+Gas simulation at offset 21613 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -11555,7 +11557,7 @@ Gas simulation at offset 21611 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21628 with total cost of 28:
+Gas simulation at offset 21630 with total cost of 28:
 
 ```
     DeER...........................  r1 = r1 + 0xffffffffffffffe0
@@ -11564,18 +11566,18 @@ Gas simulation at offset 21628 with total cost of 28:
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  u64 [r1 + 0x8] = r6
     .DeE------------------------R..  r6 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER.  r8 = i8 [r6 + 0x26f]
-    .D==========================eER  jump 21706 if r8 <s 0
+    .D==========================eER  jump 21708 if r8 <s 0
 ```
 
-Gas simulation at offset 21651 with total cost of 25:
+Gas simulation at offset 21653 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x269]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
-    DeeeeeeeeeeeeeeeE----------R  r0 = 554, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 554, jump 22578
 ```
 
-Gas simulation at offset 21663 with total cost of 47:
+Gas simulation at offset 21665 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  r5 = i8 [r6 + 0x265]
@@ -11583,26 +11585,26 @@ Gas simulation at offset 21663 with total cost of 47:
     D=========================eER.....................  r5 = r5 + r7
     D=========================eER.....................  r7 = r7 & 0xffffffffffffff00
     .D=========================eER....................  r8 = r5 & 0xff00
-    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21701 if r7 == r8
+    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21703 if r7 == r8
 ```
 
-Gas simulation at offset 21686 with total cost of 25:
+Gas simulation at offset 21688 with total cost of 25:
 
 ```
     DeER........................  r8 = r5 & 0xff
     D=eER.......................  r8 = r8 | r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0]
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 556, jump 22576
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 556, jump 22578
 ```
 
-Gas simulation at offset 21701 with total cost of 25:
+Gas simulation at offset 21703 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 0x269] = r5
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 21706 with total cost of 47:
+Gas simulation at offset 21708 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -11614,7 +11616,7 @@ Gas simulation at offset 21706 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21723 with total cost of 29:
+Gas simulation at offset 21725 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xffffffffffffffe0
@@ -11624,18 +11626,18 @@ Gas simulation at offset 21723 with total cost of 29:
     .DeE------------------------R...  r6 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [r6 + 0x26f]
     .D==========================eER.  r8 = r8 & 0x2
-    ..D==========================eER  jump 21804 if r8 != 0
+    ..D==========================eER  jump 21806 if r8 != 0
 ```
 
-Gas simulation at offset 21749 with total cost of 25:
+Gas simulation at offset 21751 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x269]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
-    DeeeeeeeeeeeeeeeE----------R  r0 = 560, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 560, jump 22578
 ```
 
-Gas simulation at offset 21761 with total cost of 47:
+Gas simulation at offset 21763 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  r5 = i8 [r6 + 0x265]
@@ -11643,26 +11645,26 @@ Gas simulation at offset 21761 with total cost of 47:
     D=========================eER.....................  r5 = r5 + r7
     D=========================eER.....................  r7 = r7 & 0xffffffffffffff00
     .D=========================eER....................  r8 = r5 & 0xff00
-    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21799 if r7 == r8
+    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21801 if r7 == r8
 ```
 
-Gas simulation at offset 21784 with total cost of 25:
+Gas simulation at offset 21786 with total cost of 25:
 
 ```
     DeER........................  r8 = r5 & 0xff
     D=eER.......................  r8 = r8 | r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0]
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 562, jump 22576
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 562, jump 22578
 ```
 
-Gas simulation at offset 21799 with total cost of 25:
+Gas simulation at offset 21801 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 0x269] = r5
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 21804 with total cost of 47:
+Gas simulation at offset 21806 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -11674,7 +11676,7 @@ Gas simulation at offset 21804 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21821 with total cost of 29:
+Gas simulation at offset 21823 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xffffffffffffffe0
@@ -11684,18 +11686,18 @@ Gas simulation at offset 21821 with total cost of 29:
     .DeE------------------------R...  r6 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [r6 + 0x26f]
     .D==========================eER.  r8 = r8 & 0x1
-    ..D==========================eER  jump 21902 if r8 != 0
+    ..D==========================eER  jump 21904 if r8 != 0
 ```
 
-Gas simulation at offset 21847 with total cost of 25:
+Gas simulation at offset 21849 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x269]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
-    DeeeeeeeeeeeeeeeE----------R  r0 = 566, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 566, jump 22578
 ```
 
-Gas simulation at offset 21859 with total cost of 47:
+Gas simulation at offset 21861 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  r5 = i8 [r6 + 0x265]
@@ -11703,26 +11705,26 @@ Gas simulation at offset 21859 with total cost of 47:
     D=========================eER.....................  r5 = r5 + r7
     D=========================eER.....................  r7 = r7 & 0xffffffffffffff00
     .D=========================eER....................  r8 = r5 & 0xff00
-    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21897 if r7 == r8
+    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21899 if r7 == r8
 ```
 
-Gas simulation at offset 21882 with total cost of 25:
+Gas simulation at offset 21884 with total cost of 25:
 
 ```
     DeER........................  r8 = r5 & 0xff
     D=eER.......................  r8 = r8 | r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0]
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 568, jump 22576
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 568, jump 22578
 ```
 
-Gas simulation at offset 21897 with total cost of 25:
+Gas simulation at offset 21899 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 0x269] = r5
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 21902 with total cost of 47:
+Gas simulation at offset 21904 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -11734,7 +11736,7 @@ Gas simulation at offset 21902 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 21919 with total cost of 29:
+Gas simulation at offset 21921 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xffffffffffffffe0
@@ -11744,18 +11746,18 @@ Gas simulation at offset 21919 with total cost of 29:
     .DeE------------------------R...  r6 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [r6 + 0x26f]
     .D==========================eER.  r8 = r8 & 0x40
-    ..D==========================eER  jump 22000 if r8 == 0
+    ..D==========================eER  jump 22002 if r8 == 0
 ```
 
-Gas simulation at offset 21945 with total cost of 25:
+Gas simulation at offset 21947 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x269]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
-    DeeeeeeeeeeeeeeeE----------R  r0 = 572, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 572, jump 22578
 ```
 
-Gas simulation at offset 21957 with total cost of 47:
+Gas simulation at offset 21959 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  r5 = i8 [r6 + 0x265]
@@ -11763,26 +11765,26 @@ Gas simulation at offset 21957 with total cost of 47:
     D=========================eER.....................  r5 = r5 + r7
     D=========================eER.....................  r7 = r7 & 0xffffffffffffff00
     .D=========================eER....................  r8 = r5 & 0xff00
-    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21995 if r7 == r8
+    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 21997 if r7 == r8
 ```
 
-Gas simulation at offset 21980 with total cost of 25:
+Gas simulation at offset 21982 with total cost of 25:
 
 ```
     DeER........................  r8 = r5 & 0xff
     D=eER.......................  r8 = r8 | r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0]
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 574, jump 22576
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 574, jump 22578
 ```
 
-Gas simulation at offset 21995 with total cost of 25:
+Gas simulation at offset 21997 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 0x269] = r5
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 22000 with total cost of 47:
+Gas simulation at offset 22002 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -11794,7 +11796,7 @@ Gas simulation at offset 22000 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 22017 with total cost of 29:
+Gas simulation at offset 22019 with total cost of 29:
 
 ```
     DeER............................  r1 = r1 + 0xffffffffffffffe0
@@ -11804,18 +11806,18 @@ Gas simulation at offset 22017 with total cost of 29:
     .DeE------------------------R...  r6 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [r6 + 0x26f]
     .D==========================eER.  r8 = r8 & 0x40
-    ..D==========================eER  jump 22098 if r8 != 0
+    ..D==========================eER  jump 22100 if r8 != 0
 ```
 
-Gas simulation at offset 22043 with total cost of 25:
+Gas simulation at offset 22045 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x269]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
-    DeeeeeeeeeeeeeeeE----------R  r0 = 578, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 578, jump 22578
 ```
 
-Gas simulation at offset 22055 with total cost of 47:
+Gas simulation at offset 22057 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  r5 = i8 [r6 + 0x265]
@@ -11823,26 +11825,26 @@ Gas simulation at offset 22055 with total cost of 47:
     D=========================eER.....................  r5 = r5 + r7
     D=========================eER.....................  r7 = r7 & 0xffffffffffffff00
     .D=========================eER....................  r8 = r5 & 0xff00
-    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 22093 if r7 == r8
+    .D==========================eeeeeeeeeeeeeeeeeeeeER  jump 22095 if r7 == r8
 ```
 
-Gas simulation at offset 22078 with total cost of 25:
+Gas simulation at offset 22080 with total cost of 25:
 
 ```
     DeER........................  r8 = r5 & 0xff
     D=eER.......................  r8 = r8 | r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0]
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 580, jump 22576
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 580, jump 22578
 ```
 
-Gas simulation at offset 22093 with total cost of 25:
+Gas simulation at offset 22095 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 0x269] = r5
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 22098 with total cost of 47:
+Gas simulation at offset 22100 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -11854,13 +11856,13 @@ Gas simulation at offset 22098 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 22115 with total cost of 22:
+Gas simulation at offset 22117 with total cost of 22:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 22117 with total cost of 51:
+Gas simulation at offset 22119 with total cost of 51:
 
 ```
     DeER..................................................  r7 = r7 + 0x7ff
@@ -11869,7 +11871,7 @@ Gas simulation at offset 22117 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 22131 with total cost of 27:
+Gas simulation at offset 22133 with total cost of 27:
 
 ```
     DeER..........................  r1 = r1 + 0xffffffffffffffe8
@@ -11879,10 +11881,10 @@ Gas simulation at offset 22131 with total cost of 27:
     .D............................  r5 = r7
     .DeE------------------------R.  r6 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x269]
-    ..DeeeeeeeeeeeeeeeE----------R  r0 = 588, jump 22576
+    ..DeeeeeeeeeeeeeeeE----------R  r0 = 588, jump 22578
 ```
 
-Gas simulation at offset 22158 with total cost of 61:
+Gas simulation at offset 22160 with total cost of 61:
 
 ```
     D...............................................................  r8 = r7
@@ -11905,17 +11907,17 @@ Gas simulation at offset 22158 with total cost of 61:
     .....D======================================================eER.  r8 = r8 | r9
     ......D===================eE----------------------------------R.  r9 = r10 & 0x20
     ......D======================================================eER  r8 = zext16 r8
-    ......D====================eeeeeeeeeeeeeeeeeeeeE---------------R  jump 22248 if r9 != 0
+    ......D====================eeeeeeeeeeeeeeeeeeeeE---------------R  jump 22250 if r9 != 0
 ```
 
-Gas simulation at offset 22225 with total cost of 2:
+Gas simulation at offset 22227 with total cost of 2:
 
 ```
     DeER.  r9 = zext16 r5
-    D=eER  jump 22248 if r8 != r9
+    D=eER  jump 22250 if r8 != r9
 ```
 
-Gas simulation at offset 22230 with total cost of 47:
+Gas simulation at offset 22232 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -11927,13 +11929,13 @@ Gas simulation at offset 22230 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 22248 with total cost of 15:
+Gas simulation at offset 22250 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  r0 = 590, jump 22576
+    DeeeeeeeeeeeeeeeER  r0 = 590, jump 22578
 ```
 
-Gas simulation at offset 22254 with total cost of 47:
+Gas simulation at offset 22256 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  u16 [r6 + 0x263] = r5
@@ -11944,7 +11946,7 @@ Gas simulation at offset 22254 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 22271 with total cost of 27:
+Gas simulation at offset 22273 with total cost of 27:
 
 ```
     DeER..........................  r1 = r1 + 0xffffffffffffffe8
@@ -11954,10 +11956,10 @@ Gas simulation at offset 22271 with total cost of 27:
     .D............................  r5 = r7
     .DeE------------------------R.  r6 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u8 [r6 + 0x265]
-    ..DeeeeeeeeeeeeeeeE----------R  r0 = 594, jump 22576
+    ..DeeeeeeeeeeeeeeeE----------R  r0 = 594, jump 22578
 ```
 
-Gas simulation at offset 22298 with total cost of 84:
+Gas simulation at offset 22300 with total cost of 84:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...........................................................  r7 = u8 [r6 + 0x267]
@@ -11978,7 +11980,7 @@ Gas simulation at offset 22298 with total cost of 84:
     ....D========================eeeeeeeeeeeeeeeeeeeeeeE----------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 22350 with total cost of 53:
+Gas simulation at offset 22352 with total cost of 53:
 
 ```
     DeER....................................................  r1 = r1 + 0xffffffffffffffd8
@@ -11991,20 +11993,20 @@ Gas simulation at offset 22350 with total cost of 53:
     ..D=========================eER.........................  r7 = r8 + 0x1
     ..D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x8] = r7
     ..D.....................................................  r7 = r5
-    ...DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 598, jump 22576
+    ...DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 598, jump 22578
 ```
 
-Gas simulation at offset 22386 with total cost of 26:
+Gas simulation at offset 22388 with total cost of 26:
 
 ```
     DeER.........................  r7 = r7 & 0xff
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r8 = u8 [r1 + 0x8]
     D............................  r7 = r5
-    .DeeeeeeeeeeeeeeeE----------R  r0 = 600, jump 22576
+    .DeeeeeeeeeeeeeeeE----------R  r0 = 600, jump 22578
 ```
 
-Gas simulation at offset 22403 with total cost of 31:
+Gas simulation at offset 22405 with total cost of 31:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......  u64 [r1 + 0x8] = r6
@@ -12017,27 +12019,27 @@ Gas simulation at offset 22403 with total cost of 31:
     ..D=========================eER...  r8 = r6 & 0xff
     ..D==========================eER..  r7 = r7 | r8
     ..D===========================eER.  r8 = zext16 r7
-    ...D===========================eER  jump 22449 if r8 != r9
+    ...D===========================eER  jump 22451 if r8 != r9
 ```
 
-Gas simulation at offset 22435 with total cost of 71:
+Gas simulation at offset 22437 with total cost of 71:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...............................  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...............................  r7 = u64 [r1 + 0x8]
     D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.....................  r7 = u8 [r7 + 0x267]
     D==================================================eER....................  r7 = r7 & 0x20
-    .D==================================================eeeeeeeeeeeeeeeeeeeeER  jump 22456 if r7 == 0
+    .D==================================================eeeeeeeeeeeeeeeeeeeeER  jump 22458 if r7 == 0
 ```
 
-Gas simulation at offset 22449 with total cost of 15:
+Gas simulation at offset 22451 with total cost of 15:
 
 ```
     D.................  r7 = r5
-    DeeeeeeeeeeeeeeeER  r0 = 602, jump 22576
+    DeeeeeeeeeeeeeeeER  r0 = 602, jump 22578
 ```
 
-Gas simulation at offset 22456 with total cost of 50:
+Gas simulation at offset 22458 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.........................  r7 = u64 [r1 + 0x8]
@@ -12049,7 +12051,7 @@ Gas simulation at offset 22456 with total cost of 50:
     .D========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 22477 with total cost of 52:
+Gas simulation at offset 22479 with total cost of 52:
 
 ```
     DeER...................................................  r1 = r1 + 0xffffffffffffffd8
@@ -12063,18 +12065,18 @@ Gas simulation at offset 22477 with total cost of 52:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u8 [r7 + 0x26c]
     ..D=================================================eER  r6 = r7 + r8
     ..D....................................................  r7 = r5
-    ...DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 606, jump 22576
+    ...DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 606, jump 22578
 ```
 
-Gas simulation at offset 22516 with total cost of 15:
+Gas simulation at offset 22518 with total cost of 15:
 
 ```
     DeER..............  r8 = r6 & 0xff
     D.................  r7 = r5
-    DeeeeeeeeeeeeeeeER  r0 = 608, jump 22576
+    DeeeeeeeeeeeeeeeER  r0 = 608, jump 22578
 ```
 
-Gas simulation at offset 22527 with total cost of 26:
+Gas simulation at offset 22529 with total cost of 26:
 
 ```
     DeER.........................  r7 = r7 & 0xff
@@ -12082,10 +12084,10 @@ Gas simulation at offset 22527 with total cost of 26:
     DeE-------------------------R  r7 = r6 + 0x1
     .DeE------------------------R  r8 = r7 & 0xff
     .D...........................  r7 = r5
-    .DeeeeeeeeeeeeeeeE----------R  r0 = 610, jump 22576
+    .DeeeeeeeeeeeeeeeE----------R  r0 = 610, jump 22578
 ```
 
-Gas simulation at offset 22547 with total cost of 51:
+Gas simulation at offset 22549 with total cost of 51:
 
 ```
     DeER..................................................  r7 = r7 << 0x8
@@ -12100,7 +12102,7 @@ Gas simulation at offset 22547 with total cost of 51:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 22576 with total cost of 27:
+Gas simulation at offset 22578 with total cost of 27:
 
 ```
     DeER..........................  r1 = r1 + 0xffffffffffffffa8
@@ -12113,31 +12115,31 @@ Gas simulation at offset 22576 with total cost of 27:
     ..DeeeeeeeeeeeeeeeE----------R  r0 = 612, jump 1045
 ```
 
-Gas simulation at offset 22603 with total cost of 26:
+Gas simulation at offset 22605 with total cost of 26:
 
 ```
     D............................  r8 = r5
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u8 [r6 + 0x277]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 56] = 0x1
-    D=========================eER  jump 22629 if r7 != 0
+    D=========================eER  jump 22631 if r7 != 0
 ```
 
-Gas simulation at offset 22616 with total cost of 45:
+Gas simulation at offset 22618 with total cost of 45:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.....  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R.....  r7 = u8 [r6 + 0x278]
-    D=========================eeeeeeeeeeeeeeeeeeeeER  jump 23096 if r7 == 0
+    D=========================eeeeeeeeeeeeeeeeeeeeER  jump 23098 if r7 == 0
 ```
 
-Gas simulation at offset 22625 with total cost of 25:
+Gas simulation at offset 22627 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 56] = 0
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 22629 with total cost of 25:
+Gas simulation at offset 22631 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 0x30]
@@ -12146,14 +12148,14 @@ Gas simulation at offset 22629 with total cost of 25:
     DeeeeeeeeeeeeeeeE----------R  r0 = 614, jump 385
 ```
 
-Gas simulation at offset 22643 with total cost of 15:
+Gas simulation at offset 22645 with total cost of 15:
 
 ```
     D.................  r7 = r5
     DeeeeeeeeeeeeeeeER  r0 = 616, jump 1045
 ```
 
-Gas simulation at offset 22651 with total cost of 27:
+Gas simulation at offset 22653 with total cost of 27:
 
 ```
     DeER..........................  r2 = 0
@@ -12163,10 +12165,10 @@ Gas simulation at offset 22651 with total cost of 27:
     .DeE------------------------R.  r7 = 0xffff000000000000
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x20] = r7
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x28] = r6
-    ..DeeeeeeeeeeeeeeeE----------R  jump 22737
+    ..DeeeeeeeeeeeeeeeE----------R  jump 22739
 ```
 
-Gas simulation at offset 22680 with total cost of 57:
+Gas simulation at offset 22682 with total cost of 57:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.................  unlikely
@@ -12185,7 +12187,7 @@ Gas simulation at offset 22680 with total cost of 57:
     ....DeeeeeeeeeeeeeeeE--------------------------------------R  r0 = 618, jump 385
 ```
 
-Gas simulation at offset 22722 with total cost of 25:
+Gas simulation at offset 22724 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x10] = r7
@@ -12193,31 +12195,31 @@ Gas simulation at offset 22722 with total cost of 25:
     DeeeeeeeeeeeeeeeE----------R  r0 = 620, jump 1045
 ```
 
-Gas simulation at offset 22733 with total cost of 2:
+Gas simulation at offset 22735 with total cost of 2:
 
 ```
     DeER.  r2 = 0x1
     DeeER  fallthrough
 ```
 
-Gas simulation at offset 22737 with total cost of 40:
+Gas simulation at offset 22739 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r7 = u8 [r6 + 0x277]
     DeE---------------------------------------R  r9 = 0
-    D=========================eE--------------R  jump 22766 if r7 == 0
+    D=========================eE--------------R  jump 22768 if r7 == 0
 ```
 
-Gas simulation at offset 22747 with total cost of 40:
+Gas simulation at offset 22749 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r8 = u8 [r1 + 0x38]
-    D=========================eE--------------R  jump 22766 if r8 != 2
+    D=========================eE--------------R  jump 22768 if r8 != 2
 ```
 
-Gas simulation at offset 22755 with total cost of 29:
+Gas simulation at offset 22757 with total cost of 29:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER....  r8 = u8 [r6 + 0x251]
@@ -12226,59 +12228,59 @@ Gas simulation at offset 22755 with total cost of 29:
     .DeeE--------------------------R  fallthrough
 ```
 
-Gas simulation at offset 22766 with total cost of 48:
+Gas simulation at offset 22768 with total cost of 48:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R........  r12 = u8 [r6 + 0x278]
     .D========================eeE-------------R........  r10 = r2 | ~r12
     .D==========================eE------------R........  r10 = r10 & 0x1
-    ..D==========================eeeeeeeeeeeeeeeeeeeeER  jump 22797 if r10 == 0
+    ..D==========================eeeeeeeeeeeeeeeeeeeeER  jump 22799 if r10 == 0
 ```
 
-Gas simulation at offset 22780 with total cost of 21:
+Gas simulation at offset 22782 with total cost of 21:
 
 ```
     DeER....................  r10 = 0
     DeER....................  r11 = r2 & r12
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 22813 if r11 != 0
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 22815 if r11 != 0
 ```
 
-Gas simulation at offset 22788 with total cost of 20:
+Gas simulation at offset 22790 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 22816 if r9 != 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 22818 if r9 != 0
 ```
 
-Gas simulation at offset 22791 with total cost of 1:
+Gas simulation at offset 22793 with total cost of 1:
 
 ```
-    DeER  jump 22680 if r10 != 0
+    DeER  jump 22682 if r10 != 0
 ```
 
-Gas simulation at offset 22794 with total cost of 15:
+Gas simulation at offset 22796 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 22944
+    DeeeeeeeeeeeeeeeER  jump 22946
 ```
 
-Gas simulation at offset 22797 with total cost of 29:
+Gas simulation at offset 22799 with total cost of 29:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER....  r10 = u8 [r6 + 0x251]
     D=========================eER...  r10 = r10 & 0x1
     .D=========================eeeER  r10 = r10 <u 0x1
     ..DeE--------------------------R  r11 = r2 & r12
-    ..D=eeeeeeeeeeeeeeeeeeeeE------R  jump 22788 if r11 == 0
+    ..D=eeeeeeeeeeeeeeeeeeeeE------R  jump 22790 if r11 == 0
 ```
 
-Gas simulation at offset 22813 with total cost of 20:
+Gas simulation at offset 22815 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 22929 if r9 == 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 22931 if r9 == 0
 ```
 
-Gas simulation at offset 22816 with total cost of 25:
+Gas simulation at offset 22818 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x273]
@@ -12288,7 +12290,7 @@ Gas simulation at offset 22816 with total cost of 25:
     .DeeeeeeeeeeeeeeeE---------R  r0 = 622, jump 385
 ```
 
-Gas simulation at offset 22833 with total cost of 15:
+Gas simulation at offset 22835 with total cost of 15:
 
 ```
     D.................  r8 = r5
@@ -12297,7 +12299,7 @@ Gas simulation at offset 22833 with total cost of 15:
     DeeeeeeeeeeeeeeeER  r0 = 624, jump 1045
 ```
 
-Gas simulation at offset 22845 with total cost of 77:
+Gas simulation at offset 22847 with total cost of 77:
 
 ```
     D...............................................................................  r2 = r6
@@ -12315,18 +12317,18 @@ Gas simulation at offset 22845 with total cost of 77:
     ...D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r6 + 0x7e] = s0
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 0x85] = r8
     ...D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 0x87] = r7
-    ....D================================================eE------------------------R  jump 22737 if r9 != 0
+    ....D================================================eE------------------------R  jump 22739 if r9 != 0
 ```
 
-Gas simulation at offset 22901 with total cost of 40:
+Gas simulation at offset 22903 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r7 = u8 [r6 + 0x8d]
-    D=========================eE--------------R  jump 23002 if r7 == 0
+    D=========================eE--------------R  jump 23004 if r7 == 0
 ```
 
-Gas simulation at offset 22909 with total cost of 50:
+Gas simulation at offset 22911 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
@@ -12334,38 +12336,38 @@ Gas simulation at offset 22909 with total cost of 50:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r8 = i16 [r6 + 0x81]
     D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 0x85] = r7
     .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 0x87] = r8
-    .DeeeeeeeeeeeeeeeE----------------------------------R  jump 22737
+    .DeeeeeeeeeeeeeeeE----------------------------------R  jump 22739
 ```
 
-Gas simulation at offset 22929 with total cost of 1:
+Gas simulation at offset 22931 with total cost of 1:
 
 ```
-    DeER  jump 22680 if r10 != 0
+    DeER  jump 22682 if r10 != 0
 ```
 
-Gas simulation at offset 22933 with total cost of 40:
+Gas simulation at offset 22935 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r9 = u32 [r6 + 0x251]
     D=========================eE--------------R  r9 = r9 & 0x1
-    D==========================eE-------------R  jump 23019 if r9 != 0
+    D==========================eE-------------R  jump 23021 if r9 != 0
 ```
 
-Gas simulation at offset 22944 with total cost of 25:
+Gas simulation at offset 22946 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u64 [r1 + 0x8]
-    DeE------------------------R  jump 22954 if r7 != 0
+    DeE------------------------R  jump 22956 if r7 != 0
 ```
 
-Gas simulation at offset 22950 with total cost of 1:
+Gas simulation at offset 22952 with total cost of 1:
 
 ```
-    DeER  jump 23096 if r12 == 0
+    DeER  jump 23098 if r12 == 0
 ```
 
-Gas simulation at offset 22954 with total cost of 57:
+Gas simulation at offset 22956 with total cost of 57:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.................  unlikely
@@ -12381,37 +12383,37 @@ Gas simulation at offset 22954 with total cost of 57:
     ...DeeeeeeeeeeeeeeeE---------------------------------------R  r0 = 626, jump 385
 ```
 
-Gas simulation at offset 22986 with total cost of 15:
+Gas simulation at offset 22988 with total cost of 15:
 
 ```
     D.................  r7 = r5
     DeeeeeeeeeeeeeeeER  r0 = 628, jump 1045
 ```
 
-Gas simulation at offset 22994 with total cost of 25:
+Gas simulation at offset 22996 with total cost of 25:
 
 ```
     D...........................  r2 = r6
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r6 = u64 [r1 + 0x28]
-    DeeeeeeeeeeeeeeeE----------R  jump 22737
+    DeeeeeeeeeeeeeeeE----------R  jump 22739
 ```
 
-Gas simulation at offset 23002 with total cost of 40:
+Gas simulation at offset 23004 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r7 = u8 [r6 + 0x8c]
-    D=========================eE--------------R  jump 22737 if r7 == 0
+    D=========================eE--------------R  jump 22739 if r7 == 0
 ```
 
-Gas simulation at offset 23011 with total cost of 25:
+Gas simulation at offset 23013 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 143] = 0x1
-    DeeeeeeeeeeeeeeeE----------R  jump 22737
+    DeeeeeeeeeeeeeeeE----------R  jump 22739
 ```
 
-Gas simulation at offset 23019 with total cost of 57:
+Gas simulation at offset 23021 with total cost of 57:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.................  unlikely
@@ -12431,7 +12433,7 @@ Gas simulation at offset 23019 with total cost of 57:
     ....DeeeeeeeeeeeeeeeE--------------------------------------R  r0 = 630, jump 1045
 ```
 
-Gas simulation at offset 23064 with total cost of 26:
+Gas simulation at offset 23066 with total cost of 26:
 
 ```
     DeER.........................  r2 = 0
@@ -12439,19 +12441,19 @@ Gas simulation at offset 23064 with total cost of 26:
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x18] = r5
     D=eE------------------------R  r7 = zext16 r5
     .DeE------------------------R  r8 = 0x100
-    .D=eE-----------------------R  jump 22737 if r7 != r8
+    .D=eE-----------------------R  jump 22739 if r7 != r8
 ```
 
-Gas simulation at offset 23082 with total cost of 25:
+Gas simulation at offset 23084 with total cost of 25:
 
 ```
     DeER........................  r2 = 0
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 632] = 0
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 24] = 0x100
-    DeeeeeeeeeeeeeeeE----------R  jump 22737
+    DeeeeeeeeeeeeeeeE----------R  jump 22739
 ```
 
-Gas simulation at offset 23096 with total cost of 26:
+Gas simulation at offset 23098 with total cost of 26:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u64 [r1 + 0x30]
@@ -12462,7 +12464,7 @@ Gas simulation at offset 23096 with total cost of 26:
     .DeeeeeeeeeeeeeeeE----------R  jump 385
 ```
 
-Gas simulation at offset 23114 with total cost of 53:
+Gas simulation at offset 23116 with total cost of 53:
 
 ```
     DeER....................................................  r1 = r1 + 0xffffffffffffffd0
@@ -12480,7 +12482,7 @@ Gas simulation at offset 23114 with total cost of 53:
     ...DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 632, jump 1045
 ```
 
-Gas simulation at offset 23153 with total cost of 51:
+Gas simulation at offset 23155 with total cost of 51:
 
 ```
     D.....................................................  r8 = r5
@@ -12493,7 +12495,7 @@ Gas simulation at offset 23153 with total cost of 51:
     ..D===========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r7 + 0]
 ```
 
-Gas simulation at offset 23176 with total cost of 77:
+Gas simulation at offset 23178 with total cost of 77:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER....................................................  r7 = u64 [r1 + 0x8]
@@ -12505,7 +12507,7 @@ Gas simulation at offset 23176 with total cost of 77:
     .DeeE--------------------------------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 23199 with total cost of 51:
+Gas simulation at offset 23201 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u64 [r1 + 0]
@@ -12519,7 +12521,7 @@ Gas simulation at offset 23199 with total cost of 51:
     ..DeeeeeeeeeeeeeeeeeeeeeeE---------------------------R  jump [r12 + 0]
 ```
 
-Gas simulation at offset 23225 with total cost of 25:
+Gas simulation at offset 23227 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 0]
@@ -12527,19 +12529,19 @@ Gas simulation at offset 23225 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = u64 [r1 + 0x8]
     .DeE-----------------------R  r12 = r8 >> 0x5
     .DeE-----------------------R  r10 = 0x201
-    .D=eE----------------------R  jump 23442 if r12 >=u r10
+    .D=eE----------------------R  jump 23444 if r12 >=u r10
 ```
 
-Gas simulation at offset 23244 with total cost of 2:
+Gas simulation at offset 23246 with total cost of 2:
 
 ```
     D....  r7 = r6
     DeER.  r6 = r8 & 0x1f
     DeER.  r8 = 0x17
-    .DeER  jump 23360 if r8 <u r6
+    .DeER  jump 23362 if r8 <u r6
 ```
 
-Gas simulation at offset 23255 with total cost of 50:
+Gas simulation at offset 23257 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
@@ -12552,7 +12554,7 @@ Gas simulation at offset 23255 with total cost of 50:
     .D===========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r8 + 0]
 ```
 
-Gas simulation at offset 23276 with total cost of 75:
+Gas simulation at offset 23278 with total cost of 75:
 
 ```
     DeER..........................................................................  r7 = r12 & 0xf
@@ -12573,7 +12575,7 @@ Gas simulation at offset 23276 with total cost of 75:
     ....D=================================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23322 with total cost of 77:
+Gas simulation at offset 23324 with total cost of 77:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER....................................................  r7 = u64 [r1 + 0x8]
@@ -12582,10 +12584,10 @@ Gas simulation at offset 23322 with total cost of 77:
     DeE-------------------------------------------------R...........................  r9 = 0x17c80
     .D=================================================eeER.........................  r9 = r7 if r10 != 0
     .D===================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  r12 = u64 [r9 + 0x30]
-    .DeeeeeeeeeeeeeeeE-------------------------------------------------------------R  jump 23199
+    .DeeeeeeeeeeeeeeeE-------------------------------------------------------------R  jump 23201
 ```
 
-Gas simulation at offset 23347 with total cost of 50:
+Gas simulation at offset 23349 with total cost of 50:
 
 ```
     DeER.................................................  r7 = r8 & 0x7ff
@@ -12595,7 +12597,7 @@ Gas simulation at offset 23347 with total cost of 50:
     .DeeE-----------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 23360 with total cost of 47:
+Gas simulation at offset 23362 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  r0 = u64 [r1 + 0x28]
@@ -12605,7 +12607,7 @@ Gas simulation at offset 23360 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23374 with total cost of 51:
+Gas simulation at offset 23376 with total cost of 51:
 
 ```
     D.....................................................  r5 = r6
@@ -12620,7 +12622,7 @@ Gas simulation at offset 23374 with total cost of 51:
     ..D===========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r7 + 0]
 ```
 
-Gas simulation at offset 23403 with total cost of 52:
+Gas simulation at offset 23405 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...........................  r7 = u16 [r9 + 0x20a]
@@ -12637,7 +12639,7 @@ Gas simulation at offset 23403 with total cost of 52:
     ...D========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23442 with total cost of 74:
+Gas simulation at offset 23444 with total cost of 74:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..................................  unlikely
@@ -12655,7 +12657,7 @@ Gas simulation at offset 23442 with total cost of 74:
     ....D================================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r12 + 0]
 ```
 
-Gas simulation at offset 23483 with total cost of 53:
+Gas simulation at offset 23485 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER............................  r7 = u8 [r9 + 0x223]
@@ -12671,7 +12673,7 @@ Gas simulation at offset 23483 with total cost of 53:
     ...D========================eeeeeeeeeeeeeeeeeeeeeeE----R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23519 with total cost of 47:
+Gas simulation at offset 23521 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  u8 [r9 + 0x226] = a1
@@ -12682,7 +12684,7 @@ Gas simulation at offset 23519 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23537 with total cost of 47:
+Gas simulation at offset 23539 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  u8 [r9 + 0x223] = a1
@@ -12693,7 +12695,7 @@ Gas simulation at offset 23537 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23555 with total cost of 25:
+Gas simulation at offset 23557 with total cost of 25:
 
 ```
     D...........................  r7 = r5
@@ -12704,7 +12706,7 @@ Gas simulation at offset 23555 with total cost of 25:
     .DeeeeeeeeeeeeeeeE---------R  jump 6712
 ```
 
-Gas simulation at offset 23572 with total cost of 25:
+Gas simulation at offset 23574 with total cost of 25:
 
 ```
     D...........................  r7 = r5
@@ -12715,14 +12717,14 @@ Gas simulation at offset 23572 with total cost of 25:
     .DeeeeeeeeeeeeeeeE---------R  jump 6864
 ```
 
-Gas simulation at offset 23589 with total cost of 26:
+Gas simulation at offset 23591 with total cost of 26:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u8 [r9 + 0x239]
-    D=========================eER  jump 23633 if r7 == 0
+    D=========================eER  jump 23635 if r7 == 0
 ```
 
-Gas simulation at offset 23596 with total cost of 52:
+Gas simulation at offset 23598 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -12739,7 +12741,7 @@ Gas simulation at offset 23596 with total cost of 52:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeE----R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23633 with total cost of 51:
+Gas simulation at offset 23635 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
@@ -12754,7 +12756,7 @@ Gas simulation at offset 23633 with total cost of 51:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23662 with total cost of 51:
+Gas simulation at offset 23664 with total cost of 51:
 
 ```
     DeER..................................................  r7 = r12 << 0x8
@@ -12768,7 +12770,7 @@ Gas simulation at offset 23662 with total cost of 51:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23690 with total cost of 28:
+Gas simulation at offset 23692 with total cost of 28:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...  r7 = i32 [r11 + 0x250]
@@ -12777,10 +12779,10 @@ Gas simulation at offset 23690 with total cost of 28:
     .D=eE----------------------R...  r9 = r9 >> 0x3f
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER..  u8 [r11 + 0x96] = a1
     ..D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r11 + 0x97] = a2
-    ..D=eE------------------------R  jump 23728 if r9 == 0
+    ..D=eE------------------------R  jump 23730 if r9 == 0
 ```
 
-Gas simulation at offset 23714 with total cost of 50:
+Gas simulation at offset 23716 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
@@ -12790,7 +12792,7 @@ Gas simulation at offset 23714 with total cost of 50:
     .DeeE-----------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 23728 with total cost of 50:
+Gas simulation at offset 23730 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
@@ -12804,14 +12806,14 @@ Gas simulation at offset 23728 with total cost of 50:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeE--R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23754 with total cost of 26:
+Gas simulation at offset 23756 with total cost of 26:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u8 [r11 + 0x3d]
-    D=========================eER  jump 23778 if r7 == 0
+    D=========================eER  jump 23780 if r7 == 0
 ```
 
-Gas simulation at offset 23760 with total cost of 52:
+Gas simulation at offset 23762 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -12823,7 +12825,7 @@ Gas simulation at offset 23760 with total cost of 52:
     .DeeE-------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 23778 with total cost of 47:
+Gas simulation at offset 23780 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -12836,7 +12838,7 @@ Gas simulation at offset 23778 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23799 with total cost of 26:
+Gas simulation at offset 23801 with total cost of 26:
 
 ```
     DeER.........................  r7 = r5 + 0x71
@@ -12848,7 +12850,7 @@ Gas simulation at offset 23799 with total cost of 26:
     .DeeeeeeeeeeeeeeeE----------R  jump 207
 ```
 
-Gas simulation at offset 23819 with total cost of 53:
+Gas simulation at offset 23821 with total cost of 53:
 
 ```
     DeER....................................................  r7 = r12 & 0xf
@@ -12866,7 +12868,7 @@ Gas simulation at offset 23819 with total cost of 53:
     ...D========================eeeeeeeeeeeeeeeeeeeeeeE----R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23858 with total cost of 25:
+Gas simulation at offset 23860 with total cost of 25:
 
 ```
     D...........................  r8 = r12
@@ -12877,7 +12879,7 @@ Gas simulation at offset 23858 with total cost of 25:
     .DeeeeeeeeeeeeeeeE---------R  jump 263
 ```
 
-Gas simulation at offset 23875 with total cost of 47:
+Gas simulation at offset 23877 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  u8 [r11 + 0x6] = a5
@@ -12888,7 +12890,7 @@ Gas simulation at offset 23875 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23892 with total cost of 78:
+Gas simulation at offset 23894 with total cost of 78:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.....................................................  r8 = u8 [r11 + 0x2b]
@@ -12911,7 +12913,7 @@ Gas simulation at offset 23892 with total cost of 78:
     .....D================================================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23946 with total cost of 74:
+Gas simulation at offset 23948 with total cost of 74:
 
 ```
     DeER.........................................................................  r7 = r12 << 0x3a
@@ -12930,7 +12932,7 @@ Gas simulation at offset 23946 with total cost of 74:
     ....D================================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 23987 with total cost of 78:
+Gas simulation at offset 23989 with total cost of 78:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.....................................................  r8 = u8 [r11 + 0x13]
@@ -12953,7 +12955,7 @@ Gas simulation at offset 23987 with total cost of 78:
     .....D================================================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24041 with total cost of 47:
+Gas simulation at offset 24043 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  u8 [r11 + 0x1e] = a5
@@ -12964,7 +12966,7 @@ Gas simulation at offset 24041 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24058 with total cost of 26:
+Gas simulation at offset 24060 with total cost of 26:
 
 ```
     DeER.........................  r7 = r5 + 0x19
@@ -12976,7 +12978,7 @@ Gas simulation at offset 24058 with total cost of 26:
     .DeeeeeeeeeeeeeeeE----------R  jump 0
 ```
 
-Gas simulation at offset 24078 with total cost of 55:
+Gas simulation at offset 24080 with total cost of 55:
 
 ```
     DeER......................................................  r7 = r12 & 0xf
@@ -12992,10 +12994,10 @@ Gas simulation at offset 24078 with total cost of 55:
     ...D===========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r11 + 0x7e] = r7
     ...DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------------------R  u8 [r11 + 0x8b] = a1
     ...D=eeeeeeeeeeeeeeeeeeeeeeeeeE--------------------------R  u8 [r11 + 0x8c] = a2
-    ....DeE--------------------------------------------------R  jump 23360 if r8 != 0
+    ....DeE--------------------------------------------------R  jump 23362 if r8 != 0
 ```
 
-Gas simulation at offset 24124 with total cost of 47:
+Gas simulation at offset 24126 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -13007,7 +13009,7 @@ Gas simulation at offset 24124 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24143 with total cost of 47:
+Gas simulation at offset 24145 with total cost of 47:
 
 ```
     DeER..............................................  r7 = r12 & 0x7f
@@ -13019,7 +13021,7 @@ Gas simulation at offset 24143 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24164 with total cost of 26:
+Gas simulation at offset 24166 with total cost of 26:
 
 ```
     D............................  r7 = r11
@@ -13031,7 +13033,7 @@ Gas simulation at offset 24164 with total cost of 26:
     .DeeeeeeeeeeeeeeeE----------R  jump 0
 ```
 
-Gas simulation at offset 24183 with total cost of 75:
+Gas simulation at offset 24185 with total cost of 75:
 
 ```
     DeER..........................................................................  r7 = r12 & 0xf
@@ -13052,7 +13054,7 @@ Gas simulation at offset 24183 with total cost of 75:
     ....D=================================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24230 with total cost of 47:
+Gas simulation at offset 24232 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  u8 [r11 + 0x70] = a5
@@ -13063,7 +13065,7 @@ Gas simulation at offset 24230 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24247 with total cost of 51:
+Gas simulation at offset 24249 with total cost of 51:
 
 ```
     DeER..................................................  r7 = r12 >> 0x7
@@ -13077,7 +13079,7 @@ Gas simulation at offset 24247 with total cost of 51:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24273 with total cost of 48:
+Gas simulation at offset 24275 with total cost of 48:
 
 ```
     DeER...............................................  r7 = r12 << 0x4
@@ -13090,7 +13092,7 @@ Gas simulation at offset 24273 with total cost of 48:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24297 with total cost of 48:
+Gas simulation at offset 24299 with total cost of 48:
 
 ```
     DeER...............................................  r7 = r12 | 0x300
@@ -13103,14 +13105,14 @@ Gas simulation at offset 24297 with total cost of 48:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24322 with total cost of 26:
+Gas simulation at offset 24324 with total cost of 26:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u8 [r11 + 0x283]
-    D=========================eER  jump 24393 if r7 == 0
+    D=========================eER  jump 24395 if r7 == 0
 ```
 
-Gas simulation at offset 24329 with total cost of 59:
+Gas simulation at offset 24331 with total cost of 59:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...................  unlikely
@@ -13135,7 +13137,7 @@ Gas simulation at offset 24329 with total cost of 59:
     .........DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 24393 with total cost of 47:
+Gas simulation at offset 24395 with total cost of 47:
 
 ```
     DeER..............................................  r7 = r12 & 0x1
@@ -13147,7 +13149,7 @@ Gas simulation at offset 24393 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24414 with total cost of 27:
+Gas simulation at offset 24416 with total cost of 27:
 
 ```
     DeER..........................  r1 = r1 + 0xfffffffffffffff0
@@ -13155,10 +13157,10 @@ Gas simulation at offset 24414 with total cost of 27:
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 0] = r5
     .DeE------------------------R.  r5 = r7 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r5 + 0x269]
-    .DeeeeeeeeeeeeeeeE-----------R  r0 = 706, jump 22576
+    .DeeeeeeeeeeeeeeeE-----------R  r0 = 706, jump 22578
 ```
 
-Gas simulation at offset 24436 with total cost of 51:
+Gas simulation at offset 24438 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r8 = u8 [r5 + 0x265]
@@ -13174,7 +13176,7 @@ Gas simulation at offset 24436 with total cost of 51:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24471 with total cost of 80:
+Gas simulation at offset 24473 with total cost of 80:
 
 ```
     DeER...............................................................................  r8 = r7 + 0x7ff
@@ -13188,7 +13190,7 @@ Gas simulation at offset 24471 with total cost of 80:
     ..DeeeeeeeeeeeeeeeeeeeeeeE--------------------------------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24502 with total cost of 60:
+Gas simulation at offset 24504 with total cost of 60:
 
 ```
     DeER...........................................................  r7 = r7 + 0x7ff
@@ -13222,7 +13224,7 @@ Gas simulation at offset 24502 with total cost of 60:
     ..........DeeeeeeeeeeeeeeeeeeeeeeE----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24597 with total cost of 57:
+Gas simulation at offset 24599 with total cost of 57:
 
 ```
     DeER........................................................  r7 = r7 + 0x7ff
@@ -13242,7 +13244,7 @@ Gas simulation at offset 24597 with total cost of 57:
     .....DeeeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24647 with total cost of 52:
+Gas simulation at offset 24649 with total cost of 52:
 
 ```
     DeER...................................................  r1 = r1 + 0xffffffffffffffd8
@@ -13255,10 +13257,10 @@ Gas simulation at offset 24647 with total cost of 52:
     ..D=========================eE-----------------------R.  r9 = r8 & 0x7
     ..DeE------------------------------------------------R.  r3 = 0x7
     ...D================================================eER  r5 = r10 << 0x1
-    ...D=========================eE-----------------------R  jump 24716 if r9 == r3
+    ...D=========================eE-----------------------R  jump 24718 if r9 == r3
 ```
 
-Gas simulation at offset 24683 with total cost of 26:
+Gas simulation at offset 24685 with total cost of 26:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r8 = u16 [r6 + 0x263]
@@ -13266,10 +13268,10 @@ Gas simulation at offset 24683 with total cost of 26:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u64 [r1 + 0x8]
     D............................  r9 = r10
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r10
-    .DeeeeeeeeeeeeeeeE----------R  r0 = 716, jump 23114
+    .DeeeeeeeeeeeeeeeE----------R  r0 = 716, jump 23116
 ```
 
-Gas simulation at offset 24703 with total cost of 25:
+Gas simulation at offset 24705 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r10 = u64 [r1 + 0]
@@ -13279,7 +13281,7 @@ Gas simulation at offset 24703 with total cost of 25:
     .DeeE----------------------R  fallthrough
 ```
 
-Gas simulation at offset 24716 with total cost of 53:
+Gas simulation at offset 24718 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -13295,10 +13297,10 @@ Gas simulation at offset 24716 with total cost of 53:
     ....D=======================eE------------R.............  r10 = r10 | r12
     ....DeE-----------------------------------R.............  r8 = r8 & 0x7
     ....D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0x26f] = a3
-    ....D=eE-----------------------------------------------R  jump 24782 if r8 != 7
+    ....D=eE-----------------------------------------------R  jump 24784 if r8 != 7
 ```
 
-Gas simulation at offset 24761 with total cost of 47:
+Gas simulation at offset 24763 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -13311,14 +13313,14 @@ Gas simulation at offset 24761 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24782 with total cost of 25:
+Gas simulation at offset 24784 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x263]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 718, jump 23114
+    DeeeeeeeeeeeeeeeE----------R  r0 = 718, jump 23116
 ```
 
-Gas simulation at offset 24792 with total cost of 47:
+Gas simulation at offset 24794 with total cost of 47:
 
 ```
     DeER..............................................  r7 = 0
@@ -13329,7 +13331,7 @@ Gas simulation at offset 24792 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24808 with total cost of 59:
+Gas simulation at offset 24810 with total cost of 59:
 
 ```
     DeER..........................................................  r7 = r7 + 0x7ff
@@ -13354,7 +13356,7 @@ Gas simulation at offset 24808 with total cost of 59:
     ......DeeeeeeeeeeeeeeeeeeeeeeE-------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24876 with total cost of 57:
+Gas simulation at offset 24878 with total cost of 57:
 
 ```
     DeER........................................................  r7 = r7 + 0x7ff
@@ -13373,7 +13375,7 @@ Gas simulation at offset 24876 with total cost of 57:
     ....DeeeeeeeeeeeeeeeeeeeeeeE-------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 24922 with total cost of 53:
+Gas simulation at offset 24924 with total cost of 53:
 
 ```
     DeER....................................................  r1 = r1 + 0xffffffffffffffd8
@@ -13389,10 +13391,10 @@ Gas simulation at offset 24922 with total cost of 53:
     ..D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0x26f] = a0
     ...D================================================eE-R  r8 = r8 | 0x100
     ...D....................................................  r7 = r5
-    ...DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 726, jump 23114
+    ...DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 726, jump 23116
 ```
 
-Gas simulation at offset 24971 with total cost of 51:
+Gas simulation at offset 24973 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u8 [r6 + 0x26e]
@@ -13402,10 +13404,10 @@ Gas simulation at offset 24971 with total cost of 51:
     .D=========================eE------------------------R  r7 = r7 & 0xff
     .D==========================eE-----------------------R  r8 = r7 | 0x100
     .D....................................................  r7 = r5
-    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 728, jump 23114
+    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 728, jump 23116
 ```
 
-Gas simulation at offset 25002 with total cost of 52:
+Gas simulation at offset 25004 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...........................  r7 = u8 [r6 + 0x26e]
@@ -13420,10 +13422,10 @@ Gas simulation at offset 25002 with total cost of 52:
     ..D========================eE-------------------------R  r7 = r7 & 0xff
     ...D========================eE------------------------R  r8 = r7 | 0x100
     ...D...................................................  r7 = r5
-    ...DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 730, jump 23114
+    ...DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 730, jump 23116
 ```
 
-Gas simulation at offset 25052 with total cost of 51:
+Gas simulation at offset 25054 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u8 [r6 + 0x26e]
@@ -13436,19 +13438,19 @@ Gas simulation at offset 25052 with total cost of 51:
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r9 = u64 [r1 + 0]
     ..D========================eeE-----------------------R  r8 = 0xfffe if r9 == 0
     ..D...................................................  r7 = r5
-    ...DeeeeeeeeeeeeeeeE---------------------------------R  r0 = 732, jump 22576
+    ...DeeeeeeeeeeeeeeeE---------------------------------R  r0 = 732, jump 22578
 ```
 
-Gas simulation at offset 25094 with total cost of 25:
+Gas simulation at offset 25096 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0x269] = a0
     D...........................  r7 = r5
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u64 [r1 + 0x8]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 734, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 734, jump 22578
 ```
 
-Gas simulation at offset 25109 with total cost of 47:
+Gas simulation at offset 25111 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  u8 [r6 + 0x26a] = a0
@@ -13460,7 +13462,7 @@ Gas simulation at offset 25109 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 25129 with total cost of 57:
+Gas simulation at offset 25131 with total cost of 57:
 
 ```
     DeER........................................................  r7 = r7 + 0x7ff
@@ -13480,7 +13482,7 @@ Gas simulation at offset 25129 with total cost of 57:
     .....DeeeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 25179 with total cost of 76:
+Gas simulation at offset 25181 with total cost of 76:
 
 ```
     DeER...........................................................................  r1 = r1 + 0xffffffffffffffd8
@@ -13496,20 +13498,20 @@ Gas simulation at offset 25179 with total cost of 76:
     ..D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r8
     ...D========================eE------------------------------------------------R  r8 = r7 | 0x100
     ...D...........................................................................  r7 = r5
-    ...DeeeeeeeeeeeeeeeE----------------------------------------------------------R  r0 = 740, jump 22576
+    ...DeeeeeeeeeeeeeeeE----------------------------------------------------------R  r0 = 740, jump 22578
 ```
 
-Gas simulation at offset 25226 with total cost of 26:
+Gas simulation at offset 25228 with total cost of 26:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u8 [r6 + 0x26e]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r9 = u8 [r6 + 0x26a]
     D=========================eER  r8 = r7 | 0x100
     .D...........................  r7 = r5
-    .DeeeeeeeeeeeeeeeE----------R  r0 = 742, jump 23114
+    .DeeeeeeeeeeeeeeeE----------R  r0 = 742, jump 23116
 ```
 
-Gas simulation at offset 25246 with total cost of 51:
+Gas simulation at offset 25248 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u8 [r6 + 0x26e]
@@ -13519,10 +13521,10 @@ Gas simulation at offset 25246 with total cost of 51:
     .D=========================eE------------------------R  r7 = r7 & 0xff
     .D==========================eE-----------------------R  r8 = r7 | 0x100
     .D....................................................  r7 = r5
-    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 744, jump 23114
+    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 744, jump 23116
 ```
 
-Gas simulation at offset 25277 with total cost of 51:
+Gas simulation at offset 25279 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u8 [r6 + 0x26e]
@@ -13530,10 +13532,10 @@ Gas simulation at offset 25277 with total cost of 51:
     D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0x26e] = a0
     D.....................................................  r7 = r5
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r8 = u64 [r1 + 0]
-    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 746, jump 22576
+    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 746, jump 22578
 ```
 
-Gas simulation at offset 25298 with total cost of 51:
+Gas simulation at offset 25300 with total cost of 51:
 
 ```
     DeER..................................................  r7 = r7 << 0x8
@@ -13548,7 +13550,7 @@ Gas simulation at offset 25298 with total cost of 51:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 25327 with total cost of 51:
+Gas simulation at offset 25329 with total cost of 51:
 
 ```
     DeER..................................................  r1 = r1 + 0xffffffffffffffe0
@@ -13560,20 +13562,20 @@ Gas simulation at offset 25327 with total cost of 51:
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u8 [r6 + 0x265]
     ..D=========================eE-----------------------R  r9 = r8 & 0x7
     ..DeE------------------------------------------------R  r11 = 0x7
-    ..D==========================eE----------------------R  jump 25386 if r9 == r11
+    ..D==========================eE----------------------R  jump 25388 if r9 == r11
 ```
 
-Gas simulation at offset 25360 with total cost of 25:
+Gas simulation at offset 25362 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x263]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0]
     D...........................  r9 = r5
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 750, jump 23114
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 750, jump 23116
 ```
 
-Gas simulation at offset 25376 with total cost of 25:
+Gas simulation at offset 25378 with total cost of 25:
 
 ```
     DeER........................  r11 = 0x7
@@ -13582,7 +13584,7 @@ Gas simulation at offset 25376 with total cost of 25:
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 25386 with total cost of 53:
+Gas simulation at offset 25388 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.............  unlikely
@@ -13596,10 +13598,10 @@ Gas simulation at offset 25386 with total cost of 53:
     ...D========================eE------------R.............  r10 = r10 | r12
     ...DeE------------------------------------R.............  r8 = r8 & 0x7
     ....D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0x26f] = a3
-    ....DeE------------------------------------------------R  jump 25444 if r8 != 7
+    ....DeE------------------------------------------------R  jump 25446 if r8 != 7
 ```
 
-Gas simulation at offset 25423 with total cost of 47:
+Gas simulation at offset 25425 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -13612,14 +13614,14 @@ Gas simulation at offset 25423 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 25444 with total cost of 25:
+Gas simulation at offset 25446 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x263]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 752, jump 23114
+    DeeeeeeeeeeeeeeeE----------R  r0 = 752, jump 23116
 ```
 
-Gas simulation at offset 25454 with total cost of 47:
+Gas simulation at offset 25456 with total cost of 47:
 
 ```
     DeER..............................................  r7 = 0
@@ -13630,14 +13632,14 @@ Gas simulation at offset 25454 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 25470 with total cost of 22:
+Gas simulation at offset 25472 with total cost of 22:
 
 ```
     DeER.....................  r7 = 0
     DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 25474 with total cost of 57:
+Gas simulation at offset 25476 with total cost of 57:
 
 ```
     DeER........................................................  r7 = r7 + 0x7ff
@@ -13657,7 +13659,7 @@ Gas simulation at offset 25474 with total cost of 57:
     .....DeeeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 25524 with total cost of 28:
+Gas simulation at offset 25526 with total cost of 28:
 
 ```
     DeER...........................  r1 = r1 + 0xfffffffffffffff0
@@ -13667,10 +13669,10 @@ Gas simulation at offset 25524 with total cost of 28:
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER.  r8 = u8 [r5 + 0x26e]
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER.  r9 = u8 [r5 + 0x26b]
     ..D=========================eER  r8 = r8 | 0x100
-    ..DeeeeeeeeeeeeeeeE-----------R  r0 = 760, jump 23114
+    ..DeeeeeeeeeeeeeeeE-----------R  r0 = 760, jump 23116
 ```
 
-Gas simulation at offset 25554 with total cost of 51:
+Gas simulation at offset 25556 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u8 [r5 + 0x26e]
@@ -13683,7 +13685,7 @@ Gas simulation at offset 25554 with total cost of 51:
     .D=========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 25577 with total cost of 53:
+Gas simulation at offset 25579 with total cost of 53:
 
 ```
     DeER....................................................  r1 = r1 + 0xfffffffffffffff0
@@ -13695,10 +13697,10 @@ Gas simulation at offset 25577 with total cost of 53:
     ..D=========================eER.........................  r9 = r8 | 0x10
     ..D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r5 + 0x26f] = a2
     ...D========================eE-------------------------R  r8 = r10 | 0x100
-    ...DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 764, jump 23114
+    ...DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 764, jump 23116
 ```
 
-Gas simulation at offset 25614 with total cost of 51:
+Gas simulation at offset 25616 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u8 [r5 + 0x26e]
@@ -13711,7 +13713,7 @@ Gas simulation at offset 25614 with total cost of 51:
     .D=========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 25637 with total cost of 28:
+Gas simulation at offset 25639 with total cost of 28:
 
 ```
     DeER...........................  r1 = r1 + 0xffffffffffffffe8
@@ -13723,10 +13725,10 @@ Gas simulation at offset 25637 with total cost of 28:
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u8 [r6 + 0x26e]
     ..D=========================eER  r8 = r7 | 0x100
     ..D............................  r7 = r5
-    ..DeeeeeeeeeeeeeeeE-----------R  r0 = 768, jump 22576
+    ..DeeeeeeeeeeeeeeeE-----------R  r0 = 768, jump 22578
 ```
 
-Gas simulation at offset 25670 with total cost of 51:
+Gas simulation at offset 25672 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u8 [r6 + 0x26e]
@@ -13735,10 +13737,10 @@ Gas simulation at offset 25670 with total cost of 51:
     D==========================eE------------------------R  r7 = r7 & 0xff
     .D==========================eE-----------------------R  r8 = r7 | 0x100
     .D....................................................  r7 = r5
-    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 770, jump 22576
+    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 770, jump 22578
 ```
 
-Gas simulation at offset 25697 with total cost of 53:
+Gas simulation at offset 25699 with total cost of 53:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER............................  r8 = u8 [r6 + 0x26f]
@@ -13759,7 +13761,7 @@ Gas simulation at offset 25697 with total cost of 53:
     .....D========================eeeeeeeeeeeeeeeeeeeeeeE--R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 25747 with total cost of 28:
+Gas simulation at offset 25749 with total cost of 28:
 
 ```
     DeER...........................  r1 = r1 + 0xffffffffffffffe8
@@ -13771,10 +13773,10 @@ Gas simulation at offset 25747 with total cost of 28:
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u8 [r6 + 0x26e]
     ..D=========================eER  r8 = r7 | 0x100
     ..D............................  r7 = r5
-    ..DeeeeeeeeeeeeeeeE-----------R  r0 = 774, jump 22576
+    ..DeeeeeeeeeeeeeeeE-----------R  r0 = 774, jump 22578
 ```
 
-Gas simulation at offset 25780 with total cost of 51:
+Gas simulation at offset 25782 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u8 [r6 + 0x26e]
@@ -13783,10 +13785,10 @@ Gas simulation at offset 25780 with total cost of 51:
     D==========================eE------------------------R  r7 = r7 & 0xff
     .D==========================eE-----------------------R  r8 = r7 | 0x100
     .D....................................................  r7 = r5
-    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 776, jump 22576
+    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 776, jump 22578
 ```
 
-Gas simulation at offset 25807 with total cost of 47:
+Gas simulation at offset 25809 with total cost of 47:
 
 ```
     DeER..............................................  r7 = r7 | 0x20
@@ -13799,7 +13801,7 @@ Gas simulation at offset 25807 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 25829 with total cost of 53:
+Gas simulation at offset 25831 with total cost of 53:
 
 ```
     DeER....................................................  r1 = r1 + 0xffffffffffffffd0
@@ -13814,10 +13816,10 @@ Gas simulation at offset 25829 with total cost of 53:
     ...D================================================eER.  r10 = r8 & 0x7
     ...DeE------------------------------------------------R.  r2 = 0x7
     ....D===============================================eER.  r12 = r5 << 0x1
-    ....D================================================eER  jump 25916 if r10 == r2
+    ....D================================================eER  jump 25918 if r10 == r2
 ```
 
-Gas simulation at offset 25872 with total cost of 50:
+Gas simulation at offset 25874 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
@@ -13827,10 +13829,10 @@ Gas simulation at offset 25872 with total cost of 50:
     .D...................................................  r9 = r5
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  u64 [r1 + 0x8] = r12
     .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r11
-    .DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 780, jump 23114
+    .DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 780, jump 23116
 ```
 
-Gas simulation at offset 25896 with total cost of 50:
+Gas simulation at offset 25898 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.........................  r11 = u64 [r1 + 0]
@@ -13842,7 +13844,7 @@ Gas simulation at offset 25896 with total cost of 50:
     .DeeE-----------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 25916 with total cost of 32:
+Gas simulation at offset 25918 with total cost of 32:
 
 ```
     DeER...............................  r10 = r11 | r12
@@ -13857,10 +13859,10 @@ Gas simulation at offset 25916 with total cost of 32:
     ...D===eER.........................  r11 = r11 | r5
     ...DeE---R.........................  r8 = r8 & 0x7
     ....D===eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0x26f] = a4
-    ....DeE---------------------------R  jump 25980 if r8 != 7
+    ....DeE---------------------------R  jump 25982 if r8 != 7
 ```
 
-Gas simulation at offset 25959 with total cost of 47:
+Gas simulation at offset 25961 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -13873,14 +13875,14 @@ Gas simulation at offset 25959 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 25980 with total cost of 25:
+Gas simulation at offset 25982 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x263]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 782, jump 23114
+    DeeeeeeeeeeeeeeeE----------R  r0 = 782, jump 23116
 ```
 
-Gas simulation at offset 25990 with total cost of 47:
+Gas simulation at offset 25992 with total cost of 47:
 
 ```
     DeER..............................................  r7 = 0
@@ -13891,7 +13893,7 @@ Gas simulation at offset 25990 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 26006 with total cost of 72:
+Gas simulation at offset 26008 with total cost of 72:
 
 ```
     DeER.......................................................................  r1 = r1 + 0xffffffffffffffd8
@@ -13907,10 +13909,10 @@ Gas simulation at offset 26006 with total cost of 72:
     ...D================================================eER....................  r12 = r8 & 0x7
     ....DeE-----------------------------------------------R....................  r3 = 0x7
     ....D================================================eER...................  r11 = r11 | r10
-    ....D================================================eeeeeeeeeeeeeeeeeeeeER  jump 26089 if r12 == r3
+    ....D================================================eeeeeeeeeeeeeeeeeeeeER  jump 26091 if r12 == r3
 ```
 
-Gas simulation at offset 26052 with total cost of 26:
+Gas simulation at offset 26054 with total cost of 26:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r8 = u16 [r6 + 0x263]
@@ -13918,10 +13920,10 @@ Gas simulation at offset 26052 with total cost of 26:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u64 [r1 + 0x8]
     D............................  r9 = r5
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r11
-    .DeeeeeeeeeeeeeeeE----------R  r0 = 786, jump 23114
+    .DeeeeeeeeeeeeeeeE----------R  r0 = 786, jump 23116
 ```
 
-Gas simulation at offset 26072 with total cost of 26:
+Gas simulation at offset 26074 with total cost of 26:
 
 ```
     DeER.........................  r3 = 0x7
@@ -13932,7 +13934,7 @@ Gas simulation at offset 26072 with total cost of 26:
     .DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 26089 with total cost of 32:
+Gas simulation at offset 26091 with total cost of 32:
 
 ```
     DeER...............................  r2 = r9 & 0x7c
@@ -13946,10 +13948,10 @@ Gas simulation at offset 26089 with total cost of 32:
     ...D===eER.........................  r10 = r10 | r12
     ...DeE---R.........................  r8 = r8 & 0x7
     ....D===eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0x26f] = a3
-    ....DeE---------------------------R  jump 26150 if r8 != 7
+    ....DeE---------------------------R  jump 26152 if r8 != 7
 ```
 
-Gas simulation at offset 26129 with total cost of 47:
+Gas simulation at offset 26131 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -13962,14 +13964,14 @@ Gas simulation at offset 26129 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 26150 with total cost of 25:
+Gas simulation at offset 26152 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x263]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 788, jump 23114
+    DeeeeeeeeeeeeeeeE----------R  r0 = 788, jump 23116
 ```
 
-Gas simulation at offset 26160 with total cost of 47:
+Gas simulation at offset 26162 with total cost of 47:
 
 ```
     DeER..............................................  r7 = 0
@@ -13980,7 +13982,7 @@ Gas simulation at offset 26160 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 26176 with total cost of 28:
+Gas simulation at offset 26178 with total cost of 28:
 
 ```
     DeER...........................  r1 = r1 + 0xffffffffffffffe8
@@ -13992,10 +13994,10 @@ Gas simulation at offset 26176 with total cost of 28:
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u8 [r6 + 0x26e]
     ..D=========================eER  r8 = r7 | 0x100
     ..D............................  r7 = r5
-    ..DeeeeeeeeeeeeeeeE-----------R  r0 = 792, jump 22576
+    ..DeeeeeeeeeeeeeeeE-----------R  r0 = 792, jump 22578
 ```
 
-Gas simulation at offset 26209 with total cost of 51:
+Gas simulation at offset 26211 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u8 [r6 + 0x26e]
@@ -14004,10 +14006,10 @@ Gas simulation at offset 26209 with total cost of 51:
     D==========================eE------------------------R  r7 = r7 & 0xff
     .D==========================eE-----------------------R  r8 = r7 | 0x100
     .D....................................................  r7 = r5
-    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 794, jump 22576
+    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 794, jump 22578
 ```
 
-Gas simulation at offset 26236 with total cost of 51:
+Gas simulation at offset 26238 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r8 = u8 [r6 + 0x26e]
@@ -14018,10 +14020,10 @@ Gas simulation at offset 26236 with total cost of 51:
     .D=========================eE------------------------R  r7 = r8 & 0xff
     ..D=========================eE-----------------------R  r8 = r7 | 0x100
     ..D...................................................  r7 = r5
-    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 796, jump 22576
+    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 796, jump 22578
 ```
 
-Gas simulation at offset 26270 with total cost of 51:
+Gas simulation at offset 26272 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r8 = u8 [r6 + 0x26e]
@@ -14031,10 +14033,10 @@ Gas simulation at offset 26270 with total cost of 51:
     .D=========================eE------------------------R  r7 = r8 & 0xff
     .D==========================eE-----------------------R  r8 = r7 | 0x100
     ..D...................................................  r7 = r5
-    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 798, jump 22576
+    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 798, jump 22578
 ```
 
-Gas simulation at offset 26301 with total cost of 47:
+Gas simulation at offset 26303 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  u8 [r6 + 0x26a] = a0
@@ -14046,7 +14048,7 @@ Gas simulation at offset 26301 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 26320 with total cost of 28:
+Gas simulation at offset 26322 with total cost of 28:
 
 ```
     DeER...........................  r1 = r1 + 0xffffffffffffffe8
@@ -14058,10 +14060,10 @@ Gas simulation at offset 26320 with total cost of 28:
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u8 [r6 + 0x26e]
     ..D=========================eER  r8 = r7 | 0x100
     ..D............................  r7 = r5
-    ..DeeeeeeeeeeeeeeeE-----------R  r0 = 802, jump 22576
+    ..DeeeeeeeeeeeeeeeE-----------R  r0 = 802, jump 22578
 ```
 
-Gas simulation at offset 26353 with total cost of 51:
+Gas simulation at offset 26355 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u8 [r6 + 0x26e]
@@ -14070,10 +14072,10 @@ Gas simulation at offset 26353 with total cost of 51:
     D==========================eE------------------------R  r7 = r7 & 0xff
     .D==========================eE-----------------------R  r8 = r7 | 0x100
     .D....................................................  r7 = r5
-    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 804, jump 22576
+    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 804, jump 22578
 ```
 
-Gas simulation at offset 26380 with total cost of 51:
+Gas simulation at offset 26382 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r8 = u8 [r6 + 0x26e]
@@ -14083,19 +14085,19 @@ Gas simulation at offset 26380 with total cost of 51:
     .D=========================eE------------------------R  r7 = r8 & 0xff
     .D==========================eE-----------------------R  r8 = r7 | 0x100
     ..D...................................................  r7 = r5
-    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 806, jump 22576
+    ..DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 806, jump 22578
 ```
 
-Gas simulation at offset 26411 with total cost of 25:
+Gas simulation at offset 26413 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0x26a] = a0
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r6 + 0x269]
     D...........................  r7 = r5
-    DeeeeeeeeeeeeeeeE----------R  r0 = 808, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 808, jump 22578
 ```
 
-Gas simulation at offset 26427 with total cost of 51:
+Gas simulation at offset 26429 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = i16 [r6 + 0x269]
@@ -14109,7 +14111,7 @@ Gas simulation at offset 26427 with total cost of 51:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 26453 with total cost of 61:
+Gas simulation at offset 26455 with total cost of 61:
 
 ```
     DeER............................................................  r7 = r7 + 0x7ff
@@ -14143,7 +14145,7 @@ Gas simulation at offset 26453 with total cost of 61:
     ...........DeeeeeeeeeeeeeeeeeeeeeeE----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 26548 with total cost of 51:
+Gas simulation at offset 26550 with total cost of 51:
 
 ```
     DeER..................................................  r7 = r7 + 0x7ff
@@ -14153,7 +14155,7 @@ Gas simulation at offset 26548 with total cost of 51:
     .DeeeeeeeeeeeeeeeeeeeeeeE----------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 26564 with total cost of 29:
+Gas simulation at offset 26566 with total cost of 29:
 
 ```
     DeER............................  r7 = r7 + 0x7ff
@@ -14166,7 +14168,7 @@ Gas simulation at offset 26564 with total cost of 29:
     .DeeeeeeeeeeeeeeeeeeeeeeE------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 26590 with total cost of 72:
+Gas simulation at offset 26592 with total cost of 72:
 
 ```
     DeER.......................................................................  r1 = r1 + 0xffffffffffffffb8
@@ -14177,26 +14179,26 @@ Gas simulation at offset 26590 with total cost of 72:
     .DeE------------------------R..............................................  r6 = 0x30a98
     .D=========================eER.............................................  r8 = r6 + 0x2000
     ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER....................  r8 = u64 [r8 + 0x600]
-    ..D==================================================eeeeeeeeeeeeeeeeeeeeER  jump 27285 if r8 == 0
+    ..D==================================================eeeeeeeeeeeeeeeeeeeeER  jump 27287 if r8 == 0
 ```
 
-Gas simulation at offset 26622 with total cost of 22:
+Gas simulation at offset 26624 with total cost of 22:
 
 ```
     DeeER....................  i32 r8 = r7 >> 0x19
-    D==eeeeeeeeeeeeeeeeeeeeER  jump 26965 if r8 != 0
+    D==eeeeeeeeeeeeeeeeeeeeER  jump 26967 if r8 != 0
 ```
 
-Gas simulation at offset 26629 with total cost of 2:
+Gas simulation at offset 26631 with total cost of 2:
 
 ```
     DeeER  i32 r3 = r7 + 0x1
     D....  r8 = r7
     .D...  r10 = r7
-    .DeER  jump 26677 if r7 <=u 126
+    .DeER  jump 26679 if r7 <=u 126
 ```
 
-Gas simulation at offset 26640 with total cost of 12:
+Gas simulation at offset 26642 with total cost of 12:
 
 ```
     DeER...........  i32 r8 = clz r3
@@ -14214,7 +14216,7 @@ Gas simulation at offset 26640 with total cost of 12:
     .........DeeE-R  fallthrough
 ```
 
-Gas simulation at offset 26677 with total cost of 49:
+Gas simulation at offset 26679 with total cost of 49:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.........  unlikely
@@ -14224,10 +14226,10 @@ Gas simulation at offset 26677 with total cost of 49:
     .DeeE-------------------------------------R.........  i32 r2 = r8 >> 0x6
     ..D=========================eE------------R.........  r5 = r11 >> r2
     ..D==========================eE-----------R.........  r5 = r5 & 0x1
-    ...D==========================eeeeeeeeeeeeeeeeeeeeER  jump 26734 if r5 == 0
+    ...D==========================eeeeeeeeeeeeeeeeeeeeER  jump 26736 if r5 == 0
 ```
 
-Gas simulation at offset 26701 with total cost of 48:
+Gas simulation at offset 26703 with total cost of 48:
 
 ```
     DeER...............................................  r9 = r2 << 0x3
@@ -14237,28 +14239,28 @@ Gas simulation at offset 26701 with total cost of 48:
     .DeE-------------------------R.....................  r12 = 0xffffffffffffffff
     ..DeE------------------------R.....................  r8 = r12 << r8
     ..D=========================eER....................  r8 = r8 & r9
-    ...D=========================eeeeeeeeeeeeeeeeeeeeER  jump 26734 if r8 == 0
+    ...D=========================eeeeeeeeeeeeeeeeeeeeER  jump 26736 if r8 == 0
 ```
 
-Gas simulation at offset 26727 with total cost of 15:
+Gas simulation at offset 26729 with total cost of 15:
 
 ```
     DeeER.............  r9 = ctz r8
     D==eeER...........  r12 = r9 if r8 != 0
-    DeeeeeeeeeeeeeeeER  jump 26772
+    DeeeeeeeeeeeeeeeER  jump 26774
 ```
 
-Gas simulation at offset 26734 with total cost of 23:
+Gas simulation at offset 26736 with total cost of 23:
 
 ```
     DeER......................  r8 = r2 + 0x1
     DeER......................  r2 = 0xffffffffffffffff
     .DeER.....................  r8 = r2 << r8
     .D=eER....................  r8 = r8 & r11
-    ..D=eeeeeeeeeeeeeeeeeeeeER  jump 26907 if r8 == 0
+    ..D=eeeeeeeeeeeeeeeeeeeeER  jump 26909 if r8 == 0
 ```
 
-Gas simulation at offset 26750 with total cost of 33:
+Gas simulation at offset 26752 with total cost of 33:
 
 ```
     DeeER...............................  r9 = ctz r8
@@ -14271,7 +14273,7 @@ Gas simulation at offset 26750 with total cost of 33:
     ..DeeE-----------------------------R  fallthrough
 ```
 
-Gas simulation at offset 26772 with total cost of 57:
+Gas simulation at offset 26774 with total cost of 57:
 
 ```
     DeER........................................................  r8 = r2 << 0x6
@@ -14282,10 +14284,10 @@ Gas simulation at offset 26772 with total cost of 57:
     .D====eeeeeeeeeeeeeeeeeeeeeeeeeER...........................  r10 = u32 [r9 + 0]
     ..D============================eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u32 [r10 + 0x4]
     ..D=====================================================eER.  r8 = r8 >> 0x1
-    ..D======================================================eER  jump 26965 if r7 >=u r8
+    ..D======================================================eER  jump 26967 if r7 >=u r8
 ```
 
-Gas simulation at offset 26799 with total cost of 75:
+Gas simulation at offset 26801 with total cost of 75:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...................................  unlikely
@@ -14305,17 +14307,17 @@ Gas simulation at offset 26799 with total cost of 75:
     ......D======================eeeE----------------------R......................  r9 = r8 >u 0
     .......D==========================eeE------------------R......................  i32 r3 = r11 + r9
     .......D===========================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x8] = r0
-    ........D==========================================eeeeeeeeeeeeeeeeeeeeE-----R  jump 26872 if r0 >=u r3
+    ........D==========================================eeeeeeeeeeeeeeeeeeeeE-----R  jump 26874 if r0 >=u r3
 ```
 
-Gas simulation at offset 26852 with total cost of 2:
+Gas simulation at offset 26854 with total cost of 2:
 
 ```
     DeER.  r9 = 0x4001
-    D=eER  jump 26965 if r3 >=u r9
+    D=eER  jump 26967 if r3 >=u r9
 ```
 
-Gas simulation at offset 26859 with total cost of 51:
+Gas simulation at offset 26861 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
@@ -14325,7 +14327,7 @@ Gas simulation at offset 26859 with total cost of 51:
     .DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 26872 with total cost of 51:
+Gas simulation at offset 26874 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r11 = u32 [r10 + 0x8]
@@ -14335,29 +14337,29 @@ Gas simulation at offset 26872 with total cost of 51:
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER.........................  r8 = u64 [r1 + 0]
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0] = r11
     ..D...................................................  r5 = r9
-    ..D=======================eE-------------------------R  jump 26983 if r11 == 0
+    ..D=======================eE-------------------------R  jump 26985 if r11 == 0
 ```
 
-Gas simulation at offset 26892 with total cost of 25:
+Gas simulation at offset 26894 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r11 + 12] = 0
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r0 = u64 [r1 + 0x10]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r12 = u64 [r1 + 0x8]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r6 = u64 [r1 + 0x18]
-    .DeeeeeeeeeeeeeeeE---------R  jump 27043
+    .DeeeeeeeeeeeeeeeE---------R  jump 27045
 ```
 
-Gas simulation at offset 26907 with total cost of 24:
+Gas simulation at offset 26909 with total cost of 24:
 
 ```
     DeeER......................  i32 r2 = r10 >> 0x6
     .D=eER.....................  r8 = r11 >> r2
     .D==eER....................  r8 = r8 & 0x1
-    ..D==eeeeeeeeeeeeeeeeeeeeER  jump 26949 if r8 == 0
+    ..D==eeeeeeeeeeeeeeeeeeeeER  jump 26951 if r8 == 0
 ```
 
-Gas simulation at offset 26919 with total cost of 48:
+Gas simulation at offset 26921 with total cost of 48:
 
 ```
     DeER...............................................  r8 = r2 << 0x3
@@ -14368,27 +14370,27 @@ Gas simulation at offset 26919 with total cost of 48:
     ..DeE------------------------R.....................  r12 = 0xffffffffffffffff
     ..D=eE-----------------------R.....................  r9 = r12 << r9
     ...D========================eER....................  r8 = r8 & r9
-    ...D=========================eeeeeeeeeeeeeeeeeeeeER  jump 26727 if r8 != 0
+    ...D=========================eeeeeeeeeeeeeeeeeeeeER  jump 26729 if r8 != 0
 ```
 
-Gas simulation at offset 26949 with total cost of 23:
+Gas simulation at offset 26951 with total cost of 23:
 
 ```
     DeER......................  r8 = r2 + 0x1
     DeER......................  r2 = 0xffffffffffffffff
     .DeER.....................  r8 = r2 << r8
     .D=eER....................  r8 = r8 & r11
-    ..D=eeeeeeeeeeeeeeeeeeeeER  jump 26750 if r8 != 0
+    ..D=eeeeeeeeeeeeeeeeeeeeER  jump 26752 if r8 != 0
 ```
 
-Gas simulation at offset 26965 with total cost of 2:
+Gas simulation at offset 26967 with total cost of 2:
 
 ```
     DeER.  r7 = 0
     DeeER  fallthrough
 ```
 
-Gas simulation at offset 26968 with total cost of 47:
+Gas simulation at offset 26970 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -14399,7 +14401,7 @@ Gas simulation at offset 26968 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 26983 with total cost of 78:
+Gas simulation at offset 26985 with total cost of 78:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......................................  unlikely
@@ -14414,10 +14416,10 @@ Gas simulation at offset 26983 with total cost of 78:
     ...D==================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r9 + 0x608] = r11
     ...DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------------------------------------------R  r0 = u64 [r1 + 0x10]
     ...DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------------------------------------------R  r12 = u64 [r1 + 0x8]
-    ....D=================================================eE------------------------R  jump 27043 if r11 != 0
+    ....D=================================================eE------------------------R  jump 27045 if r11 != 0
 ```
 
-Gas simulation at offset 27023 with total cost of 52:
+Gas simulation at offset 27025 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -14429,7 +14431,7 @@ Gas simulation at offset 27023 with total cost of 52:
     ..DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 27043 with total cost of 40:
+Gas simulation at offset 27045 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -14444,17 +14446,17 @@ Gas simulation at offset 27043 with total cost of 40:
     ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r11 + 0x4] = r8
     .....DeE----------------------------------R  r12 = r3 + r9
     .....DeeeeeeeeeeeeeeeeeeeeeeeeeE----------R  r5 = u64 [r1 + 0x20]
-    .....D=========================eE---------R  jump 27220 if r5 == 0
+    .....D=========================eE---------R  jump 27222 if r5 == 0
 ```
 
-Gas simulation at offset 27080 with total cost of 1:
+Gas simulation at offset 27082 with total cost of 1:
 
 ```
     D...  r8 = r5
-    DeER  jump 27124 if r5 <=u 127
+    DeER  jump 27126 if r5 <=u 127
 ```
 
-Gas simulation at offset 27086 with total cost of 15:
+Gas simulation at offset 27088 with total cost of 15:
 
 ```
     DeER..............  r7 = 0x2000000
@@ -14471,7 +14473,7 @@ Gas simulation at offset 27086 with total cost of 15:
     ....DeeE---------R  fallthrough
 ```
 
-Gas simulation at offset 27124 with total cost of 54:
+Gas simulation at offset 27126 with total cost of 54:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..............  unlikely
@@ -14489,17 +14491,17 @@ Gas simulation at offset 27124 with total cost of 54:
     .....D=eeeeeeeeeeeeeeeeeeeeeeeeeE---------R..............  u32 [r7 + 0x4] = r5
     .....D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 0x8] = r11
     .....D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 12] = 0
-    .....D==========================eE----------------------R  jump 27171 if r11 == 0
+    .....D==========================eE----------------------R  jump 27173 if r11 == 0
 ```
 
-Gas simulation at offset 27167 with total cost of 25:
+Gas simulation at offset 27169 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r11 + 0xc] = r12
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 27171 with total cost of 55:
+Gas simulation at offset 27173 with total cost of 55:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...............  unlikely
@@ -14520,7 +14522,7 @@ Gas simulation at offset 27171 with total cost of 55:
     .....DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 27220 with total cost of 48:
+Gas simulation at offset 27222 with total cost of 48:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER........  unlikely
@@ -14531,10 +14533,10 @@ Gas simulation at offset 27220 with total cost of 48:
     ..D========================eeE------------R........  i32 r10 = r8 + 0x80000
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R........  r8 = u64 [r1 + 0x28]
     ...D========================eE------------R........  r8 = r8 & r2
-    ...D=========================eeeeeeeeeeeeeeeeeeeeER  jump 27258 if r7 >=u r10
+    ...D=========================eeeeeeeeeeeeeeeeeeeeER  jump 27260 if r7 >=u r10
 ```
 
-Gas simulation at offset 27249 with total cost of 27:
+Gas simulation at offset 27251 with total cost of 27:
 
 ```
     DeER..........................  r7 = r7 << 0x20
@@ -14543,15 +14545,15 @@ Gas simulation at offset 27249 with total cost of 27:
     DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 27258 with total cost of 2:
+Gas simulation at offset 27260 with total cost of 2:
 
 ```
     DeER.  r7 = r3 << 0x20
     D=eER  r7 = r7 >> 0x20
-    DeE-R  jump 26968 if r8 == 0
+    DeE-R  jump 26970 if r8 == 0
 ```
 
-Gas simulation at offset 27268 with total cost of 25:
+Gas simulation at offset 27270 with total cost of 25:
 
 ```
     DeER........................  r8 = 0
@@ -14559,41 +14561,41 @@ Gas simulation at offset 27268 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 0x38]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r6 = u64 [r1 + 0x30]
     .DeE-----------------------R  r1 = r1 + 0x48
-    .DeeeeeeeeeeeeeeeE---------R  jump 35586
+    .DeeeeeeeeeeeeeeeE---------R  jump 28080
 ```
 
-Gas simulation at offset 27285 with total cost of 15:
+Gas simulation at offset 27287 with total cost of 15:
 
 ```
     D.................  r5 = r7
-    DeeeeeeeeeeeeeeeER  r0 = 816, jump 27304
+    DeeeeeeeeeeeeeeeER  r0 = 816, jump 27306
 ```
 
-Gas simulation at offset 27292 with total cost of 1:
+Gas simulation at offset 27294 with total cost of 1:
 
 ```
     D...  r9 = r7
     D...  r7 = r5
-    DeER  jump 26622 if r9 != 0
+    DeER  jump 26624 if r9 != 0
 ```
 
-Gas simulation at offset 27300 with total cost of 40:
+Gas simulation at offset 27302 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
-    DeeeeeeeeeeeeeeeE-------------------------R  jump 26965
+    DeeeeeeeeeeeeeeeE-------------------------R  jump 26967
 ```
 
-Gas simulation at offset 27304 with total cost of 28:
+Gas simulation at offset 27306 with total cost of 28:
 
 ```
     DeER...........................  r8 = 0x30a98
     D=eER..........................  r9 = r8 + 0x2000
     D==eeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u64 [r9 + 0x740]
-    .D==========================eER  jump 27392 if r7 == 0
+    .D==========================eER  jump 27394 if r7 == 0
 ```
 
-Gas simulation at offset 27320 with total cost of 77:
+Gas simulation at offset 27322 with total cost of 77:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.....................................  unlikely
@@ -14615,17 +14617,17 @@ Gas simulation at offset 27320 with total cost of 77:
     ....D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 12] = 0
     ....D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0x7fd] = r7
     .....D===============================================eeeE----------------------R  r7 = r7 >u 0
-    .....DeeeeeeeeeeeeeeeE---------------------------------------------------------R  jump 27292
+    .....DeeeeeeeeeeeeeeeE---------------------------------------------------------R  jump 27294
 ```
 
-Gas simulation at offset 27392 with total cost of 15:
+Gas simulation at offset 27394 with total cost of 15:
 
 ```
     DeeeER............  r7 = r7 >u 0
-    DeeeeeeeeeeeeeeeER  jump 27292
+    DeeeeeeeeeeeeeeeER  jump 27294
 ```
 
-Gas simulation at offset 27396 with total cost of 53:
+Gas simulation at offset 27398 with total cost of 53:
 
 ```
     DeER....................................................  r1 = r1 + 0xffffffffffffffe8
@@ -14642,10 +14644,10 @@ Gas simulation at offset 27396 with total cost of 53:
     ...D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r3 = i32 [r10 + 0]
     ....D=========================eeE---------------------R.  i32 r10 = r7 - r9
     .....D===============================================eER  r2 = r8 >> 0x1
-    .....D==========================eE---------------------R  jump 27645 if r10 <u 32
+    .....D==========================eE---------------------R  jump 27647 if r10 <u 32
 ```
 
-Gas simulation at offset 27445 with total cost of 51:
+Gas simulation at offset 27447 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
@@ -14655,39 +14657,39 @@ Gas simulation at offset 27445 with total cost of 51:
     ..D==eE-----------------------------------R...........  r12 = r12 >> 0x20
     ..D===eeeeeeeeeeeeeeeeeeeeeeeeeE----------R...........  r0 = u32 [r12 + 0x4]
     ..D============================eE---------R...........  r11 = r0 & 0x1
-    ...D============================eeeeeeeeeeeeeeeeeeeeER  jump 27645 if r11 != 0
+    ...D============================eeeeeeeeeeeeeeeeeeeeER  jump 27647 if r11 != 0
 ```
 
-Gas simulation at offset 27468 with total cost of 20:
+Gas simulation at offset 27470 with total cost of 20:
 
 ```
     DeER...................  r8 = r0 >> 0x1
-    DeeeeeeeeeeeeeeeeeeeeER  jump 27493 if r0 == 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 27495 if r0 == 0
 ```
 
-Gas simulation at offset 27474 with total cost of 20:
+Gas simulation at offset 27476 with total cost of 20:
 
 ```
     DeER...................  r9 = 0x2000000
     D=eeeER................  r9 = minu(r8, r9)
-    DeeeeeeeeeeeeeeeeeeeeER  jump 27497 if r0 >=u 256
+    DeeeeeeeeeeeeeeeeeeeeER  jump 27499 if r0 >=u 256
 ```
 
-Gas simulation at offset 27488 with total cost of 15:
+Gas simulation at offset 27490 with total cost of 15:
 
 ```
     DeER..............  r9 = r9 + 0xffffffffffffffff
-    DeeeeeeeeeeeeeeeER  jump 27523
+    DeeeeeeeeeeeeeeeER  jump 27525
 ```
 
-Gas simulation at offset 27493 with total cost of 15:
+Gas simulation at offset 27495 with total cost of 15:
 
 ```
     DeER..............  r9 = 0
-    DeeeeeeeeeeeeeeeER  jump 27523
+    DeeeeeeeeeeeeeeeER  jump 27525
 ```
 
-Gas simulation at offset 27497 with total cost of 10:
+Gas simulation at offset 27499 with total cost of 10:
 
 ```
     DeER.........  i32 r11 = clz r9
@@ -14701,7 +14703,7 @@ Gas simulation at offset 27497 with total cost of 10:
     ....DeeE----R  fallthrough
 ```
 
-Gas simulation at offset 27523 with total cost of 29:
+Gas simulation at offset 27525 with total cost of 29:
 
 ```
     DeER............................  r11 = r9 << 0x20
@@ -14710,40 +14712,40 @@ Gas simulation at offset 27523 with total cost of 29:
     .D==eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r6 + 0]
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R.  r3 = i32 [r12 + 0]
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R.  r5 = u32 [r12 + 0x8]
-    ..D==========================eER  jump 27552 if r11 != r10
+    ..D==========================eER  jump 27554 if r11 != r10
 ```
 
-Gas simulation at offset 27542 with total cost of 25:
+Gas simulation at offset 27544 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r6 + 0] = r5
-    DeE------------------------R  jump 27567 if r5 == 0
+    DeE------------------------R  jump 27569 if r5 == 0
 ```
 
-Gas simulation at offset 27547 with total cost of 25:
+Gas simulation at offset 27549 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 12] = 0
-    DeeeeeeeeeeeeeeeE----------R  jump 27627
+    DeeeeeeeeeeeeeeeE----------R  jump 27629
 ```
 
-Gas simulation at offset 27552 with total cost of 50:
+Gas simulation at offset 27554 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r9 = u32 [r12 + 0xc]
     D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r9 + 0x8] = r5
-    DeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump 27627 if r5 == 0
+    DeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump 27629 if r5 == 0
 ```
 
-Gas simulation at offset 27562 with total cost of 25:
+Gas simulation at offset 27564 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0xc] = r9
-    DeeeeeeeeeeeeeeeE----------R  jump 27627
+    DeeeeeeeeeeeeeeeE----------R  jump 27629
 ```
 
-Gas simulation at offset 27567 with total cost of 55:
+Gas simulation at offset 27569 with total cost of 55:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...............  unlikely
@@ -14758,10 +14760,10 @@ Gas simulation at offset 27567 with total cost of 55:
     ....DeE-----------------------------------R...............  r6 = r9 <<r r6
     ....D=========================eE----------R...............  r5 = r5 & r6
     .....D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r11 + 0x608] = r5
-    .....D=========================eE------------------------R  jump 27627 if r5 != 0
+    .....D=========================eE------------------------R  jump 27629 if r5 != 0
 ```
 
-Gas simulation at offset 27607 with total cost of 52:
+Gas simulation at offset 27609 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -14773,7 +14775,7 @@ Gas simulation at offset 27607 with total cost of 52:
     ..DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 27627 with total cost of 26:
+Gas simulation at offset 27629 with total cost of 26:
 
 ```
     DeER.........................  r9 = r4 + 0x2000
@@ -14784,16 +14786,16 @@ Gas simulation at offset 27627 with total cost of 26:
     ..DeeE----------------------R  fallthrough
 ```
 
-Gas simulation at offset 27645 with total cost of 5:
+Gas simulation at offset 27647 with total cost of 5:
 
 ```
     DeeER...  i32 r11 = r9 + 0x80000
     .DeER...  r10 = r2 << 0x5
     .D=eeER.  i32 r10 = r10 + r7
-    ..D==eER  jump 27882 if r10 >=u r11
+    ..D==eER  jump 27884 if r10 >=u r11
 ```
 
-Gas simulation at offset 27660 with total cost of 48:
+Gas simulation at offset 27662 with total cost of 48:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER........  unlikely
@@ -14801,25 +14803,25 @@ Gas simulation at offset 27660 with total cost of 48:
     D=eE--------------------------------------R........  r12 = r12 >> 0x20
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeE-------------R........  r6 = u32 [r12 + 0x4]
     .D==========================eE------------R........  r9 = r6 & 0x1
-    .D===========================eeeeeeeeeeeeeeeeeeeeER  jump 27882 if r9 != 0
+    .D===========================eeeeeeeeeeeeeeeeeeeeER  jump 27884 if r9 != 0
 ```
 
-Gas simulation at offset 27677 with total cost of 1:
+Gas simulation at offset 27679 with total cost of 1:
 
 ```
     DeER  r0 = r6 >> 0x1
-    DeER  jump 27720 if r6 == 0
+    DeER  jump 27722 if r6 == 0
 ```
 
-Gas simulation at offset 27683 with total cost of 4:
+Gas simulation at offset 27685 with total cost of 4:
 
 ```
     DeER...  r5 = 0x2000000
     D=eeeER  r5 = minu(r0, r5)
-    DeE---R  jump 27753 if r6 >=u 256
+    DeE---R  jump 27755 if r6 >=u 256
 ```
 
-Gas simulation at offset 27697 with total cost of 49:
+Gas simulation at offset 27699 with total cost of 49:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.........  unlikely
@@ -14829,16 +14831,16 @@ Gas simulation at offset 27697 with total cost of 49:
     ..D=eE------------------------------------R.........  r6 = r4 + r5
     ..D==eeeeeeeeeeeeeeeeeeeeeeeeeE-----------R.........  r8 = i32 [r6 + 0]
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R.........  r5 = u32 [r12 + 0x8]
-    ...D==========================eeeeeeeeeeeeeeeeeeeeER  jump 27739 if r8 == r10
+    ...D==========================eeeeeeeeeeeeeeeeeeeeER  jump 27741 if r8 == r10
 ```
 
-Gas simulation at offset 27718 with total cost of 15:
+Gas simulation at offset 27720 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 27796
+    DeeeeeeeeeeeeeeeER  jump 27798
 ```
 
-Gas simulation at offset 27720 with total cost of 40:
+Gas simulation at offset 27722 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -14846,25 +14848,25 @@ Gas simulation at offset 27720 with total cost of 40:
     DeE---------------------------------------R  r6 = 0x30a98
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r8 = i32 [0x30a98]
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r5 = u32 [r12 + 0x8]
-    .D========================eE--------------R  jump 27796 if r8 != r10
+    .D========================eE--------------R  jump 27798 if r8 != r10
 ```
 
-Gas simulation at offset 27739 with total cost of 25:
+Gas simulation at offset 27741 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r6 + 0] = r5
-    DeE------------------------R  jump 27814 if r5 == 0
+    DeE------------------------R  jump 27816 if r5 == 0
 ```
 
-Gas simulation at offset 27744 with total cost of 25:
+Gas simulation at offset 27746 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 12] = 0
     DeeE-----------------------R  i32 r2 = r0 + r2
-    DeeeeeeeeeeeeeeeE----------R  jump 27882
+    DeeeeeeeeeeeeeeeE----------R  jump 27884
 ```
 
-Gas simulation at offset 27753 with total cost of 40:
+Gas simulation at offset 27755 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -14881,27 +14883,27 @@ Gas simulation at offset 27753 with total cost of 40:
     ......D======eE---------------------------R  r6 = r4 + r5
     ......D=======eeeeeeeeeeeeeeeeeeeeeeeeeE--R  r8 = i32 [r6 + 0]
     ......DeeeeeeeeeeeeeeeeeeeeeeeeeE---------R  r5 = u32 [r12 + 0x8]
-    .......D===============================eE-R  jump 27739 if r8 == r10
+    .......D===============================eE-R  jump 27741 if r8 == r10
 ```
 
-Gas simulation at offset 27796 with total cost of 50:
+Gas simulation at offset 27798 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r9 = u32 [r12 + 0xc]
     D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r9 + 0x8] = r5
-    DeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump 27878 if r5 == 0
+    DeeeeeeeeeeeeeeeeeeeeE------------------------------R  jump 27880 if r5 == 0
 ```
 
-Gas simulation at offset 27806 with total cost of 25:
+Gas simulation at offset 27808 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0xc] = r9
     DeeE-----------------------R  i32 r2 = r0 + r2
-    DeeeeeeeeeeeeeeeE----------R  jump 27882
+    DeeeeeeeeeeeeeeeE----------R  jump 27884
 ```
 
-Gas simulation at offset 27814 with total cost of 55:
+Gas simulation at offset 27816 with total cost of 55:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...............  unlikely
@@ -14916,10 +14918,10 @@ Gas simulation at offset 27814 with total cost of 55:
     ....DeE-----------------------------------R...............  r6 = r9 <<r r6
     ....D=========================eE----------R...............  r5 = r5 & r6
     .....D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r8 + 0x608] = r5
-    .....D=========================eE------------------------R  jump 27878 if r5 != 0
+    .....D=========================eE------------------------R  jump 27880 if r5 != 0
 ```
 
-Gas simulation at offset 27854 with total cost of 52:
+Gas simulation at offset 27856 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -14929,30 +14931,30 @@ Gas simulation at offset 27854 with total cost of 52:
     .D=========================eE-------------R............  r8 = r8 & r9
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r12 + 0x738] = r8
     ..DeeE------------------------------------------------R  i32 r2 = r0 + r2
-    ..DeeeeeeeeeeeeeeeE-----------------------------------R  jump 27882
+    ..DeeeeeeeeeeeeeeeE-----------------------------------R  jump 27884
 ```
 
-Gas simulation at offset 27878 with total cost of 2:
+Gas simulation at offset 27880 with total cost of 2:
 
 ```
     DeeER  i32 r2 = r0 + r2
     DeeER  fallthrough
 ```
 
-Gas simulation at offset 27882 with total cost of 20:
+Gas simulation at offset 27884 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 28021 if r2 == 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 28023 if r2 == 0
 ```
 
-Gas simulation at offset 27886 with total cost of 1:
+Gas simulation at offset 27888 with total cost of 1:
 
 ```
     D...  r9 = r2
-    DeER  jump 27930 if r2 <=u 127
+    DeER  jump 27932 if r2 <=u 127
 ```
 
-Gas simulation at offset 27892 with total cost of 15:
+Gas simulation at offset 27894 with total cost of 15:
 
 ```
     DeER..............  r8 = 0x2000000
@@ -14969,7 +14971,7 @@ Gas simulation at offset 27892 with total cost of 15:
     ....DeeE---------R  fallthrough
 ```
 
-Gas simulation at offset 27930 with total cost of 54:
+Gas simulation at offset 27932 with total cost of 54:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..............  unlikely
@@ -14987,17 +14989,17 @@ Gas simulation at offset 27930 with total cost of 54:
     ....D==eeeeeeeeeeeeeeeeeeeeeeeeeE---------R..............  u32 [r5 + 0x4] = r8
     .....D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0x8] = r12
     .....D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 12] = 0
-    .....D==========================eE----------------------R  jump 27977 if r12 == 0
+    .....D==========================eE----------------------R  jump 27979 if r12 == 0
 ```
 
-Gas simulation at offset 27973 with total cost of 25:
+Gas simulation at offset 27975 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r12 + 0xc] = r7
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 27977 with total cost of 55:
+Gas simulation at offset 27979 with total cost of 55:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...............  unlikely
@@ -15016,15 +15018,15 @@ Gas simulation at offset 27977 with total cost of 55:
     .....DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 28021 with total cost of 4:
+Gas simulation at offset 28023 with total cost of 4:
 
 ```
     DeER...  r8 = r2 << 0x5
     D=eeER.  i32 r7 = r7 + r8
-    .D==eER  jump 28039 if r7 >=u r11
+    .D==eER  jump 28041 if r7 >=u r11
 ```
 
-Gas simulation at offset 28030 with total cost of 27:
+Gas simulation at offset 28032 with total cost of 27:
 
 ```
     DeER..........................  r7 = r7 << 0x20
@@ -15033,7 +15035,7 @@ Gas simulation at offset 28030 with total cost of 27:
     DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 28039 with total cost of 47:
+Gas simulation at offset 28041 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -15044,7 +15046,66 @@ Gas simulation at offset 28039 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 28053 with total cost of 52:
+Gas simulation at offset 28055 with total cost of 20:
+
+```
+    DeeeeeeeeeeeeeeeeeeeeER  jump 28078 if r9 == 0
+```
+
+Gas simulation at offset 28058 with total cost of 2:
+
+```
+    DeER.  r9 = r9 + r7
+    D....  r10 = r7
+    DeeER  fallthrough
+```
+
+Gas simulation at offset 28064 with total cost of 50:
+
+```
+    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
+    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r11 = u8 [r8 + 0]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r10 + 0] = a4
+    DeE-------------------------------------------------R  r10 = r10 + 0x1
+    .DeE------------------------------------------------R  r8 = r8 + 0x1
+    .DeE------------------------------------------------R  jump 28064 if r10 != r9
+```
+
+Gas simulation at offset 28078 with total cost of 22:
+
+```
+    DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
+```
+
+Gas simulation at offset 28080 with total cost of 20:
+
+```
+    DeeeeeeeeeeeeeeeeeeeeER  jump 28097 if r9 == 0
+```
+
+Gas simulation at offset 28083 with total cost of 2:
+
+```
+    DeER.  r9 = r9 + r7
+    D....  r10 = r7
+    DeeER  fallthrough
+```
+
+Gas simulation at offset 28089 with total cost of 25:
+
+```
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r10 + 0] = a1
+    DeE------------------------R  r10 = r10 + 0x1
+    D=eeeeeeeeeeeeeeeeeeeeE----R  jump 28089 if r10 != r9
+```
+
+Gas simulation at offset 28097 with total cost of 22:
+
+```
+    DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
+```
+
+Gas simulation at offset 28099 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -15056,19 +15117,19 @@ Gas simulation at offset 28053 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r9 = r9 & 0xff
-    ..D=========================eE------------------------R  jump 28053 if r9 != 0
+    ..D=========================eE------------------------R  jump 28099 if r9 != 0
 ```
 
-Gas simulation at offset 28084 with total cost of 15:
+Gas simulation at offset 28130 with total cost of 15:
 
 ```
     DeER..............  r7 = 0x1e00
     DeER..............  r8 = 0x1
     DeER..............  r6 = 0x1
-    DeeeeeeeeeeeeeeeER  r0 = 818, jump 26590
+    DeeeeeeeeeeeeeeeER  r0 = 818, jump 26592
 ```
 
-Gas simulation at offset 28100 with total cost of 27:
+Gas simulation at offset 28146 with total cost of 27:
 
 ```
     DeER..........................  r10 = 0x2000
@@ -15080,10 +15141,10 @@ Gas simulation at offset 28100 with total cost of 27:
     .D............................  r9 = r5
     ..D...........................  r5 = r7
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x40] = r9
-    ..D========================eER  jump 28197 if r8 == 0
+    ..D========================eER  jump 28243 if r8 == 0
 ```
 
-Gas simulation at offset 28134 with total cost of 2:
+Gas simulation at offset 28180 with total cost of 2:
 
 ```
     DeER.  r7 = r9 + 0x2750
@@ -15091,7 +15152,7 @@ Gas simulation at offset 28134 with total cost of 2:
     DeeER  fallthrough
 ```
 
-Gas simulation at offset 28142 with total cost of 52:
+Gas simulation at offset 28188 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -15103,17 +15164,17 @@ Gas simulation at offset 28142 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r9 = r9 & 0xff
-    ..D=========================eE------------------------R  jump 28142 if r9 != 0
+    ..D=========================eE------------------------R  jump 28188 if r9 != 0
 ```
 
-Gas simulation at offset 28173 with total cost of 15:
+Gas simulation at offset 28219 with total cost of 15:
 
 ```
     D.................  r7 = r8
-    DeeeeeeeeeeeeeeeER  r0 = 820, jump 27396
+    DeeeeeeeeeeeeeeeER  r0 = 820, jump 27398
 ```
 
-Gas simulation at offset 28181 with total cost of 51:
+Gas simulation at offset 28227 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [r1 + 0x40]
@@ -15123,7 +15184,7 @@ Gas simulation at offset 28181 with total cost of 51:
     .DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 28197 with total cost of 50:
+Gas simulation at offset 28243 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
@@ -15134,7 +15195,7 @@ Gas simulation at offset 28197 with total cost of 50:
     .DeeE-----------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 28211 with total cost of 52:
+Gas simulation at offset 28257 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -15146,36 +15207,36 @@ Gas simulation at offset 28211 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r8 = r8 & 0xff
-    ..D=========================eE------------------------R  jump 28211 if r8 != 0
+    ..D=========================eE------------------------R  jump 28257 if r8 != 0
 ```
 
-Gas simulation at offset 28242 with total cost of 15:
+Gas simulation at offset 28288 with total cost of 15:
 
 ```
     DeER..............  r7 = 0x200
-    DeeeeeeeeeeeeeeeER  r0 = 822, jump 26590
+    DeeeeeeeeeeeeeeeER  r0 = 822, jump 26592
 ```
 
-Gas simulation at offset 28252 with total cost of 51:
+Gas simulation at offset 28298 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r5 = u64 [r1 + 0x40]
     D=========================eER.........................  r8 = r5 + 0x2000
     D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r8 + 1872] = 0
-    .DeE-------------------------------------------------R  jump 32277 if r7 == 0
+    .DeE-------------------------------------------------R  jump 32329 if r7 == 0
 ```
 
-Gas simulation at offset 28267 with total cost of 26:
+Gas simulation at offset 28313 with total cost of 26:
 
 ```
     DeER.........................  r6 = 0x10240
     D=eER........................  r8 = r6 + 0x10
     DeE-R........................  r9 = 0x4000
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x28] = r7
-    .DeeeeeeeeeeeeeeeE----------R  r0 = 824, jump 35118
+    .DeeeeeeeeeeeeeeeE----------R  r0 = 824, jump 28055
 ```
 
-Gas simulation at offset 28288 with total cost of 3:
+Gas simulation at offset 28334 with total cost of 3:
 
 ```
     DeER..  r7 = r5 + 0x2750
@@ -15184,7 +15245,7 @@ Gas simulation at offset 28288 with total cost of 3:
     .DeeER  fallthrough
 ```
 
-Gas simulation at offset 28299 with total cost of 52:
+Gas simulation at offset 28345 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -15196,28 +15257,28 @@ Gas simulation at offset 28299 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r9 = r9 & 0xff
-    ..D=========================eE------------------------R  jump 28299 if r9 != 0
+    ..D=========================eE------------------------R  jump 28345 if r9 != 0
 ```
 
-Gas simulation at offset 28330 with total cost of 15:
+Gas simulation at offset 28376 with total cost of 15:
 
 ```
     DeER..............  r7 = 0x100
     DeER..............  r8 = 0
-    DeeeeeeeeeeeeeeeER  r0 = 826, jump 26590
+    DeeeeeeeeeeeeeeeER  r0 = 826, jump 26592
 ```
 
-Gas simulation at offset 28342 with total cost of 51:
+Gas simulation at offset 28388 with total cost of 51:
 
 ```
     D.....................................................  r10 = r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u64 [r1 + 0x40]
     D=========================eER.........................  r7 = r7 + 0x2000
     D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 1872] = 0
-    .DeE-------------------------------------------------R  jump 32277 if r10 == 0
+    .DeE-------------------------------------------------R  jump 32329 if r10 == 0
 ```
 
-Gas simulation at offset 28359 with total cost of 26:
+Gas simulation at offset 28405 with total cost of 26:
 
 ```
     DeER.........................  r5 = 0x4000
@@ -15225,10 +15286,10 @@ Gas simulation at offset 28359 with total cost of 26:
     DeER.........................  r9 = 0x2000
     .D...........................  r7 = r10
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x20] = r10
-    .DeeeeeeeeeeeeeeeE----------R  r0 = 828, jump 35118
+    .DeeeeeeeeeeeeeeeE----------R  r0 = 828, jump 28055
 ```
 
-Gas simulation at offset 28382 with total cost of 176:
+Gas simulation at offset 28428 with total cost of 176:
 
 ```
     DeER...............................................................................................................................................................................  r6 = 0x1
@@ -15274,10 +15335,10 @@ Gas simulation at offset 28382 with total cost of 176:
     ......................................................D=========================================================================================================================eER  r7 = r1 + 0x2a8
     ......................................................DeE-------------------------------------------------------------------------------------------------------------------------R  r9 = 0x2000
     ..............................................................................DeE-------------------------------------------------------------------------------------------------R  r8 = 0
-    ..............................................................................DeeeeeeeeeeeeeeeE-----------------------------------------------------------------------------------R  r0 = 830, jump 32278
+    ..............................................................................DeeeeeeeeeeeeeeeE-----------------------------------------------------------------------------------R  r0 = 830, jump 32330
 ```
 
-Gas simulation at offset 28606 with total cost of 50:
+Gas simulation at offset 28652 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.........................  r7 = u64 [r1 + 0x2b0]
@@ -15287,10 +15348,10 @@ Gas simulation at offset 28606 with total cost of 50:
     .D========================eE------------------------R  r5 = r5 + r8
     .DeE------------------------------------------------R  r9 = 0x2000
     .DeE------------------------------------------------R  r8 = 0
-    .DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 832, jump 35586
+    .DeeeeeeeeeeeeeeeE----------------------------------R  r0 = 832, jump 28080
 ```
 
-Gas simulation at offset 28635 with total cost of 51:
+Gas simulation at offset 28681 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u8 [r1 + 0x310]
@@ -15303,19 +15364,19 @@ Gas simulation at offset 28635 with total cost of 51:
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r1 + 0x310] = a0
     ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0x10]
     ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x18] = r5
-    ..D=========================eeeeeeeeeeeeeeeeeeeeE----R  jump 30752 if r8 == 0
+    ..D=========================eeeeeeeeeeeeeeeeeeeeE----R  jump 30804 if r8 == 0
 ```
 
-Gas simulation at offset 28676 with total cost of 25:
+Gas simulation at offset 28722 with total cost of 25:
 
 ```
     DeER........................  r7 = r7 + r5
     DeER........................  r9 = 0x4000
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u64 [r1 + 0x28]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 834, jump 35118
+    DeeeeeeeeeeeeeeeE----------R  r0 = 834, jump 28055
 ```
 
-Gas simulation at offset 28692 with total cost of 128:
+Gas simulation at offset 28738 with total cost of 128:
 
 ```
     DeER...............................................................................................................................  r5 = r5 + 0x4000
@@ -15349,10 +15410,10 @@ Gas simulation at offset 28692 with total cost of 128:
     .........D==============================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x18] = r6
     .........D.........................................................................................................................  r6 = r7
     .........D==============================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r7 + 0x10]
-    .........DeeeeeeeeeeeeeeeE--------------------------------------------------------------------------------------------------------R  jump 32617
+    .........DeeeeeeeeeeeeeeeE--------------------------------------------------------------------------------------------------------R  jump 32669
 ```
 
-Gas simulation at offset 28807 with total cost of 76:
+Gas simulation at offset 28853 with total cost of 76:
 
 ```
     DeER...........................................................................  r7 = r1 + 0x2a8
@@ -15367,10 +15428,10 @@ Gas simulation at offset 28807 with total cost of 76:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................  r10 = u64 [r5 + 0x10]
     ..D=================================================eER........................  r7 = r7 - r10
     ...D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x18] = r10
-    ...DeeeeeeeeeeeeeeeE----------------------------------------------------------R  jump 32810
+    ...DeeeeeeeeeeeeeeeE----------------------------------------------------------R  jump 32862
 ```
 
-Gas simulation at offset 28846 with total cost of 27:
+Gas simulation at offset 28892 with total cost of 27:
 
 ```
     DeeER.........................  i32 r7 = r5 + 0x750
@@ -15380,7 +15441,7 @@ Gas simulation at offset 28846 with total cost of 27:
     .DeeE------------------------R  fallthrough
 ```
 
-Gas simulation at offset 28860 with total cost of 52:
+Gas simulation at offset 28906 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -15392,36 +15453,36 @@ Gas simulation at offset 28860 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r8 = r8 & 0xff
-    ..D=========================eE------------------------R  jump 28860 if r8 != 0
+    ..D=========================eE------------------------R  jump 28906 if r8 != 0
 ```
 
-Gas simulation at offset 28891 with total cost of 15:
+Gas simulation at offset 28937 with total cost of 15:
 
 ```
     DeER..............  r7 = 0x4
-    DeeeeeeeeeeeeeeeER  r0 = 840, jump 26590
+    DeeeeeeeeeeeeeeeER  r0 = 840, jump 26592
 ```
 
-Gas simulation at offset 28900 with total cost of 51:
+Gas simulation at offset 28946 with total cost of 51:
 
 ```
     D.....................................................  r5 = r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r8 = u64 [r1 + 0x40]
     D=========================eER.........................  r7 = r8 + 0x2000
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 1872] = 0
-    .DeE-------------------------------------------------R  jump 32277 if r5 == 0
+    .DeE-------------------------------------------------R  jump 32329 if r5 == 0
 ```
 
-Gas simulation at offset 28917 with total cost of 16:
+Gas simulation at offset 28963 with total cost of 16:
 
 ```
     DeER...............  r8 = r1 + 0x2a8
     DeER...............  r9 = 0x70
     D..................  r7 = r5
-    .DeeeeeeeeeeeeeeeER  r0 = 842, jump 35118
+    .DeeeeeeeeeeeeeeeER  r0 = 842, jump 28055
 ```
 
-Gas simulation at offset 28932 with total cost of 50:
+Gas simulation at offset 28978 with total cost of 50:
 
 ```
     DeER.................................................  r7 = 0x18d48
@@ -15431,10 +15492,10 @@ Gas simulation at offset 28932 with total cost of 50:
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER........................  u64 [r1 + 0xf0] = r5
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER........................  u64 [r1 + 0xf8] = r7
     .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 0x40]
-    ..D========================eE-----------------------R  jump 29028 if r9 == 0
+    ..D========================eE-----------------------R  jump 29074 if r9 == 0
 ```
 
-Gas simulation at offset 28968 with total cost of 25:
+Gas simulation at offset 29014 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0x50]
@@ -15444,7 +15505,7 @@ Gas simulation at offset 28968 with total cost of 25:
     .DeeE----------------------R  fallthrough
 ```
 
-Gas simulation at offset 28982 with total cost of 52:
+Gas simulation at offset 29028 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -15456,16 +15517,16 @@ Gas simulation at offset 28982 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r10 = r10 & 0xff
-    ..D=========================eE------------------------R  jump 28982 if r10 != 0
+    ..D=========================eE------------------------R  jump 29028 if r10 != 0
 ```
 
-Gas simulation at offset 29013 with total cost of 15:
+Gas simulation at offset 29059 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  r0 = 844, jump 27396
+    DeeeeeeeeeeeeeeeER  r0 = 844, jump 27398
 ```
 
-Gas simulation at offset 29019 with total cost of 26:
+Gas simulation at offset 29065 with total cost of 26:
 
 ```
     DeER.........................  r7 = r5 + 0x2000
@@ -15473,15 +15534,15 @@ Gas simulation at offset 29019 with total cost of 26:
     DeeE------------------------R  fallthrough
 ```
 
-Gas simulation at offset 29028 with total cost of 40:
+Gas simulation at offset 29074 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r7 = u64 [r1 + 0x60]
-    D=========================eE--------------R  jump 29095 if r7 == 0
+    D=========================eE--------------R  jump 29141 if r7 == 0
 ```
 
-Gas simulation at offset 29035 with total cost of 25:
+Gas simulation at offset 29081 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0x68]
@@ -15491,7 +15552,7 @@ Gas simulation at offset 29035 with total cost of 25:
     .DeeE----------------------R  fallthrough
 ```
 
-Gas simulation at offset 29049 with total cost of 52:
+Gas simulation at offset 29095 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -15503,16 +15564,16 @@ Gas simulation at offset 29049 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r10 = r10 & 0xff
-    ..D=========================eE------------------------R  jump 29049 if r10 != 0
+    ..D=========================eE------------------------R  jump 29095 if r10 != 0
 ```
 
-Gas simulation at offset 29080 with total cost of 15:
+Gas simulation at offset 29126 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  r0 = 846, jump 27396
+    DeeeeeeeeeeeeeeeER  r0 = 846, jump 27398
 ```
 
-Gas simulation at offset 29086 with total cost of 26:
+Gas simulation at offset 29132 with total cost of 26:
 
 ```
     DeER.........................  r7 = r5 + 0x2000
@@ -15520,16 +15581,16 @@ Gas simulation at offset 29086 with total cost of 26:
     DeeE------------------------R  fallthrough
 ```
 
-Gas simulation at offset 29095 with total cost of 40:
+Gas simulation at offset 29141 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r7 = u64 [r1 + 0xe8]
     DeE---------------------------------------R  r8 = 0x8000000000000000
-    .D========================eE--------------R  jump 30751 if r7 != r8
+    .D========================eE--------------R  jump 30803 if r7 != r8
 ```
 
-Gas simulation at offset 29114 with total cost of 52:
+Gas simulation at offset 29160 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -15540,19 +15601,19 @@ Gas simulation at offset 29114 with total cost of 52:
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 0x28] = r7
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R.  r7 = u64 [r1 + 0xf8]
     ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 0x38] = r7
-    ..D=================================================eER  jump 29236 if r10 == 0
+    ..D=================================================eER  jump 29282 if r10 == 0
 ```
 
-Gas simulation at offset 29143 with total cost of 51:
+Gas simulation at offset 29189 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r5 = u64 [r6 + 0x251]
     D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r8 = u64 [r5 + 0]
-    D==================================================eER  jump 29167 if r8 == 0
+    D==================================================eER  jump 29213 if r8 == 0
 ```
 
-Gas simulation at offset 29153 with total cost of 25:
+Gas simulation at offset 29199 with total cost of 25:
 
 ```
     D...........................  r7 = r10
@@ -15560,22 +15621,22 @@ Gas simulation at offset 29153 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeE---R  r0 = 848, jump [r8 + 0]
 ```
 
-Gas simulation at offset 29163 with total cost of 25:
+Gas simulation at offset 29209 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r10 = u64 [r1 + 0x20]
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 29167 with total cost of 40:
+Gas simulation at offset 29213 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r7 = u64 [r5 + 0x8]
-    D=========================eE--------------R  jump 29236 if r7 == 0
+    D=========================eE--------------R  jump 29282 if r7 == 0
 ```
 
-Gas simulation at offset 29174 with total cost of 27:
+Gas simulation at offset 29220 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r5 = u64 [r1 + 0x40]
@@ -15585,7 +15646,7 @@ Gas simulation at offset 29174 with total cost of 27:
     .DeeE------------------------R  fallthrough
 ```
 
-Gas simulation at offset 29188 with total cost of 52:
+Gas simulation at offset 29234 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -15597,17 +15658,17 @@ Gas simulation at offset 29188 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r9 = r9 & 0xff
-    ..D=========================eE------------------------R  jump 29188 if r9 != 0
+    ..D=========================eE------------------------R  jump 29234 if r9 != 0
 ```
 
-Gas simulation at offset 29219 with total cost of 15:
+Gas simulation at offset 29265 with total cost of 15:
 
 ```
     D.................  r7 = r10
-    DeeeeeeeeeeeeeeeER  r0 = 850, jump 27396
+    DeeeeeeeeeeeeeeeER  r0 = 850, jump 27398
 ```
 
-Gas simulation at offset 29227 with total cost of 26:
+Gas simulation at offset 29273 with total cost of 26:
 
 ```
     DeER.........................  r7 = r5 + 0x2000
@@ -15615,7 +15676,7 @@ Gas simulation at offset 29227 with total cost of 26:
     DeeE------------------------R  fallthrough
 ```
 
-Gas simulation at offset 29236 with total cost of 50:
+Gas simulation at offset 29282 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
@@ -15627,10 +15688,10 @@ Gas simulation at offset 29236 with total cost of 50:
     .DeE------------------------------------------------R  r7 = r1 + 0x2a8
     ..DeE-----------------------------------------------R  r8 = 0
     ..DeE-----------------------------------------------R  r9 = 0x800
-    ..DeeeeeeeeeeeeeeeE---------------------------------R  r0 = 852, jump 35586
+    ..DeeeeeeeeeeeeeeeE---------------------------------R  r0 = 852, jump 28080
 ```
 
-Gas simulation at offset 29273 with total cost of 51:
+Gas simulation at offset 29319 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  u64 [r1 + 216] = 0
@@ -15644,10 +15705,10 @@ Gas simulation at offset 29273 with total cost of 51:
     ..D================================================eER  r7 = r1 + 0xed
     ..DeE------------------------------------------------R  r9 = 0x16e
     ..DeE------------------------------------------------R  r8 = 0
-    ...DeeeeeeeeeeeeeeeE---------------------------------R  r0 = 854, jump 35586
+    ...DeeeeeeeeeeeeeeeE---------------------------------R  r0 = 854, jump 28080
 ```
 
-Gas simulation at offset 29321 with total cost of 77:
+Gas simulation at offset 29367 with total cost of 77:
 
 ```
     DeER............................................................................  r7 = r1 + 0x2a8
@@ -15667,10 +15728,10 @@ Gas simulation at offset 29321 with total cost of 77:
     ....D================================================eE------------------------R  r7 = r1 + 0x296
     ....DeE------------------------------------------------------------------------R  r9 = 0xa
     ....DeE------------------------------------------------------------------------R  r8 = 0
-    .....DeeeeeeeeeeeeeeeE---------------------------------------------------------R  r0 = 856, jump 35586
+    .....DeeeeeeeeeeeeeeeE---------------------------------------------------------R  r0 = 856, jump 28080
 ```
 
-Gas simulation at offset 29384 with total cost of 100:
+Gas simulation at offset 29430 with total cost of 100:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...........................................................................  u64 [r1 + 616] = 0
@@ -15688,10 +15749,10 @@ Gas simulation at offset 29384 with total cost of 100:
     ...D========================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 + 138] = 0
     ...D========================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 + 140] = 0
     ...D========================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 + 142] = 0
-    ...D========================================================================eE------------------------R  jump 29603 if r7 == 0
+    ...D========================================================================eE------------------------R  jump 29649 if r7 == 0
 ```
 
-Gas simulation at offset 29448 with total cost of 27:
+Gas simulation at offset 29494 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r5 = u64 [r1 + 0x40]
@@ -15701,7 +15762,7 @@ Gas simulation at offset 29448 with total cost of 27:
     .DeeE------------------------R  fallthrough
 ```
 
-Gas simulation at offset 29462 with total cost of 52:
+Gas simulation at offset 29508 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -15713,56 +15774,56 @@ Gas simulation at offset 29462 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r9 = r9 & 0xff
-    ..D=========================eE------------------------R  jump 29462 if r9 != 0
+    ..D=========================eE------------------------R  jump 29508 if r9 != 0
 ```
 
-Gas simulation at offset 29493 with total cost of 15:
+Gas simulation at offset 29539 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  r0 = 858, jump 27396
+    DeeeeeeeeeeeeeeeER  r0 = 858, jump 27398
 ```
 
-Gas simulation at offset 29499 with total cost of 26:
+Gas simulation at offset 29545 with total cost of 26:
 
 ```
     DeER.........................  r7 = r5 + 0x2000
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 1872] = 0
     DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r7 = u64 [r6 + 0x249]
-    .D========================eER  jump 29603 if r7 == 0
+    .D========================eER  jump 29649 if r7 == 0
 ```
 
-Gas simulation at offset 29514 with total cost of 51:
+Gas simulation at offset 29560 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r5 = u64 [r6 + 0x251]
     D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r8 = u64 [r5 + 0]
-    D==================================================eER  jump 29536 if r8 == 0
+    D==================================================eER  jump 29582 if r8 == 0
 ```
 
-Gas simulation at offset 29524 with total cost of 25:
+Gas simulation at offset 29570 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x20] = r7
     DeeeeeeeeeeeeeeeeeeeeeeE---R  r0 = 860, jump [r8 + 0]
 ```
 
-Gas simulation at offset 29532 with total cost of 25:
+Gas simulation at offset 29578 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0x20]
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 29536 with total cost of 40:
+Gas simulation at offset 29582 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r8 = u64 [r5 + 0x8]
-    D=========================eE--------------R  jump 29603 if r8 == 0
+    D=========================eE--------------R  jump 29649 if r8 == 0
 ```
 
-Gas simulation at offset 29543 with total cost of 27:
+Gas simulation at offset 29589 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r5 = u64 [r1 + 0x40]
@@ -15772,7 +15833,7 @@ Gas simulation at offset 29543 with total cost of 27:
     .DeeE------------------------R  fallthrough
 ```
 
-Gas simulation at offset 29557 with total cost of 52:
+Gas simulation at offset 29603 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -15784,16 +15845,16 @@ Gas simulation at offset 29557 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r10 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r9 = r9 & 0xff
-    ..D=========================eE------------------------R  jump 29557 if r9 != 0
+    ..D=========================eE------------------------R  jump 29603 if r9 != 0
 ```
 
-Gas simulation at offset 29588 with total cost of 15:
+Gas simulation at offset 29634 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  r0 = 862, jump 27396
+    DeeeeeeeeeeeeeeeER  r0 = 862, jump 27398
 ```
 
-Gas simulation at offset 29594 with total cost of 26:
+Gas simulation at offset 29640 with total cost of 26:
 
 ```
     DeER.........................  r7 = r5 + 0x2000
@@ -15801,7 +15862,7 @@ Gas simulation at offset 29594 with total cost of 26:
     DeeE------------------------R  fallthrough
 ```
 
-Gas simulation at offset 29603 with total cost of 51:
+Gas simulation at offset 29649 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
@@ -15810,10 +15871,10 @@ Gas simulation at offset 29603 with total cost of 51:
     DeE---------------------------------------R...........  r9 = 0x828
     .DeE--------------------------------------R...........  r8 = r1 + 0x2a8
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x30] = r7
-    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 864, jump 35118
+    .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 864, jump 28055
 ```
 
-Gas simulation at offset 29627 with total cost of 100:
+Gas simulation at offset 29673 with total cost of 100:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...........................................................................  r7 = u8 [r1 + 0x2a0]
@@ -15833,10 +15894,10 @@ Gas simulation at offset 29627 with total cost of 100:
     ...D========================================================================eE------------------------R  r7 = r6 + 0x38
     ....D=======================================================================eE------------------------R  r8 = r1 + 0x295
     ....DeE-----------------------------------------------------------------------------------------------R  r9 = 0xb
-    ....DeeeeeeeeeeeeeeeE---------------------------------------------------------------------------------R  r0 = 866, jump 35118
+    ....DeeeeeeeeeeeeeeeE---------------------------------------------------------------------------------R  r0 = 866, jump 28055
 ```
 
-Gas simulation at offset 29691 with total cost of 225:
+Gas simulation at offset 29737 with total cost of 225:
 
 ```
     DeER................................................................................................................................................................................................................................  r10 = 0x17bf4
@@ -15855,54 +15916,56 @@ Gas simulation at offset 29691 with total cost of 225:
     ...D===============================================eeeeeeeeeeeeeeeeeeeeeeeeeER......................................................................................................................................................  u64 [r6 + 0x61] = r2
     ...D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.....................................................................................................................................................  u64 [r6 + 0x69] = r11
     ....D=======================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.............................................................................................................................  u64 [r6 + 0x71] = r5
+    ....DeE-----------------------------------------------------------------------------------------------R.............................................................................................................................  r11 = 0x2
     ....D=======================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.............................................................................................................................  u16 [r6 + 135] = 0
     ....D=======================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.............................................................................................................................  u64 [r1 + 0x18] = r7
-    ....D========================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER............................................................................................................................  u64 [r6 + 0x89] = r7
+    .....D=======================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER............................................................................................................................  u64 [r6 + 0x89] = r7
     .....D===============================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER....................................................................................................  u32 [r6 + 0x91] = r9
     .....D===============================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER....................................................................................................  u8 [r6 + 0x95] = a1
     .....D===============================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER....................................................................................................  u16 [r6 + 67] = 0x1
-    .....D================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER...................................................................................................  u32 [r6 + 69] = 0
+    ......D===============================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER...................................................................................................  u32 [r6 + 69] = 0
     ......D=======================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER...........................................................................  u64 [r1 + 0x20] = r10
     ......D=======================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER...........................................................................  u64 [r6 + 0x49] = r10
     ......D=======================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER...........................................................................  u64 [r6 + 81] = 0x9
-    ......D========================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................................................................  u8 [r6 + 150] = 0x1
+    .......D=======================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................................................................  u8 [r6 + 150] = 0x1
     .......D===============================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..................................................  u16 [r6 + 151] = 0
     .......D===============================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..................................................  u16 [r6 + 0x99] = r12
-    .......D===============================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..................................................  u8 [r6 + 155] = 0x2
-    .......D================================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.................................................  u64 [r6 + 0x79] = r0
+    .......D===============================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..................................................  u8 [r6 + 0x9b] = a4
+    ........D===============================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.................................................  u64 [r6 + 0x79] = r0
     ........D=======================================================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................  u16 [r6 + 0x81] = r3
-    ........D=======================================================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................  u8 [r6 + 0x83] = t2
+    ............................D===================================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................  u8 [r6 + 0x83] = t2
     ............................D===================================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................  u8 [r6 + 133] = 0
     ............................D====================================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER........................  u32 [r6 + 157] = 0x1
-    ............................D============================================================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 161] = 0x200
-    .............................D===========================================================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 163] = 0
+    .............................D===========================================================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 161] = 0x200
+    .....................................................D===================================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 163] = 0
     .....................................................D===================================================================================================================================================eE------------------------R  r7 = r6 + 0xa4
-    .....................................................D====================================================================================================================================================eE-----------------------R  r8 = r1 + 0xe8
+    ......................................................D===================================================================================================================================================eE-----------------------R  r8 = r1 + 0xe8
     ......................................................DeE--------------------------------------------------------------------------------------------------------------------------------------------------------------------------R  r9 = 0x173
-    ......................................................DeeeeeeeeeeeeeeeE------------------------------------------------------------------------------------------------------------------------------------------------------------R  r0 = 868, jump 35118
+    ......................................................DeeeeeeeeeeeeeeeE------------------------------------------------------------------------------------------------------------------------------------------------------------R  r0 = 868, jump 28055
 ```
 
-Gas simulation at offset 29859 with total cost of 76:
+Gas simulation at offset 29907 with total cost of 76:
 
 ```
+    DeER...........................................................................  r10 = 0x105
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................  r7 = u64 [r1 + 0xd8]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................  r8 = i32 [r1 + 0xe0]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................  r9 = i16 [r1 + 0xe4]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................  u16 [r6 + 535] = 0x105
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeER..................................................  u16 [r6 + 0x217] = r10
     .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................  u64 [r6 + 0x219] = r7
     .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................  u32 [r6 + 0x221] = r8
     .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................  u16 [r6 + 0x225] = r9
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................  u16 [r6 + 551] = 0
+    ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................  u16 [r6 + 551] = 0
     ..D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r6 + 553] = 0xc1
     ..D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r6 + 555] = 0
-    ..D================================================eE------------------------R.  r7 = r6 + 0x22c
-    ...D===============================================eE------------------------R.  r8 = r1 + 0xc8
-    ...DeE-----------------------------------------------------------------------R.  r9 = 0xa
-    ...D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x10] = r7
-    ....DeeeeeeeeeeeeeeeE---------------------------------------------------------R  r0 = 870, jump 35118
+    ...D===============================================eE------------------------R.  r7 = r6 + 0x22c
+    ...D================================================eE-----------------------R.  r8 = r1 + 0xc8
+    ....DeE----------------------------------------------------------------------R.  r9 = 0xa
+    ....D===============================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x10] = r7
+    ....DeeeeeeeeeeeeeeeE---------------------------------------------------------R  r0 = 870, jump 28055
 ```
 
-Gas simulation at offset 29923 with total cost of 26:
+Gas simulation at offset 29973 with total cost of 26:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r6 + 566] = 0x7
@@ -15911,10 +15974,10 @@ Gas simulation at offset 29923 with total cost of 26:
     .DeE-----------------------R.  r8 = r1 + 0xb8
     .DeE-----------------------R.  r9 = 0x10
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x8] = r7
-    ..DeeeeeeeeeeeeeeeE---------R  r0 = 872, jump 35118
+    ..DeeeeeeeeeeeeeeeE---------R  r0 = 872, jump 28055
 ```
 
-Gas simulation at offset 29953 with total cost of 100:
+Gas simulation at offset 30003 with total cost of 100:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...........................................................................  r7 = u64 [r1 + 0xa0]
@@ -15936,10 +15999,10 @@ Gas simulation at offset 29953 with total cost of 100:
     ....D=======================================================================eE------------------------R  r7 = r6 + 0x278
     ....DeE-----------------------------------------------------------------------------------------------R  r9 = 0xb
     ....DeE-----------------------------------------------------------------------------------------------R  r8 = 0
-    .....DeeeeeeeeeeeeeeeE--------------------------------------------------------------------------------R  r0 = 874, jump 35586
+    .....DeeeeeeeeeeeeeeeE--------------------------------------------------------------------------------R  r0 = 874, jump 28080
 ```
 
-Gas simulation at offset 30033 with total cost of 100:
+Gas simulation at offset 30083 with total cost of 100:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...........................................................................  r7 = i16 [r1 + 0x86]
@@ -15960,10 +16023,10 @@ Gas simulation at offset 30033 with total cost of 100:
     ....D=======================================================================eE------------------------R  r7 = r1 + 0x2a8
     ....DeE-----------------------------------------------------------------------------------------------R  r9 = 0x16e
     ....DeE-----------------------------------------------------------------------------------------------R  r8 = 0
-    .....DeeeeeeeeeeeeeeeE--------------------------------------------------------------------------------R  r0 = 876, jump 35586
+    .....DeeeeeeeeeeeeeeeE--------------------------------------------------------------------------------R  r0 = 876, jump 28080
 ```
 
-Gas simulation at offset 30108 with total cost of 50:
+Gas simulation at offset 30158 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.........................  r7 = u64 [r6 + 0x209]
@@ -15972,10 +16035,10 @@ Gas simulation at offset 30108 with total cost of 50:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.........................  u16 [r1 + 244] = 0
     .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 616] = 0
     .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 + 624] = 0
-    .D========================eeeeeeeeeeeeeeeeeeeeE-----R  jump 30198 if r7 == 0
+    .D========================eeeeeeeeeeeeeeeeeeeeE-----R  jump 30248 if r7 == 0
 ```
 
-Gas simulation at offset 30135 with total cost of 27:
+Gas simulation at offset 30185 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r5 = u64 [r1 + 0x40]
@@ -15985,7 +16048,7 @@ Gas simulation at offset 30135 with total cost of 27:
     .DeeE------------------------R  fallthrough
 ```
 
-Gas simulation at offset 30149 with total cost of 52:
+Gas simulation at offset 30199 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -15997,16 +16060,16 @@ Gas simulation at offset 30149 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r10 = r10 & 0xff
-    ..D=========================eE------------------------R  jump 30149 if r10 != 0
+    ..D=========================eE------------------------R  jump 30199 if r10 != 0
 ```
 
-Gas simulation at offset 30180 with total cost of 15:
+Gas simulation at offset 30230 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  r0 = 878, jump 27396
+    DeeeeeeeeeeeeeeeER  r0 = 878, jump 27398
 ```
 
-Gas simulation at offset 30186 with total cost of 26:
+Gas simulation at offset 30236 with total cost of 26:
 
 ```
     DeER.........................  r7 = r5 + 0x2000
@@ -16015,35 +16078,36 @@ Gas simulation at offset 30186 with total cost of 26:
     .DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 30198 with total cost of 16:
+Gas simulation at offset 30248 with total cost of 16:
 
 ```
     DeER...............  r7 = r6 + 0xa9
     DeER...............  r8 = r1 + 0x2a8
     .DeER..............  r9 = 0x16e
-    .DeeeeeeeeeeeeeeeER  r0 = 880, jump 35118
+    .DeeeeeeeeeeeeeeeER  r0 = 880, jump 28055
 ```
 
-Gas simulation at offset 30216 with total cost of 75:
+Gas simulation at offset 30266 with total cost of 76:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER..................................................  r7 = u64 [r1 + 0xe8]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER..................................................  r8 = i32 [r1 + 0xf0]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER..................................................  r9 = i16 [r1 + 0xf4]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER..................................................  u16 [r6 + 535] = 0x105
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................  u64 [r6 + 0x219] = r7
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................  u32 [r6 + 0x221] = r8
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................  u16 [r6 + 0x225] = r9
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................  u16 [r6 + 551] = 0
-    ..D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 553] = 0xc1
-    ..D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 555] = 0
-    ..D================================================eE------------------------R  r8 = r1 + 0x268
-    ...DeE-----------------------------------------------------------------------R  r9 = 0xa
-    ...D===============================================eeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0x10]
-    ...DeeeeeeeeeeeeeeeE---------------------------------------------------------R  r0 = 882, jump 35118
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................  r7 = u64 [r1 + 0xe8]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................  r8 = i32 [r1 + 0xf0]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................  r9 = i16 [r1 + 0xf4]
+    DeE------------------------R...................................................  r10 = 0x105
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeER..................................................  u16 [r6 + 0x217] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................  u64 [r6 + 0x219] = r7
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................  u32 [r6 + 0x221] = r8
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................  u16 [r6 + 0x225] = r9
+    ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................  u16 [r6 + 551] = 0
+    ..D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r6 + 553] = 0xc1
+    ..D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r6 + 555] = 0
+    ...D===============================================eE------------------------R.  r8 = r1 + 0x268
+    ...DeE-----------------------------------------------------------------------R.  r9 = 0xa
+    ...D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0x10]
+    ....DeeeeeeeeeeeeeeeE---------------------------------------------------------R  r0 = 882, jump 28055
 ```
 
-Gas simulation at offset 30276 with total cost of 25:
+Gas simulation at offset 30328 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 566] = 0x7
@@ -16051,10 +16115,10 @@ Gas simulation at offset 30276 with total cost of 25:
     DeE------------------------R  r9 = 0x10
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0x8]
     .DeE-----------------------R  r8 = 0
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 884, jump 35586
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 884, jump 28080
 ```
 
-Gas simulation at offset 30300 with total cost of 250:
+Gas simulation at offset 30352 with total cost of 250:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.................................................................................................................................................................................................................................  u64 [r6 + 9] = 0
@@ -16097,69 +16161,69 @@ Gas simulation at offset 30300 with total cost of 250:
     .....................................................DeE---------------------------------------------------------------------------------------------------------------------------------------------------------------------------R.........................  r8 = 0xff
     .....................................................D============================================================================================================================================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 0x30]
     .....................................................D.......................................................................................................................................................................................................  r7 = r5
-    ......................................................DeeeeeeeeeeeeeeeE-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------R  r0 = 886, jump 22576
+    ......................................................DeeeeeeeeeeeeeeeE-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------R  r0 = 886, jump 22578
 ```
 
-Gas simulation at offset 30456 with total cost of 15:
-
-```
-    DeER..............  r8 = 0xff
-    D.................  r7 = r5
-    DeeeeeeeeeeeeeeeER  r0 = 888, jump 22576
-```
-
-Gas simulation at offset 30468 with total cost of 15:
+Gas simulation at offset 30508 with total cost of 15:
 
 ```
     DeER..............  r8 = 0xff
     D.................  r7 = r5
-    DeeeeeeeeeeeeeeeER  r0 = 890, jump 22576
+    DeeeeeeeeeeeeeeeER  r0 = 888, jump 22578
 ```
 
-Gas simulation at offset 30480 with total cost of 15:
+Gas simulation at offset 30520 with total cost of 15:
+
+```
+    DeER..............  r8 = 0xff
+    D.................  r7 = r5
+    DeeeeeeeeeeeeeeeER  r0 = 890, jump 22578
+```
+
+Gas simulation at offset 30532 with total cost of 15:
 
 ```
     DeER..............  r8 = 0x100
     D.................  r7 = r5
-    DeeeeeeeeeeeeeeeER  r0 = 892, jump 22576
+    DeeeeeeeeeeeeeeeER  r0 = 892, jump 22578
 ```
 
-Gas simulation at offset 30492 with total cost of 15:
+Gas simulation at offset 30544 with total cost of 15:
 
 ```
     DeER..............  r8 = 0x1ff
     D.................  r7 = r5
-    DeeeeeeeeeeeeeeeER  r0 = 894, jump 22576
+    DeeeeeeeeeeeeeeeER  r0 = 894, jump 22578
 ```
 
-Gas simulation at offset 30504 with total cost of 15:
+Gas simulation at offset 30556 with total cost of 15:
 
 ```
     DeER..............  r8 = 0x1fe
     D.................  r7 = r5
-    DeeeeeeeeeeeeeeeER  r0 = 896, jump 22576
+    DeeeeeeeeeeeeeeeER  r0 = 896, jump 22578
 ```
 
-Gas simulation at offset 30516 with total cost of 25:
+Gas simulation at offset 30568 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 630] = 0xfffffffffffffffd
     DeE------------------------R  r8 = 0xfffc
     D...........................  r7 = r5
-    DeeeeeeeeeeeeeeeE----------R  r0 = 898, jump 22576
+    DeeeeeeeeeeeeeeeE----------R  r0 = 898, jump 22578
 ```
 
-Gas simulation at offset 30534 with total cost of 26:
+Gas simulation at offset 30586 with total cost of 26:
 
 ```
     DeER.........................  r7 = r7 & 0xff
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x40] = r7
     DeE-------------------------R  r8 = 0xfffd
     D............................  r7 = r5
-    .DeeeeeeeeeeeeeeeE----------R  r0 = 900, jump 22576
+    .DeeeeeeeeeeeeeeeE----------R  r0 = 900, jump 22578
 ```
 
-Gas simulation at offset 30554 with total cost of 51:
+Gas simulation at offset 30606 with total cost of 51:
 
 ```
     DeER..................................................  r7 = r7 << 0x8
@@ -16169,53 +16233,53 @@ Gas simulation at offset 30554 with total cost of 51:
     .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 902, jump 5507
 ```
 
-Gas simulation at offset 30573 with total cost of 2:
+Gas simulation at offset 30625 with total cost of 2:
 
 ```
     DeER.  r7 = r7 & 0x1
-    D=eER  jump 30751 if r7 != 0
+    D=eER  jump 30803 if r7 != 0
 ```
 
-Gas simulation at offset 30580 with total cost of 15:
+Gas simulation at offset 30632 with total cost of 15:
 
 ```
     DeeeeeeeeeeeeeeeER  r0 = 904, jump 5507
 ```
 
-Gas simulation at offset 30586 with total cost of 2:
+Gas simulation at offset 30638 with total cost of 2:
 
 ```
     DeER.  r7 = r7 & 0x1
-    D=eER  jump 30751 if r7 != 0
+    D=eER  jump 30803 if r7 != 0
 ```
 
-Gas simulation at offset 30593 with total cost of 15:
+Gas simulation at offset 30645 with total cost of 15:
 
 ```
     DeeeeeeeeeeeeeeeER  r0 = 906, jump 5507
 ```
 
-Gas simulation at offset 30599 with total cost of 2:
+Gas simulation at offset 30651 with total cost of 2:
 
 ```
     DeER.  r7 = r7 & 0x1
-    D=eER  jump 30751 if r7 != 0
+    D=eER  jump 30803 if r7 != 0
 ```
 
-Gas simulation at offset 30606 with total cost of 15:
+Gas simulation at offset 30658 with total cost of 15:
 
 ```
     DeeeeeeeeeeeeeeeER  r0 = 908, jump 5507
 ```
 
-Gas simulation at offset 30612 with total cost of 2:
+Gas simulation at offset 30664 with total cost of 2:
 
 ```
     DeER.  r7 = r7 & 0x1
-    D=eER  jump 30751 if r7 != 0
+    D=eER  jump 30803 if r7 != 0
 ```
 
-Gas simulation at offset 30619 with total cost of 51:
+Gas simulation at offset 30671 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
@@ -16225,14 +16289,14 @@ Gas simulation at offset 30619 with total cost of 51:
     .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 910, jump 5507
 ```
 
-Gas simulation at offset 30637 with total cost of 2:
+Gas simulation at offset 30689 with total cost of 2:
 
 ```
     DeER.  r7 = r7 & 0x1
-    D=eER  jump 30751 if r7 != 0
+    D=eER  jump 30803 if r7 != 0
 ```
 
-Gas simulation at offset 30643 with total cost of 51:
+Gas simulation at offset 30695 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
@@ -16242,40 +16306,40 @@ Gas simulation at offset 30643 with total cost of 51:
     .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 912, jump 5507
 ```
 
-Gas simulation at offset 30662 with total cost of 2:
+Gas simulation at offset 30714 with total cost of 2:
 
 ```
     DeER.  r7 = r7 & 0x1
-    D=eER  jump 30751 if r7 != 0
+    D=eER  jump 30803 if r7 != 0
 ```
 
-Gas simulation at offset 30668 with total cost of 15:
+Gas simulation at offset 30720 with total cost of 15:
 
 ```
     DeeeeeeeeeeeeeeeER  r0 = 914, jump 5507
 ```
 
-Gas simulation at offset 30674 with total cost of 2:
+Gas simulation at offset 30726 with total cost of 2:
 
 ```
     DeER.  r7 = r7 & 0x1
-    D=eER  jump 30751 if r7 != 0
+    D=eER  jump 30803 if r7 != 0
 ```
 
-Gas simulation at offset 30680 with total cost of 15:
+Gas simulation at offset 30732 with total cost of 15:
 
 ```
     DeeeeeeeeeeeeeeeER  r0 = 916, jump 5507
 ```
 
-Gas simulation at offset 30686 with total cost of 2:
+Gas simulation at offset 30738 with total cost of 2:
 
 ```
     DeER.  r7 = r7 & 0x1
-    D=eER  jump 30751 if r7 != 0
+    D=eER  jump 30803 if r7 != 0
 ```
 
-Gas simulation at offset 30692 with total cost of 51:
+Gas simulation at offset 30744 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
@@ -16285,14 +16349,14 @@ Gas simulation at offset 30692 with total cost of 51:
     .DeeeeeeeeeeeeeeeE-----------------------------------R  r0 = 918, jump 5507
 ```
 
-Gas simulation at offset 30710 with total cost of 2:
+Gas simulation at offset 30762 with total cost of 2:
 
 ```
     DeER.  r7 = r7 & 0x1
-    D=eER  jump 30751 if r7 != 0
+    D=eER  jump 30803 if r7 != 0
 ```
 
-Gas simulation at offset 30716 with total cost of 51:
+Gas simulation at offset 30768 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
@@ -16307,30 +16371,30 @@ Gas simulation at offset 30716 with total cost of 51:
     ..D=========================eeeeeeeeeeeeeeeeeeeeeeE--R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 30751 with total cost of 2:
+Gas simulation at offset 30803 with total cost of 2:
 
 ```
     DeeER  trap
 ```
 
-Gas simulation at offset 30752 with total cost of 25:
+Gas simulation at offset 30804 with total cost of 25:
 
 ```
     DeER........................  r7 = r1 + 0x2a8
     DeER........................  r9 = 0x4000
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u64 [r1 + 0x18]
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 920, jump 32278
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 920, jump 32330
 ```
 
-Gas simulation at offset 30769 with total cost of 25:
+Gas simulation at offset 30821 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r1 + 0x2b0]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 0x2b8]
-    DeeeeeeeeeeeeeeeE----------R  jump 28676
+    DeeeeeeeeeeeeeeeE----------R  jump 28722
 ```
 
-Gas simulation at offset 30780 with total cost of 52:
+Gas simulation at offset 30832 with total cost of 52:
 
 ```
     DeER...................................................  r1 = r1 + 0xfffffffffffffff8
@@ -16347,10 +16411,10 @@ Gas simulation at offset 30780 with total cost of 52:
     ...D========================eE------------------------R  r7 = r5 + 0x2750
     ...D=========================eE-----------------------R  r7 = r7 & 0xfffffffffffffffc
     ...DeE------------------------------------------------R  r8 = 0x1
-    ....DeeeeeeeeeeeeeeeE---------------------------------R  jump 28053
+    ....DeeeeeeeeeeeeeeeE---------------------------------R  jump 28099
 ```
 
-Gas simulation at offset 30835 with total cost of 47:
+Gas simulation at offset 30887 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  r0 = u64 [r1 + 0]
@@ -16358,24 +16422,24 @@ Gas simulation at offset 30835 with total cost of 47:
     D=========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 30842 with total cost of 2:
+Gas simulation at offset 30894 with total cost of 2:
 
 ```
     DeER.  r7 = r7 & 0x1
-    D=eER  jump 31036 if r7 != 0
+    D=eER  jump 31088 if r7 != 0
 ```
 
-Gas simulation at offset 30849 with total cost of 40:
+Gas simulation at offset 30901 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeE---------------------------------------R  r6 = 0x30008
     D=eE--------------------------------------R  r7 = r6 + 0x7ff
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r5 = u64 [r7 + 0x209]
-    .D==========================eE------------R  jump 30969 if r5 != 0
+    .D==========================eE------------R  jump 31021 if r5 != 0
 ```
 
-Gas simulation at offset 30866 with total cost of 26:
+Gas simulation at offset 30918 with total cost of 26:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 0] = r7
@@ -16387,7 +16451,7 @@ Gas simulation at offset 30866 with total cost of 26:
     ..DeeE----------------------R  fallthrough
 ```
 
-Gas simulation at offset 30887 with total cost of 52:
+Gas simulation at offset 30939 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -16399,37 +16463,37 @@ Gas simulation at offset 30887 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r9 = r9 & 0xff
-    ..D=========================eE------------------------R  jump 30887 if r9 != 0
+    ..D=========================eE------------------------R  jump 30939 if r9 != 0
 ```
 
-Gas simulation at offset 30918 with total cost of 15:
+Gas simulation at offset 30970 with total cost of 15:
 
 ```
     DeER..............  r7 = 0xf00
     DeER..............  r8 = 0
-    DeeeeeeeeeeeeeeeER  r0 = 926, jump 26590
+    DeeeeeeeeeeeeeeeER  r0 = 926, jump 26592
 ```
 
-Gas simulation at offset 30930 with total cost of 51:
+Gas simulation at offset 30982 with total cost of 51:
 
 ```
     D.....................................................  r5 = r7
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r8 = u64 [r1 + 0x8]
     D=========================eER.........................  r7 = r8 + 0x2000
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 1872] = 0
-    .DeE-------------------------------------------------R  jump 32277 if r5 == 0
+    .DeE-------------------------------------------------R  jump 32329 if r5 == 0
 ```
 
-Gas simulation at offset 30947 with total cost of 15:
+Gas simulation at offset 30999 with total cost of 15:
 
 ```
     DeER..............  r9 = 0x1e000
     D.................  r7 = r5
     DeER..............  r8 = 0
-    DeeeeeeeeeeeeeeeER  r0 = 928, jump 35586
+    DeeeeeeeeeeeeeeeER  r0 = 928, jump 28080
 ```
 
-Gas simulation at offset 30962 with total cost of 50:
+Gas simulation at offset 31014 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.........................  r7 = u64 [r1 + 0]
@@ -16437,15 +16501,15 @@ Gas simulation at offset 30962 with total cost of 50:
     DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 30969 with total cost of 40:
+Gas simulation at offset 31021 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r8 = u64 [r6 + 0]
-    D=========================eE--------------R  jump 31037 if r8 == 0
+    D=========================eE--------------R  jump 31089 if r8 == 0
 ```
 
-Gas simulation at offset 30975 with total cost of 2:
+Gas simulation at offset 31027 with total cost of 2:
 
 ```
     DeER.  r11 = 0x3bffc
@@ -16454,15 +16518,15 @@ Gas simulation at offset 30975 with total cost of 2:
     DeeER  fallthrough
 ```
 
-Gas simulation at offset 30990 with total cost of 40:
+Gas simulation at offset 31042 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r7 = u16 [r5 + 0]
-    D=========================eE--------------R  jump 31038 if r7 >=u r9
+    D=========================eE--------------R  jump 31090 if r7 >=u r9
 ```
 
-Gas simulation at offset 30996 with total cost of 52:
+Gas simulation at offset 31048 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -16474,10 +16538,10 @@ Gas simulation at offset 30996 with total cost of 52:
     .DeE--------------------------------------------------R  r11 = r11 + 0xfffffffffffffffc
     .DeE--------------------------------------------------R  r8 = r8 + 0x4
     ..DeE-------------------------------------------------R  r5 = r5 + 0x2
-    ..DeE-------------------------------------------------R  jump 30990 if r12 != 0
+    ..DeE-------------------------------------------------R  jump 31042 if r12 != 0
 ```
 
-Gas simulation at offset 31021 with total cost of 47:
+Gas simulation at offset 31073 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -16488,25 +16552,25 @@ Gas simulation at offset 31021 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 31036 with total cost of 2:
+Gas simulation at offset 31088 with total cost of 2:
 
 ```
     DeeER  trap
 ```
 
-Gas simulation at offset 31037 with total cost of 2:
+Gas simulation at offset 31089 with total cost of 2:
 
 ```
     DeeER  trap
 ```
 
-Gas simulation at offset 31038 with total cost of 2:
+Gas simulation at offset 31090 with total cost of 2:
 
 ```
     DeeER  trap
 ```
 
-Gas simulation at offset 31039 with total cost of 27:
+Gas simulation at offset 31091 with total cost of 27:
 
 ```
     DeER..........................  r1 = r1 + 0xfffffffffffffff8
@@ -16520,7 +16584,7 @@ Gas simulation at offset 31039 with total cost of 27:
     ..DeeeeeeeeeeeeeeeE----------R  jump 5507
 ```
 
-Gas simulation at offset 31067 with total cost of 47:
+Gas simulation at offset 31119 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER......................  r0 = u64 [r1 + 0]
@@ -16528,22 +16592,22 @@ Gas simulation at offset 31067 with total cost of 47:
     D=========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 31074 with total cost of 21:
+Gas simulation at offset 31126 with total cost of 21:
 
 ```
     DeER....................  r9 = 0x1
     DeER....................  r10 = 0x1fffffffe0
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 31095 if r10 >=u r8
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 31147 if r10 >=u r8
 ```
 
-Gas simulation at offset 31090 with total cost of 15:
+Gas simulation at offset 31142 with total cost of 15:
 
 ```
     DeER..............  r7 = 0
-    DeeeeeeeeeeeeeeeER  jump 32586
+    DeeeeeeeeeeeeeeeER  jump 32638
 ```
 
-Gas simulation at offset 31095 with total cost of 26:
+Gas simulation at offset 31147 with total cost of 26:
 
 ```
     DeER.........................  r1 = r1 + 0xffffffffffffffa8
@@ -16556,7 +16620,7 @@ Gas simulation at offset 31095 with total cost of 26:
     ..DeeE----------------------R  fallthrough
 ```
 
-Gas simulation at offset 31120 with total cost of 52:
+Gas simulation at offset 31172 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -16568,10 +16632,10 @@ Gas simulation at offset 31120 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r10 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r11 = r11 & 0xff
-    ..D=========================eE------------------------R  jump 31120 if r11 != 0
+    ..D=========================eE------------------------R  jump 31172 if r11 != 0
 ```
 
-Gas simulation at offset 31151 with total cost of 47:
+Gas simulation at offset 31203 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -16581,16 +16645,16 @@ Gas simulation at offset 31151 with total cost of 47:
     ..DeeE------------------------------------R.......  i32 r8 = r3 + 0
     ..D=======================eE--------------R.......  r9 = r9 >> 0x1
     ...D=======================eE-------------R.......  r6 = r9 + 0xffffffffffffffff
-    ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 31377 if r6 == r8
+    ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 31429 if r6 == r8
 ```
 
-Gas simulation at offset 31173 with total cost of 1:
+Gas simulation at offset 31225 with total cost of 1:
 
 ```
-    DeER  jump 31288 if r8 >=u r6
+    DeER  jump 31340 if r8 >=u r6
 ```
 
-Gas simulation at offset 31176 with total cost of 40:
+Gas simulation at offset 31228 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -16600,10 +16664,10 @@ Gas simulation at offset 31176 with total cost of 40:
     .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u32 [r11 + 0x4]
     ..DeeE------------------------------------R  i32 r9 = r3 + 0x1
     ..D==========================eE-----------R  r10 = r10 >> 0x1
-    ...D==========================eE----------R  jump 31377 if r9 >=u r10
+    ...D==========================eE----------R  jump 31429 if r9 >=u r10
 ```
 
-Gas simulation at offset 31199 with total cost of 40:
+Gas simulation at offset 31251 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -16617,10 +16681,10 @@ Gas simulation at offset 31199 with total cost of 40:
     ...D========================eeE-----------R  i32 r4 = r11 + r12
     ....DeeE----------------------------------R  i32 r6 = r6 + r2
     .....DeeE---------------------------------R  i32 r0 = r10 - r9
-    .....D========================eE----------R  jump 31740 if r6 >=u r4
+    .....D========================eE----------R  jump 31792 if r6 >=u r4
 ```
 
-Gas simulation at offset 31238 with total cost of 48:
+Gas simulation at offset 31290 with total cost of 48:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER........  unlikely
@@ -16629,56 +16693,56 @@ Gas simulation at offset 31238 with total cost of 48:
     .DeE--------------------------------------R........  r5 = r5 >> 0x20
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeE-------------R........  r11 = u32 [r5 + 0x4]
     .D==========================eE------------R........  r12 = r11 & 0x1
-    ..D==========================eeeeeeeeeeeeeeeeeeeeER  jump 31574 if r12 != 0
+    ..D==========================eeeeeeeeeeeeeeeeeeeeER  jump 31626 if r12 != 0
 ```
 
-Gas simulation at offset 31257 with total cost of 26:
+Gas simulation at offset 31309 with total cost of 26:
 
 ```
     DeER.........................  r10 = r11 >> 0x1
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x38] = r10
-    DeeeeeeeeeeeeeeeeeeeeE------R  jump 31579 if r11 == 0
+    DeeeeeeeeeeeeeeeeeeeeE------R  jump 31631 if r11 == 0
 ```
 
-Gas simulation at offset 31267 with total cost of 20:
+Gas simulation at offset 31319 with total cost of 20:
 
 ```
     DeER...................  r3 = 0x2000000
     D=eeeER................  r3 = minu(r10, r3)
-    DeeeeeeeeeeeeeeeeeeeeER  jump 31583 if r11 >=u 256
+    DeeeeeeeeeeeeeeeeeeeeER  jump 31635 if r11 >=u 256
 ```
 
-Gas simulation at offset 31282 with total cost of 15:
+Gas simulation at offset 31334 with total cost of 15:
 
 ```
     DeER..............  r3 = r3 + 0xffffffffffffffff
-    DeeeeeeeeeeeeeeeER  jump 31609
+    DeeeeeeeeeeeeeeeER  jump 31661
 ```
 
-Gas simulation at offset 31288 with total cost of 25:
+Gas simulation at offset 31340 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x38] = r5
     DeE------------------------R  r9 = 0xffffffff
-    D=eE-----------------------R  jump 31354 if r3 != r9
+    D=eE-----------------------R  jump 31406 if r3 != r9
 ```
 
-Gas simulation at offset 31304 with total cost of 25:
+Gas simulation at offset 31356 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x30] = r7
     D...........................  r7 = r8
     DeE------------------------R  r8 = 0
-    DeeeeeeeeeeeeeeeE----------R  r0 = 932, jump 26590
+    DeeeeeeeeeeeeeeeE----------R  r0 = 932, jump 26592
 ```
 
-Gas simulation at offset 31317 with total cost of 20:
+Gas simulation at offset 31369 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 31373 if r7 == 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 31425 if r7 == 0
 ```
 
-Gas simulation at offset 31320 with total cost of 26:
+Gas simulation at offset 31372 with total cost of 26:
 
 ```
     DeER.........................  r9 = r6 << 0x25
@@ -16686,25 +16750,25 @@ Gas simulation at offset 31320 with total cost of 26:
     D............................  r5 = r7
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER  r6 = u64 [r1 + 0x30]
     .D...........................  r8 = r6
-    .DeeeeeeeeeeeeeeeE----------R  r0 = 934, jump 35118
+    .DeeeeeeeeeeeeeeeE----------R  r0 = 934, jump 28055
 ```
 
-Gas simulation at offset 31339 with total cost of 15:
+Gas simulation at offset 31391 with total cost of 15:
 
 ```
     D.................  r7 = r6
-    DeeeeeeeeeeeeeeeER  r0 = 936, jump 27396
+    DeeeeeeeeeeeeeeeER  r0 = 936, jump 27398
 ```
 
-Gas simulation at offset 31347 with total cost of 25:
+Gas simulation at offset 31399 with total cost of 25:
 
 ```
     D...........................  r7 = r5
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 0x38]
-    DeeeeeeeeeeeeeeeE----------R  jump 31377
+    DeeeeeeeeeeeeeeeE----------R  jump 31429
 ```
 
-Gas simulation at offset 31354 with total cost of 40:
+Gas simulation at offset 31406 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -16713,17 +16777,17 @@ Gas simulation at offset 31354 with total cost of 40:
     .D=eE-------------------------------------R  r5 = r5 >> 0x20
     .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u32 [r5 + 0x4]
     ..D==========================eE-----------R  r2 = r10 >> 0x1
-    ..D===========================eE----------R  jump 31399 if r8 >=u r2
+    ..D===========================eE----------R  jump 31451 if r8 >=u r2
 ```
 
-Gas simulation at offset 31373 with total cost of 25:
+Gas simulation at offset 31425 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 0x38]
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 31377 with total cost of 47:
+Gas simulation at offset 31429 with total cost of 47:
 
 ```
     DeER..............................................  r8 = r5 + 0x2000
@@ -16735,7 +16799,7 @@ Gas simulation at offset 31377 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 31399 with total cost of 78:
+Gas simulation at offset 31451 with total cost of 78:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......................................  unlikely
@@ -16746,10 +16810,10 @@ Gas simulation at offset 31399 with total cost of 78:
     ..D=================================================eeER.........................  i32 r10 = r4 + 0x80000
     ...DeeE------------------------------------------------R.........................  i32 r11 = r11 + r9
     ...D==================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x30] = r10
-    ...D==================================================eE------------------------R  jump 31304 if r11 >=u r10
+    ...D==================================================eE------------------------R  jump 31356 if r11 >=u r10
 ```
 
-Gas simulation at offset 31428 with total cost of 48:
+Gas simulation at offset 31480 with total cost of 48:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER........  unlikely
@@ -16757,19 +16821,19 @@ Gas simulation at offset 31428 with total cost of 48:
     D=eE--------------------------------------R........  r12 = r12 >> 0x20
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeE-------------R........  r0 = u32 [r12 + 0x4]
     .D==========================eE------------R........  r10 = r0 & 0x1
-    .D===========================eeeeeeeeeeeeeeeeeeeeER  jump 31304 if r10 != 0
+    .D===========================eeeeeeeeeeeeeeeeeeeeER  jump 31356 if r10 != 0
 ```
 
-Gas simulation at offset 31445 with total cost of 26:
+Gas simulation at offset 31497 with total cost of 26:
 
 ```
     DeER.........................  r10 = r0 >> 0x1
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x20] = r10
     .DeeE-----------------------R  i32 r10 = r10 + r2
-    .D==eeeeeeeeeeeeeeeeeeeeE---R  jump 31304 if r8 >=u r10
+    .D==eeeeeeeeeeeeeeeeeeeeE---R  jump 31356 if r8 >=u r10
 ```
 
-Gas simulation at offset 31458 with total cost of 97:
+Gas simulation at offset 31510 with total cost of 97:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER........................................................................  u64 [r1 + 0] = r12
@@ -16792,17 +16856,17 @@ Gas simulation at offset 31458 with total cost of 97:
     ......D======================eeeeeeeeeeeeeeeeeeeeeeeeeE------------------------R....................  r10 = u64 [r1 + 0x18]
     ......D===============================================eeeE---------------------R....................  r10 = r10 >u 0
     .......D==================================================eE-------------------R....................  r2 = r2 + r10
-    .......D======================================================================eeeeeeeeeeeeeeeeeeeeER  jump 31541 if r3 >=u r2
+    .......D======================================================================eeeeeeeeeeeeeeeeeeeeER  jump 31593 if r3 >=u r2
 ```
 
-Gas simulation at offset 31520 with total cost of 2:
+Gas simulation at offset 31572 with total cost of 2:
 
 ```
     DeER.  r10 = 0x4001
-    D=eER  jump 31304 if r2 >=u r10
+    D=eER  jump 31356 if r2 >=u r10
 ```
 
-Gas simulation at offset 31528 with total cost of 51:
+Gas simulation at offset 31580 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
@@ -16812,45 +16876,45 @@ Gas simulation at offset 31528 with total cost of 51:
     .DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 31541 with total cost of 25:
+Gas simulation at offset 31593 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x10] = r4
-    DeeeeeeeeeeeeeeeeeeeeE-----R  jump 31919 if r0 == 0
+    DeeeeeeeeeeeeeeeeeeeeE-----R  jump 31971 if r0 == 0
 ```
 
-Gas simulation at offset 31548 with total cost of 28:
+Gas simulation at offset 31600 with total cost of 28:
 
 ```
     DeER...........................  r8 = 0x2000000
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...  r6 = u64 [r1 + 0x20]
     D=========================eeeER  r8 = minu(r6, r8)
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r12 = u64 [r1 + 0]
-    .DeeeeeeeeeeeeeeeeeeeeE-------R  jump 31925 if r0 >=u 256
+    .DeeeeeeeeeeeeeeeeeeeeE-------R  jump 31977 if r0 >=u 256
 ```
 
-Gas simulation at offset 31568 with total cost of 15:
+Gas simulation at offset 31620 with total cost of 15:
 
 ```
     DeER..............  r3 = r8 + 0xffffffffffffffff
-    DeeeeeeeeeeeeeeeER  jump 31951
+    DeeeeeeeeeeeeeeeER  jump 32003
 ```
 
-Gas simulation at offset 31574 with total cost of 15:
+Gas simulation at offset 31626 with total cost of 15:
 
 ```
     D.................  r5 = r8
-    DeeeeeeeeeeeeeeeER  jump 31740
+    DeeeeeeeeeeeeeeeER  jump 31792
 ```
 
-Gas simulation at offset 31579 with total cost of 15:
+Gas simulation at offset 31631 with total cost of 15:
 
 ```
     DeER..............  r3 = 0
-    DeeeeeeeeeeeeeeeER  jump 31609
+    DeeeeeeeeeeeeeeeER  jump 31661
 ```
 
-Gas simulation at offset 31583 with total cost of 10:
+Gas simulation at offset 31635 with total cost of 10:
 
 ```
     DeER.........  i32 r10 = clz r3
@@ -16864,7 +16928,7 @@ Gas simulation at offset 31583 with total cost of 10:
     .....DeeE---R  fallthrough
 ```
 
-Gas simulation at offset 31609 with total cost of 29:
+Gas simulation at offset 31661 with total cost of 29:
 
 ```
     DeER............................  r10 = r3 << 0x20
@@ -16872,46 +16936,46 @@ Gas simulation at offset 31609 with total cost of 29:
     .D=eER..........................  r11 = r8 + r10
     .D==eeeeeeeeeeeeeeeeeeeeeeeeeER.  r10 = i32 [r11 + 0]
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R.  r12 = u32 [r5 + 0x8]
-    ..D==========================eER  jump 31644 if r10 != r6
+    ..D==========================eER  jump 31696 if r10 != r6
 ```
 
-Gas simulation at offset 31626 with total cost of 25:
+Gas simulation at offset 31678 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r11 + 0] = r12
-    DeE------------------------R  jump 31667 if r12 == 0
+    DeE------------------------R  jump 31719 if r12 == 0
 ```
 
-Gas simulation at offset 31631 with total cost of 27:
+Gas simulation at offset 31683 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  u32 [r12 + 12] = 0
     D.............................  r5 = r8
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u64 [r1 + 0x38]
     .D========================eeER  i32 r0 = r8 + r0
-    .DeeeeeeeeeeeeeeeE-----------R  jump 31740
+    .DeeeeeeeeeeeeeeeE-----------R  jump 31792
 ```
 
-Gas simulation at offset 31644 with total cost of 50:
+Gas simulation at offset 31696 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r11 = u32 [r5 + 0xc]
     D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r11 + 0x8] = r12
     D....................................................  r5 = r8
-    .DeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump 31733 if r12 == 0
+    .DeeeeeeeeeeeeeeeeeeeeE-----------------------------R  jump 31785 if r12 == 0
 ```
 
-Gas simulation at offset 31656 with total cost of 27:
+Gas simulation at offset 31708 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  u32 [r12 + 0xc] = r11
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u64 [r1 + 0x38]
     D=========================eeER  i32 r0 = r8 + r0
-    .DeeeeeeeeeeeeeeeE-----------R  jump 31740
+    .DeeeeeeeeeeeeeeeE-----------R  jump 31792
 ```
 
-Gas simulation at offset 31667 with total cost of 55:
+Gas simulation at offset 31719 with total cost of 55:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...............  unlikely
@@ -16926,10 +16990,10 @@ Gas simulation at offset 31667 with total cost of 55:
     ....D=========================eE----------R...............  r12 = r12 & r5
     ....D.....................................................  r5 = r8
     ....D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r10 + 0x608] = r12
-    ....D==========================eE------------------------R  jump 31733 if r12 != 0
+    ....D==========================eE------------------------R  jump 31785 if r12 != 0
 ```
 
-Gas simulation at offset 31706 with total cost of 52:
+Gas simulation at offset 31758 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -16940,10 +17004,10 @@ Gas simulation at offset 31706 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r10 + 0x738] = r11
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r8 = u64 [r1 + 0x38]
     ..D=========================eeE-----------------------R  i32 r0 = r8 + r0
-    ..DeeeeeeeeeeeeeeeE-----------------------------------R  jump 31740
+    ..DeeeeeeeeeeeeeeeE-----------------------------------R  jump 31792
 ```
 
-Gas simulation at offset 31733 with total cost of 27:
+Gas simulation at offset 31785 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u64 [r1 + 0x38]
@@ -16951,23 +17015,23 @@ Gas simulation at offset 31733 with total cost of 27:
     DeeE-------------------------R  fallthrough
 ```
 
-Gas simulation at offset 31740 with total cost of 20:
+Gas simulation at offset 31792 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 31895 if r0 == 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 31947 if r0 == 0
 ```
 
-Gas simulation at offset 31744 with total cost of 25:
+Gas simulation at offset 31796 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x38] = r4
     DeE------------------------R  r12 = r9 << 0x5
     .DeE-----------------------R  r3 = r12 + r2
     .D..........................  r11 = r0
-    .DeE-----------------------R  jump 31797 if r0 <=u 127
+    .DeE-----------------------R  jump 31849 if r0 <=u 127
 ```
 
-Gas simulation at offset 31759 with total cost of 15:
+Gas simulation at offset 31811 with total cost of 15:
 
 ```
     DeER..............  r8 = 0x2000000
@@ -16984,7 +17048,7 @@ Gas simulation at offset 31759 with total cost of 15:
     ....DeeE---------R  fallthrough
 ```
 
-Gas simulation at offset 31797 with total cost of 54:
+Gas simulation at offset 31849 with total cost of 54:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..............  unlikely
@@ -17003,17 +17067,17 @@ Gas simulation at offset 31797 with total cost of 54:
     ......D=eeeeeeeeeeeeeeeeeeeeeeeeeE--------R..............  u32 [r12 + 0x4] = r10
     ......D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r12 + 0x8] = r5
     ......D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r12 + 12] = 0
-    ......D==========================eE---------------------R  jump 31846 if r5 == 0
+    ......D==========================eE---------------------R  jump 31898 if r5 == 0
 ```
 
-Gas simulation at offset 31842 with total cost of 25:
+Gas simulation at offset 31894 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0xc] = r3
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 31846 with total cost of 55:
+Gas simulation at offset 31898 with total cost of 55:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...............  unlikely
@@ -17034,33 +17098,33 @@ Gas simulation at offset 31846 with total cost of 55:
     .....DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 31895 with total cost of 24:
+Gas simulation at offset 31947 with total cost of 24:
 
 ```
     DeER.......................  r9 = r9 + r0
     D=eER......................  r9 = r9 << 0x5
     .D=eeER....................  i32 r8 = r9 + r2
-    .D===eeeeeeeeeeeeeeeeeeeeER  jump 31377 if r8 >=u r4
+    .D===eeeeeeeeeeeeeeeeeeeeER  jump 31429 if r8 >=u r4
 ```
 
-Gas simulation at offset 31908 with total cost of 27:
+Gas simulation at offset 31960 with total cost of 27:
 
 ```
     DeER..........................  r8 = r8 << 0x20
     D=eER.........................  r8 = r8 >> 0x20
     D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0] = r0
-    DeeeeeeeeeeeeeeeE------------R  jump 31377
+    DeeeeeeeeeeeeeeeE------------R  jump 31429
 ```
 
-Gas simulation at offset 31919 with total cost of 25:
+Gas simulation at offset 31971 with total cost of 25:
 
 ```
     DeER........................  r3 = 0
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r12 = u64 [r1 + 0]
-    DeeeeeeeeeeeeeeeE----------R  jump 31951
+    DeeeeeeeeeeeeeeeE----------R  jump 32003
 ```
 
-Gas simulation at offset 31925 with total cost of 10:
+Gas simulation at offset 31977 with total cost of 10:
 
 ```
     DeER.........  i32 r10 = clz r8
@@ -17074,7 +17138,7 @@ Gas simulation at offset 31925 with total cost of 10:
     ....DeeE----R  fallthrough
 ```
 
-Gas simulation at offset 31951 with total cost of 52:
+Gas simulation at offset 32003 with total cost of 52:
 
 ```
     DeER...................................................  r8 = r3 << 0x20
@@ -17086,40 +17150,40 @@ Gas simulation at offset 31951 with total cost of 52:
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R.  r0 = u64 [r1 + 0x8]
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE------------------------R.  r10 = u64 [r1 + 0x28]
     ..D=========================eeE----------------------R.  i32 r2 = r0 - r10
-    ...D================================================eER  jump 31990 if r4 != r11
+    ...D================================================eER  jump 32042 if r4 != r11
 ```
 
-Gas simulation at offset 31980 with total cost of 25:
+Gas simulation at offset 32032 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0] = r6
-    DeE------------------------R  jump 32005 if r6 == 0
+    DeE------------------------R  jump 32057 if r6 == 0
 ```
 
-Gas simulation at offset 31985 with total cost of 25:
+Gas simulation at offset 32037 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r6 + 12] = 0
-    DeeeeeeeeeeeeeeeE----------R  jump 32068
+    DeeeeeeeeeeeeeeeE----------R  jump 32120
 ```
 
-Gas simulation at offset 31990 with total cost of 50:
+Gas simulation at offset 32042 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r8 = u32 [r12 + 0xc]
     D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0x8] = r6
-    DeE-------------------------------------------------R  jump 32068 if r6 == 0
+    DeE-------------------------------------------------R  jump 32120 if r6 == 0
 ```
 
-Gas simulation at offset 32000 with total cost of 25:
+Gas simulation at offset 32052 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r6 + 0xc] = r8
-    DeeeeeeeeeeeeeeeE----------R  jump 32068
+    DeeeeeeeeeeeeeeeE----------R  jump 32120
 ```
 
-Gas simulation at offset 32005 with total cost of 79:
+Gas simulation at offset 32057 with total cost of 79:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......................................  unlikely
@@ -17134,10 +17198,10 @@ Gas simulation at offset 32005 with total cost of 79:
     ...D=eE------------------------------------------------R..........................  r12 = r10 <<r r12
     ....D=================================================eER.........................  r12 = r12 & r6
     ....D==================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r8 + 0x608] = r12
-    ....D==================================================eE------------------------R  jump 32068 if r12 != 0
+    ....D==================================================eE------------------------R  jump 32120 if r12 != 0
 ```
 
-Gas simulation at offset 32045 with total cost of 77:
+Gas simulation at offset 32097 with total cost of 77:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.....................................  unlikely
@@ -17150,7 +17214,7 @@ Gas simulation at offset 32045 with total cost of 77:
     ..DeeE-------------------------------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 32068 with total cost of 52:
+Gas simulation at offset 32120 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -17158,17 +17222,17 @@ Gas simulation at offset 32068 with total cost of 52:
     D=========================eE--------------R............  r8 = r4 << 0x1
     .D=========================eE-------------R............  r8 = r8 + 0x1
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0x4] = r8
-    .DeeeeeeeeeeeeeeeeeeeeE-------------------------------R  jump 32231 if r2 == 0
+    .DeeeeeeeeeeeeeeeeeeeeE-------------------------------R  jump 32283 if r2 == 0
 ```
 
-Gas simulation at offset 32085 with total cost of 1:
+Gas simulation at offset 32137 with total cost of 1:
 
 ```
     D...  r10 = r2
-    DeER  jump 32129 if r2 <=u 127
+    DeER  jump 32181 if r2 <=u 127
 ```
 
-Gas simulation at offset 32091 with total cost of 15:
+Gas simulation at offset 32143 with total cost of 15:
 
 ```
     DeER..............  r8 = 0x2000000
@@ -17185,7 +17249,7 @@ Gas simulation at offset 32091 with total cost of 15:
     ....DeeE---------R  fallthrough
 ```
 
-Gas simulation at offset 32129 with total cost of 79:
+Gas simulation at offset 32181 with total cost of 79:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......................................  unlikely
@@ -17205,17 +17269,17 @@ Gas simulation at offset 32129 with total cost of 79:
     ......D======================eeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R.  u32 [r5 + 0x4] = r3
     ......D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0x8] = r12
     ......D======================eeeeeeeeeeeeeeeeeeeeeeeeeE--------------------------R  u32 [r5 + 12] = 0
-    ......D================================================eeeeeeeeeeeeeeeeeeeeE-----R  jump 32182 if r12 == 0
+    ......D================================================eeeeeeeeeeeeeeeeeeeeE-----R  jump 32234 if r12 == 0
 ```
 
-Gas simulation at offset 32178 with total cost of 25:
+Gas simulation at offset 32230 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r12 + 0xc] = r6
     DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 32182 with total cost of 78:
+Gas simulation at offset 32234 with total cost of 78:
 
 ```
     DeER.............................................................................  r8 = r10 << 0x3
@@ -17232,79 +17296,79 @@ Gas simulation at offset 32182 with total cost of 78:
     ....DeE-------------------------------------------------------------------------R  r10 = 0x1 << r10
     ....D===============================================eE--------------------------R  r8 = r8 | r10
     .....D===============================================eeeeeeeeeeeeeeeeeeeeeeeeeE-R  u64 [r6 + 0x738] = r8
-    .....DeeeeeeeeeeeeeeeE----------------------------------------------------------R  jump 32234
+    .....DeeeeeeeeeeeeeeeE----------------------------------------------------------R  jump 32286
 ```
 
-Gas simulation at offset 32231 with total cost of 2:
+Gas simulation at offset 32283 with total cost of 2:
 
 ```
     D....  r2 = r4
     DeeER  fallthrough
 ```
 
-Gas simulation at offset 32234 with total cost of 46:
+Gas simulation at offset 32286 with total cost of 46:
 
 ```
     DeER.............................................  r8 = r0 << 0x5
     D=eeER...........................................  i32 r8 = r8 + r9
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r9 = u64 [r1 + 0x30]
-    .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 31373 if r8 >=u r9
+    .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 31425 if r8 >=u r9
 ```
 
-Gas simulation at offset 32247 with total cost of 27:
+Gas simulation at offset 32299 with total cost of 27:
 
 ```
     DeER..........................  r8 = r8 << 0x20
     D=eER.........................  r8 = r8 >> 0x20
     D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0] = r2
     DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r5 = u64 [r1 + 0x38]
-    .DeeeeeeeeeeeeeeeE-----------R  jump 31377
+    .DeeeeeeeeeeeeeeeE-----------R  jump 31429
 ```
 
-Gas simulation at offset 32261 with total cost of 26:
+Gas simulation at offset 32313 with total cost of 26:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u64 [0x30008]
-    D=========================eER  jump 32271 if r7 == 0
+    D=========================eER  jump 32323 if r7 == 0
 ```
 
-Gas simulation at offset 32269 with total cost of 22:
+Gas simulation at offset 32321 with total cost of 22:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 32271 with total cost of 2:
+Gas simulation at offset 32323 with total cost of 2:
 
 ```
     DeeER  trap
 ```
 
-Gas simulation at offset 32272 with total cost of 1:
+Gas simulation at offset 32324 with total cost of 1:
 
 ```
-    DeER  jump 32276 if r7 != 0
+    DeER  jump 32328 if r7 != 0
 ```
 
-Gas simulation at offset 32275 with total cost of 2:
-
-```
-    DeeER  trap
-```
-
-Gas simulation at offset 32276 with total cost of 2:
+Gas simulation at offset 32327 with total cost of 2:
 
 ```
     DeeER  trap
 ```
 
-Gas simulation at offset 32277 with total cost of 2:
+Gas simulation at offset 32328 with total cost of 2:
 
 ```
     DeeER  trap
 ```
 
-Gas simulation at offset 32278 with total cost of 26:
+Gas simulation at offset 32329 with total cost of 2:
+
+```
+    DeeER  trap
+```
+
+Gas simulation at offset 32330 with total cost of 26:
 
 ```
     DeER.........................  r1 = r1 + 0xffffffffffffffb8
@@ -17312,10 +17376,10 @@ Gas simulation at offset 32278 with total cost of 26:
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x38] = r5
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x30] = r6
     .DeE------------------------R  r9 = r9 + r8
-    .D=eE-----------------------R  jump 32376 if r9 <u r8
+    .D=eE-----------------------R  jump 32428 if r9 <u r8
 ```
 
-Gas simulation at offset 32296 with total cost of 40:
+Gas simulation at offset 32348 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
@@ -17325,16 +17389,16 @@ Gas simulation at offset 32296 with total cost of 40:
     .D========================eE--------------R  r10 = r7 << 0x1
     .DeeeE------------------------------------R  r8 = maxu(r9, r8)
     ..D========================eeeE-----------R  r6 = maxu(r8, r10)
-    ..D===========================eE----------R  jump 32376 if r6 <s 0
+    ..D===========================eE----------R  jump 32428 if r6 <s 0
 ```
 
-Gas simulation at offset 32316 with total cost of 1:
+Gas simulation at offset 32368 with total cost of 1:
 
 ```
-    DeER  jump 32333 if r7 == 0
+    DeER  jump 32385 if r7 == 0
 ```
 
-Gas simulation at offset 32319 with total cost of 50:
+Gas simulation at offset 32371 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
@@ -17345,24 +17409,24 @@ Gas simulation at offset 32319 with total cost of 50:
     .DeeE-----------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 32333 with total cost of 25:
+Gas simulation at offset 32385 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x20] = r7
     D...........................  r7 = r1
     DeE------------------------R  r9 = r1 + 0x18
     .D..........................  r8 = r6
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 938, jump 32387
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 938, jump 32439
 ```
 
-Gas simulation at offset 32348 with total cost of 26:
+Gas simulation at offset 32400 with total cost of 26:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u64 [r1 + 0]
-    D=========================eER  jump 32381 if r7 != 0
+    D=========================eER  jump 32433 if r7 != 0
 ```
 
-Gas simulation at offset 32353 with total cost of 50:
+Gas simulation at offset 32405 with total cost of 50:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
@@ -17376,23 +17440,23 @@ Gas simulation at offset 32353 with total cost of 50:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeE--R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 32376 with total cost of 40:
+Gas simulation at offset 32428 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeE---------------------------------------R  r7 = 0
-    DeeeeeeeeeeeeeeeE-------------------------R  jump 32272
+    DeeeeeeeeeeeeeeeE-------------------------R  jump 32324
 ```
 
-Gas simulation at offset 32381 with total cost of 40:
+Gas simulation at offset 32433 with total cost of 40:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r7 = u64 [r1 + 0x8]
-    DeeeeeeeeeeeeeeeE-------------------------R  jump 32272
+    DeeeeeeeeeeeeeeeE-------------------------R  jump 32324
 ```
 
-Gas simulation at offset 32387 with total cost of 27:
+Gas simulation at offset 32439 with total cost of 27:
 
 ```
     DeER..........................  r1 = r1 + 0xffffffffffffffe0
@@ -17402,40 +17466,40 @@ Gas simulation at offset 32387 with total cost of 27:
     .D............................  r5 = r8
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r8 = u64 [r9 + 0x8]
     .D............................  r6 = r7
-    .D=========================eER  jump 32429 if r8 == 0
+    .D=========================eER  jump 32481 if r8 == 0
 ```
 
-Gas simulation at offset 32409 with total cost of 45:
+Gas simulation at offset 32461 with total cost of 45:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.....  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R.....  r7 = u64 [r9 + 0x10]
-    D=========================eeeeeeeeeeeeeeeeeeeeER  jump 32493 if r7 == 0
+    D=========================eeeeeeeeeeeeeeeeeeeeER  jump 32545 if r7 == 0
 ```
 
-Gas simulation at offset 32416 with total cost of 25:
+Gas simulation at offset 32468 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r7 = u64 [r9 + 0]
     D...........................  r8 = r5
-    DeeeeeeeeeeeeeeeE----------R  r0 = 940, jump 31074
+    DeeeeeeeeeeeeeeeE----------R  r0 = 940, jump 31126
 ```
 
-Gas simulation at offset 32426 with total cost of 15:
+Gas simulation at offset 32478 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 32586
+    DeeeeeeeeeeeeeeeER  jump 32638
 ```
 
-Gas simulation at offset 32429 with total cost of 21:
+Gas simulation at offset 32481 with total cost of 21:
 
 ```
     DeER....................  r7 = 0x1
     DeER....................  r8 = 0x1fffffffe0
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 32509 if r8 <u r5
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 32561 if r8 <u r5
 ```
 
-Gas simulation at offset 32445 with total cost of 26:
+Gas simulation at offset 32497 with total cost of 26:
 
 ```
     DeER.........................  r9 = 0x30a98
@@ -17445,7 +17509,7 @@ Gas simulation at offset 32445 with total cost of 26:
     .DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 32460 with total cost of 52:
+Gas simulation at offset 32512 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -17457,31 +17521,31 @@ Gas simulation at offset 32460 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r9 = r9 & 0xff
-    ..D=========================eE------------------------R  jump 32460 if r9 != 0
+    ..D=========================eE------------------------R  jump 32512 if r9 != 0
 ```
 
-Gas simulation at offset 32491 with total cost of 15:
+Gas simulation at offset 32543 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  jump 32559
+    DeeeeeeeeeeeeeeeER  jump 32611
 ```
 
-Gas simulation at offset 32493 with total cost of 21:
+Gas simulation at offset 32545 with total cost of 21:
 
 ```
     DeER....................  r7 = 0x1
     DeER....................  r8 = 0x1fffffffe0
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 32513 if r8 >=u r5
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 32565 if r8 >=u r5
 ```
 
-Gas simulation at offset 32509 with total cost of 15:
+Gas simulation at offset 32561 with total cost of 15:
 
 ```
     DeER..............  r7 = 0
-    DeeeeeeeeeeeeeeeER  jump 32586
+    DeeeeeeeeeeeeeeeER  jump 32638
 ```
 
-Gas simulation at offset 32513 with total cost of 26:
+Gas simulation at offset 32565 with total cost of 26:
 
 ```
     DeER.........................  r9 = 0x30a98
@@ -17491,7 +17555,7 @@ Gas simulation at offset 32513 with total cost of 26:
     .DeeE-----------------------R  fallthrough
 ```
 
-Gas simulation at offset 32528 with total cost of 52:
+Gas simulation at offset 32580 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -17503,20 +17567,20 @@ Gas simulation at offset 32528 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r9 = r9 & 0xff
-    ..D=========================eE------------------------R  jump 32528 if r9 != 0
+    ..D=========================eE------------------------R  jump 32580 if r9 != 0
 ```
 
-Gas simulation at offset 32559 with total cost of 16:
+Gas simulation at offset 32611 with total cost of 16:
 
 ```
     DeER...............  r7 = r5 + 0x1f
     D=eER..............  r7 = r7 >> 0x5
     .D=eeER............  i32 r7 = r7 + 0
     .DeE--R............  r8 = 0
-    .DeeeeeeeeeeeeeeeER  r0 = 942, jump 26590
+    .DeeeeeeeeeeeeeeeER  r0 = 942, jump 26592
 ```
 
-Gas simulation at offset 32575 with total cost of 51:
+Gas simulation at offset 32627 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [r1 + 0]
@@ -17525,7 +17589,7 @@ Gas simulation at offset 32575 with total cost of 51:
     .DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 32586 with total cost of 52:
+Gas simulation at offset 32638 with total cost of 52:
 
 ```
     DeeeER.................................................  r8 = r7 <u 0x1
@@ -17541,7 +17605,7 @@ Gas simulation at offset 32586 with total cost of 52:
     ...D========================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 32617 with total cost of 46:
+Gas simulation at offset 32669 with total cost of 46:
 
 ```
     D................................................  r10 = r8
@@ -17549,20 +17613,20 @@ Gas simulation at offset 32617 with total cost of 46:
     D=========================eER....................  r7 = r7 - r5
     D................................................  r8 = r5
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  u64 [r1 + 8] = 0x2000
-    .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 32782 if r7 <u 8192
+    .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 32834 if r7 <u 8192
 ```
 
-Gas simulation at offset 32637 with total cost of 26:
+Gas simulation at offset 32689 with total cost of 26:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 0] = r8
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r7 = u64 [r6 + 0x8]
     D=========================eER  r7 = r7 + r8
     D............................  r8 = r10
-    .DeeeeeeeeeeeeeeeE----------R  r0 = 944, jump 35118
+    .DeeeeeeeeeeeeeeeE----------R  r0 = 944, jump 28055
 ```
 
-Gas simulation at offset 32653 with total cost of 224:
+Gas simulation at offset 32705 with total cost of 224:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.......................................................................................................................................................................................................  r8 = u8 [r6 + 0x5c]
@@ -17611,46 +17675,47 @@ Gas simulation at offset 32653 with total cost of 224:
     ..............................................................................D============================================================================================================================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 32782 with total cost of 25:
+Gas simulation at offset 32834 with total cost of 25:
 
 ```
     D...........................  r7 = r6
     D...........................  r8 = r5
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r9 = u64 [r1 + 0x8]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x10] = r10
-    .DeeeeeeeeeeeeeeeE---------R  r0 = 946, jump 32278
+    .DeeeeeeeeeeeeeeeE---------R  r0 = 946, jump 32330
 ```
 
-Gas simulation at offset 32798 with total cost of 25:
+Gas simulation at offset 32850 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r10 = u64 [r1 + 0x10]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r9 = u64 [r1 + 0x8]
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u64 [r6 + 0x10]
-    DeeeeeeeeeeeeeeeE----------R  jump 32637
+    DeeeeeeeeeeeeeeeE----------R  jump 32689
 ```
 
-Gas simulation at offset 32810 with total cost of 20:
+Gas simulation at offset 32862 with total cost of 20:
 
 ```
     D......................  r8 = r10
-    DeeeeeeeeeeeeeeeeeeeeER  jump 32957 if r7 <=u 2047
+    DeeeeeeeeeeeeeeeeeeeeER  jump 33011 if r7 <=u 2047
 ```
 
-Gas simulation at offset 32818 with total cost of 27:
+Gas simulation at offset 32870 with total cost of 27:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r7 = u64 [r5 + 0x8]
     DeE------------------------R..  r9 = 0x800
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER..  u64 [r1 + 16] = 0xffffffffffffd800
-    D=========================eER.  r7 = r7 + r8
+    DeE------------------------R..  r10 = 0xffffffffffffd800
+    D=eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 0x10] = r10
+    .D========================eER.  r7 = r7 + r8
     .DeE------------------------R.  r8 = r8 + r9
     .D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x8] = r8
     .DeE-------------------------R  r8 = 0
-    .DeeeeeeeeeeeeeeeE-----------R  r0 = 948, jump 35586
+    ..DeeeeeeeeeeeeeeeE----------R  r0 = 948, jump 28080
 ```
 
-Gas simulation at offset 32847 with total cost of 51:
+Gas simulation at offset 32901 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = u8 [r5 + 0x64]
@@ -17659,10 +17724,10 @@ Gas simulation at offset 32847 with total cost of 51:
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER.........................  r8 = u64 [r1 + 0x8]
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x10] = r8
     .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0x38] = r10
-    .DeE-------------------------------------------------R  jump 32935 if r6 == 0
+    .DeE-------------------------------------------------R  jump 32989 if r6 == 0
 ```
 
-Gas simulation at offset 32869 with total cost of 51:
+Gas simulation at offset 32923 with total cost of 51:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
@@ -17674,7 +17739,7 @@ Gas simulation at offset 32869 with total cost of 51:
     .DeeE------------------------------------------------R  fallthrough
 ```
 
-Gas simulation at offset 32886 with total cost of 76:
+Gas simulation at offset 32940 with total cost of 76:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER...................................................  r10 = u8 [r5 + 0x66]
@@ -17696,7 +17761,7 @@ Gas simulation at offset 32886 with total cost of 76:
     ....D===============================================eeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 32935 with total cost of 52:
+Gas simulation at offset 32989 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -17706,33 +17771,33 @@ Gas simulation at offset 32935 with total cost of 52:
     .D=========================eE-------------R............  r10 = r8 + 0x400
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0x3c] = r10
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0x40] = r10
-    ..DeeeeeeeeeeeeeeeE-----------------------------------R  jump 32886
+    ..DeeeeeeeeeeeeeeeE-----------------------------------R  jump 32940
 ```
 
-Gas simulation at offset 32957 with total cost of 25:
+Gas simulation at offset 33011 with total cost of 25:
 
 ```
     DeER........................  r9 = 0x800
     D...........................  r7 = r5
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u64 [r1 + 0x18]
-    DeeeeeeeeeeeeeeeE----------R  r0 = 950, jump 32278
+    DeeeeeeeeeeeeeeeE----------R  r0 = 950, jump 32330
 ```
 
-Gas simulation at offset 32972 with total cost of 25:
+Gas simulation at offset 33026 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u64 [r5 + 0x10]
-    DeeeeeeeeeeeeeeeE----------R  jump 32818
+    DeeeeeeeeeeeeeeeE----------R  jump 32870
 ```
 
-Gas simulation at offset 32978 with total cost of 45:
+Gas simulation at offset 33032 with total cost of 45:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r8 = u64 [r7 + 0]
-    D=========================eeeeeeeeeeeeeeeeeeeeER  jump 33065 if r8 == 0
+    D=========================eeeeeeeeeeeeeeeeeeeeER  jump 33119 if r8 == 0
 ```
 
-Gas simulation at offset 32983 with total cost of 26:
+Gas simulation at offset 33037 with total cost of 26:
 
 ```
     DeER.........................  r1 = r1 + 0xfffffffffffffff0
@@ -17746,7 +17811,7 @@ Gas simulation at offset 32983 with total cost of 26:
     ..DeeE----------------------R  fallthrough
 ```
 
-Gas simulation at offset 33010 with total cost of 52:
+Gas simulation at offset 33064 with total cost of 52:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
@@ -17758,16 +17823,16 @@ Gas simulation at offset 33010 with total cost of 52:
     .D==========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0] = r4
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r4 = u64 [0x30000]
     ..D========================eE-------------------------R  r10 = r10 & 0xff
-    ..D=========================eE------------------------R  jump 33010 if r10 != 0
+    ..D=========================eE------------------------R  jump 33064 if r10 != 0
 ```
 
-Gas simulation at offset 33041 with total cost of 15:
+Gas simulation at offset 33095 with total cost of 15:
 
 ```
-    DeeeeeeeeeeeeeeeER  r0 = 954, jump 27396
+    DeeeeeeeeeeeeeeeER  r0 = 954, jump 27398
 ```
 
-Gas simulation at offset 33047 with total cost of 47:
+Gas simulation at offset 33101 with total cost of 47:
 
 ```
     DeER..............................................  r7 = r5 + 0x2000
@@ -17778,13 +17843,13 @@ Gas simulation at offset 33047 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33065 with total cost of 22:
+Gas simulation at offset 33119 with total cost of 22:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33067 with total cost of 57:
+Gas simulation at offset 33121 with total cost of 57:
 
 ```
     DeER........................................................  r9 = r8 + 0xffffffffffffa000
@@ -17800,7 +17865,7 @@ Gas simulation at offset 33067 with total cost of 57:
     ...DeeeeeeeeeeeeeeeeeeeeeeE--------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33101 with total cost of 31:
+Gas simulation at offset 33155 with total cost of 31:
 
 ```
     DeER..............................  r10 = r8 + 0xffffffffffffa000
@@ -17809,10 +17874,10 @@ Gas simulation at offset 33101 with total cost of 31:
     .D==eER...........................  r11 = r7 + r10
     .D===eeeeeeeeeeeeeeeeeeeeeeeeeER..  r11 = u8 [r11 + 0x68]
     .D============================eER.  r11 = r11 & 0x2
-    ..D============================eER  jump 33146 if r11 == 0
+    ..D============================eER  jump 33200 if r11 == 0
 ```
 
-Gas simulation at offset 33123 with total cost of 55:
+Gas simulation at offset 33177 with total cost of 55:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...............  unlikely
@@ -17826,26 +17891,26 @@ Gas simulation at offset 33123 with total cost of 55:
     ..DeeeeeeeeeeeeeeeeeeeeeeE-------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33146 with total cost of 22:
+Gas simulation at offset 33200 with total cost of 22:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33148 with total cost of 22:
+Gas simulation at offset 33202 with total cost of 22:
 
 ```
     DeER.....................  r7 = 0
     DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33152 with total cost of 22:
+Gas simulation at offset 33206 with total cost of 22:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33154 with total cost of 63:
+Gas simulation at offset 33208 with total cost of 63:
 
 ```
     DeER..............................................................  r9 = r8 >> 0xc
@@ -17865,7 +17930,7 @@ Gas simulation at offset 33154 with total cost of 63:
     ......DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33197 with total cost of 37:
+Gas simulation at offset 33251 with total cost of 37:
 
 ```
     DeER....................................  r10 = r8 >> 0xc
@@ -17878,10 +17943,10 @@ Gas simulation at offset 33197 with total cost of 37:
     ....D=====eER...........................  r11 = r7 + r10
     ....D======eeeeeeeeeeeeeeeeeeeeeeeeeER..  r11 = u8 [r11 + 0x5c]
     ....D===============================eER.  r11 = r11 & 0x2
-    .....D===============================eER  jump 33255 if r11 == 0
+    .....D===============================eER  jump 33309 if r11 == 0
 ```
 
-Gas simulation at offset 33230 with total cost of 55:
+Gas simulation at offset 33284 with total cost of 55:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...............  unlikely
@@ -17896,13 +17961,13 @@ Gas simulation at offset 33230 with total cost of 55:
     ..DeeeeeeeeeeeeeeeeeeeeeeE-------------------------------R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33255 with total cost of 22:
+Gas simulation at offset 33309 with total cost of 22:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33257 with total cost of 26:
+Gas simulation at offset 33311 with total cost of 26:
 
 ```
     DeER.........................  r1 = r1 + 0xfffffffffffffff0
@@ -17914,17 +17979,17 @@ Gas simulation at offset 33257 with total cost of 26:
     ..D=eE----------------------R  r10 = r11 + r12
     ...DeE----------------------R  r6 = 0x8010000000000001
     ...DeE----------------------R  r9 = r8 & r5
-    ....DeeeeeeeeeeeeeeeeeeeeE--R  jump 33404 if r10 <u r6
+    ....DeeeeeeeeeeeeeeeeeeeeE--R  jump 33458 if r10 <u r6
 ```
 
-Gas simulation at offset 33307 with total cost of 21:
+Gas simulation at offset 33361 with total cost of 21:
 
 ```
     DeER....................  r12 = r12 + r9
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 33404 if r12 <u r6
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 33458 if r12 <u r6
 ```
 
-Gas simulation at offset 33313 with total cost of 27:
+Gas simulation at offset 33367 with total cost of 27:
 
 ```
     DeeeER........................  r9 = r11 <u r9
@@ -17938,17 +18003,17 @@ Gas simulation at offset 33313 with total cost of 27:
     ....D==eER....................  r3 = r9 >> 0x35
     ....D==eER....................  r9 = r11 >> 0x35
     .....DeE-R....................  r4 = r12 & r2
-    .....D==eeeeeeeeeeeeeeeeeeeeER  jump 33523 if r3 == 0
+    .....D==eeeeeeeeeeeeeeeeeeeeER  jump 33577 if r3 == 0
 ```
 
-Gas simulation at offset 33355 with total cost of 20:
+Gas simulation at offset 33409 with total cost of 20:
 
 ```
     DeER...................  r6 = r10 & r2
-    DeeeeeeeeeeeeeeeeeeeeER  jump 33541 if r9 == 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 33595 if r9 == 0
 ```
 
-Gas simulation at offset 33362 with total cost of 22:
+Gas simulation at offset 33416 with total cost of 22:
 
 ```
     DeER.....................  r11 = 0x8000000000000000
@@ -17958,24 +18023,24 @@ Gas simulation at offset 33362 with total cost of 22:
     .DeER....................  r5 = 0x80000000000000
     ..DeER...................  r7 = r6 << 0x3
     ..D=eER..................  r7 = r7 | r5
-    ..DeeeeeeeeeeeeeeeeeeeeER  jump 33443 if r3 != r9
+    ..DeeeeeeeeeeeeeeeeeeeeER  jump 33497 if r3 != r9
 ```
 
-Gas simulation at offset 33400 with total cost of 15:
+Gas simulation at offset 33454 with total cost of 15:
 
 ```
     D.................  r10 = r7
-    DeeeeeeeeeeeeeeeER  jump 33464
+    DeeeeeeeeeeeeeeeER  jump 33518
 ```
 
-Gas simulation at offset 33404 with total cost of 21:
+Gas simulation at offset 33458 with total cost of 21:
 
 ```
     DeER....................  r12 = 0x7ff0000000000000
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 33496 if r12 >=u r11
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 33550 if r12 >=u r11
 ```
 
-Gas simulation at offset 33417 with total cost of 3:
+Gas simulation at offset 33471 with total cost of 3:
 
 ```
     DeER..  r7 = 0x8000000000000
@@ -17983,7 +18048,7 @@ Gas simulation at offset 33417 with total cost of 3:
     .DeeER  fallthrough
 ```
 
-Gas simulation at offset 33431 with total cost of 25:
+Gas simulation at offset 33485 with total cost of 25:
 
 ```
     D...........................  r7 = r8
@@ -17993,14 +18058,14 @@ Gas simulation at offset 33431 with total cost of 25:
     .DeeeeeeeeeeeeeeeeeeeeeeE--R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33443 with total cost of 21:
+Gas simulation at offset 33497 with total cost of 21:
 
 ```
     DeER....................  r9 = r3 - r9
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 33464 if r9 >u 63
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 33518 if r9 >u 63
 ```
 
-Gas simulation at offset 33450 with total cost of 8:
+Gas simulation at offset 33504 with total cost of 8:
 
 ```
     DeeeER.....  i32 r10 = 0 - r9
@@ -18011,39 +18076,39 @@ Gas simulation at offset 33450 with total cost of 8:
     ...DeeE---R  fallthrough
 ```
 
-Gas simulation at offset 33464 with total cost of 21:
+Gas simulation at offset 33518 with total cost of 21:
 
 ```
     DeER....................  r7 = r12 & r11
     DeER....................  r9 = r4 | r5
-    .DeeeeeeeeeeeeeeeeeeeeER  jump 33555 if r8 <s 0
+    .DeeeeeeeeeeeeeeeeeeeeER  jump 33609 if r8 <s 0
 ```
 
-Gas simulation at offset 33473 with total cost of 22:
+Gas simulation at offset 33527 with total cost of 22:
 
 ```
     DeER.....................  r8 = r10 + r9
     D=eER....................  r9 = r8 << 0x7
-    .D=eeeeeeeeeeeeeeeeeeeeER  jump 33580 if r9 >=s 0
+    .D=eeeeeeeeeeeeeeeeeeeeER  jump 33634 if r9 >=s 0
 ```
 
-Gas simulation at offset 33482 with total cost of 16:
+Gas simulation at offset 33536 with total cost of 16:
 
 ```
     DeER...............  r10 = r10 & 0x1
     DeER...............  r8 = r8 >> 0x1
     D=eER..............  r8 = r8 | r10
     DeE-R..............  r3 = r3 + 0x1
-    .DeeeeeeeeeeeeeeeER  jump 33580
+    .DeeeeeeeeeeeeeeeER  jump 33634
 ```
 
-Gas simulation at offset 33496 with total cost of 20:
+Gas simulation at offset 33550 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 33681 if r12 >=u r9
+    DeeeeeeeeeeeeeeeeeeeeER  jump 33735 if r12 >=u r9
 ```
 
-Gas simulation at offset 33500 with total cost of 26:
+Gas simulation at offset 33554 with total cost of 26:
 
 ```
     DeER.........................  r7 = 0x8000000000000
@@ -18054,7 +18119,7 @@ Gas simulation at offset 33500 with total cost of 26:
     .DeeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33523 with total cost of 23:
+Gas simulation at offset 33577 with total cost of 23:
 
 ```
     DeER......................  r11 = clz r4
@@ -18062,51 +18127,51 @@ Gas simulation at offset 33523 with total cost of 23:
     .DeeER....................  r3 = 0xc - r11
     ..DeER....................  r4 = r4 << r6
     ..DeER....................  r6 = r10 & r2
-    ...DeeeeeeeeeeeeeeeeeeeeER  jump 33362 if r9 != 0
+    ...DeeeeeeeeeeeeeeeeeeeeER  jump 33416 if r9 != 0
 ```
 
-Gas simulation at offset 33541 with total cost of 17:
+Gas simulation at offset 33595 with total cost of 17:
 
 ```
     DeER................  r9 = clz r6
     D=eER...............  r11 = r9 + 0x35
     .DeeER..............  r9 = 0xc - r9
     ..DeER..............  r6 = r6 << r11
-    ..DeeeeeeeeeeeeeeeER  jump 33362
+    ..DeeeeeeeeeeeeeeeER  jump 33416
 ```
 
-Gas simulation at offset 33555 with total cost of 21:
+Gas simulation at offset 33609 with total cost of 21:
 
 ```
     DeER....................  r8 = r9 - r10
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 33431 if r8 == 0
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 33485 if r8 == 0
 ```
 
-Gas simulation at offset 33561 with total cost of 21:
+Gas simulation at offset 33615 with total cost of 21:
 
 ```
     DeER....................  r9 = r8 >> 0x37
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 33580 if r9 != 0
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 33634 if r9 != 0
 ```
 
-Gas simulation at offset 33567 with total cost of 16:
+Gas simulation at offset 33621 with total cost of 16:
 
 ```
     DeER...............  r9 = clz r8
     D=eER..............  r9 = r9 + 0xfffffffffffffff8
     D==eER.............  r8 = r8 << r9
     .D=eER.............  r3 = r3 - r9
-    .DeeeeeeeeeeeeeeeER  jump 33610
+    .DeeeeeeeeeeeeeeeER  jump 33664
 ```
 
-Gas simulation at offset 33580 with total cost of 21:
+Gas simulation at offset 33634 with total cost of 21:
 
 ```
     DeER....................  r9 = 0x7fe
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 33610 if r9 >=s r3
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 33664 if r9 >=s r3
 ```
 
-Gas simulation at offset 33587 with total cost of 26:
+Gas simulation at offset 33641 with total cost of 26:
 
 ```
     DeER.........................  r8 = 0x7ff0000000000000
@@ -18117,13 +18182,13 @@ Gas simulation at offset 33587 with total cost of 26:
     .DeeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33610 with total cost of 20:
+Gas simulation at offset 33664 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 33632 if r3 >s 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 33686 if r3 >s 0
 ```
 
-Gas simulation at offset 33613 with total cost of 11:
+Gas simulation at offset 33667 with total cost of 11:
 
 ```
     DeeeER........  i32 r9 = 0x1 - r3
@@ -18136,7 +18201,7 @@ Gas simulation at offset 33613 with total cost of 11:
     ......DeeE---R  fallthrough
 ```
 
-Gas simulation at offset 33632 with total cost of 29:
+Gas simulation at offset 33686 with total cost of 29:
 
 ```
     DeER............................  r9 = r8 & 0x7
@@ -18158,14 +18223,14 @@ Gas simulation at offset 33632 with total cost of 29:
     .....DeeeeeeeeeeeeeeeeeeeeeeE--R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33681 with total cost of 21:
+Gas simulation at offset 33735 with total cost of 21:
 
 ```
     DeER....................  r12 = 0x7ff0000000000000
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 33735 if r11 != r12
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 33789 if r11 != r12
 ```
 
-Gas simulation at offset 33694 with total cost of 27:
+Gas simulation at offset 33748 with total cost of 27:
 
 ```
     DeER..........................  r8 = r8 ^ r7
@@ -18180,25 +18245,25 @@ Gas simulation at offset 33694 with total cost of 27:
     ...DeeeeeeeeeeeeeeeeeeeeeeE--R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33735 with total cost of 20:
+Gas simulation at offset 33789 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 33431 if r9 == r12
+    DeeeeeeeeeeeeeeeeeeeeER  jump 33485 if r9 == r12
 ```
 
-Gas simulation at offset 33739 with total cost of 20:
+Gas simulation at offset 33793 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 33756 if r11 == 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 33810 if r11 == 0
 ```
 
-Gas simulation at offset 33742 with total cost of 20:
+Gas simulation at offset 33796 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 33313 if r9 != 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 33367 if r9 != 0
 ```
 
-Gas simulation at offset 33746 with total cost of 25:
+Gas simulation at offset 33800 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 0x8]
@@ -18207,7 +18272,7 @@ Gas simulation at offset 33746 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33756 with total cost of 26:
+Gas simulation at offset 33810 with total cost of 26:
 
 ```
     DeER.........................  r10 = 0xffffffffffffffff
@@ -18219,7 +18284,7 @@ Gas simulation at offset 33756 with total cost of 26:
     .DeeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33775 with total cost of 26:
+Gas simulation at offset 33829 with total cost of 26:
 
 ```
     DeER.........................  r1 = r1 + 0xfffffffffffffff8
@@ -18230,17 +18295,17 @@ Gas simulation at offset 33775 with total cost of 26:
     ..DeeE----------------------R  i32 r10 = r5 + 0xffffffff80800000
     ..DeE-----------------------R  r12 = 0xffffffff80800001
     ...DeeE---------------------R  r9 = r8 & ~r9
-    ...D=eeeeeeeeeeeeeeeeeeeeE--R  jump 33959 if r10 <u r12
+    ...D=eeeeeeeeeeeeeeeeeeeeE--R  jump 34013 if r10 <u r12
 ```
 
-Gas simulation at offset 33811 with total cost of 22:
+Gas simulation at offset 33865 with total cost of 22:
 
 ```
     DeeER....................  i32 r11 = r9 + 0xffffffff80800000
-    D==eeeeeeeeeeeeeeeeeeeeER  jump 33959 if r11 <u 2155872257
+    D==eeeeeeeeeeeeeeeeeeeeER  jump 34013 if r11 <u 2155872257
 ```
 
-Gas simulation at offset 33825 with total cost of 27:
+Gas simulation at offset 33879 with total cost of 27:
 
 ```
     DeER..........................  r2 = 0x7fffff
@@ -18254,17 +18319,17 @@ Gas simulation at offset 33825 with total cost of 27:
     ...D===eER....................  r3 = r9 >> 0x38
     ....D==eER....................  r12 = r12 >> 0x38
     ....D=eE-R....................  r9 = r11 & r2
-    ....D===eeeeeeeeeeeeeeeeeeeeER  jump 34006 if r3 == 0
+    ....D===eeeeeeeeeeeeeeeeeeeeER  jump 34060 if r3 == 0
 ```
 
-Gas simulation at offset 33862 with total cost of 20:
+Gas simulation at offset 33916 with total cost of 20:
 
 ```
     DeER...................  r5 = r10 & 0x7fffff
-    DeeeeeeeeeeeeeeeeeeeeER  jump 34026 if r12 == 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 34080 if r12 == 0
 ```
 
-Gas simulation at offset 33871 with total cost of 22:
+Gas simulation at offset 33925 with total cost of 22:
 
 ```
     DeER.....................  r4 = 0xffffffff80000000
@@ -18273,17 +18338,17 @@ Gas simulation at offset 33871 with total cost of 22:
     .DeER....................  r10 = 0x4000000
     .DeER....................  r9 = r5 << 0x3
     .D=eER...................  r9 = r9 | r10
-    ..DeeeeeeeeeeeeeeeeeeeeER  jump 33920 if r3 == r12
+    ..DeeeeeeeeeeeeeeeeeeeeER  jump 33974 if r3 == r12
 ```
 
-Gas simulation at offset 33898 with total cost of 21:
+Gas simulation at offset 33952 with total cost of 21:
 
 ```
     DeER....................  r12 = r3 - r12
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 34040 if r12 >u 31
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 34094 if r12 >u 31
 ```
 
-Gas simulation at offset 33906 with total cost of 9:
+Gas simulation at offset 33960 with total cost of 9:
 
 ```
     DeeeER......  i32 r5 = 0 - r12
@@ -18294,47 +18359,47 @@ Gas simulation at offset 33906 with total cost of 9:
     ....DeeE---R  fallthrough
 ```
 
-Gas simulation at offset 33920 with total cost of 20:
+Gas simulation at offset 33974 with total cost of 20:
 
 ```
     DeER...................  r11 = r11 & 0xffffffff80000000
     DeER...................  r7 = r7 | 0x4000000
-    DeeeeeeeeeeeeeeeeeeeeER  jump 34058 if r8 <s 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 34112 if r8 <s 0
 ```
 
-Gas simulation at offset 33935 with total cost of 23:
+Gas simulation at offset 33989 with total cost of 23:
 
 ```
     DeeER.....................  i32 r8 = r9 + r7
     .D=eER....................  r7 = r8 << 0x24
-    .D==eeeeeeeeeeeeeeeeeeeeER  jump 34083 if r7 >=s 0
+    .D==eeeeeeeeeeeeeeeeeeeeER  jump 34137 if r7 >=s 0
 ```
 
-Gas simulation at offset 33945 with total cost of 16:
+Gas simulation at offset 33999 with total cost of 16:
 
 ```
     DeER...............  r9 = r9 & 0x1
     DeeER..............  i32 r8 = r8 >> 0x1
     D==eER.............  r8 = r8 | r9
     .DeE-R.............  r3 = r3 + 0x1
-    .DeeeeeeeeeeeeeeeER  jump 34083
+    .DeeeeeeeeeeeeeeeER  jump 34137
 ```
 
-Gas simulation at offset 33959 with total cost of 21:
+Gas simulation at offset 34013 with total cost of 21:
 
 ```
     DeER....................  r11 = 0x7f800000
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 33983 if r11 >=u r5
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 34037 if r11 >=u r5
 ```
 
-Gas simulation at offset 33968 with total cost of 2:
+Gas simulation at offset 34022 with total cost of 2:
 
 ```
     DeER.  r8 = r5 | 0x400000
     DeeER  fallthrough
 ```
 
-Gas simulation at offset 33974 with total cost of 25:
+Gas simulation at offset 34028 with total cost of 25:
 
 ```
     D...........................  r7 = r8
@@ -18343,13 +18408,13 @@ Gas simulation at offset 33974 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 33983 with total cost of 20:
+Gas simulation at offset 34037 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 34175 if r9 <=u 2139095040
+    DeeeeeeeeeeeeeeeeeeeeER  jump 34229 if r9 <=u 2139095040
 ```
 
-Gas simulation at offset 33991 with total cost of 25:
+Gas simulation at offset 34045 with total cost of 25:
 
 ```
     DeER........................  r8 = 0x400000
@@ -18359,7 +18424,7 @@ Gas simulation at offset 33991 with total cost of 25:
     .DeeeeeeeeeeeeeeeeeeeeeeE--R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34006 with total cost of 23:
+Gas simulation at offset 34060 with total cost of 23:
 
 ```
     DeER......................  i32 r5 = clz r9
@@ -18367,59 +18432,59 @@ Gas simulation at offset 34006 with total cost of 23:
     .DeeER....................  r3 = 0x9 - r5
     ..DeeER...................  i32 r9 = r9 << r4
     ...DeER...................  r5 = r10 & 0x7fffff
-    ...DeeeeeeeeeeeeeeeeeeeeER  jump 33871 if r12 != 0
+    ...DeeeeeeeeeeeeeeeeeeeeER  jump 33925 if r12 != 0
 ```
 
-Gas simulation at offset 34026 with total cost of 17:
+Gas simulation at offset 34080 with total cost of 17:
 
 ```
     DeER................  i32 r10 = clz r5
     D=eER...............  r4 = r10 + 0x18
     .DeeER..............  r12 = 0x9 - r10
     ..DeeER.............  i32 r5 = r5 << r4
-    ..DeeeeeeeeeeeeeeeER  jump 33871
+    ..DeeeeeeeeeeeeeeeER  jump 33925
 ```
 
-Gas simulation at offset 34040 with total cost of 20:
+Gas simulation at offset 34094 with total cost of 20:
 
 ```
     DeER...................  r9 = 0x1
     DeER...................  r11 = r11 & 0xffffffff80000000
     DeER...................  r7 = r7 | 0x4000000
-    DeeeeeeeeeeeeeeeeeeeeER  jump 33935 if r8 >=s 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 33989 if r8 >=s 0
 ```
 
-Gas simulation at offset 34058 with total cost of 22:
+Gas simulation at offset 34112 with total cost of 22:
 
 ```
     DeeER....................  i32 r8 = r7 - r9
-    D==eeeeeeeeeeeeeeeeeeeeER  jump 33974 if r8 == 0
+    D==eeeeeeeeeeeeeeeeeeeeER  jump 34028 if r8 == 0
 ```
 
-Gas simulation at offset 34064 with total cost of 22:
+Gas simulation at offset 34118 with total cost of 22:
 
 ```
     DeeER....................  i32 r7 = r8 >> 0x1a
-    D==eeeeeeeeeeeeeeeeeeeeER  jump 34083 if r7 != 0
+    D==eeeeeeeeeeeeeeeeeeeeER  jump 34137 if r7 != 0
 ```
 
-Gas simulation at offset 34070 with total cost of 17:
+Gas simulation at offset 34124 with total cost of 17:
 
 ```
     DeER................  i32 r7 = clz r8
     D=eER...............  r7 = r7 + 0xfffffffffffffffb
     .D=eeER.............  i32 r8 = r8 << r7
     .D=eE-R.............  r3 = r3 - r7
-    ..DeeeeeeeeeeeeeeeER  jump 34104
+    ..DeeeeeeeeeeeeeeeER  jump 34158
 ```
 
-Gas simulation at offset 34083 with total cost of 20:
+Gas simulation at offset 34137 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 34104 if r3 <=s 254
+    DeeeeeeeeeeeeeeeeeeeeER  jump 34158 if r3 <=s 254
 ```
 
-Gas simulation at offset 34088 with total cost of 25:
+Gas simulation at offset 34142 with total cost of 25:
 
 ```
     DeER........................  r8 = 0x7f800000
@@ -18429,13 +18494,13 @@ Gas simulation at offset 34088 with total cost of 25:
     .DeeeeeeeeeeeeeeeeeeeeeeE--R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34104 with total cost of 20:
+Gas simulation at offset 34158 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 34127 if r3 >s 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 34181 if r3 >s 0
 ```
 
-Gas simulation at offset 34107 with total cost of 8:
+Gas simulation at offset 34161 with total cost of 8:
 
 ```
     DeeeER.....  i32 r7 = 0x1 - r3
@@ -18448,7 +18513,7 @@ Gas simulation at offset 34107 with total cost of 8:
     .....DeeE-R  fallthrough
 ```
 
-Gas simulation at offset 34127 with total cost of 30:
+Gas simulation at offset 34181 with total cost of 30:
 
 ```
     DeER.............................  r7 = r8 & 0x7
@@ -18469,13 +18534,13 @@ Gas simulation at offset 34127 with total cost of 30:
     ......DeeeeeeeeeeeeeeeeeeeeeeE--R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34175 with total cost of 20:
+Gas simulation at offset 34229 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 34209 if r5 != 2139095040
+    DeeeeeeeeeeeeeeeeeeeeER  jump 34263 if r5 != 2139095040
 ```
 
-Gas simulation at offset 34182 with total cost of 26:
+Gas simulation at offset 34236 with total cost of 26:
 
 ```
     DeER.........................  r8 = r8 ^ r7
@@ -18488,25 +18553,25 @@ Gas simulation at offset 34182 with total cost of 26:
     ..DeeeeeeeeeeeeeeeeeeeeeeE--R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34209 with total cost of 20:
+Gas simulation at offset 34263 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 33974 if r9 == 2139095040
+    DeeeeeeeeeeeeeeeeeeeeER  jump 34028 if r9 == 2139095040
 ```
 
-Gas simulation at offset 34217 with total cost of 20:
+Gas simulation at offset 34271 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 34231 if r5 == 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 34285 if r5 == 0
 ```
 
-Gas simulation at offset 34220 with total cost of 20:
+Gas simulation at offset 34274 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 33825 if r9 != 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 33879 if r9 != 0
 ```
 
-Gas simulation at offset 34224 with total cost of 25:
+Gas simulation at offset 34278 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 0]
@@ -18514,7 +18579,7 @@ Gas simulation at offset 34224 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34231 with total cost of 26:
+Gas simulation at offset 34285 with total cost of 26:
 
 ```
     DeER.........................  r10 = 0xffffffffffffffff
@@ -18525,7 +18590,7 @@ Gas simulation at offset 34231 with total cost of 26:
     .DeeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34247 with total cost of 30:
+Gas simulation at offset 34301 with total cost of 30:
 
 ```
     DeER.............................  r1 = r1 + 0xffffffffffffffe8
@@ -18544,17 +18609,17 @@ Gas simulation at offset 34247 with total cost of 30:
     ....D===eE------------------R....  r11 = r9 & r2
     .....D===eE-----------------R....  r10 = r4 + 0xffffffffffffff01
     .....D====eE----------------R....  r3 = r8 & r2
-    ......D====eeeeeeeeeeeeeeeeeeeeER  jump 34397 if r10 <u 4294967042
+    ......D====eeeeeeeeeeeeeeeeeeeeER  jump 34451 if r10 <u 4294967042
 ```
 
-Gas simulation at offset 34304 with total cost of 21:
+Gas simulation at offset 34358 with total cost of 21:
 
 ```
     DeER....................  r10 = r0 + 0xffffffffffffff01
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 34397 if r10 <u 4294967042
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 34451 if r10 <u 4294967042
 ```
 
-Gas simulation at offset 34313 with total cost of 2:
+Gas simulation at offset 34367 with total cost of 2:
 
 ```
     D....  r10 = r11
@@ -18562,7 +18627,7 @@ Gas simulation at offset 34313 with total cost of 2:
     DeeER  fallthrough
 ```
 
-Gas simulation at offset 34318 with total cost of 29:
+Gas simulation at offset 34372 with total cost of 29:
 
 ```
     DeER............................  r3 = r3 << 0x8
@@ -18575,10 +18640,10 @@ Gas simulation at offset 34318 with total cost of 29:
     ...DeE----R.....................  r11 = r0 + r4
     ....D====eER....................  r10 = r9 << 0x28
     ....DeE----R....................  r4 = r11 + r5
-    .....D====eeeeeeeeeeeeeeeeeeeeER  jump 34429 if r10 <s 0
+    .....D====eeeeeeeeeeeeeeeeeeeeER  jump 34483 if r10 <s 0
 ```
 
-Gas simulation at offset 34357 with total cost of 4:
+Gas simulation at offset 34411 with total cost of 4:
 
 ```
     DeER...  r11 = r4 + 0xffffffffffffff81
@@ -18587,40 +18652,40 @@ Gas simulation at offset 34357 with total cost of 4:
     ..D=eER  r9 = r9 | r10
     ..DeE-R  r8 = r8 << 0x1
     ..DeE-R  r10 = 0xfe
-    ..D=eER  jump 34439 if r10 <s r11
+    ..D=eER  jump 34493 if r10 <s r11
 ```
 
-Gas simulation at offset 34379 with total cost of 20:
+Gas simulation at offset 34433 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 34529 if r11 <=s 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 34583 if r11 <=s 0
 ```
 
-Gas simulation at offset 34383 with total cost of 15:
+Gas simulation at offset 34437 with total cost of 15:
 
 ```
     DeER..............  r9 = r9 & 0x7fffff
     DeER..............  r11 = r11 << 0x17
     D=eER.............  r9 = r9 | r11
-    DeeeeeeeeeeeeeeeER  jump 34557
+    DeeeeeeeeeeeeeeeER  jump 34611
 ```
 
-Gas simulation at offset 34397 with total cost of 21:
+Gas simulation at offset 34451 with total cost of 21:
 
 ```
     DeER....................  r12 = r12 >> 0x21
     DeER....................  r6 = 0x7f800000
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 34462 if r6 >=u r12
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 34516 if r6 >=u r12
 ```
 
-Gas simulation at offset 34409 with total cost of 2:
+Gas simulation at offset 34463 with total cost of 2:
 
 ```
     DeER.  r7 = r9 | 0x400000
     DeeER  fallthrough
 ```
 
-Gas simulation at offset 34415 with total cost of 47:
+Gas simulation at offset 34469 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -18631,15 +18696,15 @@ Gas simulation at offset 34415 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34429 with total cost of 2:
+Gas simulation at offset 34483 with total cost of 2:
 
 ```
     DeER.  r11 = r4 + 0xffffffffffffff82
     DeER.  r10 = 0xfe
-    D=eER  jump 34379 if r10 >=s r11
+    D=eER  jump 34433 if r10 >=s r11
 ```
 
-Gas simulation at offset 34439 with total cost of 47:
+Gas simulation at offset 34493 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -18652,14 +18717,14 @@ Gas simulation at offset 34439 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34462 with total cost of 3:
+Gas simulation at offset 34516 with total cost of 3:
 
 ```
     DeeER.  r9 = r8 & ~r5
-    D==eER  jump 34491 if r9 <=u 2139095040
+    D==eER  jump 34545 if r9 <=u 2139095040
 ```
 
-Gas simulation at offset 34472 with total cost of 47:
+Gas simulation at offset 34526 with total cost of 47:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
@@ -18671,14 +18736,14 @@ Gas simulation at offset 34472 with total cost of 47:
     .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34491 with total cost of 2:
+Gas simulation at offset 34545 with total cost of 2:
 
 ```
     DeER.  r8 = 0x7f800000
-    D=eER  jump 34599 if r12 != r8
+    D=eER  jump 34653 if r12 != r8
 ```
 
-Gas simulation at offset 34500 with total cost of 48:
+Gas simulation at offset 34554 with total cost of 48:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER........  unlikely
@@ -18692,15 +18757,15 @@ Gas simulation at offset 34500 with total cost of 48:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34529 with total cost of 3:
+Gas simulation at offset 34583 with total cost of 3:
 
 ```
     DeeER.  r10 = 0x1 - r11
     DeE-R.  r12 = 0x1f
-    .D=eER  jump 34415 if r12 <u r10
+    .D=eER  jump 34469 if r12 <u r10
 ```
 
-Gas simulation at offset 34538 with total cost of 6:
+Gas simulation at offset 34592 with total cost of 6:
 
 ```
     DeER.....  r11 = r11 + 0xffffffffffffffff
@@ -18712,7 +18777,7 @@ Gas simulation at offset 34538 with total cost of 6:
     ....DeeER  fallthrough
 ```
 
-Gas simulation at offset 34557 with total cost of 50:
+Gas simulation at offset 34611 with total cost of 50:
 
 ```
     DeER.................................................  r7 = r7 | r9
@@ -18731,13 +18796,13 @@ Gas simulation at offset 34557 with total cost of 50:
     ....D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34599 with total cost of 1:
+Gas simulation at offset 34653 with total cost of 1:
 
 ```
-    DeER  jump 34635 if r9 != 2139095040
+    DeER  jump 34689 if r9 != 2139095040
 ```
 
-Gas simulation at offset 34606 with total cost of 48:
+Gas simulation at offset 34660 with total cost of 48:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER........  unlikely
@@ -18751,36 +18816,36 @@ Gas simulation at offset 34606 with total cost of 48:
     ..D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34635 with total cost of 1:
+Gas simulation at offset 34689 with total cost of 1:
 
 ```
-    DeER  jump 34415 if r12 == 0
+    DeER  jump 34469 if r12 == 0
 ```
 
-Gas simulation at offset 34639 with total cost of 1:
+Gas simulation at offset 34693 with total cost of 1:
 
 ```
-    DeER  jump 34415 if r9 == 0
+    DeER  jump 34469 if r9 == 0
 ```
 
-Gas simulation at offset 34643 with total cost of 21:
+Gas simulation at offset 34697 with total cost of 21:
 
 ```
     DeER....................  r12 = r12 >> 0x17
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 34662 if r12 != 0
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 34716 if r12 != 0
 ```
 
-Gas simulation at offset 34649 with total cost of 18:
+Gas simulation at offset 34703 with total cost of 18:
 
 ```
     DeER.................  i32 r8 = clz r11
     D=eER................  r12 = r8 + 0x18
     .DeeER...............  r5 = 0x9 - r8
     ..DeeER..............  i32 r10 = r11 << r12
-    ...DeeeeeeeeeeeeeeeER  jump 34667
+    ...DeeeeeeeeeeeeeeeER  jump 34721
 ```
 
-Gas simulation at offset 34662 with total cost of 2:
+Gas simulation at offset 34716 with total cost of 2:
 
 ```
     D....  r10 = r11
@@ -18788,14 +18853,14 @@ Gas simulation at offset 34662 with total cost of 2:
     DeeER  fallthrough
 ```
 
-Gas simulation at offset 34667 with total cost of 21:
+Gas simulation at offset 34721 with total cost of 21:
 
 ```
     DeER....................  r9 = r9 >> 0x17
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 34318 if r9 != 0
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 34372 if r9 != 0
 ```
 
-Gas simulation at offset 34674 with total cost of 17:
+Gas simulation at offset 34728 with total cost of 17:
 
 ```
     DeER................  i32 r8 = clz r3
@@ -18803,10 +18868,10 @@ Gas simulation at offset 34674 with total cost of 17:
     D=eER...............  r5 = r5 - r8
     .D=eeER.............  i32 r3 = r3 << r9
     .D=eE-R.............  r5 = r5 + 0x9
-    ..DeeeeeeeeeeeeeeeER  jump 34318
+    ..DeeeeeeeeeeeeeeeER  jump 34372
 ```
 
-Gas simulation at offset 34691 with total cost of 26:
+Gas simulation at offset 34745 with total cost of 26:
 
 ```
     DeER.........................  r1 = r1 + 0xfffffffffffffff0
@@ -18820,25 +18885,25 @@ Gas simulation at offset 34691 with total cost of 26:
     ...DeE----------------------R  r7 = r8 & 0xffffffff80000000
     ...D=eE---------------------R  r2 = r9 & r3
     ....DeE---------------------R  r4 = r8 & r3
-    ....D=eeeeeeeeeeeeeeeeeeeeE-R  jump 34905 if r12 == 0
+    ....D=eeeeeeeeeeeeeeeeeeeeE-R  jump 34959 if r12 == 0
 ```
 
-Gas simulation at offset 34731 with total cost of 21:
+Gas simulation at offset 34785 with total cost of 21:
 
 ```
     DeER....................  r5 = r11 + 0xffffffffffffff01
     DeER....................  r6 = 0xffffffffffffff02
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 34905 if r5 <u r6
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 34959 if r5 <u r6
 ```
 
-Gas simulation at offset 34743 with total cost of 2:
+Gas simulation at offset 34797 with total cost of 2:
 
 ```
     DeER.  r9 = 0
     DeeER  fallthrough
 ```
 
-Gas simulation at offset 34746 with total cost of 76:
+Gas simulation at offset 34800 with total cost of 76:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER....................................  unlikely
@@ -18878,10 +18943,10 @@ Gas simulation at offset 34746 with total cost of 76:
     ............................................D=======eeeeER.....................  r11 = r11 mulhu r12
     .............................................D==========eER....................  r12 = r11 >> 0x38
     .............................................D==========eER....................  r11 = r11 >> 0x20
-    .............................................D===========eeeeeeeeeeeeeeeeeeeeER  jump 34932 if r12 != 0
+    .............................................D===========eeeeeeeeeeeeeeeeeeeeER  jump 34986 if r12 != 0
 ```
 
-Gas simulation at offset 34864 with total cost of 23:
+Gas simulation at offset 34918 with total cost of 23:
 
 ```
     DeER......................  r2 = r2 << 0x18
@@ -18890,34 +18955,34 @@ Gas simulation at offset 34864 with total cost of 23:
     .DeE---R..................  r9 = r9 + 0x7e
     ..D.......................  r8 = r10
     ..DeE--R..................  r10 = 0xfe
-    ..D=eeeeeeeeeeeeeeeeeeeeER  jump 34954 if r10 <s r9
+    ..D=eeeeeeeeeeeeeeeeeeeeER  jump 35008 if r10 <s r9
 ```
 
-Gas simulation at offset 34885 with total cost of 20:
+Gas simulation at offset 34939 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 35003 if r9 <=s 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 35057 if r9 <=s 0
 ```
 
-Gas simulation at offset 34888 with total cost of 16:
+Gas simulation at offset 34942 with total cost of 16:
 
 ```
     DeER...............  r8 = r11 & 0x7fffff
     DeER...............  r9 = r9 << 0x17
     D=eER..............  r9 = r9 | r8
     .DeER..............  r12 = r12 << 0x1
-    .DeeeeeeeeeeeeeeeER  jump 35031
+    .DeeeeeeeeeeeeeeeER  jump 35085
 ```
 
-Gas simulation at offset 34905 with total cost of 21:
+Gas simulation at offset 34959 with total cost of 21:
 
 ```
     DeER....................  r10 = r10 >> 0x21
     DeER....................  r5 = 0x7f800000
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 34974 if r5 >=u r10
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 35028 if r5 >=u r10
 ```
 
-Gas simulation at offset 34917 with total cost of 25:
+Gas simulation at offset 34971 with total cost of 25:
 
 ```
     DeER........................  r7 = r8 | 0x400000
@@ -18927,7 +18992,7 @@ Gas simulation at offset 34917 with total cost of 25:
     .DeeeeeeeeeeeeeeeeeeeeeeE--R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34932 with total cost of 23:
+Gas simulation at offset 34986 with total cost of 23:
 
 ```
     DeER......................  r9 = r9 + 0x7f
@@ -18936,10 +19001,10 @@ Gas simulation at offset 34932 with total cost of 23:
     .DeeeER...................  r10 = r11 * r4
     ..D==eeER.................  i32 r12 = r2 - r10
     ..DeE---R.................  r10 = 0xfe
-    ...DeeeeeeeeeeeeeeeeeeeeER  jump 34885 if r10 >=s r9
+    ...DeeeeeeeeeeeeeeeeeeeeER  jump 34939 if r10 >=s r9
 ```
 
-Gas simulation at offset 34954 with total cost of 2:
+Gas simulation at offset 35008 with total cost of 2:
 
 ```
     DeER.  r8 = 0x7f800000
@@ -18947,7 +19012,7 @@ Gas simulation at offset 34954 with total cost of 2:
     DeeER  fallthrough
 ```
 
-Gas simulation at offset 34964 with total cost of 25:
+Gas simulation at offset 35018 with total cost of 25:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 0x8]
@@ -18956,48 +19021,48 @@ Gas simulation at offset 34964 with total cost of 25:
     DeeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 34974 with total cost of 20:
+Gas simulation at offset 35028 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 34964 if r10 == 2139095040
+    DeeeeeeeeeeeeeeeeeeeeER  jump 35018 if r10 == 2139095040
 ```
 
-Gas simulation at offset 34981 with total cost of 20:
+Gas simulation at offset 35035 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 35056 if r9 == 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 35110 if r9 == 0
 ```
 
-Gas simulation at offset 34984 with total cost of 20:
+Gas simulation at offset 35038 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 35075 if r10 == 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 35129 if r10 == 0
 ```
 
-Gas simulation at offset 34987 with total cost of 20:
+Gas simulation at offset 35041 with total cost of 20:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 35091 if r12 != 0
+    DeeeeeeeeeeeeeeeeeeeeER  jump 35145 if r12 != 0
 ```
 
-Gas simulation at offset 34990 with total cost of 17:
+Gas simulation at offset 35044 with total cost of 17:
 
 ```
     DeER................  i32 r8 = clz r2
     D=eER...............  r5 = r8 + 0x18
     .DeeER..............  r9 = 0x9 - r8
     ..DeeER.............  i32 r2 = r2 << r5
-    ..DeeeeeeeeeeeeeeeER  jump 35094
+    ..DeeeeeeeeeeeeeeeER  jump 35148
 ```
 
-Gas simulation at offset 35003 with total cost of 21:
+Gas simulation at offset 35057 with total cost of 21:
 
 ```
     DeER....................  r10 = 0xffffffffffffffe9
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 34964 if r9 <s r10
+    D=eeeeeeeeeeeeeeeeeeeeER  jump 35018 if r9 <s r10
 ```
 
-Gas simulation at offset 35009 with total cost of 12:
+Gas simulation at offset 35063 with total cost of 12:
 
 ```
     DeER...........  r10 = r9 + 0x17
@@ -19010,7 +19075,7 @@ Gas simulation at offset 35009 with total cost of 12:
     .....DeeE-----R  fallthrough
 ```
 
-Gas simulation at offset 35031 with total cost of 28:
+Gas simulation at offset 35085 with total cost of 28:
 
 ```
     DeER...........................  r8 = r9 & 0x1
@@ -19024,7 +19089,7 @@ Gas simulation at offset 35031 with total cost of 28:
     ...DeeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 35056 with total cost of 26:
+Gas simulation at offset 35110 with total cost of 26:
 
 ```
     DeER.........................  r8 = 0x7fc00000
@@ -19035,7 +19100,7 @@ Gas simulation at offset 35056 with total cost of 26:
     .DeeeeeeeeeeeeeeeeeeeeeeE---R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 35075 with total cost of 25:
+Gas simulation at offset 35129 with total cost of 25:
 
 ```
     DeER........................  r7 = r8 | 0x7f800000
@@ -19045,21 +19110,21 @@ Gas simulation at offset 35075 with total cost of 25:
     .DeeeeeeeeeeeeeeeeeeeeeeE--R  jump [r0 + 0]
 ```
 
-Gas simulation at offset 35091 with total cost of 2:
+Gas simulation at offset 35145 with total cost of 2:
 
 ```
     DeER.  r9 = 0
     DeeER  fallthrough
 ```
 
-Gas simulation at offset 35094 with total cost of 2:
+Gas simulation at offset 35148 with total cost of 2:
 
 ```
     DeER.  r10 = r10 >> 0x17
-    D=eER  jump 34746 if r10 != 0
+    D=eER  jump 34800 if r10 != 0
 ```
 
-Gas simulation at offset 35101 with total cost of 17:
+Gas simulation at offset 35155 with total cost of 17:
 
 ```
     DeER................  i32 r8 = clz r4
@@ -19067,448 +19132,6 @@ Gas simulation at offset 35101 with total cost of 17:
     D=eER...............  r8 = r8 + r9
     .D=eeER.............  i32 r4 = r4 << r10
     ..DeE-R.............  r9 = r8 + 0xfffffffffffffff7
-    ..DeeeeeeeeeeeeeeeER  jump 34746
-```
-
-Gas simulation at offset 35118 with total cost of 26:
-
-```
-    DeER.........................  r1 = r1 + 0xffffffffffffffc0
-    D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x38] = r0
-    D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x30] = r5
-    D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x28] = r6
-    .D...........................  r4 = r7
-    .DeeeeeeeeeeeeeeeeeeeeE-----R  jump 35223 if r9 <u 16
-```
-
-Gas simulation at offset 35136 with total cost of 25:
-
-```
-    DeeeER......................  i32 r10 = 0 - r4
-    .D==eER.....................  r2 = r10 & 0x7
-    .D===eER....................  r7 = r4 + r2
-    ..D===eeeeeeeeeeeeeeeeeeeeER  jump 35171 if r4 >=u r7
-```
-
-Gas simulation at offset 35147 with total cost of 2:
-
-```
-    D....  r11 = r2
-    D....  r6 = r4
-    D....  r5 = r8
-    DeeER  fallthrough
-```
-
-Gas simulation at offset 35154 with total cost of 50:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r10 = u8 [r5 + 0]
-    DeE---------------------------------------R..........  r11 = r11 + 0xffffffffffffffff
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0] = a3
-    .DeE------------------------------------------------R  r6 = r6 + 0x1
-    .DeE------------------------------------------------R  r5 = r5 + 0x1
-    .DeE------------------------------------------------R  jump 35154 if r11 != 0
-```
-
-Gas simulation at offset 35171 with total cost of 22:
-
-```
-    DeER.....................  r0 = r8 + r2
-    DeER.....................  r9 = r9 - r2
-    .DeER....................  r11 = r9 & 0xfffffffffffffff8
-    .DeER....................  r2 = r0 & 0x7
-    ..DeER...................  r10 = r7 + r11
-    ..DeeeeeeeeeeeeeeeeeeeeER  jump 35265 if r2 != 0
-```
-
-Gas simulation at offset 35189 with total cost of 20:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 35209 if r7 >=u r10
-```
-
-Gas simulation at offset 35192 with total cost of 2:
-
-```
-    D....  r8 = r0
-    DeeER  fallthrough
-```
-
-Gas simulation at offset 35195 with total cost of 50:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r6 = u64 [r8 + 0]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r7 + 0] = r6
-    DeE-------------------------------------------------R  r7 = r7 + 0x8
-    .DeE------------------------------------------------R  r8 = r8 + 0x8
-    .DeE------------------------------------------------R  jump 35195 if r7 <u r10
-```
-
-Gas simulation at offset 35209 with total cost of 3:
-
-```
-    DeER..  r8 = r0 + r11
-    DeER..  r9 = r9 & 0x7
-    .DeER.  r11 = r10 + r9
-    .D=eER  jump 35231 if r10 <u r11
-```
-
-Gas simulation at offset 35221 with total cost of 15:
-
-```
-    DeeeeeeeeeeeeeeeER  jump 35248
-```
-
-Gas simulation at offset 35223 with total cost of 2:
-
-```
-    D....  r10 = r4
-    DeER.  r11 = r4 + r9
-    D=eER  jump 35248 if r4 >=u r11
-```
-
-Gas simulation at offset 35231 with total cost of 50:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r11 = u8 [r8 + 0]
-    DeE---------------------------------------R..........  r9 = r9 + 0xffffffffffffffff
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r10 + 0] = a4
-    .DeE------------------------------------------------R  r10 = r10 + 0x1
-    .DeE------------------------------------------------R  r8 = r8 + 0x1
-    .DeE------------------------------------------------R  jump 35231 if r9 != 0
-```
-
-Gas simulation at offset 35248 with total cost of 47:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......  unlikely
-    D.................................................  r7 = r4
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R.......  r0 = u64 [r1 + 0x38]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R.......  r5 = u64 [r1 + 0x30]
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R.......  r6 = u64 [r1 + 0x28]
-    .DeE--------------------------------------R.......  r1 = r1 + 0x40
-    .D========================eeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
-```
-
-Gas simulation at offset 35265 with total cost of 29:
-
-```
-    DeER............................  r3 = 0
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER....  u64 [r1 + 32] = 0
-    .DeeE----------------------R....  r5 = 0x8 - r2
-    ..DeE----------------------R....  r8 = r1 + 0x20
-    ..D=eE---------------------R....  r12 = r5 & 0x1
-    ...DeE---------------------R....  r8 = r8 | r2
-    ...D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x18] = r8
-    ...D=eE------------------------R  jump 35374 if r12 != 0
-```
-
-Gas simulation at offset 35288 with total cost of 21:
-
-```
-    DeER....................  r6 = r5 & 0x2
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 35391 if r6 != 0
-```
-
-Gas simulation at offset 35294 with total cost of 21:
-
-```
-    DeER....................  r8 = r5 & 0x4
-    D=eeeeeeeeeeeeeeeeeeeeER  jump 35413 if r8 != 0
-```
-
-Gas simulation at offset 35300 with total cost of 27:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r12 = u64 [r1 + 0x20]
-    DeE------------------------R..  r5 = r2 << 0x3
-    .DeE-----------------------R..  r8 = r7 + 0x8
-    .DeE-----------------------R..  r6 = r0 - r2
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x10] = r5
-    ..DeeeeeeeeeeeeeeeeeeeeE-----R  jump 35444 if r8 >=u r10
-```
-
-Gas simulation at offset 35319 with total cost of 29:
-
-```
-    DeeeER..........................  i32 r8 = 0 - r5
-    .D==eER.........................  r8 = r8 & 0x38
-    .D===eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0] = r8
-    .DeeE--------------------------R  fallthrough
-```
-
-Gas simulation at offset 35327 with total cost of 54:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..............  unlikely
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..............  r3 = u64 [r6 + 0x8]
-    DeE---------------------------------------R..............  r6 = r6 + 0x8
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..............  r8 = u64 [r1 + 0x10]
-    .D========================eE--------------R..............  r12 = r12 >> r8
-    .DeE--------------------------------------R..............  r5 = r7 + 0x8
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R..............  r8 = u64 [r1 + 0]
-    ..D=========================eE------------R..............  r8 = r3 << r8
-    ...D=========================eE-----------R..............  r8 = r8 | r12
-    ...DeE------------------------------------R..............  r12 = r7 + 0x10
-    ...D=eeeeeeeeeeeeeeeeeeeeeeeeeE-----------R..............  u64 [r1 + 0x18] = r12
-    ....D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r7 + 0] = r8
-    ....D....................................................  r7 = r5
-    ....D=====================eeeeeeeeeeeeeeeeeeeeeeeeeE----R  u64 [r1 + 0x8] = r6
-    ....D....................................................  r12 = r3
-    .....D=====================eeeeeeeeeeeeeeeeeeeeeeeeeE---R  r8 = u64 [r1 + 0x18]
-    .....D==============================================eE--R  jump 35327 if r8 <u r10
-```
-
-Gas simulation at offset 35372 with total cost of 15:
-
-```
-    DeeeeeeeeeeeeeeeER  jump 35452
-```
-
-Gas simulation at offset 35374 with total cost of 50:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r8 = u8 [r0 + 0]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r6 = u64 [r1 + 0x18]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0] = a1
-    .DeE------------------------------------------------R  r3 = 0x1
-    .DeE------------------------------------------------R  r6 = r5 & 0x2
-    .D=eeeeeeeeeeeeeeeeeeeeE----------------------------R  jump 35294 if r6 == 0
-```
-
-Gas simulation at offset 35391 with total cost of 51:
-
-```
-    DeER..................................................  r8 = r0 + r3
-    D=eeeeeeeeeeeeeeeeeeeeeeeeeER.........................  r8 = i16 [r8 + 0]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE-R.........................  r6 = u64 [r1 + 0x18]
-    .D========================eER.........................  r6 = r6 + r3
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r6 + 0] = r8
-    .DeE-------------------------------------------------R  r3 = r3 + 0x2
-    ..DeE------------------------------------------------R  r8 = r5 & 0x4
-    ..D=eeeeeeeeeeeeeeeeeeeeE----------------------------R  jump 35300 if r8 == 0
-```
-
-Gas simulation at offset 35413 with total cost of 51:
-
-```
-    DeER..................................................  r8 = r0 + r3
-    D=eeeeeeeeeeeeeeeeeeeeeeeeeER.........................  r8 = i32 [r8 + 0]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE-R.........................  r6 = u64 [r1 + 0x18]
-    .D========================eER.........................  r3 = r3 + r6
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r3 + 0] = r8
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r12 = u64 [r1 + 0x20]
-    ..DeE------------------------------------------------R  r5 = r2 << 0x3
-    ..D=eE-----------------------------------------------R  r8 = r7 + 0x8
-    ...D=eE----------------------------------------------R  r6 = r0 - r2
-    ...D==eeeeeeeeeeeeeeeeeeeeeeeeeE---------------------R  u64 [r1 + 0x10] = r5
-    ...D=======================eeeeeeeeeeeeeeeeeeeeE-----R  jump 35319 if r8 <u r10
-```
-
-Gas simulation at offset 35444 with total cost of 25:
-
-```
-    D...........................  r3 = r12
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x8] = r6
-    D...........................  r5 = r7
-    DeeE-----------------------R  fallthrough
-```
-
-Gas simulation at offset 35452 with total cost of 26:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 0x18] = r5
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r6 = u64 [r1 + 0x10]
-    DeE------------------------R.  r7 = 0
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r8 = u64 [r1 + 0x8]
-    .D========================eER  r8 = r8 + 0x8
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 32] = 0
-    .D========================eER  jump 35541 if r2 >=u 4
-```
-
-Gas simulation at offset 35473 with total cost of 2:
-
-```
-    DeER.  r5 = r0 & 0x2
-    D....  r2 = r6
-    D=eER  jump 35558 if r5 != 0
-```
-
-Gas simulation at offset 35481 with total cost of 25:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 0x18]
-    DeE------------------------R  r12 = r0 & 0x1
-    D=eE-----------------------R  jump 35505 if r12 == 0
-```
-
-Gas simulation at offset 35490 with total cost of 51:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
-    DeE---------------------------------------R...........  r6 = r8 + r7
-    D=eeeeeeeeeeeeeeeeeeeeeeeeeE--------------R...........  r12 = u8 [r6 + 0]
-    .DeE--------------------------------------R...........  r6 = r1 + 0x20
-    .D=eE-------------------------------------R...........  r6 = r6 | r7
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r6 + 0] = a5
-    ..DeeE-----------------------------------------------R  fallthrough
-```
-
-Gas simulation at offset 35505 with total cost of 52:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER............  unlikely
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r8 = u64 [r1 + 0x20]
-    .DeE--------------------------------------R............  r12 = r3 >> r2
-    ..DeeeE-----------------------------------R............  i32 r6 = 0 - r2
-    ...D==eE----------------------------------R............  r6 = r6 & 0x38
-    ...D======================eE--------------R............  r8 = r8 << r6
-    ...D=======================eE-------------R............  r8 = r8 | r12
-    ....D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0] = r8
-    ....DeE-----------------------------------------------R  r8 = r0 + r11
-    ....DeE-----------------------------------------------R  r9 = r9 & 0x7
-    .....DeE----------------------------------------------R  r11 = r10 + r9
-    .....D=eE---------------------------------------------R  jump 35231 if r10 <u r11
-```
-
-Gas simulation at offset 35538 with total cost of 15:
-
-```
-    DeeeeeeeeeeeeeeeER  jump 35248
-```
-
-Gas simulation at offset 35541 with total cost of 50:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r12 = i32 [r8 + 0]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 + 0x20] = r12
-    DeE-------------------------------------------------R  r7 = 0x4
-    .DeE------------------------------------------------R  r5 = r0 & 0x2
-    .D...................................................  r2 = r6
-    .D=eE-----------------------------------------------R  jump 35481 if r5 == 0
-```
-
-Gas simulation at offset 35558 with total cost of 51:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
-    DeE---------------------------------------R...........  r12 = r8 + r7
-    D=eeeeeeeeeeeeeeeeeeeeeeeeeE--------------R...........  r12 = i16 [r12 + 0]
-    .DeE--------------------------------------R...........  r5 = r1 + 0x20
-    .D=eE-------------------------------------R...........  r5 = r5 | r7
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0] = r12
-    ..DeE------------------------------------------------R  r7 = r7 + 0x2
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE------------------------R  r5 = u64 [r1 + 0x18]
-    ..D=eE-----------------------------------------------R  r12 = r0 & 0x1
-    ...D=eE----------------------------------------------R  jump 35490 if r12 != 0
-```
-
-Gas simulation at offset 35584 with total cost of 15:
-
-```
-    DeeeeeeeeeeeeeeeER  jump 35505
-```
-
-Gas simulation at offset 35586 with total cost of 20:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeER  jump 35682 if r9 <u 16
-```
-
-Gas simulation at offset 35590 with total cost of 25:
-
-```
-    DeeeER......................  i32 r10 = 0 - r7
-    .D==eER.....................  r2 = r10 & 0x7
-    .D===eER....................  r11 = r7 + r2
-    ..D===eeeeeeeeeeeeeeeeeeeeER  jump 35617 if r7 >=u r11
-```
-
-Gas simulation at offset 35601 with total cost of 2:
-
-```
-    D....  r12 = r2
-    D....  r10 = r7
-    DeeER  fallthrough
-```
-
-Gas simulation at offset 35606 with total cost of 25:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r10 + 0] = a1
-    DeE------------------------R  r12 = r12 + 0xffffffffffffffff
-    DeE------------------------R  r10 = r10 + 0x1
-    D=eeeeeeeeeeeeeeeeeeeeE----R  jump 35606 if r12 != 0
-```
-
-Gas simulation at offset 35617 with total cost of 23:
-
-```
-    DeER......................  r9 = r9 - r2
-    D=eER.....................  r10 = r9 & 0xfffffffffffffff8
-    D==eER....................  r10 = r10 + r11
-    .D==eeeeeeeeeeeeeeeeeeeeER  jump 35660 if r11 >=u r10
-```
-
-Gas simulation at offset 35629 with total cost of 7:
-
-```
-    DeER......  r2 = r8 << 0x38
-    DeER......  r12 = 0x101010100
-    .DeeeeER..  r2 = r2 mulhu r12
-    ..D===eER.  r12 = r2 << 0x20
-    ..D====eER  r12 = r12 | r2
-    ..DeeE---R  fallthrough
-```
-
-Gas simulation at offset 35652 with total cost of 25:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r11 + 0] = r12
-    DeE------------------------R  r11 = r11 + 0x8
-    D=eeeeeeeeeeeeeeeeeeeeE----R  jump 35652 if r11 <u r10
-```
-
-Gas simulation at offset 35660 with total cost of 22:
-
-```
-    DeER.....................  r9 = r9 & 0x7
-    D=eER....................  r11 = r10 + r9
-    D==eeeeeeeeeeeeeeeeeeeeER  jump 35680 if r10 >=u r11
-```
-
-Gas simulation at offset 35669 with total cost of 25:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r10 + 0] = a1
-    DeE------------------------R  r9 = r9 + 0xffffffffffffffff
-    DeE------------------------R  r10 = r10 + 0x1
-    D=eeeeeeeeeeeeeeeeeeeeE----R  jump 35669 if r9 != 0
-```
-
-Gas simulation at offset 35680 with total cost of 22:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeER  jump [r0 + 0]
-```
-
-Gas simulation at offset 35682 with total cost of 2:
-
-```
-    D....  r10 = r7
-    DeER.  r11 = r7 + r9
-    D=eER  jump 35669 if r7 <u r11
-```
-
-Gas simulation at offset 35690 with total cost of 40:
-
-```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
-    DeeeeeeeeeeeeeeeE-------------------------R  jump 35680
+    ..DeeeeeeeeeeeeeeeER  jump 34800
 ```
 

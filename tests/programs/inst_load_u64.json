@@ -15,71 +15,78 @@
   ],
   "steps": [
     {
-      "kind": "map",
-      "address": 131072,
-      "length": 4096,
-      "is_writable": true
+      "map": {
+        "address": 131072,
+        "length": 4096,
+        "is-writable": true
+      }
     },
     {
-      "kind": "write",
-      "address": 131072,
-      "contents": [
-        129,
-        130,
-        131,
-        132,
-        133,
-        134,
-        135,
-        136
-      ]
+      "write": {
+        "address": 131072,
+        "contents": [
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136
+        ]
+      }
     },
     {
-      "kind": "set-reg",
-      "reg": 7,
-      "value": 3735928559
+      "set-reg": {
+        "reg": 7,
+        "value": 3735928559
+      }
     },
     {
-      "kind": "run"
+      "run": {}
     },
     {
-      "kind": "assert",
-      "status": "panic",
-      "gas": 9975,
-      "pc": 5,
-      "regs": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        9837979819026121345,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "memory": [
-        {
-          "address": 131072,
-          "contents": [
-            129,
-            130,
-            131,
-            132,
-            133,
-            134,
-            135,
-            136
-          ]
-        }
-      ]
+      "assert": {
+        "status": "panic",
+        "gas": 9975,
+        "pc": 5,
+        "regs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          9837979819026121345,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "memory": [
+          {
+            "address": 131072,
+            "contents": [
+              129,
+              130,
+              131,
+              132,
+              133,
+              134,
+              135,
+              136
+            ]
+          }
+        ]
+      }
     }
   ],
-  "block-gas-costs": {
-    "0": 25
-  }
+  "block-gas-costs": [
+    {
+      "pc": 0,
+      "cost": 25
+    }
+  ]
 }

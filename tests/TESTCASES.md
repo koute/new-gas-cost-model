@@ -769,6 +769,42 @@ Gas simulation at offset 0 with total cost of 3:
     .DeeER  trap
 ```
 
+## gas_start_execution_in_the_middle_of_block
+
+Initial program counter: 6
+
+```
+      :                          @0
+     0: 33 08 01                 r8 = 0x1
+     3: 33 09 02                 r9 = 0x2
+     // Start execution HERE:
+     6: 33 0a 03                 r10 = 0x3
+     9: 33 0b 04                 r11 = 0x4
+    12: c8 98 07                 r7 = r8 + r9
+    15: 00                       trap
+```
+
+Registers after execution (only changed registers):
+   * r10 = 0x3 (initially was 0x0)
+   * r11 = 0x4 (initially was 0x0)
+
+Program should end with: panic
+
+Final value of the program counter: 15
+
+Gas consumed: 10000 -> 9997
+
+Gas simulation at offset 0 with total cost of 3:
+
+```
+    DeER..  r8 = 0x1
+    DeER..  r9 = 0x2
+    DeER..  r10 = 0x3
+    DeER..  r11 = 0x4
+    .DeER.  r7 = r8 + r9
+    .DeeER  trap
+```
+
 ## gas_xor_and_shift
 
 ```
@@ -7162,7 +7198,7 @@ Initial page map:
      6:                          invalid
 ```
 
-Program should end with: panic
+Program should end with: page-fault (page address = 0x10000)
 
 Final value of the program counter: 0
 
@@ -7693,7 +7729,7 @@ Initial non-zero registers:
      5:                          invalid
 ```
 
-Program should end with: panic
+Program should end with: page-fault (page address = 0x10000)
 
 Final value of the program counter: 0
 
@@ -8001,6 +8037,153 @@ Gas simulation at offset 0 with total cost of 2:
     DeeER  invalid
 ```
 
+## multistep_ecalli_at_the_start_of_block
+
+Execution steps:
+   * Start execution
+   * Execution interrupted: status = 'ecalli' (hostcall = 3), gas = 9898, pc = 0
+   * Set: r8 = 0xa
+   * Resume execution
+   * Execution interrupted: status = 'ecalli' (hostcall = 4), gas = 9898, pc = 10
+   * Set: r0 = 0xffff0000
+   * Resume execution
+   * Execution interrupted: status = 'halt', gas = 9898, pc = 12
+
+```
+      :                          @0
+     0: 0a 03                    ecalli 3
+     2: 33 07 00 00 03           r7 = 0x30000
+     7: c8 78 09                 r9 = r8 + r7
+    10: 0a 04                    ecalli 4
+    12: 32 00                    jump [r0 + 0]
+```
+
+Registers after execution (only changed registers):
+   * r0 = 0xffff0000 (initially was 0x0)
+   * r7 = 0x30000 (initially was 0x0)
+   * r8 = 0xa (initially was 0x0)
+   * r9 = 0x3000a (initially was 0x0)
+
+Program should end with: halt
+
+Final value of the program counter: 12
+
+Gas consumed: 10000 -> 9898
+
+Gas simulation at offset 0 with total cost of 102:
+
+```
+    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..  ecalli 3
+    .DeE--------------------------------------------------------------------------------------------------R..  r7 = 0x30000
+    .D=eE-------------------------------------------------------------------------------------------------R..  r9 = r8 + r7
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  ecalli 4
+    ...DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------------------------------------------------------R  jump [r0 + 0]
+```
+
+## multistep_ecalli_in_the_middle_of_block
+
+Execution steps:
+   * Start execution
+   * Execution interrupted: status = 'ecalli' (hostcall = 3), gas = 9897, pc = 5
+   * Set: r8 = 0xa
+   * Resume execution
+   * Execution interrupted: status = 'ecalli' (hostcall = 4), gas = 9897, pc = 10
+   * Set: r0 = 0xffff0000
+   * Resume execution
+   * Execution interrupted: status = 'halt', gas = 9897, pc = 12
+
+```
+      :                          @0
+     0: 33 07 00 00 03           r7 = 0x30000
+     5: 0a 03                    ecalli 3
+     7: c8 78 09                 r9 = r8 + r7
+    10: 0a 04                    ecalli 4
+    12: 32 00                    jump [r0 + 0]
+```
+
+Registers after execution (only changed registers):
+   * r0 = 0xffff0000 (initially was 0x0)
+   * r7 = 0x30000 (initially was 0x0)
+   * r8 = 0xa (initially was 0x0)
+   * r9 = 0x3000a (initially was 0x0)
+
+Program should end with: halt
+
+Final value of the program counter: 12
+
+Gas consumed: 10000 -> 9897
+
+Gas simulation at offset 0 with total cost of 103:
+
+```
+    DeER......................................................................................................  r7 = 0x30000
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..  ecalli 3
+    ..DeE--------------------------------------------------------------------------------------------------R..  r9 = r8 + r7
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  ecalli 4
+    ....DeeeeeeeeeeeeeeeeeeeeeeE-----------------------------------------------------------------------------R  jump [r0 + 0]
+```
+
+## multistep_paging_at_the_start_of_block
+
+Execution steps:
+   * Start execution
+   * Execution interrupted: status = 'page-fault' (address = 0x30000), gas = 9973, pc = 0
+   * Resume execution
+   * Execution interrupted: status = 'page-fault' (address = 0x30000), gas = 9973, pc = 0
+   * Map page: 0x30000-0x31000 (0x1000 bytes, RW)
+   * Write: 0x30000-0x30001 (0x1 bytes) = [0x01]
+   * Write: 0x30fff-0x31000 (0x1 bytes) = [0x02]
+   * Resume execution
+   * Execution interrupted: status = 'page-fault' (address = 0x31000), gas = 9973, pc = 10
+   * Map page: 0x31000-0x32000 (0x1000 bytes, RW)
+   * Write: 0x31fff-0x32000 (0x1 bytes) = [0x03]
+   * Set: r0 = 0xffff0000
+   * Resume execution
+   * Execution interrupted: status = 'halt', gas = 9973, pc = 21
+
+Final page map:
+   * RW: 0x30000-0x31000 (0x1000 bytes)
+   * RW: 0x31000-0x32000 (0x1000 bytes)
+
+```
+      :                          @0
+     0: 34 08 00 00 03           r8 = u8 [0x30000]
+     5: 34 09 ff 0f 03           r9 = u8 [0x30fff]
+    10: 34 0a ff 1f 03           r10 = u8 [0x31fff]
+    15: c8 98 0b                 r11 = r8 + r9
+    18: c8 ab 0b                 r11 = r11 + r10
+    21: 32 00                    jump [r0 + 0]
+```
+
+Registers after execution (only changed registers):
+   * r0 = 0xffff0000 (initially was 0x0)
+   * r8 = 0x1 (initially was 0x0)
+   * r9 = 0x2 (initially was 0x0)
+   * r10 = 0x3 (initially was 0x0)
+   * r11 = 0x6 (initially was 0x0)
+
+Final non-zero memory chunks:
+   * 0x30000-0x30001 (0x1 bytes) = [0x01]
+   * 0x30fff-0x31000 (0x1 bytes) = [0x02]
+   * 0x31fff-0x32000 (0x1 bytes) = [0x03]
+
+Program should end with: halt
+
+Final value of the program counter: 21
+
+Gas consumed: 10000 -> 9973
+
+Gas simulation at offset 0 with total cost of 27:
+
+```
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [0x30000]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r9 = u8 [0x30fff]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER..  r10 = u8 [0x31fff]
+    .D========================eER.  r11 = r8 + r9
+    .D=========================eER  r11 = r11 + r10
+    .DeeeeeeeeeeeeeeeeeeeeeeE----R  jump [r0 + 0]
+```
+
 ## multistep_paging_in_the_middle_of_block
 
 Execution steps:
@@ -8075,6 +8258,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x08]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -8082,6 +8267,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -8245,6 +8431,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x08]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -8252,6 +8440,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -8418,6 +8607,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x08]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -8425,6 +8616,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -8580,6 +8772,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x08]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -8587,6 +8781,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -8749,6 +8944,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x10]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -8756,6 +8953,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -8924,6 +9122,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x18]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -8931,6 +9131,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -9181,6 +9382,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x10]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -9188,6 +9391,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -9356,6 +9560,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x18]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -9363,6 +9569,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -9612,6 +9819,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x10]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -9619,6 +9828,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -9787,6 +9997,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x18]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -9794,6 +10006,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -10044,6 +10257,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x10]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -10051,6 +10266,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -10214,6 +10430,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x18]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -10221,6 +10439,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -10465,6 +10684,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x08]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -10472,6 +10693,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -10625,6 +10847,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x08]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -10632,6 +10856,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -10793,6 +11018,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x08]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -10800,6 +11027,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -10955,6 +11183,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x08]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -10962,6 +11192,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -11124,6 +11355,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x08]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -11131,6 +11364,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -11290,6 +11524,8 @@ Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x08]
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -11297,6 +11533,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 07 00 00 00 80        r7 = 0xffffffff80000000
     22: 33 08 00 f8              r8 = 0xfffffffffffff800
@@ -11471,6 +11708,8 @@ Initial non-zero memory chunks:
    * 0x10010-0x10011 (0x1 bytes) = [0x06]
    * 0x30000-0x30010 (0x10 bytes) = [0x10, 0x32, 0x54, 0x76, 0x98, 0xba, 0xdc, 0xfe, 0x10, 0x32, 0x54, 0x76, 0x98, 0xba, 0xdc, 0xfe]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -11478,6 +11717,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 0b 02                 r11 = 0x2
     16: 33 08 9a 02              r8 = 0x29a
     20: 33 0b 02                 r11 = 0x2
@@ -12263,6 +12503,8 @@ Gas simulation at offset 703 with total cost of 15:
 
 ## riscv_rv64ui_add
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -12270,6 +12512,7 @@ Gas simulation at offset 703 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -13347,6 +13590,8 @@ Gas simulation at offset 967 with total cost of 15:
 
 ## riscv_rv64ui_addi
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -13354,6 +13599,7 @@ Gas simulation at offset 967 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a                    r10 = 0
     18: 64 ab                    r11 = r10
@@ -13948,6 +14194,8 @@ Gas simulation at offset 538 with total cost of 15:
 
 ## riscv_rv64ui_addiw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -13955,6 +14203,7 @@ Gas simulation at offset 538 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a                    r10 = 0
     18: 83 ab                    i32 r11 = r10 + 0
@@ -14543,6 +14792,8 @@ Gas simulation at offset 538 with total cost of 15:
 
 ## riscv_rv64ui_addw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -14550,6 +14801,7 @@ Gas simulation at offset 538 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -15617,6 +15869,8 @@ Gas simulation at offset 957 with total cost of 15:
 
 ## riscv_rv64ui_and
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -15624,6 +15878,7 @@ Gas simulation at offset 957 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 00 00 01           r8 = 0x10000
     21: 83 88 01 ff              i32 r8 = r8 + 0xffffffffffffff01
@@ -16685,6 +16940,8 @@ Gas simulation at offset 1245 with total cost of 15:
 
 ## riscv_rv64ui_andi
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -16692,6 +16949,7 @@ Gas simulation at offset 1245 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a 00 00 01           r10 = 0x10000
     21: 83 aa 01 ff              i32 r10 = r10 + 0xffffffffffffff01
@@ -17141,6 +17399,8 @@ Gas simulation at offset 436 with total cost of 15:
 
 ## riscv_rv64ui_beq
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -17148,6 +17408,7 @@ Gas simulation at offset 436 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 33 01                    r1 = 0
@@ -17962,6 +18223,8 @@ Gas simulation at offset 496 with total cost of 15:
 
 ## riscv_rv64ui_bge
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -17969,6 +18232,7 @@ Gas simulation at offset 496 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 33 01                    r1 = 0
@@ -18920,6 +19184,8 @@ Gas simulation at offset 575 with total cost of 15:
 
 ## riscv_rv64ui_bgeu
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -18927,6 +19193,7 @@ Gas simulation at offset 575 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 33 01                    r1 = 0
@@ -19987,6 +20254,8 @@ Gas simulation at offset 751 with total cost of 15:
 
 ## riscv_rv64ui_blt
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -19994,6 +20263,7 @@ Gas simulation at offset 751 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 33 01 01                 r1 = 0x1
@@ -20808,6 +21078,8 @@ Gas simulation at offset 499 with total cost of 15:
 
 ## riscv_rv64ui_bltu
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -20815,6 +21087,7 @@ Gas simulation at offset 499 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 33 01 01                 r1 = 0x1
@@ -21729,6 +22002,8 @@ Gas simulation at offset 663 with total cost of 15:
 
 ## riscv_rv64ui_bne
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -21736,6 +22011,7 @@ Gas simulation at offset 663 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 33 01 01                 r1 = 0x1
@@ -22563,6 +22839,8 @@ Initial page map:
 Initial non-zero memory chunks:
    * 0x10000-0x10001 (0x1 bytes) = [0x02]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -22570,6 +22848,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 50 1b 02 06              r11 = 2, jump 24
@@ -22689,6 +22968,8 @@ Initial non-zero memory chunks:
    * 0x10028-0x10029 (0x1 bytes) = [0x10]
    * 0x10030-0x10031 (0x1 bytes) = [0x14]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -22696,6 +22977,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 02                    r2 = 0
     18: 3a 03 00 00 01           r3 = u64 [0x10000]
@@ -22959,6 +23241,8 @@ Initial non-zero memory chunks:
    * 0x30000-0x30001 (0x1 bytes) = [0xff]
    * 0x30002-0x30004 (0x2 bytes) = [0xf0, 0x0f]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -22966,6 +23250,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0c ff                 r12 = 0xffffffffffffffff
     19: 3a 01 00 00 01           r1 = u64 [0x10000]
@@ -23519,6 +23804,8 @@ Initial non-zero memory chunks:
    * 0x30000-0x30001 (0x1 bytes) = [0xff]
    * 0x30002-0x30004 (0x2 bytes) = [0xf0, 0x0f]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -23526,6 +23813,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0c ff 00              r12 = 0xff
     20: 3a 01 00 00 01           r1 = u64 [0x10000]
@@ -24085,6 +24373,8 @@ Initial non-zero memory chunks:
    * 0x3000d-0x3000e (0x1 bytes) = [0xff]
    * 0x3000f-0x30020 (0x11 bytes) = [0xff, 0xf0, 0x0f, 0xf0, 0x0f, 0xf0, 0x0f, 0xf0, 0x0f, 0x0f, 0xf0, 0x0f, 0xf0, 0x0f, 0xf0, 0x0f, 0xf0]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -24092,6 +24382,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0c 00 00 ff 00        r12 = 0xff0000
     22: 83 cc ff 00              i32 r12 = r12 + 0xff
@@ -24927,6 +25218,8 @@ Initial non-zero memory chunks:
    * 0x30000-0x30001 (0x1 bytes) = [0xff]
    * 0x30003-0x30008 (0x5 bytes) = [0xff, 0xf0, 0x0f, 0x0f, 0xf0]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -24934,6 +25227,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0c ff 00              r12 = 0xff
     20: 3a 01 00 00 01           r1 = u64 [0x10000]
@@ -25513,6 +25807,8 @@ Initial non-zero memory chunks:
    * 0x30000-0x30001 (0x1 bytes) = [0xff]
    * 0x30003-0x30008 (0x5 bytes) = [0xff, 0xf0, 0x0f, 0x0f, 0xf0]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -25520,6 +25816,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0c ff 00              r12 = 0xff
     20: 3a 01 00 00 01           r1 = u64 [0x10000]
@@ -26098,6 +26395,8 @@ Gas simulation at offset 564 with total cost of 15:
 
 ## riscv_rv64ui_lui
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -26105,6 +26404,7 @@ Gas simulation at offset 564 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 33 04                    r4 = 0
@@ -26242,6 +26542,8 @@ Initial non-zero memory chunks:
    * 0x30005-0x30006 (0x1 bytes) = [0xff]
    * 0x30007-0x30010 (0x9 bytes) = [0xff, 0xf0, 0x0f, 0xf0, 0x0f, 0x0f, 0xf0, 0x0f, 0xf0]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -26249,6 +26551,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0c 00 00 ff 00        r12 = 0xff0000
     22: 83 cc ff 00              i32 r12 = r12 + 0xff
@@ -26854,6 +27157,8 @@ Initial non-zero memory chunks:
    * 0x30005-0x30006 (0x1 bytes) = [0xff]
    * 0x30007-0x30010 (0x9 bytes) = [0xff, 0xf0, 0x0f, 0xf0, 0x0f, 0x0f, 0xf0, 0x0f, 0xf0]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -26861,6 +27166,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0c 00 00 ff 00        r12 = 0xff0000
     22: 83 cc ff 00              i32 r12 = r12 + 0xff
@@ -27501,6 +27807,8 @@ Initial non-zero memory chunks:
    * 0x10002-0x10003 (0x1 bytes) = [0x03]
    * 0x30001-0x3017f (0x17e bytes) = [0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1e, 0x1f, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2a, 0x2b, 0x2c, 0x2d, 0x2e, 0x2f, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x3a, 0x3b, 0x3c, 0x3d, 0x3e, 0x3f, 0x40, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49, 0x4a, 0x4b, 0x4c, 0x4d, 0x4e, 0x4f, 0x50, 0x51, 0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5a, 0x5b, 0x5c, 0x5d, 0x5e, 0x5f, 0x60, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6a, 0x6b, 0x6c, 0x6d, 0x6e, 0x6f, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7a, 0x7b, 0x7c, 0x7d, 0x7e, 0x7f, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -27508,6 +27816,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 3a 05 00 00 01           r5 = u64 [0x10000]
     18: 33 0c 01                 r12 = 0x1
     21: 33 03 01 02              r3 = 0x201
@@ -32995,6 +33304,8 @@ Gas simulation at offset 6757 with total cost of 15:
 
 ## riscv_rv64ui_or
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -33002,6 +33313,7 @@ Gas simulation at offset 6757 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 00 00 01           r8 = 0x10000
     21: 83 88 01 ff              i32 r8 = r8 + 0xffffffffffffff01
@@ -34129,6 +34441,8 @@ Gas simulation at offset 1334 with total cost of 15:
 
 ## riscv_rv64ui_ori
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -34136,6 +34450,7 @@ Gas simulation at offset 1334 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a 00 00 01 ff        r10 = 0xffffffffff010000
     22: 83 aa 00 ff              i32 r10 = r10 + 0xffffffffffffff00
@@ -34602,6 +34917,8 @@ Initial non-zero memory chunks:
    * 0x1005a-0x1005b (0x1 bytes) = [0x03]
    * 0x30000-0x3000a (0xa bytes) = [0xef, 0xef, 0xef, 0xef, 0xef, 0xef, 0xef, 0xef, 0xef, 0xef]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -34609,6 +34926,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 3a 01 00 00 01           r1 = u64 [0x10000]
     21: 33 00 aa                 r0 = 0xffffffffffffffaa
@@ -35633,6 +35951,8 @@ Initial non-zero memory chunks:
    * 0x1005a-0x1005b (0x1 bytes) = [0x03]
    * 0x30000-0x30050 (0x50 bytes) = [0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -35640,6 +35960,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 3a 01 00 00 01           r1 = u64 [0x10000]
     21: 33 00 00 00 55           r0 = 0x550000
@@ -36954,6 +37275,8 @@ Initial non-zero memory chunks:
    * 0x1005a-0x1005b (0x1 bytes) = [0x03]
    * 0x30000-0x30014 (0x14 bytes) = [0xef, 0xbe, 0xef, 0xbe, 0xef, 0xbe, 0xef, 0xbe, 0xef, 0xbe, 0xef, 0xbe, 0xef, 0xbe, 0xef, 0xbe, 0xef, 0xbe, 0xef, 0xbe]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -36961,6 +37284,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 3a 01 00 00 01           r1 = u64 [0x10000]
     21: 33 00 aa 00              r0 = 0xaa
@@ -38016,6 +38340,8 @@ Gas simulation at offset 985 with total cost of 15:
 
 ## riscv_rv64ui_simple
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -38023,6 +38349,7 @@ Gas simulation at offset 985 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 28 f3                    jump 0
 ```
 
@@ -38052,6 +38379,8 @@ Gas simulation at offset 13 with total cost of 15:
 
 ## riscv_rv64ui_sll
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -38059,6 +38388,7 @@ Gas simulation at offset 13 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 01                 r8 = 0x1
     19: 33 09                    r9 = 0
@@ -39324,6 +39654,8 @@ Gas simulation at offset 1247 with total cost of 15:
 
 ## riscv_rv64ui_slli
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -39331,6 +39663,7 @@ Gas simulation at offset 1247 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a 01                 r10 = 0x1
     19: 97 ab                    r11 = r10 << 0
@@ -39993,6 +40326,8 @@ Gas simulation at offset 634 with total cost of 15:
 
 ## riscv_rv64ui_slliw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -40000,6 +40335,7 @@ Gas simulation at offset 634 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a 01                 r10 = 0x1
     19: 8a ab                    i32 r11 = r10 << 0
@@ -40682,6 +41018,8 @@ Gas simulation at offset 685 with total cost of 15:
 
 ## riscv_rv64ui_sllw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -40689,6 +41027,7 @@ Gas simulation at offset 685 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 01                 r8 = 0x1
     19: 33 09                    r9 = 0
@@ -41960,6 +42299,8 @@ Gas simulation at offset 1287 with total cost of 15:
 
 ## riscv_rv64ui_slt
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -41967,6 +42308,7 @@ Gas simulation at offset 1287 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -43021,6 +43363,8 @@ Gas simulation at offset 895 with total cost of 15:
 
 ## riscv_rv64ui_slti
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -43028,6 +43372,7 @@ Gas simulation at offset 895 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a                    r10 = 0
     18: 89 ab                    r11 = r10 <s 0
@@ -43605,6 +43950,8 @@ Gas simulation at offset 485 with total cost of 15:
 
 ## riscv_rv64ui_sltiu
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -43612,6 +43959,7 @@ Gas simulation at offset 485 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a                    r10 = 0
     18: 88 ab                    r11 = r10 <u 0
@@ -44189,6 +44537,8 @@ Gas simulation at offset 487 with total cost of 15:
 
 ## riscv_rv64ui_sltu
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -44196,6 +44546,7 @@ Gas simulation at offset 487 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -45284,6 +45635,8 @@ Gas simulation at offset 940 with total cost of 15:
 
 ## riscv_rv64ui_sra
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -45291,6 +45644,7 @@ Gas simulation at offset 940 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 00 00 00 80        r8 = 0xffffffff80000000
     22: 33 09                    r9 = 0
@@ -46481,6 +46835,8 @@ Gas simulation at offset 1259 with total cost of 15:
 
 ## riscv_rv64ui_srai
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -46488,6 +46844,7 @@ Gas simulation at offset 1259 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a ff                 r10 = 0xffffffffffffffff
     19: 97 aa 27                 r10 = r10 << 0x27
@@ -47104,6 +47461,8 @@ Gas simulation at offset 644 with total cost of 15:
 
 ## riscv_rv64ui_sraiw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -47111,6 +47470,7 @@ Gas simulation at offset 644 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a 00 00 00 80        r10 = 0xffffffff80000000
     22: 8c ab                    i32 r11 = r10 >>a 0
@@ -47856,6 +48216,8 @@ Gas simulation at offset 826 with total cost of 15:
 
 ## riscv_rv64ui_sraw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -47863,6 +48225,7 @@ Gas simulation at offset 826 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 00 00 00 80        r8 = 0xffffffff80000000
     22: 33 09                    r9 = 0
@@ -49157,6 +49520,8 @@ Gas simulation at offset 1413 with total cost of 15:
 
 ## riscv_rv64ui_srl
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -49164,6 +49529,7 @@ Gas simulation at offset 1413 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 00 00 00 80        r8 = 0xffffffff80000000
     22: 33 09                    r9 = 0
@@ -50408,6 +50774,8 @@ Gas simulation at offset 1252 with total cost of 15:
 
 ## riscv_rv64ui_srli
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -50415,6 +50783,7 @@ Gas simulation at offset 1252 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a 00 00 00 80        r10 = 0xffffffff80000000
     22: 98 ab                    r11 = r10 >> 0
@@ -51061,6 +51430,8 @@ Gas simulation at offset 639 with total cost of 15:
 
 ## riscv_rv64ui_srliw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -51068,6 +51439,7 @@ Gas simulation at offset 639 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a 00 00 00 80        r10 = 0xffffffff80000000
     22: 8b ab                    i32 r11 = r10 >> 0
@@ -51764,6 +52136,8 @@ Gas simulation at offset 749 with total cost of 15:
 
 ## riscv_rv64ui_srlw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -51771,6 +52145,7 @@ Gas simulation at offset 749 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 00 00 00 80        r8 = 0xffffffff80000000
     22: 33 09                    r9 = 0
@@ -53053,6 +53428,8 @@ Gas simulation at offset 1374 with total cost of 15:
 
 ## riscv_rv64ui_sub
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -53060,6 +53437,7 @@ Gas simulation at offset 1374 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -54112,6 +54490,8 @@ Gas simulation at offset 934 with total cost of 15:
 
 ## riscv_rv64ui_subw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -54119,6 +54499,7 @@ Gas simulation at offset 934 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -55185,6 +55566,8 @@ Initial non-zero memory chunks:
    * 0x1005a-0x1005b (0x1 bytes) = [0x03]
    * 0x30000-0x30028 (0x28 bytes) = [0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde, 0xef, 0xbe, 0xad, 0xde]
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -55192,6 +55575,7 @@ Initial non-zero memory chunks:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 3a 01 00 00 01           r1 = u64 [0x10000]
     21: 33 00 00 00 aa 00        r0 = 0xaa0000
@@ -56255,6 +56639,8 @@ Gas simulation at offset 1080 with total cost of 15:
 
 ## riscv_rv64ui_xor
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -56262,6 +56648,7 @@ Gas simulation at offset 1080 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 00 00 01           r8 = 0x10000
     21: 83 88 01 ff              i32 r8 = r8 + 0xffffffffffffff01
@@ -57378,6 +57765,8 @@ Gas simulation at offset 1335 with total cost of 15:
 
 ## riscv_rv64ui_xori
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -57385,6 +57774,7 @@ Gas simulation at offset 1335 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a 00 10 ff 00        r10 = 0xff1000
     22: 83 aa 00 ff              i32 r10 = r10 + 0xffffffffffffff00
@@ -57825,6 +58215,8 @@ Gas simulation at offset 452 with total cost of 15:
 
 ## riscv_rv64um_div
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -57832,12 +58224,13 @@ Gas simulation at offset 452 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 14                 r8 = 0x14
     19: 33 09 06                 r9 = 0x6
     22: cc 98 0b                 r11 = r8 /s r9
     25: 33 04 03                 r4 = 0x3
-    28: ab 4b ac 00              jump 200 if r11 != r4
+    28: ab 4b c6 00              jump 226 if r11 != r4
       :                          @2
     32: 03                       unlikely
     33: 33 05 03                 r5 = 0x3
@@ -57845,7 +58238,7 @@ Gas simulation at offset 452 with total cost of 15:
     39: 33 09 06                 r9 = 0x6
     42: cc 98 0b                 r11 = r8 /s r9
     45: 33 04 fd                 r4 = 0xfffffffffffffffd
-    48: ab 4b 98 00              jump 200 if r11 != r4
+    48: ab 4b b2 00              jump 226 if r11 != r4
       :                          @3
     52: 03                       unlikely
     53: 33 05 04                 r5 = 0x4
@@ -57853,7 +58246,7 @@ Gas simulation at offset 452 with total cost of 15:
     59: 33 09 fa                 r9 = 0xfffffffffffffffa
     62: cc 98 0b                 r11 = r8 /s r9
     65: 33 04 fd                 r4 = 0xfffffffffffffffd
-    68: ab 4b 84 00              jump 200 if r11 != r4
+    68: ab 4b 9e 00              jump 226 if r11 != r4
       :                          @4
     72: 03                       unlikely
     73: 33 05 05                 r5 = 0x5
@@ -57861,71 +58254,83 @@ Gas simulation at offset 452 with total cost of 15:
     79: 33 09 fa                 r9 = 0xfffffffffffffffa
     82: cc 98 0b                 r11 = r8 /s r9
     85: 33 04 03                 r4 = 0x3
-    88: ab 4b 70                 jump 200 if r11 != r4
+    88: ab 4b 8a 00              jump 226 if r11 != r4
       :                          @5
-    91: 03                       unlikely
-    92: 33 05 06                 r5 = 0x6
-    95: 33 08 ff                 r8 = 0xffffffffffffffff
-    98: 97 88 3f                 r8 = r8 << 0x3f
-   101: 33 09 01                 r9 = 0x1
-   104: cc 98 0b                 r11 = r8 /s r9
-   107: 33 04 ff                 r4 = 0xffffffffffffffff
-   110: 97 44 3f                 r4 = r4 << 0x3f
-   113: ab 4b 57                 jump 200 if r11 != r4
+    92: 03                       unlikely
+    93: 33 05 06                 r5 = 0x6
+    96: 33 08 ff                 r8 = 0xffffffffffffffff
+    99: 97 88 3f                 r8 = r8 << 0x3f
+   102: 33 09 01                 r9 = 0x1
+   105: cc 98 0b                 r11 = r8 /s r9
+   108: 33 04 ff                 r4 = 0xffffffffffffffff
+   111: 97 44 3f                 r4 = r4 << 0x3f
+   114: ab 4b 70                 jump 226 if r11 != r4
       :                          @6
-   116: 03                       unlikely
-   117: 33 05 07                 r5 = 0x7
-   120: 33 08 ff                 r8 = 0xffffffffffffffff
-   123: 97 88 3f                 r8 = r8 << 0x3f
-   126: 33 09 ff                 r9 = 0xffffffffffffffff
-   129: cc 98 0b                 r11 = r8 /s r9
-   132: 33 04 ff                 r4 = 0xffffffffffffffff
-   135: 97 44 3f                 r4 = r4 << 0x3f
-   138: ab 4b 3e                 jump 200 if r11 != r4
+   117: 03                       unlikely
+   118: 33 05 07                 r5 = 0x7
+   121: 33 08 ff                 r8 = 0xffffffffffffffff
+   124: 97 88 3f                 r8 = r8 << 0x3f
+   127: 33 09 ff                 r9 = 0xffffffffffffffff
+   130: cc 98 0b                 r11 = r8 /s r9
+   133: 33 04 ff                 r4 = 0xffffffffffffffff
+   136: 97 44 3f                 r4 = r4 << 0x3f
+   139: ab 4b 57                 jump 226 if r11 != r4
       :                          @7
-   141: 03                       unlikely
-   142: 33 05 08                 r5 = 0x8
-   145: 33 08 ff                 r8 = 0xffffffffffffffff
-   148: 97 88 3f                 r8 = r8 << 0x3f
-   151: 33 09                    r9 = 0
-   153: cc 98 0b                 r11 = r8 /s r9
-   156: 33 04 ff                 r4 = 0xffffffffffffffff
-   159: ab 4b 29                 jump 200 if r11 != r4
+   142: 03                       unlikely
+   143: 33 05 08                 r5 = 0x8
+   146: 33 08 ff                 r8 = 0xffffffffffffffff
+   149: 97 88 3f                 r8 = r8 << 0x3f
+   152: 33 09                    r9 = 0
+   154: cc 98 0b                 r11 = r8 /s r9
+   157: 33 04 ff                 r4 = 0xffffffffffffffff
+   160: ab 4b 42                 jump 226 if r11 != r4
       :                          @8
-   162: 03                       unlikely
-   163: 33 05 09                 r5 = 0x9
-   166: 33 08 01                 r8 = 0x1
-   169: 33 09                    r9 = 0
-   171: cc 98 0b                 r11 = r8 /s r9
-   174: 33 04 ff                 r4 = 0xffffffffffffffff
-   177: ab 4b 17                 jump 200 if r11 != r4
+   163: 03                       unlikely
+   164: 33 05 09                 r5 = 0x9
+   167: 33 08 01                 r8 = 0x1
+   170: 33 09                    r9 = 0
+   172: cc 98 0b                 r11 = r8 /s r9
+   175: 33 04 ff                 r4 = 0xffffffffffffffff
+   178: ab 4b 30                 jump 226 if r11 != r4
       :                          @9
-   180: 03                       unlikely
-   181: 33 05 0a                 r5 = 0xa
-   184: 33 08                    r8 = 0
-   186: 33 09                    r9 = 0
-   188: cc 98 0b                 r11 = r8 /s r9
-   191: 33 04 ff                 r4 = 0xffffffffffffffff
-   194: ab 4b 06                 jump 200 if r11 != r4
+   181: 03                       unlikely
+   182: 33 05 0a                 r5 = 0xa
+   185: 33 08                    r8 = 0
+   187: 33 09                    r9 = 0
+   189: cc 98 0b                 r11 = r8 /s r9
+   192: 33 04 ff                 r4 = 0xffffffffffffffff
+   195: ab 4b 1f                 jump 226 if r11 != r4
       :                          @10
-   197: 52 05 04                 jump 201 if r5 != 0
+   198: 03                       unlikely
+   199: 33 05 0b                 r5 = 0xb
+   202: 33 08 ff                 r8 = 0xffffffffffffffff
+   205: 97 88 3f                 r8 = r8 << 0x3f
+   208: 33 09 02                 r9 = 0x2
+   211: cc 98 0b                 r11 = r8 /s r9
+   214: 33 04 ff                 r4 = 0xffffffffffffffff
+   217: 97 44 3e                 r4 = r4 << 0x3e
+   220: ab 4b 06                 jump 226 if r11 != r4
       :                          @11
-   200: 00                       trap
+   223: 52 05 04                 jump 227 if r5 != 0
       :                          @12
-   201: 28 37 ff                 jump 0
+   226: 00                       trap
+      :                          @13
+   227: 28 1d ff                 jump 0
 ```
 
 Registers after execution (only changed registers):
    * r0 = 0xffff0000 (initially was 0x0)
-   * r4 = 0xffffffffffffffff (initially was 0x0)
-   * r5 = 0xa (initially was 0x0)
-   * r11 = 0xffffffffffffffff (initially was 0x0)
+   * r4 = 0xc000000000000000 (initially was 0x0)
+   * r5 = 0xb (initially was 0x0)
+   * r8 = 0x8000000000000000 (initially was 0x0)
+   * r9 = 0x2 (initially was 0x0)
+   * r11 = 0xc000000000000000 (initially was 0x0)
 
 Program should end with: halt
 
 Final value of the program counter: 11
 
-Gas consumed: 10000 -> 9397
+Gas consumed: 10000 -> 9334
 
 Gas simulation at offset 0 with total cost of 26:
 
@@ -57944,7 +58349,7 @@ Gas simulation at offset 13 with total cost of 62:
     DeER.............................................................  r9 = 0x6
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0x3
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
 Gas simulation at offset 32 with total cost of 62:
@@ -57956,7 +58361,7 @@ Gas simulation at offset 32 with total cost of 62:
     DeE---------------------------------------R......................  r9 = 0x6
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0xfffffffffffffffd
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
 Gas simulation at offset 52 with total cost of 62:
@@ -57968,7 +58373,7 @@ Gas simulation at offset 52 with total cost of 62:
     DeE---------------------------------------R......................  r9 = 0xfffffffffffffffa
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0xfffffffffffffffd
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
 Gas simulation at offset 72 with total cost of 62:
@@ -57980,10 +58385,10 @@ Gas simulation at offset 72 with total cost of 62:
     DeE---------------------------------------R......................  r9 = 0xfffffffffffffffa
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0x3
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 91 with total cost of 63:
+Gas simulation at offset 92 with total cost of 63:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......................  unlikely
@@ -57994,10 +58399,10 @@ Gas simulation at offset 91 with total cost of 63:
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = r8 /s r9
     ...DeE----------------------------------------------------------R.  r4 = 0xffffffffffffffff
     ...D=eE---------------------------------------------------------R.  r4 = r4 << 0x3f
-    ...D===========================================================eER  jump 200 if r11 != r4
+    ...D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 116 with total cost of 63:
+Gas simulation at offset 117 with total cost of 63:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......................  unlikely
@@ -58008,10 +58413,10 @@ Gas simulation at offset 116 with total cost of 63:
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = r8 /s r9
     ...DeE----------------------------------------------------------R.  r4 = 0xffffffffffffffff
     ...D=eE---------------------------------------------------------R.  r4 = r4 << 0x3f
-    ...D===========================================================eER  jump 200 if r11 != r4
+    ...D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 141 with total cost of 63:
+Gas simulation at offset 142 with total cost of 63:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......................  unlikely
@@ -58021,10 +58426,10 @@ Gas simulation at offset 141 with total cost of 63:
     .DeE--------------------------------------R.......................  r9 = 0
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = r8 /s r9
     ...DeE----------------------------------------------------------R.  r4 = 0xffffffffffffffff
-    ...D===========================================================eER  jump 200 if r11 != r4
+    ...D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 162 with total cost of 62:
+Gas simulation at offset 163 with total cost of 62:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......................  unlikely
@@ -58033,10 +58438,10 @@ Gas simulation at offset 162 with total cost of 62:
     DeE---------------------------------------R......................  r9 = 0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0xffffffffffffffff
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 180 with total cost of 62:
+Gas simulation at offset 181 with total cost of 62:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......................  unlikely
@@ -58045,28 +58450,44 @@ Gas simulation at offset 180 with total cost of 62:
     DeE---------------------------------------R......................  r9 = 0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0xffffffffffffffff
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 197 with total cost of 1:
+Gas simulation at offset 198 with total cost of 63:
 
 ```
-    DeER  jump 201 if r5 != 0
+    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.......................  unlikely
+    DeE---------------------------------------R.......................  r5 = 0xb
+    DeE---------------------------------------R.......................  r8 = 0xffffffffffffffff
+    D=eE--------------------------------------R.......................  r8 = r8 << 0x3f
+    .DeE--------------------------------------R.......................  r9 = 0x2
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = r8 /s r9
+    ...DeE----------------------------------------------------------R.  r4 = 0xffffffffffffffff
+    ...D=eE---------------------------------------------------------R.  r4 = r4 << 0x3e
+    ...D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 200 with total cost of 2:
+Gas simulation at offset 223 with total cost of 1:
+
+```
+    DeER  jump 227 if r5 != 0
+```
+
+Gas simulation at offset 226 with total cost of 2:
 
 ```
     DeeER  trap
 ```
 
-Gas simulation at offset 201 with total cost of 15:
+Gas simulation at offset 227 with total cost of 15:
 
 ```
     DeeeeeeeeeeeeeeeER  jump 0
 ```
 
 ## riscv_rv64um_divu
+
+Initial program counter: 13
 
 ```
       :                          @0
@@ -58075,6 +58496,7 @@ Gas simulation at offset 201 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 14                 r8 = 0x14
     19: 33 09 06                 r9 = 0x6
@@ -58323,6 +58745,8 @@ Gas simulation at offset 222 with total cost of 15:
 
 ## riscv_rv64um_divuw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -58330,6 +58754,7 @@ Gas simulation at offset 222 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 14                 r8 = 0x14
     19: 33 09 06                 r9 = 0x6
@@ -58562,6 +58987,8 @@ Gas simulation at offset 207 with total cost of 15:
 
 ## riscv_rv64um_divw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -58569,12 +58996,13 @@ Gas simulation at offset 207 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 14                 r8 = 0x14
     19: 33 09 06                 r9 = 0x6
     22: c2 98 0b                 i32 r11 = r8 /s r9
     25: 33 04 03                 r4 = 0x3
-    28: ab 4b ac 00              jump 200 if r11 != r4
+    28: ab 4b c6 00              jump 226 if r11 != r4
       :                          @2
     32: 03                       unlikely
     33: 33 05 03                 r5 = 0x3
@@ -58582,7 +59010,7 @@ Gas simulation at offset 207 with total cost of 15:
     39: 33 09 06                 r9 = 0x6
     42: c2 98 0b                 i32 r11 = r8 /s r9
     45: 33 04 fd                 r4 = 0xfffffffffffffffd
-    48: ab 4b 98 00              jump 200 if r11 != r4
+    48: ab 4b b2 00              jump 226 if r11 != r4
       :                          @3
     52: 03                       unlikely
     53: 33 05 04                 r5 = 0x4
@@ -58590,7 +59018,7 @@ Gas simulation at offset 207 with total cost of 15:
     59: 33 09 fa                 r9 = 0xfffffffffffffffa
     62: c2 98 0b                 i32 r11 = r8 /s r9
     65: 33 04 fd                 r4 = 0xfffffffffffffffd
-    68: ab 4b 84 00              jump 200 if r11 != r4
+    68: ab 4b 9e 00              jump 226 if r11 != r4
       :                          @4
     72: 03                       unlikely
     73: 33 05 05                 r5 = 0x5
@@ -58598,66 +59026,76 @@ Gas simulation at offset 207 with total cost of 15:
     79: 33 09 fa                 r9 = 0xfffffffffffffffa
     82: c2 98 0b                 i32 r11 = r8 /s r9
     85: 33 04 03                 r4 = 0x3
-    88: ab 4b 70                 jump 200 if r11 != r4
+    88: ab 4b 8a 00              jump 226 if r11 != r4
       :                          @5
-    91: 03                       unlikely
-    92: 33 05 06                 r5 = 0x6
-    95: 33 08 00 00 00 80        r8 = 0xffffffff80000000
-   101: 33 09 01                 r9 = 0x1
-   104: c2 98 0b                 i32 r11 = r8 /s r9
-   107: 33 04 00 00 00 80        r4 = 0xffffffff80000000
-   113: ab 4b 57                 jump 200 if r11 != r4
+    92: 03                       unlikely
+    93: 33 05 06                 r5 = 0x6
+    96: 33 08 00 00 00 80        r8 = 0xffffffff80000000
+   102: 33 09 01                 r9 = 0x1
+   105: c2 98 0b                 i32 r11 = r8 /s r9
+   108: 33 04 00 00 00 80        r4 = 0xffffffff80000000
+   114: ab 4b 70                 jump 226 if r11 != r4
       :                          @6
-   116: 03                       unlikely
-   117: 33 05 07                 r5 = 0x7
-   120: 33 08 00 00 00 80        r8 = 0xffffffff80000000
-   126: 33 09 ff                 r9 = 0xffffffffffffffff
-   129: c2 98 0b                 i32 r11 = r8 /s r9
-   132: 33 04 00 00 00 80        r4 = 0xffffffff80000000
-   138: ab 4b 3e                 jump 200 if r11 != r4
+   117: 03                       unlikely
+   118: 33 05 07                 r5 = 0x7
+   121: 33 08 00 00 00 80        r8 = 0xffffffff80000000
+   127: 33 09 ff                 r9 = 0xffffffffffffffff
+   130: c2 98 0b                 i32 r11 = r8 /s r9
+   133: 33 04 00 00 00 80        r4 = 0xffffffff80000000
+   139: ab 4b 57                 jump 226 if r11 != r4
       :                          @7
-   141: 03                       unlikely
-   142: 33 05 08                 r5 = 0x8
-   145: 33 08 00 00 00 80        r8 = 0xffffffff80000000
-   151: 33 09                    r9 = 0
-   153: c2 98 0b                 i32 r11 = r8 /s r9
-   156: 33 04 ff                 r4 = 0xffffffffffffffff
-   159: ab 4b 29                 jump 200 if r11 != r4
+   142: 03                       unlikely
+   143: 33 05 08                 r5 = 0x8
+   146: 33 08 00 00 00 80        r8 = 0xffffffff80000000
+   152: 33 09                    r9 = 0
+   154: c2 98 0b                 i32 r11 = r8 /s r9
+   157: 33 04 ff                 r4 = 0xffffffffffffffff
+   160: ab 4b 42                 jump 226 if r11 != r4
       :                          @8
-   162: 03                       unlikely
-   163: 33 05 09                 r5 = 0x9
-   166: 33 08 01                 r8 = 0x1
-   169: 33 09                    r9 = 0
-   171: c2 98 0b                 i32 r11 = r8 /s r9
-   174: 33 04 ff                 r4 = 0xffffffffffffffff
-   177: ab 4b 17                 jump 200 if r11 != r4
+   163: 03                       unlikely
+   164: 33 05 09                 r5 = 0x9
+   167: 33 08 01                 r8 = 0x1
+   170: 33 09                    r9 = 0
+   172: c2 98 0b                 i32 r11 = r8 /s r9
+   175: 33 04 ff                 r4 = 0xffffffffffffffff
+   178: ab 4b 30                 jump 226 if r11 != r4
       :                          @9
-   180: 03                       unlikely
-   181: 33 05 0a                 r5 = 0xa
-   184: 33 08                    r8 = 0
-   186: 33 09                    r9 = 0
-   188: c2 98 0b                 i32 r11 = r8 /s r9
-   191: 33 04 ff                 r4 = 0xffffffffffffffff
-   194: ab 4b 06                 jump 200 if r11 != r4
+   181: 03                       unlikely
+   182: 33 05 0a                 r5 = 0xa
+   185: 33 08                    r8 = 0
+   187: 33 09                    r9 = 0
+   189: c2 98 0b                 i32 r11 = r8 /s r9
+   192: 33 04 ff                 r4 = 0xffffffffffffffff
+   195: ab 4b 1f                 jump 226 if r11 != r4
       :                          @10
-   197: 52 05 04                 jump 201 if r5 != 0
+   198: 03                       unlikely
+   199: 33 05 0b                 r5 = 0xb
+   202: 33 08 00 00 00 80        r8 = 0xffffffff80000000
+   208: 33 09 02                 r9 = 0x2
+   211: c2 98 0b                 i32 r11 = r8 /s r9
+   214: 33 04 00 00 00 c0        r4 = 0xffffffffc0000000
+   220: ab 4b 06                 jump 226 if r11 != r4
       :                          @11
-   200: 00                       trap
+   223: 52 05 04                 jump 227 if r5 != 0
       :                          @12
-   201: 28 37 ff                 jump 0
+   226: 00                       trap
+      :                          @13
+   227: 28 1d ff                 jump 0
 ```
 
 Registers after execution (only changed registers):
    * r0 = 0xffff0000 (initially was 0x0)
-   * r4 = 0xffffffffffffffff (initially was 0x0)
-   * r5 = 0xa (initially was 0x0)
-   * r11 = 0xffffffffffffffff (initially was 0x0)
+   * r4 = 0xffffffffc0000000 (initially was 0x0)
+   * r5 = 0xb (initially was 0x0)
+   * r8 = 0xffffffff80000000 (initially was 0x0)
+   * r9 = 0x2 (initially was 0x0)
+   * r11 = 0xffffffffc0000000 (initially was 0x0)
 
 Program should end with: halt
 
 Final value of the program counter: 11
 
-Gas consumed: 10000 -> 9400
+Gas consumed: 10000 -> 9338
 
 Gas simulation at offset 0 with total cost of 26:
 
@@ -58676,7 +59114,7 @@ Gas simulation at offset 13 with total cost of 62:
     DeER.............................................................  r9 = 0x6
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  i32 r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0x3
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
 Gas simulation at offset 32 with total cost of 62:
@@ -58688,7 +59126,7 @@ Gas simulation at offset 32 with total cost of 62:
     DeE---------------------------------------R......................  r9 = 0x6
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  i32 r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0xfffffffffffffffd
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
 Gas simulation at offset 52 with total cost of 62:
@@ -58700,7 +59138,7 @@ Gas simulation at offset 52 with total cost of 62:
     DeE---------------------------------------R......................  r9 = 0xfffffffffffffffa
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  i32 r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0xfffffffffffffffd
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
 Gas simulation at offset 72 with total cost of 62:
@@ -58712,10 +59150,10 @@ Gas simulation at offset 72 with total cost of 62:
     DeE---------------------------------------R......................  r9 = 0xfffffffffffffffa
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  i32 r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0x3
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 91 with total cost of 62:
+Gas simulation at offset 92 with total cost of 62:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......................  unlikely
@@ -58724,10 +59162,10 @@ Gas simulation at offset 91 with total cost of 62:
     DeE---------------------------------------R......................  r9 = 0x1
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  i32 r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0xffffffff80000000
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 116 with total cost of 62:
+Gas simulation at offset 117 with total cost of 62:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......................  unlikely
@@ -58736,10 +59174,10 @@ Gas simulation at offset 116 with total cost of 62:
     DeE---------------------------------------R......................  r9 = 0xffffffffffffffff
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  i32 r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0xffffffff80000000
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 141 with total cost of 62:
+Gas simulation at offset 142 with total cost of 62:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......................  unlikely
@@ -58748,10 +59186,10 @@ Gas simulation at offset 141 with total cost of 62:
     DeE---------------------------------------R......................  r9 = 0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  i32 r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0xffffffffffffffff
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 162 with total cost of 62:
+Gas simulation at offset 163 with total cost of 62:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......................  unlikely
@@ -58760,10 +59198,10 @@ Gas simulation at offset 162 with total cost of 62:
     DeE---------------------------------------R......................  r9 = 0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  i32 r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0xffffffffffffffff
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 180 with total cost of 62:
+Gas simulation at offset 181 with total cost of 62:
 
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......................  unlikely
@@ -58772,28 +59210,42 @@ Gas simulation at offset 180 with total cost of 62:
     DeE---------------------------------------R......................  r9 = 0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  i32 r11 = r8 /s r9
     ..DeE----------------------------------------------------------R.  r4 = 0xffffffffffffffff
-    ..D===========================================================eER  jump 200 if r11 != r4
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 197 with total cost of 1:
+Gas simulation at offset 198 with total cost of 62:
 
 ```
-    DeER  jump 201 if r5 != 0
+    DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER......................  unlikely
+    DeE---------------------------------------R......................  r5 = 0xb
+    DeE---------------------------------------R......................  r8 = 0xffffffff80000000
+    DeE---------------------------------------R......................  r9 = 0x2
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.  i32 r11 = r8 /s r9
+    ..DeE----------------------------------------------------------R.  r4 = 0xffffffffc0000000
+    ..D===========================================================eER  jump 226 if r11 != r4
 ```
 
-Gas simulation at offset 200 with total cost of 2:
+Gas simulation at offset 223 with total cost of 1:
+
+```
+    DeER  jump 227 if r5 != 0
+```
+
+Gas simulation at offset 226 with total cost of 2:
 
 ```
     DeeER  trap
 ```
 
-Gas simulation at offset 201 with total cost of 15:
+Gas simulation at offset 227 with total cost of 15:
 
 ```
     DeeeeeeeeeeeeeeeER  jump 0
 ```
 
 ## riscv_rv64um_mul
+
+Initial program counter: 13
 
 ```
       :                          @0
@@ -58802,6 +59254,7 @@ Gas simulation at offset 201 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 20                 r5 = 0x20
     16: 33 08 00 80 00           r8 = 0x8000
     21: 83 88 00 fe              i32 r8 = r8 + 0xfffffffffffffe00
@@ -59829,6 +60282,8 @@ Gas simulation at offset 958 with total cost of 15:
 
 ## riscv_rv64um_mulh
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -59836,6 +60291,7 @@ Gas simulation at offset 958 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -60795,6 +61251,8 @@ Gas simulation at offset 837 with total cost of 15:
 
 ## riscv_rv64um_mulhsu
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -60802,6 +61260,7 @@ Gas simulation at offset 837 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -61761,6 +62220,8 @@ Gas simulation at offset 841 with total cost of 15:
 
 ## riscv_rv64um_mulhu
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -61768,6 +62229,7 @@ Gas simulation at offset 841 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -62803,6 +63265,8 @@ Gas simulation at offset 964 with total cost of 15:
 
 ## riscv_rv64um_mulw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -62810,6 +63274,7 @@ Gas simulation at offset 964 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -63691,6 +64156,8 @@ Gas simulation at offset 721 with total cost of 15:
 
 ## riscv_rv64um_rem
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -63698,6 +64165,7 @@ Gas simulation at offset 721 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 14                 r8 = 0x14
     19: 33 09 06                 r9 = 0x6
@@ -63930,6 +64398,8 @@ Gas simulation at offset 194 with total cost of 15:
 
 ## riscv_rv64um_remu
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -63937,6 +64407,7 @@ Gas simulation at offset 194 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 14                 r8 = 0x14
     19: 33 09 06                 r9 = 0x6
@@ -64171,6 +64642,8 @@ Gas simulation at offset 199 with total cost of 15:
 
 ## riscv_rv64um_remuw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -64178,6 +64651,7 @@ Gas simulation at offset 199 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 14                 r8 = 0x14
     19: 33 09 06                 r9 = 0x6
@@ -64402,6 +64876,8 @@ Gas simulation at offset 199 with total cost of 15:
 
 ## riscv_rv64um_remw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -64409,6 +64885,7 @@ Gas simulation at offset 199 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 14                 r8 = 0x14
     19: 33 09 06                 r9 = 0x6
@@ -64656,6 +65133,8 @@ Gas simulation at offset 215 with total cost of 15:
 
 ## riscv_rv64uzbb_andn
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -64663,6 +65142,7 @@ Gas simulation at offset 215 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 00 00 01 ff        r8 = 0xffffffffff010000
     22: 83 88 00 ff              i32 r8 = r8 + 0xffffffffffffff00
@@ -65799,6 +66279,8 @@ Gas simulation at offset 1385 with total cost of 15:
 
 ## riscv_rv64uzbb_clz
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -65806,6 +66288,7 @@ Gas simulation at offset 1385 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 68 0b                    r11 = clz r0
@@ -66379,6 +66862,8 @@ Gas simulation at offset 531 with total cost of 15:
 
 ## riscv_rv64uzbb_clzw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -66386,6 +66871,7 @@ Gas simulation at offset 531 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 69 0b                    i32 r11 = clz r0
@@ -66933,6 +67419,8 @@ Gas simulation at offset 499 with total cost of 15:
 
 ## riscv_rv64uzbb_cpop
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -66940,6 +67428,7 @@ Gas simulation at offset 499 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 66 0b                    r11 = cpop r0
@@ -67513,6 +68002,8 @@ Gas simulation at offset 533 with total cost of 15:
 
 ## riscv_rv64uzbb_cpopw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -67520,6 +68011,7 @@ Gas simulation at offset 533 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 67 0b                    i32 r11 = cpop r0
@@ -68067,6 +68559,8 @@ Gas simulation at offset 496 with total cost of 15:
 
 ## riscv_rv64uzbb_ctz
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -68074,6 +68568,7 @@ Gas simulation at offset 496 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 6a 0b                    r11 = ctz r0
@@ -68645,6 +69140,8 @@ Gas simulation at offset 521 with total cost of 15:
 
 ## riscv_rv64uzbb_ctzw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -68652,6 +69149,7 @@ Gas simulation at offset 521 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 6b 0b                    i32 r11 = ctz r0
@@ -69202,6 +69700,8 @@ Gas simulation at offset 488 with total cost of 15:
 Initial page map:
    * RW: 0x20000-0x21000 (0x1000 bytes)
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -69209,6 +69709,7 @@ Initial page map:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -70293,6 +70794,8 @@ Gas simulation at offset 967 with total cost of 15:
 
 ## riscv_rv64uzbb_maxu
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -70300,6 +70803,7 @@ Gas simulation at offset 967 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -71426,6 +71930,8 @@ Gas simulation at offset 1023 with total cost of 15:
 Initial page map:
    * RW: 0x20000-0x21000 (0x1000 bytes)
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -71433,6 +71939,7 @@ Initial page map:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -72509,6 +73016,8 @@ Gas simulation at offset 957 with total cost of 15:
 
 ## riscv_rv64uzbb_minu
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -72516,6 +73025,7 @@ Gas simulation at offset 957 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08                    r8 = 0
     18: 33 09                    r9 = 0
@@ -73620,6 +74130,8 @@ Gas simulation at offset 976 with total cost of 15:
 Initial page map:
    * RW: 0x20000-0x21000 (0x1000 bytes)
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -73627,6 +74139,7 @@ Initial page map:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 64 0b                    r11 = r0
@@ -76457,6 +76970,8 @@ Gas simulation at offset 3994 with total cost of 15:
 
 ## riscv_rv64uzbb_orn
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -76464,6 +76979,7 @@ Gas simulation at offset 3994 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 00 00 01 ff        r8 = 0xffffffffff010000
     22: 83 88 00 ff              i32 r8 = r8 + 0xffffffffffffff00
@@ -77619,6 +78135,8 @@ Gas simulation at offset 1406 with total cost of 15:
 
 ## riscv_rv64uzbb_rev8
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -77626,6 +78144,7 @@ Gas simulation at offset 1406 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 6f 0b                    r11 = reverse r0
@@ -78283,6 +78802,8 @@ Gas simulation at offset 693 with total cost of 15:
 
 ## riscv_rv64uzbb_rol
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -78290,6 +78811,7 @@ Gas simulation at offset 693 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 01                 r8 = 0x1
     19: 33 09                    r9 = 0
@@ -79565,6 +80087,8 @@ Gas simulation at offset 1261 with total cost of 15:
 
 ## riscv_rv64uzbb_rolw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -79572,6 +80096,7 @@ Gas simulation at offset 1261 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 01                 r8 = 0x1
     19: 33 09                    r9 = 0
@@ -80851,6 +81376,8 @@ Gas simulation at offset 1299 with total cost of 15:
 
 ## riscv_rv64uzbb_ror
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -80858,6 +81385,7 @@ Gas simulation at offset 1299 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 01                 r8 = 0x1
     19: 33 09                    r9 = 0
@@ -82187,6 +82715,8 @@ Gas simulation at offset 1319 with total cost of 15:
 
 ## riscv_rv64uzbb_rori
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -82194,6 +82724,7 @@ Gas simulation at offset 1319 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a 01                 r10 = 0x1
     19: 9e ab                    r11 = r10 >>r 0
@@ -82886,6 +83417,8 @@ Gas simulation at offset 663 with total cost of 15:
 
 ## riscv_rv64uzbb_roriw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -82893,6 +83426,7 @@ Gas simulation at offset 663 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 0a 01                 r10 = 0x1
     19: a0 ab                    i32 r11 = r10 >>r 0
@@ -83483,6 +84017,8 @@ Gas simulation at offset 552 with total cost of 15:
 
 ## riscv_rv64uzbb_rorw
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -83490,6 +84026,7 @@ Gas simulation at offset 552 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 01                 r8 = 0x1
     19: 33 09                    r9 = 0
@@ -84665,6 +85202,8 @@ Gas simulation at offset 1154 with total cost of 15:
 
 ## riscv_rv64uzbb_sext_b
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -84672,6 +85211,7 @@ Gas simulation at offset 1154 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 6c 0b                    r11 = sext8 r0
@@ -85245,6 +85785,8 @@ Gas simulation at offset 524 with total cost of 15:
 
 ## riscv_rv64uzbb_sext_h
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -85252,6 +85794,7 @@ Gas simulation at offset 524 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 6d 0b                    r11 = sext16 r0
@@ -85831,6 +86374,8 @@ Gas simulation at offset 552 with total cost of 15:
 
 ## riscv_rv64uzbb_xnor
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -85838,6 +86383,7 @@ Gas simulation at offset 552 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 08 00 00 01 ff        r8 = 0xffffffffff010000
     22: 83 88 00 ff              i32 r8 = r8 + 0xffffffffffffff00
@@ -86991,6 +87537,8 @@ Gas simulation at offset 1424 with total cost of 15:
 
 ## riscv_rv64uzbb_zext_h
 
+Initial program counter: 13
+
 ```
       :                          @0
      0: 33 00 00 00 01           r0 = 0x10000
@@ -86998,6 +87546,7 @@ Gas simulation at offset 1424 with total cost of 15:
      8: 97 00 10                 r0 = r0 << 0x10
     11: 32 00                    jump [r0 + 0]
       :                          @1
+     // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
     18: 6e 0b                    r11 = zext16 r0

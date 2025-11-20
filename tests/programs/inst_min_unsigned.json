@@ -13,42 +13,48 @@
   ],
   "steps": [
     {
-      "kind": "set-reg",
-      "reg": 7,
-      "value": 1
+      "set-reg": {
+        "reg": 7,
+        "value": 1
+      }
     },
     {
-      "kind": "set-reg",
-      "reg": 8,
-      "value": 18446744073709551614
+      "set-reg": {
+        "reg": 8,
+        "value": 18446744073709551614
+      }
     },
     {
-      "kind": "run"
+      "run": {}
     },
     {
-      "kind": "assert",
-      "status": "panic",
-      "gas": 9997,
-      "pc": 3,
-      "regs": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        18446744073709551614,
-        1,
-        0,
-        0,
-        0
-      ],
-      "memory": []
+      "assert": {
+        "status": "panic",
+        "gas": 9997,
+        "pc": 3,
+        "regs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          18446744073709551614,
+          1,
+          0,
+          0,
+          0
+        ],
+        "memory": []
+      }
     }
   ],
-  "block-gas-costs": {
-    "0": 3
-  }
+  "block-gas-costs": [
+    {
+      "pc": 0,
+      "cost": 3
+    }
+  ]
 }

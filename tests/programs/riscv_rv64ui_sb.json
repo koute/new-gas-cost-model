@@ -949,336 +949,553 @@
   ],
   "steps": [
     {
-      "kind": "map",
-      "address": 65536,
-      "length": 4096,
-      "is_writable": false
+      "map": {
+        "address": 65536,
+        "length": 4096,
+        "is-writable": false
+      }
     },
     {
-      "kind": "write",
-      "address": 65538,
-      "contents": [
-        3
-      ]
+      "write": {
+        "address": 65538,
+        "contents": [
+          3
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65544,
-      "contents": [
-        2
-      ]
+      "write": {
+        "address": 65544,
+        "contents": [
+          2
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65552,
-      "contents": [
-        4
-      ]
+      "write": {
+        "address": 65552,
+        "contents": [
+          4
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65560,
-      "contents": [
-        6
-      ]
+      "write": {
+        "address": 65560,
+        "contents": [
+          6
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65568,
-      "contents": [
-        8
-      ]
+      "write": {
+        "address": 65568,
+        "contents": [
+          8
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65576,
-      "contents": [
-        7
-      ]
+      "write": {
+        "address": 65576,
+        "contents": [
+          7
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65578,
-      "contents": [
-        3
-      ]
+      "write": {
+        "address": 65578,
+        "contents": [
+          3
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65584,
-      "contents": [
-        10
-      ]
+      "write": {
+        "address": 65584,
+        "contents": [
+          10
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65592,
-      "contents": [
-        12
-      ]
+      "write": {
+        "address": 65592,
+        "contents": [
+          12
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65600,
-      "contents": [
-        14
-      ]
+      "write": {
+        "address": 65600,
+        "contents": [
+          14
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65608,
-      "contents": [
-        16
-      ]
+      "write": {
+        "address": 65608,
+        "contents": [
+          16
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65616,
-      "contents": [
-        8
-      ]
+      "write": {
+        "address": 65616,
+        "contents": [
+          8
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65618,
-      "contents": [
-        3
-      ]
+      "write": {
+        "address": 65618,
+        "contents": [
+          3
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65624,
-      "contents": [
-        9
-      ]
+      "write": {
+        "address": 65624,
+        "contents": [
+          9
+        ]
+      }
     },
     {
-      "kind": "write",
-      "address": 65626,
-      "contents": [
-        3
-      ]
+      "write": {
+        "address": 65626,
+        "contents": [
+          3
+        ]
+      }
     },
     {
-      "kind": "map",
-      "address": 196608,
-      "length": 4096,
-      "is_writable": true
+      "map": {
+        "address": 196608,
+        "length": 4096,
+        "is-writable": true
+      }
     },
     {
-      "kind": "write",
-      "address": 196608,
-      "contents": [
-        239,
-        239,
-        239,
-        239,
-        239,
-        239,
-        239,
-        239,
-        239,
-        239
-      ]
+      "write": {
+        "address": 196608,
+        "contents": [
+          239,
+          239,
+          239,
+          239,
+          239,
+          239,
+          239,
+          239,
+          239,
+          239
+        ]
+      }
     },
     {
-      "kind": "run"
+      "run": {}
     },
     {
-      "kind": "assert",
-      "status": "halt",
-      "gas": 8091,
-      "pc": 11,
-      "regs": [
-        4294901760,
-        196608,
-        2,
-        2,
-        1,
-        23,
-        0,
-        239,
-        196608,
-        196608,
-        18446744073709551531,
-        1,
-        16
-      ],
-      "memory": [
-        {
-          "address": 65538,
-          "contents": [
-            3
-          ]
-        },
-        {
-          "address": 65544,
-          "contents": [
-            2
-          ]
-        },
-        {
-          "address": 65552,
-          "contents": [
-            4
-          ]
-        },
-        {
-          "address": 65560,
-          "contents": [
-            6
-          ]
-        },
-        {
-          "address": 65568,
-          "contents": [
-            8
-          ]
-        },
-        {
-          "address": 65576,
-          "contents": [
-            7
-          ]
-        },
-        {
-          "address": 65578,
-          "contents": [
-            3
-          ]
-        },
-        {
-          "address": 65584,
-          "contents": [
-            10
-          ]
-        },
-        {
-          "address": 65592,
-          "contents": [
-            12
-          ]
-        },
-        {
-          "address": 65600,
-          "contents": [
-            14
-          ]
-        },
-        {
-          "address": 65608,
-          "contents": [
-            16
-          ]
-        },
-        {
-          "address": 65616,
-          "contents": [
-            8
-          ]
-        },
-        {
-          "address": 65618,
-          "contents": [
-            3
-          ]
-        },
-        {
-          "address": 65624,
-          "contents": [
-            9
-          ]
-        },
-        {
-          "address": 65626,
-          "contents": [
-            3
-          ]
-        },
-        {
-          "address": 196608,
-          "contents": [
-            51,
-            35,
-            34,
-            239,
-            17,
-            1,
-            160,
-            10,
-            120,
-            152
-          ]
-        }
-      ]
+      "assert": {
+        "status": "halt",
+        "gas": 8091,
+        "pc": 11,
+        "regs": [
+          4294901760,
+          196608,
+          2,
+          2,
+          1,
+          23,
+          0,
+          239,
+          196608,
+          196608,
+          18446744073709551531,
+          1,
+          16
+        ],
+        "memory": [
+          {
+            "address": 65538,
+            "contents": [
+              3
+            ]
+          },
+          {
+            "address": 65544,
+            "contents": [
+              2
+            ]
+          },
+          {
+            "address": 65552,
+            "contents": [
+              4
+            ]
+          },
+          {
+            "address": 65560,
+            "contents": [
+              6
+            ]
+          },
+          {
+            "address": 65568,
+            "contents": [
+              8
+            ]
+          },
+          {
+            "address": 65576,
+            "contents": [
+              7
+            ]
+          },
+          {
+            "address": 65578,
+            "contents": [
+              3
+            ]
+          },
+          {
+            "address": 65584,
+            "contents": [
+              10
+            ]
+          },
+          {
+            "address": 65592,
+            "contents": [
+              12
+            ]
+          },
+          {
+            "address": 65600,
+            "contents": [
+              14
+            ]
+          },
+          {
+            "address": 65608,
+            "contents": [
+              16
+            ]
+          },
+          {
+            "address": 65616,
+            "contents": [
+              8
+            ]
+          },
+          {
+            "address": 65618,
+            "contents": [
+              3
+            ]
+          },
+          {
+            "address": 65624,
+            "contents": [
+              9
+            ]
+          },
+          {
+            "address": 65626,
+            "contents": [
+              3
+            ]
+          },
+          {
+            "address": 196608,
+            "contents": [
+              51,
+              35,
+              34,
+              239,
+              17,
+              1,
+              160,
+              10,
+              120,
+              152
+            ]
+          }
+        ]
+      }
     }
   ],
-  "block-gas-costs": {
-    "0": 26,
-    "13": 50,
-    "35": 2,
-    "38": 2,
-    "45": 50,
-    "69": 2,
-    "72": 2,
-    "78": 50,
-    "107": 2,
-    "110": 4,
-    "121": 50,
-    "146": 2,
-    "149": 2,
-    "156": 50,
-    "181": 2,
-    "184": 2,
-    "191": 50,
-    "215": 2,
-    "218": 2,
-    "224": 50,
-    "249": 2,
-    "252": 2,
-    "259": 50,
-    "282": 2,
-    "285": 2,
-    "292": 51,
-    "326": 53,
-    "363": 2,
-    "369": 51,
-    "389": 2,
-    "398": 2,
-    "404": 51,
-    "426": 2,
-    "435": 2,
-    "441": 51,
-    "463": 2,
-    "472": 2,
-    "478": 51,
-    "500": 2,
-    "509": 2,
-    "515": 51,
-    "537": 2,
-    "546": 2,
-    "552": 51,
-    "574": 2,
-    "583": 2,
-    "589": 51,
-    "609": 2,
-    "618": 2,
-    "624": 51,
-    "646": 2,
-    "655": 2,
-    "661": 51,
-    "683": 2,
-    "692": 2,
-    "698": 51,
-    "719": 2,
-    "728": 2,
-    "734": 51,
-    "755": 2,
-    "764": 2,
-    "770": 51,
-    "791": 2,
-    "800": 50,
-    "816": 2,
-    "817": 15
-  }
+  "block-gas-costs": [
+    {
+      "pc": 0,
+      "cost": 26
+    },
+    {
+      "pc": 13,
+      "cost": 50
+    },
+    {
+      "pc": 35,
+      "cost": 2
+    },
+    {
+      "pc": 38,
+      "cost": 2
+    },
+    {
+      "pc": 45,
+      "cost": 50
+    },
+    {
+      "pc": 69,
+      "cost": 2
+    },
+    {
+      "pc": 72,
+      "cost": 2
+    },
+    {
+      "pc": 78,
+      "cost": 50
+    },
+    {
+      "pc": 107,
+      "cost": 2
+    },
+    {
+      "pc": 110,
+      "cost": 4
+    },
+    {
+      "pc": 121,
+      "cost": 50
+    },
+    {
+      "pc": 146,
+      "cost": 2
+    },
+    {
+      "pc": 149,
+      "cost": 2
+    },
+    {
+      "pc": 156,
+      "cost": 50
+    },
+    {
+      "pc": 181,
+      "cost": 2
+    },
+    {
+      "pc": 184,
+      "cost": 2
+    },
+    {
+      "pc": 191,
+      "cost": 50
+    },
+    {
+      "pc": 215,
+      "cost": 2
+    },
+    {
+      "pc": 218,
+      "cost": 2
+    },
+    {
+      "pc": 224,
+      "cost": 50
+    },
+    {
+      "pc": 249,
+      "cost": 2
+    },
+    {
+      "pc": 252,
+      "cost": 2
+    },
+    {
+      "pc": 259,
+      "cost": 50
+    },
+    {
+      "pc": 282,
+      "cost": 2
+    },
+    {
+      "pc": 285,
+      "cost": 2
+    },
+    {
+      "pc": 292,
+      "cost": 51
+    },
+    {
+      "pc": 326,
+      "cost": 53
+    },
+    {
+      "pc": 363,
+      "cost": 2
+    },
+    {
+      "pc": 369,
+      "cost": 51
+    },
+    {
+      "pc": 389,
+      "cost": 2
+    },
+    {
+      "pc": 398,
+      "cost": 2
+    },
+    {
+      "pc": 404,
+      "cost": 51
+    },
+    {
+      "pc": 426,
+      "cost": 2
+    },
+    {
+      "pc": 435,
+      "cost": 2
+    },
+    {
+      "pc": 441,
+      "cost": 51
+    },
+    {
+      "pc": 463,
+      "cost": 2
+    },
+    {
+      "pc": 472,
+      "cost": 2
+    },
+    {
+      "pc": 478,
+      "cost": 51
+    },
+    {
+      "pc": 500,
+      "cost": 2
+    },
+    {
+      "pc": 509,
+      "cost": 2
+    },
+    {
+      "pc": 515,
+      "cost": 51
+    },
+    {
+      "pc": 537,
+      "cost": 2
+    },
+    {
+      "pc": 546,
+      "cost": 2
+    },
+    {
+      "pc": 552,
+      "cost": 51
+    },
+    {
+      "pc": 574,
+      "cost": 2
+    },
+    {
+      "pc": 583,
+      "cost": 2
+    },
+    {
+      "pc": 589,
+      "cost": 51
+    },
+    {
+      "pc": 609,
+      "cost": 2
+    },
+    {
+      "pc": 618,
+      "cost": 2
+    },
+    {
+      "pc": 624,
+      "cost": 51
+    },
+    {
+      "pc": 646,
+      "cost": 2
+    },
+    {
+      "pc": 655,
+      "cost": 2
+    },
+    {
+      "pc": 661,
+      "cost": 51
+    },
+    {
+      "pc": 683,
+      "cost": 2
+    },
+    {
+      "pc": 692,
+      "cost": 2
+    },
+    {
+      "pc": 698,
+      "cost": 51
+    },
+    {
+      "pc": 719,
+      "cost": 2
+    },
+    {
+      "pc": 728,
+      "cost": 2
+    },
+    {
+      "pc": 734,
+      "cost": 51
+    },
+    {
+      "pc": 755,
+      "cost": 2
+    },
+    {
+      "pc": 764,
+      "cost": 2
+    },
+    {
+      "pc": 770,
+      "cost": 51
+    },
+    {
+      "pc": 791,
+      "cost": 2
+    },
+    {
+      "pc": 800,
+      "cost": 50
+    },
+    {
+      "pc": 816,
+      "cost": 2
+    },
+    {
+      "pc": 817,
+      "cost": 15
+    }
+  ]
 }

@@ -15,50 +15,56 @@
   ],
   "steps": [
     {
-      "kind": "map",
-      "address": 131072,
-      "length": 4096,
-      "is_writable": true
+      "map": {
+        "address": 131072,
+        "length": 4096,
+        "is-writable": true
+      }
     },
     {
-      "kind": "set-reg",
-      "reg": 7,
-      "value": 134911
+      "set-reg": {
+        "reg": 7,
+        "value": 134911
+      }
     },
     {
-      "kind": "run"
+      "run": {}
     },
     {
-      "kind": "assert",
-      "status": "panic",
-      "gas": 9975,
-      "pc": 5,
-      "regs": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        134911,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "memory": [
-        {
-          "address": 135167,
-          "contents": [
-            18
-          ]
-        }
-      ]
+      "assert": {
+        "status": "panic",
+        "gas": 9975,
+        "pc": 5,
+        "regs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          134911,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "memory": [
+          {
+            "address": 135167,
+            "contents": [
+              18
+            ]
+          }
+        ]
+      }
     }
   ],
-  "block-gas-costs": {
-    "0": 25
-  }
+  "block-gas-costs": [
+    {
+      "pc": 0,
+      "cost": 25
+    }
+  ]
 }

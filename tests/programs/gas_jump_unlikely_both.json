@@ -24,34 +24,44 @@
   ],
   "steps": [
     {
-      "kind": "run"
+      "run": {}
     },
     {
-      "kind": "assert",
-      "status": "panic",
-      "gas": 9959,
-      "pc": 12,
-      "regs": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "memory": []
+      "assert": {
+        "status": "panic",
+        "gas": 9959,
+        "pc": 12,
+        "regs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "memory": []
+      }
     }
   ],
-  "block-gas-costs": {
-    "0": 1,
-    "3": 40,
-    "8": 40
-  }
+  "block-gas-costs": [
+    {
+      "pc": 0,
+      "cost": 1
+    },
+    {
+      "pc": 3,
+      "cost": 40
+    },
+    {
+      "pc": 8,
+      "cost": 40
+    }
+  ]
 }

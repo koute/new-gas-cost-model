@@ -12,63 +12,70 @@
   ],
   "steps": [
     {
-      "kind": "map",
-      "address": 131072,
-      "length": 4096,
-      "is_writable": true
+      "map": {
+        "address": 131072,
+        "length": 4096,
+        "is-writable": true
+      }
     },
     {
-      "kind": "write",
-      "address": 131072,
-      "contents": [
-        129,
-        130,
-        131,
-        132
-      ]
+      "write": {
+        "address": 131072,
+        "contents": [
+          129,
+          130,
+          131,
+          132
+        ]
+      }
     },
     {
-      "kind": "set-reg",
-      "reg": 7,
-      "value": 131072
+      "set-reg": {
+        "reg": 7,
+        "value": 131072
+      }
     },
     {
-      "kind": "run"
+      "run": {}
     },
     {
-      "kind": "assert",
-      "status": "panic",
-      "gas": 9975,
-      "pc": 2,
-      "regs": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        131072,
-        129,
-        0,
-        0,
-        0,
-        0
-      ],
-      "memory": [
-        {
-          "address": 131072,
-          "contents": [
-            129,
-            130,
-            131,
-            132
-          ]
-        }
-      ]
+      "assert": {
+        "status": "panic",
+        "gas": 9975,
+        "pc": 2,
+        "regs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          131072,
+          129,
+          0,
+          0,
+          0,
+          0
+        ],
+        "memory": [
+          {
+            "address": 131072,
+            "contents": [
+              129,
+              130,
+              131,
+              132
+            ]
+          }
+        ]
+      }
     }
   ],
-  "block-gas-costs": {
-    "0": 25
-  }
+  "block-gas-costs": [
+    {
+      "pc": 0,
+      "cost": 25
+    }
+  ]
 }

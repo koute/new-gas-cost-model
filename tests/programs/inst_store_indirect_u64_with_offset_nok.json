@@ -14,49 +14,56 @@
   ],
   "steps": [
     {
-      "kind": "map",
-      "address": 131072,
-      "length": 4096,
-      "is_writable": true
+      "map": {
+        "address": 131072,
+        "length": 4096,
+        "is-writable": true
+      }
     },
     {
-      "kind": "set-reg",
-      "reg": 7,
-      "value": 131072
+      "set-reg": {
+        "reg": 7,
+        "value": 131072
+      }
     },
     {
-      "kind": "set-reg",
-      "reg": 8,
-      "value": 9332165983064197000
+      "set-reg": {
+        "reg": 8,
+        "value": 9332165983064197000
+      }
     },
     {
-      "kind": "run"
+      "run": {}
     },
     {
-      "kind": "assert",
-      "status": "page-fault",
-      "page_fault_address": 135168,
-      "gas": 9975,
-      "pc": 0,
-      "regs": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        131072,
-        9332165983064197000,
-        0,
-        0,
-        0,
-        0
-      ],
-      "memory": []
+      "assert": {
+        "status": "page-fault",
+        "page-fault-address": 135168,
+        "gas": 9975,
+        "pc": 0,
+        "regs": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          131072,
+          9332165983064197000,
+          0,
+          0,
+          0,
+          0
+        ],
+        "memory": []
+      }
     }
   ],
-  "block-gas-costs": {
-    "0": 25
-  }
+  "block-gas-costs": [
+    {
+      "pc": 0,
+      "cost": 25
+    }
+  ]
 }
