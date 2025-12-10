@@ -64,7 +64,7 @@ Gas simulation at offset 0 with total cost of 28:
 
 ```
       :                          @0
-     0: 69 78                    i32 r8 = clz r7
+     0: 68 78                    i32 r8 = clz r7
      2: c5 87 07                 i32 r7 = r7 << r8
      5: 97 88 17                 r8 = r8 << 0x17
      8: 8b 79 08                 i32 r9 = r7 >> 0x8
@@ -120,7 +120,7 @@ Gas simulation at offset 0 with total cost of 22:
 
 ```
       :                          @0
-     0: 03                       unlikely
+     0: 02                       unlikely
      1: 7c 53                    r3 = u8 [r5 + 0]
      3: 7c 58 11                 r8 = u8 [r5 + 0x11]
      6: 33 09 d0 72 01           r9 = 0x172d0
@@ -300,11 +300,11 @@ Gas simulation at offset 7 with total cost of 2:
       :                          @0
      0: 51 07 08                 jump 8 if r7 == 0
       :                          @1
-     3: 03                       unlikely
+     3: 02                       unlikely
      4: 33 07 01                 r7 = 0x1
      7: 00                       trap
       :                          @2
-     8: 03                       unlikely
+     8: 02                       unlikely
      9: 33 07 02                 r7 = 0x2
     12: 00                       trap
 ```
@@ -346,7 +346,7 @@ Gas simulation at offset 8 with total cost of 40:
       :                          @0
      0: 51 07 08                 jump 8 if r7 == 0
       :                          @1
-     3: 03                       unlikely
+     3: 02                       unlikely
      4: 33 07 01                 r7 = 0x1
      7: 00                       trap
       :                          @2
@@ -393,7 +393,7 @@ Gas simulation at offset 8 with total cost of 2:
      3: 33 07 01                 r7 = 0x1
      6: 00                       trap
       :                          @2
-     7: 03                       unlikely
+     7: 02                       unlikely
      8: 33 07 02                 r7 = 0x2
     11: 00                       trap
 ```
@@ -2682,7 +2682,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 69 79                    i32 r9 = clz r7
+     0: 68 79                    i32 r9 = clz r7
      2:                          invalid
 ```
 
@@ -2709,7 +2709,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 68 79                    r9 = clz r7
+     0: 67 79                    r9 = clz r7
      2:                          invalid
 ```
 
@@ -2736,7 +2736,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 67 79                    i32 r9 = cpop r7
+     0: 66 79                    i32 r9 = cpop r7
      2:                          invalid
 ```
 
@@ -2763,7 +2763,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 66 79                    r9 = cpop r7
+     0: 65 79                    r9 = cpop r7
      2:                          invalid
 ```
 
@@ -2790,7 +2790,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 6b 79                    i32 r9 = ctz r7
+     0: 6a 79                    i32 r9 = ctz r7
      2:                          invalid
 ```
 
@@ -2817,7 +2817,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 6a 79                    r9 = ctz r7
+     0: 69 79                    r9 = ctz r7
      2:                          invalid
 ```
 
@@ -5422,7 +5422,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 6f 79                    r9 = reverse r7
+     0: 6e 79                    r9 = reverse r7
      2:                          invalid
 ```
 
@@ -6663,7 +6663,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 6d 79                    r9 = sext16 r7
+     0: 6c 79                    r9 = sext16 r7
      2:                          invalid
 ```
 
@@ -6690,7 +6690,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 6c 79                    r9 = sext8 r7
+     0: 6b 79                    r9 = sext8 r7
      2:                          invalid
 ```
 
@@ -8017,7 +8017,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 6e 79                    r9 = zext16 r7
+     0: 6d 79                    r9 = zext16 r7
      2:                          invalid
 ```
 
@@ -8281,7 +8281,7 @@ Initial program counter: 13
     50: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     56: ab 4b 4f                 jump 135 if r11 != r4
       :                          @2
-    59: 03                       unlikely
+    59: 02                       unlikely
     60: 33 05 03                 r5 = 0x3
     63: 82 ac                    r12 = u64 [r10 + 0]
     65: 33 04 ff                 r4 = 0xffffffffffffffff
@@ -8289,7 +8289,7 @@ Initial program counter: 13
     71: 95 44 00 f8              r4 = r4 + 0xfffffffffffff800
     75: ab 4c 3c                 jump 135 if r12 != r4
       :                          @3
-    78: 03                       unlikely
+    78: 02                       unlikely
     79: 33 05 04                 r5 = 0x4
     82: 82 ab                    r11 = u64 [r10 + 0]
     84: 3e 02 00 00 03           u64 [0x30000] = r2
@@ -8301,7 +8301,7 @@ Initial program counter: 13
    105: 95 44 00 f8              r4 = r4 + 0xfffffffffffff800
    109: ab 4b 1a                 jump 135 if r11 != r4
       :                          @4
-   112: 03                       unlikely
+   112: 02                       unlikely
    113: 33 05 05                 r5 = 0x5
    116: 82 ac                    r12 = u64 [r10 + 0]
    118: 33 04 00 00 f8           r4 = 0xfffffffffff80000
@@ -8456,14 +8456,14 @@ Initial program counter: 13
     56: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     62: ab 4b 54                 jump 146 if r11 != r4
       :                          @2
-    65: 03                       unlikely
+    65: 02                       unlikely
     66: 33 05 03                 r5 = 0x3
     69: 81 ac                    r12 = i32 [r10 + 0]
     71: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     77: 83 44 00 f8              i32 r4 = r4 + 0xfffffffffffff800
     81: ab 4c 41                 jump 146 if r12 != r4
       :                          @3
-    84: 03                       unlikely
+    84: 02                       unlikely
     85: 33 05 04                 r5 = 0x4
     88: 33 08 00 00 00 80        r8 = 0xffffffff80000000
     94: 3e 04 00 00 03           u64 [0x30000] = r4
@@ -8477,7 +8477,7 @@ Initial program counter: 13
    123: 83 44 00 f8              i32 r4 = r4 + 0xfffffffffffff800
    127: ab 4b 13                 jump 146 if r11 != r4
       :                          @4
-   130: 03                       unlikely
+   130: 02                       unlikely
    131: 33 05 05                 r5 = 0x5
    134: 81 ac                    r12 = i32 [r10 + 0]
    136: 33 04 00 f8              r4 = 0xfffffffffffff800
@@ -8630,7 +8630,7 @@ Initial program counter: 13
     50: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     56: ab 4b 47                 jump 127 if r11 != r4
       :                          @2
-    59: 03                       unlikely
+    59: 02                       unlikely
     60: 33 05 03                 r5 = 0x3
     63: 82 ac                    r12 = u64 [r10 + 0]
     65: 33 04 00 00 00 80        r4 = 0xffffffff80000000
@@ -8647,7 +8647,7 @@ Initial program counter: 13
    100: 33 04 00 00 00 80        r4 = 0xffffffff80000000
    106: ab 4b 15                 jump 127 if r11 != r4
       :                          @4
-   109: 03                       unlikely
+   109: 02                       unlikely
    110: 33 05 05                 r5 = 0x5
    113: 82 ac                    r12 = u64 [r10 + 0]
    115: 33 04 01                 r4 = 0x1
@@ -8797,7 +8797,7 @@ Initial program counter: 13
     56: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     62: ab 4b 4d                 jump 139 if r11 != r4
       :                          @2
-    65: 03                       unlikely
+    65: 02                       unlikely
     66: 33 05 03                 r5 = 0x3
     69: 81 ac                    r12 = i32 [r10 + 0]
     71: 33 04 00 00 00 80        r4 = 0xffffffff80000000
@@ -8816,7 +8816,7 @@ Initial program counter: 13
    112: 33 04 00 00 00 80        r4 = 0xffffffff80000000
    118: ab 4b 15                 jump 139 if r11 != r4
       :                          @4
-   121: 03                       unlikely
+   121: 02                       unlikely
    122: 33 05 05                 r5 = 0x5
    125: 81 ac                    r12 = i32 [r10 + 0]
    127: 33 04 00 00 00 80        r4 = 0xffffffff80000000
@@ -8971,7 +8971,7 @@ Initial program counter: 13
     65: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     71: ab 4b 4c                 jump 147 if r11 != r4
       :                          @2
-    74: 03                       unlikely
+    74: 02                       unlikely
     75: 33 05 03                 r5 = 0x3
     78: 82 ac                    r12 = u64 [r10 + 0]
     80: 33 04 00 f8              r4 = 0xfffffffffffff800
@@ -8992,7 +8992,7 @@ Initial program counter: 13
    127: 33 04                    r4 = 0
    129: ab 4b 12                 jump 147 if r11 != r4
       :                          @4
-   132: 03                       unlikely
+   132: 02                       unlikely
    133: 33 05 05                 r5 = 0x5
    136: 82 ac                    r12 = u64 [r10 + 0]
    138: 33 04 01                 r4 = 0x1
@@ -9153,7 +9153,7 @@ Initial program counter: 13
     81: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     87: ab 4b b3 00              jump 266 if r11 != r4
       :                          @2
-    91: 03                       unlikely
+    91: 02                       unlikely
     92: 33 05 03                 r5 = 0x3
     95: 81 ac                    r12 = i32 [r10 + 0]
     97: 33 04 00 f8              r4 = 0xfffffffffffff800
@@ -9178,7 +9178,7 @@ Initial program counter: 13
    161: 33 04                    r4 = 0
    163: ab 4b 67                 jump 266 if r11 != r4
       :                          @4
-   166: 03                       unlikely
+   166: 02                       unlikely
    167: 33 05 05                 r5 = 0x5
    170: 81 ac                    r12 = i32 [r10 + 0]
    172: 33 04 01                 r4 = 0x1
@@ -9206,7 +9206,7 @@ Initial program counter: 13
    245: 33 04 01                 r4 = 0x1
    248: ab 4b 12                 jump 266 if r11 != r4
       :                          @6
-   251: 03                       unlikely
+   251: 02                       unlikely
    252: 33 05 07                 r5 = 0x7
    255: 81 ac                    r12 = i32 [r10 + 0]
    257: 33 04 01                 r4 = 0x1
@@ -9409,7 +9409,7 @@ Initial program counter: 13
     65: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     71: ab 4b 4c                 jump 147 if r11 != r4
       :                          @2
-    74: 03                       unlikely
+    74: 02                       unlikely
     75: 33 05 03                 r5 = 0x3
     78: 82 ac                    r12 = u64 [r10 + 0]
     80: 33 04 00 f8              r4 = 0xfffffffffffff800
@@ -9430,7 +9430,7 @@ Initial program counter: 13
    127: 33 04                    r4 = 0
    129: ab 4b 12                 jump 147 if r11 != r4
       :                          @4
-   132: 03                       unlikely
+   132: 02                       unlikely
    133: 33 05 05                 r5 = 0x5
    136: 82 ac                    r12 = u64 [r10 + 0]
    138: 33 04 ff                 r4 = 0xffffffffffffffff
@@ -9591,7 +9591,7 @@ Initial program counter: 13
     81: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     87: ab 4b b3 00              jump 266 if r11 != r4
       :                          @2
-    91: 03                       unlikely
+    91: 02                       unlikely
     92: 33 05 03                 r5 = 0x3
     95: 81 ac                    r12 = i32 [r10 + 0]
     97: 33 04 00 f8              r4 = 0xfffffffffffff800
@@ -9616,7 +9616,7 @@ Initial program counter: 13
    161: 33 04                    r4 = 0
    163: ab 4b 67                 jump 266 if r11 != r4
       :                          @4
-   166: 03                       unlikely
+   166: 02                       unlikely
    167: 33 05 05                 r5 = 0x5
    170: 81 ac                    r12 = i32 [r10 + 0]
    172: 33 04 ff                 r4 = 0xffffffffffffffff
@@ -9644,7 +9644,7 @@ Initial program counter: 13
    245: 33 04 01                 r4 = 0x1
    248: ab 4b 12                 jump 266 if r11 != r4
       :                          @6
-   251: 03                       unlikely
+   251: 02                       unlikely
    252: 33 05 07                 r5 = 0x7
    255: 81 ac                    r12 = i32 [r10 + 0]
    257: 33 04 01                 r4 = 0x1
@@ -9846,7 +9846,7 @@ Initial program counter: 13
     65: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     71: ab 4b 4e                 jump 149 if r11 != r4
       :                          @2
-    74: 03                       unlikely
+    74: 02                       unlikely
     75: 33 05 03                 r5 = 0x3
     78: 82 ac                    r12 = u64 [r10 + 0]
     80: 33 04 00 00 00 80        r4 = 0xffffffff80000000
@@ -9867,7 +9867,7 @@ Initial program counter: 13
    129: 33 04                    r4 = 0
    131: ab 4b 12                 jump 149 if r11 != r4
       :                          @4
-   134: 03                       unlikely
+   134: 02                       unlikely
    135: 33 05 05                 r5 = 0x5
    138: 82 ac                    r12 = u64 [r10 + 0]
    140: 33 04 ff                 r4 = 0xffffffffffffffff
@@ -10028,7 +10028,7 @@ Initial program counter: 13
     81: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     87: ab 4b b8 00              jump 271 if r11 != r4
       :                          @2
-    91: 03                       unlikely
+    91: 02                       unlikely
     92: 33 05 03                 r5 = 0x3
     95: 81 ac                    r12 = i32 [r10 + 0]
     97: 33 04 00 00 00 80        r4 = 0xffffffff80000000
@@ -10053,7 +10053,7 @@ Initial program counter: 13
    163: 33 04                    r4 = 0
    165: ab 4b 6a                 jump 271 if r11 != r4
       :                          @4
-   168: 03                       unlikely
+   168: 02                       unlikely
    169: 33 05 05                 r5 = 0x5
    172: 81 ac                    r12 = i32 [r10 + 0]
    174: 33 04 ff                 r4 = 0xffffffffffffffff
@@ -10081,7 +10081,7 @@ Initial program counter: 13
    247: 33 04 01                 r4 = 0x1
    250: ab 4b 15                 jump 271 if r11 != r4
       :                          @6
-   253: 03                       unlikely
+   253: 02                       unlikely
    254: 33 05 07                 r5 = 0x7
    257: 81 ac                    r12 = i32 [r10 + 0]
    259: 33 04 00 00 00 80        r4 = 0xffffffff80000000
@@ -10284,7 +10284,7 @@ Initial program counter: 13
     65: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     71: ab 4b 4d                 jump 148 if r11 != r4
       :                          @2
-    74: 03                       unlikely
+    74: 02                       unlikely
     75: 33 05 03                 r5 = 0x3
     78: 82 ac                    r12 = u64 [r10 + 0]
     80: 33 04 00 00 00 80        r4 = 0xffffffff80000000
@@ -10305,7 +10305,7 @@ Initial program counter: 13
    129: 33 04                    r4 = 0
    131: ab 4b 11                 jump 148 if r11 != r4
       :                          @4
-   134: 03                       unlikely
+   134: 02                       unlikely
    135: 33 05 05                 r5 = 0x5
    138: 82 ac                    r12 = u64 [r10 + 0]
    140: 33 04                    r4 = 0
@@ -10461,7 +10461,7 @@ Initial program counter: 13
     81: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     87: ab 4b b3 00              jump 266 if r11 != r4
       :                          @2
-    91: 03                       unlikely
+    91: 02                       unlikely
     92: 33 05 03                 r5 = 0x3
     95: 81 ac                    r12 = i32 [r10 + 0]
     97: 33 04 00 00 00 80        r4 = 0xffffffff80000000
@@ -10486,7 +10486,7 @@ Initial program counter: 13
    163: 33 04                    r4 = 0
    165: ab 4b 65                 jump 266 if r11 != r4
       :                          @4
-   168: 03                       unlikely
+   168: 02                       unlikely
    169: 33 05 05                 r5 = 0x5
    172: 81 ac                    r12 = i32 [r10 + 0]
    174: 33 04                    r4 = 0
@@ -10514,7 +10514,7 @@ Initial program counter: 13
    246: 33 04 01                 r4 = 0x1
    249: ab 4b 11                 jump 266 if r11 != r4
       :                          @6
-   252: 03                       unlikely
+   252: 02                       unlikely
    253: 33 05 07                 r5 = 0x7
    256: 81 ac                    r12 = i32 [r10 + 0]
    258: 33 04                    r4 = 0
@@ -10707,13 +10707,13 @@ Initial program counter: 13
     50: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     56: ab 4b 3f                 jump 119 if r11 != r4
       :                          @2
-    59: 03                       unlikely
+    59: 02                       unlikely
     60: 33 05 03                 r5 = 0x3
     63: 82 ac                    r12 = u64 [r10 + 0]
     65: 33 04 00 f8              r4 = 0xfffffffffffff800
     69: ab 4c 32                 jump 119 if r12 != r4
       :                          @3
-    72: 03                       unlikely
+    72: 02                       unlikely
     73: 33 05 04                 r5 = 0x4
     76: 33 08 01                 r8 = 0x1
     79: 82 ab                    r11 = u64 [r10 + 0]
@@ -10724,7 +10724,7 @@ Initial program counter: 13
     96: 33 04 00 f8              r4 = 0xfffffffffffff800
    100: ab 4b 13                 jump 119 if r11 != r4
       :                          @4
-   103: 03                       unlikely
+   103: 02                       unlikely
    104: 33 05 05                 r5 = 0x5
    107: 82 ac                    r12 = u64 [r10 + 0]
    109: 33 04 01 f8              r4 = 0xfffffffffffff801
@@ -10872,13 +10872,13 @@ Initial program counter: 13
     56: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     62: ab 4b 45                 jump 131 if r11 != r4
       :                          @2
-    65: 03                       unlikely
+    65: 02                       unlikely
     66: 33 05 03                 r5 = 0x3
     69: 81 ac                    r12 = i32 [r10 + 0]
     71: 33 04 00 f8              r4 = 0xfffffffffffff800
     75: ab 4c 38                 jump 131 if r12 != r4
       :                          @3
-    78: 03                       unlikely
+    78: 02                       unlikely
     79: 33 05 04                 r5 = 0x4
     82: 33 08 01                 r8 = 0x1
     85: 3e 04 00 00 03           u64 [0x30000] = r4
@@ -10891,7 +10891,7 @@ Initial program counter: 13
    108: 33 04 00 f8              r4 = 0xfffffffffffff800
    112: ab 4b 13                 jump 131 if r11 != r4
       :                          @4
-   115: 03                       unlikely
+   115: 02                       unlikely
    116: 33 05 05                 r5 = 0x5
    119: 81 ac                    r12 = i32 [r10 + 0]
    121: 33 04 01 f8              r4 = 0xfffffffffffff801
@@ -11041,7 +11041,7 @@ Initial program counter: 13
     49: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     55: ab 4b 42                 jump 121 if r11 != r4
       :                          @2
-    58: 03                       unlikely
+    58: 02                       unlikely
     59: 33 05 03                 r5 = 0x3
     62: 82 ac                    r12 = u64 [r10 + 0]
     64: 33 04 00 f8              r4 = 0xfffffffffffff800
@@ -11058,7 +11058,7 @@ Initial program counter: 13
     96: 33 04 00 f8              r4 = 0xfffffffffffff800
    100: ab 4b 15                 jump 121 if r11 != r4
       :                          @4
-   103: 03                       unlikely
+   103: 02                       unlikely
    104: 33 05 05                 r5 = 0x5
    107: 82 ac                    r12 = u64 [r10 + 0]
    109: 33 04 01                 r4 = 0x1
@@ -11208,7 +11208,7 @@ Initial program counter: 13
     55: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     61: ab 4b 48                 jump 133 if r11 != r4
       :                          @2
-    64: 03                       unlikely
+    64: 02                       unlikely
     65: 33 05 03                 r5 = 0x3
     68: 81 ac                    r12 = i32 [r10 + 0]
     70: 33 04 00 f8              r4 = 0xfffffffffffff800
@@ -11227,7 +11227,7 @@ Initial program counter: 13
    108: 33 04 00 f8              r4 = 0xfffffffffffff800
    112: ab 4b 15                 jump 133 if r11 != r4
       :                          @4
-   115: 03                       unlikely
+   115: 02                       unlikely
    116: 33 05 05                 r5 = 0x5
    119: 81 ac                    r12 = i32 [r10 + 0]
    121: 33 04 00 00 00 80        r4 = 0xffffffff80000000
@@ -11378,14 +11378,14 @@ Initial program counter: 13
     50: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     56: ab 4b 51                 jump 137 if r11 != r4
       :                          @2
-    59: 03                       unlikely
+    59: 02                       unlikely
     60: 33 05 03                 r5 = 0x3
     63: 82 ac                    r12 = u64 [r10 + 0]
     65: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     71: 83 44 00 f8              i32 r4 = r4 + 0xfffffffffffff800
     75: ab 4c 3e                 jump 137 if r12 != r4
       :                          @3
-    78: 03                       unlikely
+    78: 02                       unlikely
     79: 33 05 04                 r5 = 0x4
     82: 33 08 01                 r8 = 0x1
     85: 82 ab                    r11 = u64 [r10 + 0]
@@ -11397,7 +11397,7 @@ Initial program counter: 13
    108: 83 44 00 f8              i32 r4 = r4 + 0xfffffffffffff800
    112: ab 4b 19                 jump 137 if r11 != r4
       :                          @4
-   115: 03                       unlikely
+   115: 02                       unlikely
    116: 33 05 05                 r5 = 0x5
    119: 82 ac                    r12 = u64 [r10 + 0]
    121: 33 04 00 00 00 80        r4 = 0xffffffff80000000
@@ -11549,14 +11549,14 @@ Initial program counter: 13
     56: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     62: ab 4b 5d                 jump 155 if r11 != r4
       :                          @2
-    65: 03                       unlikely
+    65: 02                       unlikely
     66: 33 05 03                 r5 = 0x3
     69: 81 ac                    r12 = i32 [r10 + 0]
     71: 33 04 00 00 00 80        r4 = 0xffffffff80000000
     77: 83 44 00 f8              i32 r4 = r4 + 0xfffffffffffff800
     81: ab 4c 4a                 jump 155 if r12 != r4
       :                          @3
-    84: 03                       unlikely
+    84: 02                       unlikely
     85: 33 05 04                 r5 = 0x4
     88: 33 08 03                 r8 = 0x3
     91: 97 88 1e                 r8 = r8 << 0x1e
@@ -11572,7 +11572,7 @@ Initial program counter: 13
    126: 83 44 00 f8              i32 r4 = r4 + 0xfffffffffffff800
    130: ab 4b 19                 jump 155 if r11 != r4
       :                          @4
-   133: 03                       unlikely
+   133: 02                       unlikely
    134: 33 05 05                 r5 = 0x5
    137: 81 ac                    r12 = i32 [r10 + 0]
    139: 33 04 00 00 00 c0        r4 = 0xffffffffc0000000
@@ -11747,7 +11747,7 @@ Initial program counter: 13
     92: 83 44 24 02              i32 r4 = r4 + 0x224
     96: ab 41 5e 02              jump 702 if r1 != r4
       :                          @6
-   100: 03                       unlikely
+   100: 02                       unlikely
    101: 3a 08 00 00 01           r8 = u64 [0x10000]
    106: 33 0b 06                 r11 = 0x6
    109: 81 87 04                 r7 = i32 [r8 + 0x4]
@@ -11758,7 +11758,7 @@ Initial program counter: 13
    127: 83 44 99 fa              i32 r4 = r4 + 0xfffffffffffffa99
    131: ab 49 3b 02              jump 702 if r9 != r4
       :                          @7
-   135: 03                       unlikely
+   135: 02                       unlikely
    136: 33 0b 07                 r11 = 0x7
    139: 82 87                    r7 = u64 [r8 + 0]
    141: 95 77 01                 r7 = r7 + 0x1
@@ -11786,7 +11786,7 @@ Initial program counter: 13
    207: 33 04 f0                 r4 = 0xfffffffffffffff0
    210: ab 4c ec 01              jump 702 if r12 != r4
       :                          @10
-   214: 03                       unlikely
+   214: 02                       unlikely
    215: 33 0b 0a                 r11 = 0xa
    218: 82 87                    r7 = u64 [r8 + 0]
    220: 83 77 ff                 i32 r7 = r7 + 0xffffffffffffffff
@@ -11921,7 +11921,7 @@ Initial program counter: 13
    542: 33 04                    r4 = 0
    544: 52 04 9e 00              jump 702 if r4 != 0
       :                          @41
-   548: 03                       unlikely
+   548: 02                       unlikely
    549: 33 0b 23                 r11 = 0x23
    552: 3a 02 08 00 01           r2 = u64 [0x10008]
    557: 33 00                    r0 = 0
@@ -11930,7 +11930,7 @@ Initial program counter: 13
    561: 33 04                    r4 = 0
    563: ab 40 8b 00              jump 702 if r0 != r4
       :                          @43
-   567: 03                       unlikely
+   567: 02                       unlikely
    568: 33 0b 24                 r11 = 0x24
    571: 3a 02 10 00 01           r2 = u64 [0x10010]
    576: 33 00                    r0 = 0
@@ -11946,7 +11946,7 @@ Initial program counter: 13
    591: 33 04 fe                 r4 = 0xfffffffffffffffe
    594: ab 40 6c                 jump 702 if r0 != r4
       :                          @48
-   597: 03                       unlikely
+   597: 02                       unlikely
    598: 3a 01 00 00 01           r1 = u64 [0x10000]
    603: 33 0b 28                 r11 = 0x28
    606: 81 17 0c                 r7 = i32 [r1 + 0xc]
@@ -11957,7 +11957,7 @@ Initial program counter: 13
    624: 83 44 99 fa              i32 r4 = r4 + 0xfffffffffffffa99
    628: ab 49 4a                 jump 702 if r9 != r4
       :                          @49
-   631: 03                       unlikely
+   631: 02                       unlikely
    632: 33 0b 29                 r11 = 0x29
    635: 82 17 08                 r7 = u64 [r1 + 0x8]
    638: 95 77 01                 r7 = r7 + 0x1
@@ -22988,7 +22988,7 @@ Initial program counter: 13
     29: 3a 03 08 00 01           r3 = u64 [0x10008]
     34: ab 32 71                 jump 147 if r2 != r3
       :                          @4
-    37: 03                       unlikely
+    37: 02                       unlikely
     38: 33 05 03                 r5 = 0x3
     41: 3a 02 10 00 01           r2 = u64 [0x10010]
     46: b4 22 01 06              tmp = r2, r2 = 6, jump [tmp + 0]
@@ -23002,7 +23002,7 @@ Initial program counter: 13
     63: 33 0b                    r11 = 0
     65: 01                       fallthrough
       :                          @8
-    66: 03                       unlikely
+    66: 02                       unlikely
     67: 3a 03 20 00 01           r3 = u64 [0x10020]
     72: b4 3a 01 0a              r10 = 10, jump [r3 + 0]
       :                          @9 [@dyn 5]
@@ -23016,7 +23016,7 @@ Initial program counter: 13
     91: 33 0b                    r11 = 0
     93: 01                       fallthrough
       :                          @12
-    94: 03                       unlikely
+    94: 02                       unlikely
     95: 3a 03 28 00 01           r3 = u64 [0x10028]
    100: b4 3a 01 0e              r10 = 14, jump [r3 + 0]
       :                          @13 [@dyn 7]
@@ -23030,7 +23030,7 @@ Initial program counter: 13
    119: 33 0b                    r11 = 0
    121: 01                       fallthrough
       :                          @16
-   122: 03                       unlikely
+   122: 02                       unlikely
    123: 3a 03 30 00 01           r3 = u64 [0x10030]
    128: b4 3a 01 12              r10 = 18, jump [r3 + 0]
       :                          @17 [@dyn 9]
@@ -23258,7 +23258,7 @@ Initial program counter: 13
     26: 33 04 ff                 r4 = 0xffffffffffffffff
     29: ab 4b aa 01              jump 455 if r11 != r4
       :                          @2
-    33: 03                       unlikely
+    33: 02                       unlikely
     34: 33 05 03                 r5 = 0x3
     37: 33 0c                    r12 = 0
     39: 3a 01 00 00 01           r1 = u64 [0x10000]
@@ -23266,7 +23266,7 @@ Initial program counter: 13
     47: 33 04                    r4 = 0
     49: ab 4b 96 01              jump 455 if r11 != r4
       :                          @3
-    53: 03                       unlikely
+    53: 02                       unlikely
     54: 33 05 04                 r5 = 0x4
     57: 33 0c f0                 r12 = 0xfffffffffffffff0
     60: 3a 01 00 00 01           r1 = u64 [0x10000]
@@ -23274,7 +23274,7 @@ Initial program counter: 13
     68: 33 04 f0                 r4 = 0xfffffffffffffff0
     71: ab 4b 80 01              jump 455 if r11 != r4
       :                          @4
-    75: 03                       unlikely
+    75: 02                       unlikely
     76: 33 05 05                 r5 = 0x5
     79: 33 0c 0f                 r12 = 0xf
     82: 3a 01 00 00 01           r1 = u64 [0x10000]
@@ -23282,7 +23282,7 @@ Initial program counter: 13
     90: 33 04 0f                 r4 = 0xf
     93: ab 4b 6a 01              jump 455 if r11 != r4
       :                          @5
-    97: 03                       unlikely
+    97: 02                       unlikely
     98: 33 05 06                 r5 = 0x6
    101: 33 0c ff                 r12 = 0xffffffffffffffff
    104: 3a 01 08 00 01           r1 = u64 [0x10008]
@@ -23290,7 +23290,7 @@ Initial program counter: 13
    112: 33 04 ff                 r4 = 0xffffffffffffffff
    115: ab 4b 54 01              jump 455 if r11 != r4
       :                          @6
-   119: 03                       unlikely
+   119: 02                       unlikely
    120: 33 05 07                 r5 = 0x7
    123: 33 0c                    r12 = 0
    125: 3a 01 08 00 01           r1 = u64 [0x10008]
@@ -23298,7 +23298,7 @@ Initial program counter: 13
    133: 33 04                    r4 = 0
    135: ab 4b 40 01              jump 455 if r11 != r4
       :                          @7
-   139: 03                       unlikely
+   139: 02                       unlikely
    140: 33 05 08                 r5 = 0x8
    143: 33 0c f0                 r12 = 0xfffffffffffffff0
    146: 3a 01 08 00 01           r1 = u64 [0x10008]
@@ -23306,7 +23306,7 @@ Initial program counter: 13
    154: 33 04 f0                 r4 = 0xfffffffffffffff0
    157: ab 4b 2a 01              jump 455 if r11 != r4
       :                          @8
-   161: 03                       unlikely
+   161: 02                       unlikely
    162: 33 05 09                 r5 = 0x9
    165: 33 0c 0f                 r12 = 0xf
    168: 3a 01 08 00 01           r1 = u64 [0x10008]
@@ -23314,7 +23314,7 @@ Initial program counter: 13
    175: 33 04 0f                 r4 = 0xf
    178: ab 4b 15 01              jump 455 if r11 != r4
       :                          @9
-   182: 03                       unlikely
+   182: 02                       unlikely
    183: 33 05 0a                 r5 = 0xa
    186: 3a 00 00 00 01           r0 = u64 [0x10000]
    191: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
@@ -23322,7 +23322,7 @@ Initial program counter: 13
    197: 33 04 ff                 r4 = 0xffffffffffffffff
    200: ab 42 ff 00              jump 455 if r2 != r4
       :                          @10
-   204: 03                       unlikely
+   204: 02                       unlikely
    205: 33 05 0b                 r5 = 0xb
    208: 3a 00 00 00 01           r0 = u64 [0x10000]
    213: 95 00 fa                 r0 = r0 + 0xfffffffffffffffa
@@ -23334,7 +23334,7 @@ Initial program counter: 13
    228: 33 08                    r8 = 0
    230: 01                       fallthrough
       :                          @12
-   231: 03                       unlikely
+   231: 02                       unlikely
    232: 3a 0a 10 00 01           r10 = u64 [0x10010]
    237: 7d ab 01                 r11 = i8 [r10 + 0x1]
    240: 64 b3                    r3 = r11
@@ -23349,7 +23349,7 @@ Initial program counter: 13
    261: 33 08                    r8 = 0
    263: 01                       fallthrough
       :                          @15
-   264: 03                       unlikely
+   264: 02                       unlikely
    265: 3a 0a 18 00 01           r10 = u64 [0x10018]
    270: 7d ab 01                 r11 = i8 [r10 + 0x1]
    273: 64 b3                    r3 = r11
@@ -23364,7 +23364,7 @@ Initial program counter: 13
    294: 33 08                    r8 = 0
    296: 01                       fallthrough
       :                          @18
-   297: 03                       unlikely
+   297: 02                       unlikely
    298: 3a 0a 00 00 01           r10 = u64 [0x10000]
    303: 7d ab 01                 r11 = i8 [r10 + 0x1]
    306: 64 b3                    r3 = r11
@@ -23379,7 +23379,7 @@ Initial program counter: 13
    326: 33 08                    r8 = 0
    328: 01                       fallthrough
       :                          @21
-   329: 03                       unlikely
+   329: 02                       unlikely
    330: 3a 0a 10 00 01           r10 = u64 [0x10010]
    335: 7d ab 01                 r11 = i8 [r10 + 0x1]
    338: 33 04 f0                 r4 = 0xfffffffffffffff0
@@ -23393,7 +23393,7 @@ Initial program counter: 13
    356: 33 08                    r8 = 0
    358: 01                       fallthrough
       :                          @24
-   359: 03                       unlikely
+   359: 02                       unlikely
    360: 3a 0a 18 00 01           r10 = u64 [0x10018]
    365: 7d ab 01                 r11 = i8 [r10 + 0x1]
    368: 33 04 0f                 r4 = 0xf
@@ -23407,7 +23407,7 @@ Initial program counter: 13
    386: 33 08                    r8 = 0
    388: 01                       fallthrough
       :                          @27
-   389: 03                       unlikely
+   389: 02                       unlikely
    390: 3a 0a 00 00 01           r10 = u64 [0x10000]
    395: 7d ab 01                 r11 = i8 [r10 + 0x1]
    398: 33 04                    r4 = 0
@@ -23417,7 +23417,7 @@ Initial program counter: 13
    406: 33 02 02                 r2 = 0x2
    409: ab 28 ec                 jump 389 if r8 != r2
       :                          @29
-   412: 03                       unlikely
+   412: 02                       unlikely
    413: 33 05 12                 r5 = 0x12
    416: 3a 02 00 00 01           r2 = u64 [0x10000]
    421: 7d 21                    r1 = i8 [r2 + 0]
@@ -23425,7 +23425,7 @@ Initial program counter: 13
    426: 33 04 02                 r4 = 0x2
    429: ab 41 1a                 jump 455 if r1 != r4
       :                          @30
-   432: 03                       unlikely
+   432: 02                       unlikely
    433: 33 05 13                 r5 = 0x13
    436: 3a 02 00 00 01           r2 = u64 [0x10000]
    441: 7d 21                    r1 = i8 [r2 + 0]
@@ -23821,7 +23821,7 @@ Initial program counter: 13
     27: 33 04 ff 00              r4 = 0xff
     31: ab 4b b3 01              jump 466 if r11 != r4
       :                          @2
-    35: 03                       unlikely
+    35: 02                       unlikely
     36: 33 05 03                 r5 = 0x3
     39: 33 0c                    r12 = 0
     41: 3a 01 00 00 01           r1 = u64 [0x10000]
@@ -23829,7 +23829,7 @@ Initial program counter: 13
     49: 33 04                    r4 = 0
     51: ab 4b 9f 01              jump 466 if r11 != r4
       :                          @3
-    55: 03                       unlikely
+    55: 02                       unlikely
     56: 33 05 04                 r5 = 0x4
     59: 33 0c f0 00              r12 = 0xf0
     63: 3a 01 00 00 01           r1 = u64 [0x10000]
@@ -23837,7 +23837,7 @@ Initial program counter: 13
     71: 33 04 f0 00              r4 = 0xf0
     75: ab 4b 87 01              jump 466 if r11 != r4
       :                          @4
-    79: 03                       unlikely
+    79: 02                       unlikely
     80: 33 05 05                 r5 = 0x5
     83: 33 0c 0f                 r12 = 0xf
     86: 3a 01 00 00 01           r1 = u64 [0x10000]
@@ -23845,7 +23845,7 @@ Initial program counter: 13
     94: 33 04 0f                 r4 = 0xf
     97: ab 4b 71 01              jump 466 if r11 != r4
       :                          @5
-   101: 03                       unlikely
+   101: 02                       unlikely
    102: 33 05 06                 r5 = 0x6
    105: 33 0c ff 00              r12 = 0xff
    109: 3a 01 08 00 01           r1 = u64 [0x10008]
@@ -23853,7 +23853,7 @@ Initial program counter: 13
    117: 33 04 ff 00              r4 = 0xff
    121: ab 4b 59 01              jump 466 if r11 != r4
       :                          @6
-   125: 03                       unlikely
+   125: 02                       unlikely
    126: 33 05 07                 r5 = 0x7
    129: 33 0c                    r12 = 0
    131: 3a 01 08 00 01           r1 = u64 [0x10008]
@@ -23861,7 +23861,7 @@ Initial program counter: 13
    139: 33 04                    r4 = 0
    141: ab 4b 45 01              jump 466 if r11 != r4
       :                          @7
-   145: 03                       unlikely
+   145: 02                       unlikely
    146: 33 05 08                 r5 = 0x8
    149: 33 0c f0 00              r12 = 0xf0
    153: 3a 01 08 00 01           r1 = u64 [0x10008]
@@ -23869,7 +23869,7 @@ Initial program counter: 13
    161: 33 04 f0 00              r4 = 0xf0
    165: ab 4b 2d 01              jump 466 if r11 != r4
       :                          @8
-   169: 03                       unlikely
+   169: 02                       unlikely
    170: 33 05 09                 r5 = 0x9
    173: 33 0c 0f                 r12 = 0xf
    176: 3a 01 08 00 01           r1 = u64 [0x10008]
@@ -23877,7 +23877,7 @@ Initial program counter: 13
    183: 33 04 0f                 r4 = 0xf
    186: ab 4b 18 01              jump 466 if r11 != r4
       :                          @9
-   190: 03                       unlikely
+   190: 02                       unlikely
    191: 33 05 0a                 r5 = 0xa
    194: 3a 00 00 00 01           r0 = u64 [0x10000]
    199: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
@@ -23885,7 +23885,7 @@ Initial program counter: 13
    205: 33 04 ff 00              r4 = 0xff
    209: ab 42 01 01              jump 466 if r2 != r4
       :                          @10
-   213: 03                       unlikely
+   213: 02                       unlikely
    214: 33 05 0b                 r5 = 0xb
    217: 3a 00 00 00 01           r0 = u64 [0x10000]
    222: 95 00 fa                 r0 = r0 + 0xfffffffffffffffa
@@ -23897,7 +23897,7 @@ Initial program counter: 13
    237: 33 08                    r8 = 0
    239: 01                       fallthrough
       :                          @12
-   240: 03                       unlikely
+   240: 02                       unlikely
    241: 3a 0a 10 00 01           r10 = u64 [0x10010]
    246: 7c ab 01                 r11 = u8 [r10 + 0x1]
    249: 64 b3                    r3 = r11
@@ -23912,7 +23912,7 @@ Initial program counter: 13
    271: 33 08                    r8 = 0
    273: 01                       fallthrough
       :                          @15
-   274: 03                       unlikely
+   274: 02                       unlikely
    275: 3a 0a 18 00 01           r10 = u64 [0x10018]
    280: 7c ab 01                 r11 = u8 [r10 + 0x1]
    283: 64 b3                    r3 = r11
@@ -23927,7 +23927,7 @@ Initial program counter: 13
    304: 33 08                    r8 = 0
    306: 01                       fallthrough
       :                          @18
-   307: 03                       unlikely
+   307: 02                       unlikely
    308: 3a 0a 00 00 01           r10 = u64 [0x10000]
    313: 7c ab 01                 r11 = u8 [r10 + 0x1]
    316: 64 b3                    r3 = r11
@@ -23942,7 +23942,7 @@ Initial program counter: 13
    336: 33 08                    r8 = 0
    338: 01                       fallthrough
       :                          @21
-   339: 03                       unlikely
+   339: 02                       unlikely
    340: 3a 0a 10 00 01           r10 = u64 [0x10010]
    345: 7c ab 01                 r11 = u8 [r10 + 0x1]
    348: 33 04 f0 00              r4 = 0xf0
@@ -23956,7 +23956,7 @@ Initial program counter: 13
    367: 33 08                    r8 = 0
    369: 01                       fallthrough
       :                          @24
-   370: 03                       unlikely
+   370: 02                       unlikely
    371: 3a 0a 18 00 01           r10 = u64 [0x10018]
    376: 7c ab 01                 r11 = u8 [r10 + 0x1]
    379: 33 04 0f                 r4 = 0xf
@@ -23970,7 +23970,7 @@ Initial program counter: 13
    397: 33 08                    r8 = 0
    399: 01                       fallthrough
       :                          @27
-   400: 03                       unlikely
+   400: 02                       unlikely
    401: 3a 0a 00 00 01           r10 = u64 [0x10000]
    406: 7c ab 01                 r11 = u8 [r10 + 0x1]
    409: 33 04                    r4 = 0
@@ -23980,7 +23980,7 @@ Initial program counter: 13
    417: 33 02 02                 r2 = 0x2
    420: ab 28 ec                 jump 400 if r8 != r2
       :                          @29
-   423: 03                       unlikely
+   423: 02                       unlikely
    424: 33 05 12                 r5 = 0x12
    427: 3a 02 00 00 01           r2 = u64 [0x10000]
    432: 7c 21                    r1 = u8 [r2 + 0]
@@ -23988,7 +23988,7 @@ Initial program counter: 13
    437: 33 04 02                 r4 = 0x2
    440: ab 41 1a                 jump 466 if r1 != r4
       :                          @30
-   443: 03                       unlikely
+   443: 02                       unlikely
    444: 33 05 13                 r5 = 0x13
    447: 3a 02 00 00 01           r2 = u64 [0x10000]
    452: 7c 21                    r1 = u8 [r2 + 0]
@@ -24400,7 +24400,7 @@ Initial program counter: 13
     67: 95 44 ff 00              r4 = r4 + 0xff
     71: ab 4b b8 03              jump 1023 if r11 != r4
       :                          @2
-    75: 03                       unlikely
+    75: 02                       unlikely
     76: 33 05 03                 r5 = 0x3
     79: 33 0c 00 00 01 ff        r12 = 0xffffffffff010000
     85: 83 cc 01 ff              i32 r12 = r12 + 0xffffffffffffff01
@@ -24460,7 +24460,7 @@ Initial program counter: 13
    278: 95 44 0f                 r4 = r4 + 0xf
    281: ab 4b e6 02              jump 1023 if r11 != r4
       :                          @5
-   285: 03                       unlikely
+   285: 02                       unlikely
    286: 33 05 06                 r5 = 0x6
    289: 33 0c 00 00 ff 00        r12 = 0xff0000
    295: 83 cc ff 00              i32 r12 = r12 + 0xff
@@ -24478,7 +24478,7 @@ Initial program counter: 13
    341: 95 44 ff 00              r4 = r4 + 0xff
    345: ab 4b a6 02              jump 1023 if r11 != r4
       :                          @6
-   349: 03                       unlikely
+   349: 02                       unlikely
    350: 33 05 07                 r5 = 0x7
    353: 33 0c 00 00 01 ff        r12 = 0xffffffffff010000
    359: 83 cc 01 ff              i32 r12 = r12 + 0xffffffffffffff01
@@ -24538,7 +24538,7 @@ Initial program counter: 13
    551: 95 44 0f                 r4 = r4 + 0xf
    554: ab 4b d5 01              jump 1023 if r11 != r4
       :                          @9
-   558: 03                       unlikely
+   558: 02                       unlikely
    559: 33 05 0a                 r5 = 0xa
    562: 3a 00 00 00 01           r0 = u64 [0x10000]
    567: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
@@ -24551,7 +24551,7 @@ Initial program counter: 13
    593: 95 44 ff 00              r4 = r4 + 0xff
    597: ab 42 aa 01              jump 1023 if r2 != r4
       :                          @10
-   601: 03                       unlikely
+   601: 02                       unlikely
    602: 33 05 0b                 r5 = 0xb
    605: 3a 00 00 00 01           r0 = u64 [0x10000]
    610: 95 00 fd                 r0 = r0 + 0xfffffffffffffffd
@@ -24568,7 +24568,7 @@ Initial program counter: 13
    647: 33 08                    r8 = 0
    649: 01                       fallthrough
       :                          @12
-   650: 03                       unlikely
+   650: 02                       unlikely
    651: 3a 0a 10 00 01           r10 = u64 [0x10010]
    656: 82 ab 08                 r11 = u64 [r10 + 0x8]
    659: 64 b3                    r3 = r11
@@ -24590,7 +24590,7 @@ Initial program counter: 13
    706: 33 08                    r8 = 0
    708: 01                       fallthrough
       :                          @15
-   709: 03                       unlikely
+   709: 02                       unlikely
    710: 3a 0a 18 00 01           r10 = u64 [0x10018]
    715: 82 ab 08                 r11 = u64 [r10 + 0x8]
    718: 64 b3                    r3 = r11
@@ -24612,7 +24612,7 @@ Initial program counter: 13
    765: 33 08                    r8 = 0
    767: 01                       fallthrough
       :                          @18
-   768: 03                       unlikely
+   768: 02                       unlikely
    769: 3a 0a 00 00 01           r10 = u64 [0x10000]
    774: 82 ab 08                 r11 = u64 [r10 + 0x8]
    777: 64 b3                    r3 = r11
@@ -24632,7 +24632,7 @@ Initial program counter: 13
    819: 33 08                    r8 = 0
    821: 01                       fallthrough
       :                          @21
-   822: 03                       unlikely
+   822: 02                       unlikely
    823: 3a 0a 10 00 01           r10 = u64 [0x10010]
    828: 82 ab 08                 r11 = u64 [r10 + 0x8]
    831: 33 04 00 00 01           r4 = 0x10000
@@ -24653,7 +24653,7 @@ Initial program counter: 13
    876: 33 08                    r8 = 0
    878: 01                       fallthrough
       :                          @24
-   879: 03                       unlikely
+   879: 02                       unlikely
    880: 3a 0a 18 00 01           r10 = u64 [0x10018]
    885: 82 ab 08                 r11 = u64 [r10 + 0x8]
    888: 33 04 00 00 ff           r4 = 0xffffffffffff0000
@@ -24674,7 +24674,7 @@ Initial program counter: 13
    932: 33 08                    r8 = 0
    934: 01                       fallthrough
       :                          @27
-   935: 03                       unlikely
+   935: 02                       unlikely
    936: 3a 0a 00 00 01           r10 = u64 [0x10000]
    941: 82 ab 08                 r11 = u64 [r10 + 0x8]
    944: 33 04 00 00 01 ff        r4 = 0xffffffffff010000
@@ -24689,7 +24689,7 @@ Initial program counter: 13
    974: 33 02 02                 r2 = 0x2
    977: ab 28 d6                 jump 935 if r8 != r2
       :                          @29
-   980: 03                       unlikely
+   980: 02                       unlikely
    981: 33 05 12                 r5 = 0x12
    984: 3a 02 00 00 01           r2 = u64 [0x10000]
    989: 82 21                    r1 = u64 [r2 + 0]
@@ -24697,7 +24697,7 @@ Initial program counter: 13
    994: 33 04 02                 r4 = 0x2
    997: ab 41 1a                 jump 1023 if r1 != r4
       :                          @30
-  1000: 03                       unlikely
+  1000: 02                       unlikely
   1001: 33 05 13                 r5 = 0x13
   1004: 3a 02 00 00 01           r2 = u64 [0x10000]
   1009: 82 21                    r1 = u64 [r2 + 0]
@@ -25235,7 +25235,7 @@ Initial program counter: 13
     27: 33 04 ff 00              r4 = 0xff
     31: ab 4b eb 01              jump 522 if r11 != r4
       :                          @2
-    35: 03                       unlikely
+    35: 02                       unlikely
     36: 33 05 03                 r5 = 0x3
     39: 33 0c 00 ff              r12 = 0xffffffffffffff00
     43: 3a 01 00 00 01           r1 = u64 [0x10000]
@@ -25243,7 +25243,7 @@ Initial program counter: 13
     51: 33 04 00 ff              r4 = 0xffffffffffffff00
     55: ab 4b d3 01              jump 522 if r11 != r4
       :                          @3
-    59: 03                       unlikely
+    59: 02                       unlikely
     60: 33 05 04                 r5 = 0x4
     63: 33 0c 00 10              r12 = 0x1000
     67: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
@@ -25253,7 +25253,7 @@ Initial program counter: 13
     82: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
     85: ab 4b b5 01              jump 522 if r11 != r4
       :                          @4
-    89: 03                       unlikely
+    89: 02                       unlikely
     90: 33 05 05                 r5 = 0x5
     93: 33 0c 00 f0              r12 = 0xfffffffffffff000
     97: 83 cc 0f                 i32 r12 = r12 + 0xf
@@ -25263,7 +25263,7 @@ Initial program counter: 13
    112: 83 44 0f                 i32 r4 = r4 + 0xf
    115: ab 4b 97 01              jump 522 if r11 != r4
       :                          @5
-   119: 03                       unlikely
+   119: 02                       unlikely
    120: 33 05 06                 r5 = 0x6
    123: 33 0c ff 00              r12 = 0xff
    127: 3a 01 08 00 01           r1 = u64 [0x10008]
@@ -25271,7 +25271,7 @@ Initial program counter: 13
    135: 33 04 ff 00              r4 = 0xff
    139: ab 4b 7f 01              jump 522 if r11 != r4
       :                          @6
-   143: 03                       unlikely
+   143: 02                       unlikely
    144: 33 05 07                 r5 = 0x7
    147: 33 0c 00 ff              r12 = 0xffffffffffffff00
    151: 3a 01 08 00 01           r1 = u64 [0x10008]
@@ -25279,7 +25279,7 @@ Initial program counter: 13
    159: 33 04 00 ff              r4 = 0xffffffffffffff00
    163: ab 4b 67 01              jump 522 if r11 != r4
       :                          @7
-   167: 03                       unlikely
+   167: 02                       unlikely
    168: 33 05 08                 r5 = 0x8
    171: 33 0c 00 10              r12 = 0x1000
    175: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
@@ -25289,7 +25289,7 @@ Initial program counter: 13
    190: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    193: ab 4b 49 01              jump 522 if r11 != r4
       :                          @8
-   197: 03                       unlikely
+   197: 02                       unlikely
    198: 33 05 09                 r5 = 0x9
    201: 33 0c 00 f0              r12 = 0xfffffffffffff000
    205: 83 cc 0f                 i32 r12 = r12 + 0xf
@@ -25299,7 +25299,7 @@ Initial program counter: 13
    219: 83 44 0f                 i32 r4 = r4 + 0xf
    222: ab 4b 2c 01              jump 522 if r11 != r4
       :                          @9
-   226: 03                       unlikely
+   226: 02                       unlikely
    227: 33 05 0a                 r5 = 0xa
    230: 3a 00 00 00 01           r0 = u64 [0x10000]
    235: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
@@ -25307,7 +25307,7 @@ Initial program counter: 13
    241: 33 04 ff 00              r4 = 0xff
    245: ab 42 15 01              jump 522 if r2 != r4
       :                          @10
-   249: 03                       unlikely
+   249: 02                       unlikely
    250: 33 05 0b                 r5 = 0xb
    253: 3a 00 00 00 01           r0 = u64 [0x10000]
    258: 95 00 fb                 r0 = r0 + 0xfffffffffffffffb
@@ -25319,7 +25319,7 @@ Initial program counter: 13
    275: 33 08                    r8 = 0
    277: 01                       fallthrough
       :                          @12
-   278: 03                       unlikely
+   278: 02                       unlikely
    279: 3a 0a 10 00 01           r10 = u64 [0x10010]
    284: 7f ab 02                 r11 = i16 [r10 + 0x2]
    287: 64 b3                    r3 = r11
@@ -25335,7 +25335,7 @@ Initial program counter: 13
    312: 33 08                    r8 = 0
    314: 01                       fallthrough
       :                          @15
-   315: 03                       unlikely
+   315: 02                       unlikely
    316: 3a 0a 18 00 01           r10 = u64 [0x10018]
    321: 7f ab 02                 r11 = i16 [r10 + 0x2]
    324: 64 b3                    r3 = r11
@@ -25351,7 +25351,7 @@ Initial program counter: 13
    349: 33 08                    r8 = 0
    351: 01                       fallthrough
       :                          @18
-   352: 03                       unlikely
+   352: 02                       unlikely
    353: 3a 0a 00 00 01           r10 = u64 [0x10000]
    358: 7f ab 02                 r11 = i16 [r10 + 0x2]
    361: 64 b3                    r3 = r11
@@ -25366,7 +25366,7 @@ Initial program counter: 13
    383: 33 08                    r8 = 0
    385: 01                       fallthrough
       :                          @21
-   386: 03                       unlikely
+   386: 02                       unlikely
    387: 3a 0a 10 00 01           r10 = u64 [0x10010]
    392: 7f ab 02                 r11 = i16 [r10 + 0x2]
    395: 33 04 00 10              r4 = 0x1000
@@ -25381,7 +25381,7 @@ Initial program counter: 13
    417: 33 08                    r8 = 0
    419: 01                       fallthrough
       :                          @24
-   420: 03                       unlikely
+   420: 02                       unlikely
    421: 3a 0a 18 00 01           r10 = u64 [0x10018]
    426: 7f ab 02                 r11 = i16 [r10 + 0x2]
    429: 33 04 00 f0              r4 = 0xfffffffffffff000
@@ -25396,7 +25396,7 @@ Initial program counter: 13
    451: 33 08                    r8 = 0
    453: 01                       fallthrough
       :                          @27
-   454: 03                       unlikely
+   454: 02                       unlikely
    455: 3a 0a 00 00 01           r10 = u64 [0x10000]
    460: 7f ab 02                 r11 = i16 [r10 + 0x2]
    463: 33 04 00 ff              r4 = 0xffffffffffffff00
@@ -25406,7 +25406,7 @@ Initial program counter: 13
    473: 33 02 02                 r2 = 0x2
    476: ab 28 ea                 jump 454 if r8 != r2
       :                          @29
-   479: 03                       unlikely
+   479: 02                       unlikely
    480: 33 05 12                 r5 = 0x12
    483: 3a 02 00 00 01           r2 = u64 [0x10000]
    488: 7f 21                    r1 = i16 [r2 + 0]
@@ -25414,7 +25414,7 @@ Initial program counter: 13
    493: 33 04 02                 r4 = 0x2
    496: ab 41 1a                 jump 522 if r1 != r4
       :                          @30
-   499: 03                       unlikely
+   499: 02                       unlikely
    500: 33 05 13                 r5 = 0x13
    503: 3a 02 00 00 01           r2 = u64 [0x10000]
    508: 7f 21                    r1 = i16 [r2 + 0]
@@ -25824,7 +25824,7 @@ Initial program counter: 13
     27: 33 04 ff 00              r4 = 0xff
     31: ab 4b 14 02              jump 563 if r11 != r4
       :                          @2
-    35: 03                       unlikely
+    35: 02                       unlikely
     36: 33 05 03                 r5 = 0x3
     39: 33 0c 00 00 01           r12 = 0x10000
     44: 83 cc 00 ff              i32 r12 = r12 + 0xffffffffffffff00
@@ -25834,7 +25834,7 @@ Initial program counter: 13
     61: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
     65: ab 4b f2 01              jump 563 if r11 != r4
       :                          @3
-    69: 03                       unlikely
+    69: 02                       unlikely
     70: 33 05 04                 r5 = 0x4
     73: 33 0c 00 10              r12 = 0x1000
     77: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
@@ -25844,7 +25844,7 @@ Initial program counter: 13
     92: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
     95: ab 4b d4 01              jump 563 if r11 != r4
       :                          @4
-    99: 03                       unlikely
+    99: 02                       unlikely
    100: 33 05 05                 r5 = 0x5
    103: 33 0c 00 f0 00           r12 = 0xf000
    108: 83 cc 0f                 i32 r12 = r12 + 0xf
@@ -25854,7 +25854,7 @@ Initial program counter: 13
    124: 83 44 0f                 i32 r4 = r4 + 0xf
    127: ab 4b b4 01              jump 563 if r11 != r4
       :                          @5
-   131: 03                       unlikely
+   131: 02                       unlikely
    132: 33 05 06                 r5 = 0x6
    135: 33 0c ff 00              r12 = 0xff
    139: 3a 01 08 00 01           r1 = u64 [0x10008]
@@ -25862,7 +25862,7 @@ Initial program counter: 13
    147: 33 04 ff 00              r4 = 0xff
    151: ab 4b 9c 01              jump 563 if r11 != r4
       :                          @6
-   155: 03                       unlikely
+   155: 02                       unlikely
    156: 33 05 07                 r5 = 0x7
    159: 33 0c 00 00 01           r12 = 0x10000
    164: 83 cc 00 ff              i32 r12 = r12 + 0xffffffffffffff00
@@ -25872,7 +25872,7 @@ Initial program counter: 13
    181: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
    185: ab 4b 7a 01              jump 563 if r11 != r4
       :                          @7
-   189: 03                       unlikely
+   189: 02                       unlikely
    190: 33 05 08                 r5 = 0x8
    193: 33 0c 00 10              r12 = 0x1000
    197: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
@@ -25882,7 +25882,7 @@ Initial program counter: 13
    212: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    215: ab 4b 5c 01              jump 563 if r11 != r4
       :                          @8
-   219: 03                       unlikely
+   219: 02                       unlikely
    220: 33 05 09                 r5 = 0x9
    223: 33 0c 00 f0 00           r12 = 0xf000
    228: 83 cc 0f                 i32 r12 = r12 + 0xf
@@ -25892,7 +25892,7 @@ Initial program counter: 13
    243: 83 44 0f                 i32 r4 = r4 + 0xf
    246: ab 4b 3d 01              jump 563 if r11 != r4
       :                          @9
-   250: 03                       unlikely
+   250: 02                       unlikely
    251: 33 05 0a                 r5 = 0xa
    254: 3a 00 00 00 01           r0 = u64 [0x10000]
    259: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
@@ -25900,7 +25900,7 @@ Initial program counter: 13
    265: 33 04 ff 00              r4 = 0xff
    269: ab 42 26 01              jump 563 if r2 != r4
       :                          @10
-   273: 03                       unlikely
+   273: 02                       unlikely
    274: 33 05 0b                 r5 = 0xb
    277: 3a 00 00 00 01           r0 = u64 [0x10000]
    282: 95 00 fb                 r0 = r0 + 0xfffffffffffffffb
@@ -25913,7 +25913,7 @@ Initial program counter: 13
    304: 33 08                    r8 = 0
    306: 01                       fallthrough
       :                          @12
-   307: 03                       unlikely
+   307: 02                       unlikely
    308: 3a 0a 10 00 01           r10 = u64 [0x10010]
    313: 7e ab 02                 r11 = u16 [r10 + 0x2]
    316: 64 b3                    r3 = r11
@@ -25929,7 +25929,7 @@ Initial program counter: 13
    341: 33 08                    r8 = 0
    343: 01                       fallthrough
       :                          @15
-   344: 03                       unlikely
+   344: 02                       unlikely
    345: 3a 0a 18 00 01           r10 = u64 [0x10018]
    350: 7e ab 02                 r11 = u16 [r10 + 0x2]
    353: 64 b3                    r3 = r11
@@ -25945,7 +25945,7 @@ Initial program counter: 13
    379: 33 08                    r8 = 0
    381: 01                       fallthrough
       :                          @18
-   382: 03                       unlikely
+   382: 02                       unlikely
    383: 3a 0a 00 00 01           r10 = u64 [0x10000]
    388: 7e ab 02                 r11 = u16 [r10 + 0x2]
    391: 64 b3                    r3 = r11
@@ -25961,7 +25961,7 @@ Initial program counter: 13
    418: 33 08                    r8 = 0
    420: 01                       fallthrough
       :                          @21
-   421: 03                       unlikely
+   421: 02                       unlikely
    422: 3a 0a 10 00 01           r10 = u64 [0x10010]
    427: 7e ab 02                 r11 = u16 [r10 + 0x2]
    430: 33 04 00 10              r4 = 0x1000
@@ -25976,7 +25976,7 @@ Initial program counter: 13
    452: 33 08                    r8 = 0
    454: 01                       fallthrough
       :                          @24
-   455: 03                       unlikely
+   455: 02                       unlikely
    456: 3a 0a 18 00 01           r10 = u64 [0x10018]
    461: 7e ab 02                 r11 = u16 [r10 + 0x2]
    464: 33 04 00 f0 00           r4 = 0xf000
@@ -25991,7 +25991,7 @@ Initial program counter: 13
    487: 33 08                    r8 = 0
    489: 01                       fallthrough
       :                          @27
-   490: 03                       unlikely
+   490: 02                       unlikely
    491: 3a 0a 00 00 01           r10 = u64 [0x10000]
    496: 7e ab 02                 r11 = u16 [r10 + 0x2]
    499: 33 04 00 00 01           r4 = 0x10000
@@ -26002,7 +26002,7 @@ Initial program counter: 13
    514: 33 02 02                 r2 = 0x2
    517: ab 28 e5                 jump 490 if r8 != r2
       :                          @29
-   520: 03                       unlikely
+   520: 02                       unlikely
    521: 33 05 12                 r5 = 0x12
    524: 3a 02 00 00 01           r2 = u64 [0x10000]
    529: 7e 21                    r1 = u16 [r2 + 0]
@@ -26010,7 +26010,7 @@ Initial program counter: 13
    534: 33 04 02                 r4 = 0x2
    537: ab 41 1a                 jump 563 if r1 != r4
       :                          @30
-   540: 03                       unlikely
+   540: 02                       unlikely
    541: 33 05 13                 r5 = 0x13
    544: 3a 02 00 00 01           r2 = u64 [0x10000]
    549: 7e 21                    r1 = u16 [r2 + 0]
@@ -26561,7 +26561,7 @@ Initial program counter: 13
     39: 83 44 ff 00              i32 r4 = r4 + 0xff
     43: ab 4b 40 02              jump 619 if r11 != r4
       :                          @2
-    47: 03                       unlikely
+    47: 02                       unlikely
     48: 33 05 03                 r5 = 0x3
     51: 33 0c 00 00 01 ff        r12 = 0xffffffffff010000
     57: 83 cc 00 ff              i32 r12 = r12 + 0xffffffffffffff00
@@ -26571,7 +26571,7 @@ Initial program counter: 13
     75: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
     79: ab 4b 1c 02              jump 619 if r11 != r4
       :                          @3
-    83: 03                       unlikely
+    83: 02                       unlikely
     84: 33 05 04                 r5 = 0x4
     87: 33 0c 00 10 f0 0f        r12 = 0xff01000
     93: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
@@ -26581,7 +26581,7 @@ Initial program counter: 13
    110: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    113: ab 4b fa 01              jump 619 if r11 != r4
       :                          @4
-   117: 03                       unlikely
+   117: 02                       unlikely
    118: 33 05 05                 r5 = 0x5
    121: 33 0c 00 f0 0f f0        r12 = 0xfffffffff00ff000
    127: 83 cc 0f                 i32 r12 = r12 + 0xf
@@ -26591,7 +26591,7 @@ Initial program counter: 13
    144: 83 44 0f                 i32 r4 = r4 + 0xf
    147: ab 4b d8 01              jump 619 if r11 != r4
       :                          @5
-   151: 03                       unlikely
+   151: 02                       unlikely
    152: 33 05 06                 r5 = 0x6
    155: 33 0c 00 00 ff 00        r12 = 0xff0000
    161: 83 cc ff 00              i32 r12 = r12 + 0xff
@@ -26601,7 +26601,7 @@ Initial program counter: 13
    179: 83 44 ff 00              i32 r4 = r4 + 0xff
    183: ab 4b b4 01              jump 619 if r11 != r4
       :                          @6
-   187: 03                       unlikely
+   187: 02                       unlikely
    188: 33 05 07                 r5 = 0x7
    191: 33 0c 00 00 01 ff        r12 = 0xffffffffff010000
    197: 83 cc 00 ff              i32 r12 = r12 + 0xffffffffffffff00
@@ -26611,7 +26611,7 @@ Initial program counter: 13
    215: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
    219: ab 4b 90 01              jump 619 if r11 != r4
       :                          @7
-   223: 03                       unlikely
+   223: 02                       unlikely
    224: 33 05 08                 r5 = 0x8
    227: 33 0c 00 10 f0 0f        r12 = 0xff01000
    233: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
@@ -26621,7 +26621,7 @@ Initial program counter: 13
    250: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    253: ab 4b 6e 01              jump 619 if r11 != r4
       :                          @8
-   257: 03                       unlikely
+   257: 02                       unlikely
    258: 33 05 09                 r5 = 0x9
    261: 33 0c 00 f0 0f f0        r12 = 0xfffffffff00ff000
    267: 83 cc 0f                 i32 r12 = r12 + 0xf
@@ -26631,7 +26631,7 @@ Initial program counter: 13
    283: 83 44 0f                 i32 r4 = r4 + 0xf
    286: ab 4b 4d 01              jump 619 if r11 != r4
       :                          @9
-   290: 03                       unlikely
+   290: 02                       unlikely
    291: 33 05 0a                 r5 = 0xa
    294: 3a 00 00 00 01           r0 = u64 [0x10000]
    299: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
@@ -26640,7 +26640,7 @@ Initial program counter: 13
    311: 83 44 ff 00              i32 r4 = r4 + 0xff
    315: ab 42 30 01              jump 619 if r2 != r4
       :                          @10
-   319: 03                       unlikely
+   319: 02                       unlikely
    320: 33 05 0b                 r5 = 0xb
    323: 3a 00 00 00 01           r0 = u64 [0x10000]
    328: 95 00 fd                 r0 = r0 + 0xfffffffffffffffd
@@ -26653,7 +26653,7 @@ Initial program counter: 13
    351: 33 08                    r8 = 0
    353: 01                       fallthrough
       :                          @12
-   354: 03                       unlikely
+   354: 02                       unlikely
    355: 3a 0a 10 00 01           r10 = u64 [0x10010]
    360: 81 ab 04                 r11 = i32 [r10 + 0x4]
    363: 64 b3                    r3 = r11
@@ -26669,7 +26669,7 @@ Initial program counter: 13
    390: 33 08                    r8 = 0
    392: 01                       fallthrough
       :                          @15
-   393: 03                       unlikely
+   393: 02                       unlikely
    394: 3a 0a 18 00 01           r10 = u64 [0x10018]
    399: 81 ab 04                 r11 = i32 [r10 + 0x4]
    402: 64 b3                    r3 = r11
@@ -26685,7 +26685,7 @@ Initial program counter: 13
    429: 33 08                    r8 = 0
    431: 01                       fallthrough
       :                          @18
-   432: 03                       unlikely
+   432: 02                       unlikely
    433: 3a 0a 00 00 01           r10 = u64 [0x10000]
    438: 81 ab 04                 r11 = i32 [r10 + 0x4]
    441: 64 b3                    r3 = r11
@@ -26701,7 +26701,7 @@ Initial program counter: 13
    469: 33 08                    r8 = 0
    471: 01                       fallthrough
       :                          @21
-   472: 03                       unlikely
+   472: 02                       unlikely
    473: 3a 0a 10 00 01           r10 = u64 [0x10010]
    478: 81 ab 04                 r11 = i32 [r10 + 0x4]
    481: 33 04 00 10 f0 0f        r4 = 0xff01000
@@ -26716,7 +26716,7 @@ Initial program counter: 13
    506: 33 08                    r8 = 0
    508: 01                       fallthrough
       :                          @24
-   509: 03                       unlikely
+   509: 02                       unlikely
    510: 3a 0a 18 00 01           r10 = u64 [0x10018]
    515: 81 ab 04                 r11 = i32 [r10 + 0x4]
    518: 33 04 00 f0 0f f0        r4 = 0xfffffffff00ff000
@@ -26731,7 +26731,7 @@ Initial program counter: 13
    542: 33 08                    r8 = 0
    544: 01                       fallthrough
       :                          @27
-   545: 03                       unlikely
+   545: 02                       unlikely
    546: 3a 0a 00 00 01           r10 = u64 [0x10000]
    551: 81 ab 04                 r11 = i32 [r10 + 0x4]
    554: 33 04 00 00 01 ff        r4 = 0xffffffffff010000
@@ -26742,7 +26742,7 @@ Initial program counter: 13
    570: 33 02 02                 r2 = 0x2
    573: ab 28 e4                 jump 545 if r8 != r2
       :                          @29
-   576: 03                       unlikely
+   576: 02                       unlikely
    577: 33 05 12                 r5 = 0x12
    580: 3a 02 00 00 01           r2 = u64 [0x10000]
    585: 81 21                    r1 = i32 [r2 + 0]
@@ -26750,7 +26750,7 @@ Initial program counter: 13
    590: 33 04 02                 r4 = 0x2
    593: ab 41 1a                 jump 619 if r1 != r4
       :                          @30
-   596: 03                       unlikely
+   596: 02                       unlikely
    597: 33 05 13                 r5 = 0x13
    600: 3a 02 00 00 01           r2 = u64 [0x10000]
    605: 81 21                    r1 = i32 [r2 + 0]
@@ -27189,7 +27189,7 @@ Initial program counter: 13
     86: 95 44 00 ff              r4 = r4 + 0xffffffffffffff00
     90: ab 4b 5b 02              jump 693 if r11 != r4
       :                          @3
-    94: 03                       unlikely
+    94: 02                       unlikely
     95: 33 05 04                 r5 = 0x4
     98: 33 0c 00 10 f0 0f        r12 = 0xff01000
    104: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
@@ -27212,7 +27212,7 @@ Initial program counter: 13
    166: 95 44 0f                 r4 = r4 + 0xf
    169: ab 4b 0c 02              jump 693 if r11 != r4
       :                          @5
-   173: 03                       unlikely
+   173: 02                       unlikely
    174: 33 05 06                 r5 = 0x6
    177: 33 0c 00 00 ff 00        r12 = 0xff0000
    183: 83 cc ff 00              i32 r12 = r12 + 0xff
@@ -27235,7 +27235,7 @@ Initial program counter: 13
    248: 95 44 00 ff              r4 = r4 + 0xffffffffffffff00
    252: ab 4b b9 01              jump 693 if r11 != r4
       :                          @7
-   256: 03                       unlikely
+   256: 02                       unlikely
    257: 33 05 08                 r5 = 0x8
    260: 33 0c 00 10 f0 0f        r12 = 0xff01000
    266: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
@@ -27258,7 +27258,7 @@ Initial program counter: 13
    327: 95 44 0f                 r4 = r4 + 0xf
    330: ab 4b 6b 01              jump 693 if r11 != r4
       :                          @9
-   334: 03                       unlikely
+   334: 02                       unlikely
    335: 33 05 0a                 r5 = 0xa
    338: 3a 00 00 00 01           r0 = u64 [0x10000]
    343: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
@@ -27267,7 +27267,7 @@ Initial program counter: 13
    355: 83 44 ff 00              i32 r4 = r4 + 0xff
    359: ab 42 4e 01              jump 693 if r2 != r4
       :                          @10
-   363: 03                       unlikely
+   363: 02                       unlikely
    364: 33 05 0b                 r5 = 0xb
    367: 3a 00 00 00 01           r0 = u64 [0x10000]
    372: 95 00 fd                 r0 = r0 + 0xfffffffffffffffd
@@ -27282,7 +27282,7 @@ Initial program counter: 13
    401: 33 08                    r8 = 0
    403: 01                       fallthrough
       :                          @12
-   404: 03                       unlikely
+   404: 02                       unlikely
    405: 3a 0a 10 00 01           r10 = u64 [0x10010]
    410: 80 ab 04                 r11 = u32 [r10 + 0x4]
    413: 64 b3                    r3 = r11
@@ -27298,7 +27298,7 @@ Initial program counter: 13
    440: 33 08                    r8 = 0
    442: 01                       fallthrough
       :                          @15
-   443: 03                       unlikely
+   443: 02                       unlikely
    444: 3a 0a 18 00 01           r10 = u64 [0x10018]
    449: 80 ab 04                 r11 = u32 [r10 + 0x4]
    452: 64 b3                    r3 = r11
@@ -27316,7 +27316,7 @@ Initial program counter: 13
    485: 33 08                    r8 = 0
    487: 01                       fallthrough
       :                          @18
-   488: 03                       unlikely
+   488: 02                       unlikely
    489: 3a 0a 00 00 01           r10 = u64 [0x10000]
    494: 80 ab 04                 r11 = u32 [r10 + 0x4]
    497: 64 b3                    r3 = r11
@@ -27334,7 +27334,7 @@ Initial program counter: 13
    531: 33 08                    r8 = 0
    533: 01                       fallthrough
       :                          @21
-   534: 03                       unlikely
+   534: 02                       unlikely
    535: 3a 0a 10 00 01           r10 = u64 [0x10010]
    540: 80 ab 04                 r11 = u32 [r10 + 0x4]
    543: 33 04 00 10 f0 0f        r4 = 0xff01000
@@ -27349,7 +27349,7 @@ Initial program counter: 13
    568: 33 08                    r8 = 0
    570: 01                       fallthrough
       :                          @24
-   571: 03                       unlikely
+   571: 02                       unlikely
    572: 3a 0a 18 00 01           r10 = u64 [0x10018]
    577: 80 ab 04                 r11 = u32 [r10 + 0x4]
    580: 33 04 00 00 0f           r4 = 0xf0000
@@ -27366,7 +27366,7 @@ Initial program counter: 13
    610: 33 08                    r8 = 0
    612: 01                       fallthrough
       :                          @27
-   613: 03                       unlikely
+   613: 02                       unlikely
    614: 3a 0a 00 00 01           r10 = u64 [0x10000]
    619: 80 ab 04                 r11 = u32 [r10 + 0x4]
    622: 33 04 00 00 01           r4 = 0x10000
@@ -27379,7 +27379,7 @@ Initial program counter: 13
    644: 33 02 02                 r2 = 0x2
    647: ab 28 de                 jump 613 if r8 != r2
       :                          @29
-   650: 03                       unlikely
+   650: 02                       unlikely
    651: 33 05 12                 r5 = 0x12
    654: 3a 02 00 00 01           r2 = u64 [0x10000]
    659: 80 21                    r1 = u32 [r2 + 0]
@@ -27387,7 +27387,7 @@ Initial program counter: 13
    664: 33 04 02                 r4 = 0x2
    667: ab 41 1a                 jump 693 if r1 != r4
       :                          @30
-   670: 03                       unlikely
+   670: 02                       unlikely
    671: 33 05 13                 r5 = 0x13
    674: 3a 02 00 00 01           r2 = u64 [0x10000]
    679: 80 21                    r1 = u32 [r2 + 0]
@@ -27825,7 +27825,7 @@ Initial program counter: 13
       :                          @2
     31: 28 45 1a                 jump 6756
       :                          @3
-    34: 03                       unlikely
+    34: 02                       unlikely
     35: 33 0c 02                 r12 = 0x2
     38: 33 03 01 02              r3 = 0x201
     42: 7e 54 01                 r4 = u16 [r5 + 0x1]
@@ -27833,7 +27833,7 @@ Initial program counter: 13
       :                          @4
     48: 28 34 1a                 jump 6756
       :                          @5
-    51: 03                       unlikely
+    51: 02                       unlikely
     52: 33 0c 03                 r12 = 0x3
     55: 33 03 00 00 03 04        r3 = 0x4030000
     61: 83 33 01 02              i32 r3 = r3 + 0x201
@@ -27842,7 +27842,7 @@ Initial program counter: 13
       :                          @6
     71: 28 1d 1a                 jump 6756
       :                          @7
-    74: 03                       unlikely
+    74: 02                       unlikely
     75: 33 0c 04                 r12 = 0x4
     78: 33 03 00 00 04 05        r3 = 0x5040000
     84: 83 33 02 03              i32 r3 = r3 + 0x302
@@ -27851,7 +27851,7 @@ Initial program counter: 13
       :                          @8
     94: 28 06 1a                 jump 6756
       :                          @9
-    97: 03                       unlikely
+    97: 02                       unlikely
     98: 33 0c 05                 r12 = 0x5
    101: 33 03 00 00 05 06        r3 = 0x6050000
    107: 83 33 03 04              i32 r3 = r3 + 0x403
@@ -27860,7 +27860,7 @@ Initial program counter: 13
       :                          @10
    117: 28 ef 19                 jump 6756
       :                          @11
-   120: 03                       unlikely
+   120: 02                       unlikely
    121: 33 0c 06                 r12 = 0x6
    124: 33 03 00 00 03 04        r3 = 0x4030000
    130: 83 33 01 02              i32 r3 = r3 + 0x201
@@ -27869,7 +27869,7 @@ Initial program counter: 13
       :                          @12
    140: 28 d8 19                 jump 6756
       :                          @13
-   143: 03                       unlikely
+   143: 02                       unlikely
    144: 33 0c 07                 r12 = 0x7
    147: 33 03 00 00 04 05        r3 = 0x5040000
    153: 83 33 02 03              i32 r3 = r3 + 0x302
@@ -27878,7 +27878,7 @@ Initial program counter: 13
       :                          @14
    163: 28 c1 19                 jump 6756
       :                          @15
-   166: 03                       unlikely
+   166: 02                       unlikely
    167: 33 0c 08                 r12 = 0x8
    170: 33 03 00 00 05 06        r3 = 0x6050000
    176: 83 33 03 04              i32 r3 = r3 + 0x403
@@ -27887,7 +27887,7 @@ Initial program counter: 13
       :                          @16
    186: 28 aa 19                 jump 6756
       :                          @17
-   189: 03                       unlikely
+   189: 02                       unlikely
    190: 33 0c 09                 r12 = 0x9
    193: 33 03 00 00 07 08        r3 = 0x8070000
    199: 83 33 05 06              i32 r3 = r3 + 0x605
@@ -27900,7 +27900,7 @@ Initial program counter: 13
       :                          @18
    223: 28 85 19                 jump 6756
       :                          @19
-   226: 03                       unlikely
+   226: 02                       unlikely
    227: 33 0c 0a                 r12 = 0xa
    230: 33 03 00 00 84 04        r3 = 0x4840000
    236: 83 33 83 03              i32 r3 = r3 + 0x383
@@ -27913,7 +27913,7 @@ Initial program counter: 13
       :                          @20
    260: 28 60 19                 jump 6756
       :                          @21
-   263: 03                       unlikely
+   263: 02                       unlikely
    264: 33 0c 0b                 r12 = 0xb
    267: 33 03 00 10 09 0a        r3 = 0xa091000
    273: 83 33 07 f8              i32 r3 = r3 + 0xfffffffffffff807
@@ -27926,7 +27926,7 @@ Initial program counter: 13
       :                          @22
    297: 28 3b 19                 jump 6756
       :                          @23
-   300: 03                       unlikely
+   300: 02                       unlikely
    301: 33 0c 0c                 r12 = 0xc
    304: 33 03 00 40 61 01        r3 = 0x1614000
    310: 83 33 21 01              i32 r3 = r3 + 0x121
@@ -27953,7 +27953,7 @@ Initial program counter: 13
       :                          @26
    376: 28 ec 18                 jump 6756
       :                          @27
-   379: 03                       unlikely
+   379: 02                       unlikely
    380: 33 0c 0e                 r12 = 0xe
    383: 33 03 00 00 86 06        r3 = 0x6860000
    389: 83 33 85 05              i32 r3 = r3 + 0x585
@@ -27980,7 +27980,7 @@ Initial program counter: 13
       :                          @30
    455: 28 9d 18                 jump 6756
       :                          @31
-   458: 03                       unlikely
+   458: 02                       unlikely
    459: 33 0c 10                 r12 = 0x10
    462: 33 03 00 20              r3 = 0x2000
    466: 83 33 1f                 i32 r3 = r3 + 0x1f
@@ -27989,7 +27989,7 @@ Initial program counter: 13
       :                          @32
    475: 28 89 18                 jump 6756
       :                          @33
-   478: 03                       unlikely
+   478: 02                       unlikely
    479: 33 0c 11                 r12 = 0x11
    482: 33 03 00 20              r3 = 0x2000
    486: 83 33 1f                 i32 r3 = r3 + 0x1f
@@ -27998,7 +27998,7 @@ Initial program counter: 13
       :                          @34
    495: 28 75 18                 jump 6756
       :                          @35
-   498: 03                       unlikely
+   498: 02                       unlikely
    499: 33 0c 12                 r12 = 0x12
    502: 33 03 00 20 1f 20        r3 = 0x201f2000
    508: 83 33 1d fe              i32 r3 = r3 + 0xfffffffffffffe1d
@@ -28007,7 +28007,7 @@ Initial program counter: 13
       :                          @36
    518: 28 5e 18                 jump 6756
       :                          @37
-   521: 03                       unlikely
+   521: 02                       unlikely
    522: 33 0c 13                 r12 = 0x13
    525: 33 03 00 20 20 21        r3 = 0x21202000
    531: 83 33 1e ff              i32 r3 = r3 + 0xffffffffffffff1e
@@ -28016,7 +28016,7 @@ Initial program counter: 13
       :                          @38
    541: 28 47 18                 jump 6756
       :                          @39
-   544: 03                       unlikely
+   544: 02                       unlikely
    545: 33 0c 14                 r12 = 0x14
    548: 33 03 00 20 21 22        r3 = 0x22212000
    554: 83 33 1f                 i32 r3 = r3 + 0x1f
@@ -28025,7 +28025,7 @@ Initial program counter: 13
       :                          @40
    563: 28 31 18                 jump 6756
       :                          @41
-   566: 03                       unlikely
+   566: 02                       unlikely
    567: 33 0c 15                 r12 = 0x15
    570: 33 03 00 20 1f 20        r3 = 0x201f2000
    576: 83 33 1d fe              i32 r3 = r3 + 0xfffffffffffffe1d
@@ -28034,7 +28034,7 @@ Initial program counter: 13
       :                          @42
    586: 28 1a 18                 jump 6756
       :                          @43
-   589: 03                       unlikely
+   589: 02                       unlikely
    590: 33 0c 16                 r12 = 0x16
    593: 33 03 00 20 20 21        r3 = 0x21202000
    599: 83 33 1e ff              i32 r3 = r3 + 0xffffffffffffff1e
@@ -28043,7 +28043,7 @@ Initial program counter: 13
       :                          @44
    609: 28 03 18                 jump 6756
       :                          @45
-   612: 03                       unlikely
+   612: 02                       unlikely
    613: 33 0c 17                 r12 = 0x17
    616: 33 03 00 20 21 22        r3 = 0x22212000
    622: 83 33 1f                 i32 r3 = r3 + 0x1f
@@ -28150,7 +28150,7 @@ Initial program counter: 13
       :                          @60
    926: 28 c6 16                 jump 6756
       :                          @61
-   929: 03                       unlikely
+   929: 02                       unlikely
    930: 33 0c 1f                 r12 = 0x1f
    933: 33 03 00 40              r3 = 0x4000
    937: 83 33 3f                 i32 r3 = r3 + 0x3f
@@ -28159,7 +28159,7 @@ Initial program counter: 13
       :                          @62
    946: 28 b2 16                 jump 6756
       :                          @63
-   949: 03                       unlikely
+   949: 02                       unlikely
    950: 33 0c 20                 r12 = 0x20
    953: 33 03 00 40              r3 = 0x4000
    957: 83 33 3f                 i32 r3 = r3 + 0x3f
@@ -28168,7 +28168,7 @@ Initial program counter: 13
       :                          @64
    966: 28 9e 16                 jump 6756
       :                          @65
-   969: 03                       unlikely
+   969: 02                       unlikely
    970: 33 0c 21                 r12 = 0x21
    973: 33 03 00 40 3f 40        r3 = 0x403f4000
    979: 83 33 3d fe              i32 r3 = r3 + 0xfffffffffffffe3d
@@ -28177,7 +28177,7 @@ Initial program counter: 13
       :                          @66
    989: 28 87 16                 jump 6756
       :                          @67
-   992: 03                       unlikely
+   992: 02                       unlikely
    993: 33 0c 22                 r12 = 0x22
    996: 33 03 00 40 40 41        r3 = 0x41404000
   1002: 83 33 3e ff              i32 r3 = r3 + 0xffffffffffffff3e
@@ -28186,7 +28186,7 @@ Initial program counter: 13
       :                          @68
   1012: 28 70 16                 jump 6756
       :                          @69
-  1015: 03                       unlikely
+  1015: 02                       unlikely
   1016: 33 0c 23                 r12 = 0x23
   1019: 33 03 00 40 41 42        r3 = 0x42414000
   1025: 83 33 3f                 i32 r3 = r3 + 0x3f
@@ -28195,7 +28195,7 @@ Initial program counter: 13
       :                          @70
   1034: 28 5a 16                 jump 6756
       :                          @71
-  1037: 03                       unlikely
+  1037: 02                       unlikely
   1038: 33 0c 24                 r12 = 0x24
   1041: 33 03 00 40 3f 40        r3 = 0x403f4000
   1047: 83 33 3d fe              i32 r3 = r3 + 0xfffffffffffffe3d
@@ -28204,7 +28204,7 @@ Initial program counter: 13
       :                          @72
   1057: 28 43 16                 jump 6756
       :                          @73
-  1060: 03                       unlikely
+  1060: 02                       unlikely
   1061: 33 0c 25                 r12 = 0x25
   1064: 33 03 00 40 40 41        r3 = 0x41404000
   1070: 83 33 3e ff              i32 r3 = r3 + 0xffffffffffffff3e
@@ -28213,7 +28213,7 @@ Initial program counter: 13
       :                          @74
   1080: 28 2c 16                 jump 6756
       :                          @75
-  1083: 03                       unlikely
+  1083: 02                       unlikely
   1084: 33 0c 26                 r12 = 0x26
   1087: 33 03 00 40 41 42        r3 = 0x42414000
   1093: 83 33 3f                 i32 r3 = r3 + 0x3f
@@ -28320,7 +28320,7 @@ Initial program counter: 13
       :                          @90
   1397: 28 ef 14                 jump 6756
       :                          @91
-  1400: 03                       unlikely
+  1400: 02                       unlikely
   1401: 33 0c 2e                 r12 = 0x2e
   1404: 33 03 00 80              r3 = 0xffffffffffff8000
   1408: 83 33 80 01              i32 r3 = r3 + 0x180
@@ -28330,7 +28330,7 @@ Initial program counter: 13
       :                          @92
   1421: 28 d7 14                 jump 6756
       :                          @93
-  1424: 03                       unlikely
+  1424: 02                       unlikely
   1425: 33 0c 2f                 r12 = 0x2f
   1428: 33 03 00 80 00           r3 = 0x8000
   1433: 83 33 82 03              i32 r3 = r3 + 0x382
@@ -28340,7 +28340,7 @@ Initial program counter: 13
       :                          @94
   1446: 28 be 14                 jump 6756
       :                          @95
-  1449: 03                       unlikely
+  1449: 02                       unlikely
   1450: 33 0c 30                 r12 = 0x30
   1453: 33 03 00 80 86 87        r3 = 0xffffffff87868000
   1459: 83 33 84 05              i32 r3 = r3 + 0x584
@@ -28350,7 +28350,7 @@ Initial program counter: 13
       :                          @96
   1472: 28 a4 14                 jump 6756
       :                          @97
-  1475: 03                       unlikely
+  1475: 02                       unlikely
   1476: 33 0c 31                 r12 = 0x31
   1479: 33 03 00 90 8a 8b        r3 = 0xffffffff8b8a9000
   1485: 83 33 88 f9              i32 r3 = r3 + 0xfffffffffffff988
@@ -28360,7 +28360,7 @@ Initial program counter: 13
       :                          @98
   1498: 28 8a 14                 jump 6756
       :                          @99
-  1501: 03                       unlikely
+  1501: 02                       unlikely
   1502: 33 0c 32                 r12 = 0x32
   1505: 33 03 00 90 8e 8f        r3 = 0xffffffff8f8e9000
   1511: 83 33 8c fd              i32 r3 = r3 + 0xfffffffffffffd8c
@@ -28508,7 +28508,7 @@ Initial program counter: 13
       :                          @120
   1934: 28 d6 12                 jump 6756
       :                          @121
-  1937: 03                       unlikely
+  1937: 02                       unlikely
   1938: 33 0c 3d                 r12 = 0x3d
   1941: 33 03 00 d0              r3 = 0xffffffffffffd000
   1945: 83 33 d4 05              i32 r3 = r3 + 0x5d4
@@ -28518,7 +28518,7 @@ Initial program counter: 13
       :                          @122
   1958: 28 be 12                 jump 6756
       :                          @123
-  1961: 03                       unlikely
+  1961: 02                       unlikely
   1962: 33 0c 3e                 r12 = 0x3e
   1965: 33 03 00 d0 00           r3 = 0xd000
   1970: 83 33 d6 07              i32 r3 = r3 + 0x7d6
@@ -28528,7 +28528,7 @@ Initial program counter: 13
       :                          @124
   1983: 28 a5 12                 jump 6756
       :                          @125
-  1986: 03                       unlikely
+  1986: 02                       unlikely
   1987: 33 0c 3f                 r12 = 0x3f
   1990: 33 03 00 e0 da db        r3 = 0xffffffffdbdae000
   1996: 83 33 d8 f9              i32 r3 = r3 + 0xfffffffffffff9d8
@@ -28538,7 +28538,7 @@ Initial program counter: 13
       :                          @126
   2009: 28 8b 12                 jump 6756
       :                          @127
-  2012: 03                       unlikely
+  2012: 02                       unlikely
   2013: 33 0c 40                 r12 = 0x40
   2016: 33 03 00 e0 de df        r3 = 0xffffffffdfdee000
   2022: 83 33 dc fd              i32 r3 = r3 + 0xfffffffffffffddc
@@ -28548,7 +28548,7 @@ Initial program counter: 13
       :                          @128
   2035: 28 71 12                 jump 6756
       :                          @129
-  2038: 03                       unlikely
+  2038: 02                       unlikely
   2039: 33 0c 41                 r12 = 0x41
   2042: 33 03 00 e0 e2 e3        r3 = 0xffffffffe3e2e000
   2048: 83 33 e0 01              i32 r3 = r3 + 0x1e0
@@ -28606,7 +28606,7 @@ Initial program counter: 13
       :                          @138
   2199: 28 cd 11                 jump 6756
       :                          @139
-  2202: 03                       unlikely
+  2202: 02                       unlikely
   2203: 33 0c 46                 r12 = 0x46
   2206: 33 03 00 00 ff           r3 = 0xffffffffffff0000
   2211: 83 33 fd fd              i32 r3 = r3 + 0xfffffffffffffdfd
@@ -28620,7 +28620,7 @@ Initial program counter: 13
       :                          @140
   2238: 28 a6 11                 jump 6756
       :                          @141
-  2241: 03                       unlikely
+  2241: 02                       unlikely
   2242: 33 0c 47                 r12 = 0x47
   2245: 33 03 00 80 c1 01        r3 = 0x1c18000
   2251: 83 33 41 01              i32 r3 = r3 + 0x141
@@ -28694,7 +28694,7 @@ Initial program counter: 13
       :                          @150
   2461: 28 c7 10                 jump 6756
       :                          @151
-  2464: 03                       unlikely
+  2464: 02                       unlikely
   2465: 33 0c 4c                 r12 = 0x4c
   2468: 33 03 00 30              r3 = 0x3000
   2472: 83 33 34 05              i32 r3 = r3 + 0x534
@@ -28704,7 +28704,7 @@ Initial program counter: 13
       :                          @152
   2485: 28 af 10                 jump 6756
       :                          @153
-  2488: 03                       unlikely
+  2488: 02                       unlikely
   2489: 33 0c 4d                 r12 = 0x4d
   2492: 33 03 00 30              r3 = 0x3000
   2496: 83 33 36 07              i32 r3 = r3 + 0x736
@@ -28714,7 +28714,7 @@ Initial program counter: 13
       :                          @154
   2509: 28 97 10                 jump 6756
       :                          @155
-  2512: 03                       unlikely
+  2512: 02                       unlikely
   2513: 33 0c 4e                 r12 = 0x4e
   2516: 33 03 00 40 3a 3b        r3 = 0x3b3a4000
   2522: 83 33 38 f9              i32 r3 = r3 + 0xfffffffffffff938
@@ -28724,7 +28724,7 @@ Initial program counter: 13
       :                          @156
   2535: 28 7d 10                 jump 6756
       :                          @157
-  2538: 03                       unlikely
+  2538: 02                       unlikely
   2539: 33 0c 4f                 r12 = 0x4f
   2542: 33 03 00 40 3e 3f        r3 = 0x3f3e4000
   2548: 83 33 3c fd              i32 r3 = r3 + 0xfffffffffffffd3c
@@ -28734,7 +28734,7 @@ Initial program counter: 13
       :                          @158
   2561: 28 63 10                 jump 6756
       :                          @159
-  2564: 03                       unlikely
+  2564: 02                       unlikely
   2565: 33 0c 50                 r12 = 0x50
   2568: 33 03 00 40 42 43        r3 = 0x43424000
   2574: 83 33 40 01              i32 r3 = r3 + 0x140
@@ -28744,7 +28744,7 @@ Initial program counter: 13
       :                          @160
   2587: 28 49 10                 jump 6756
       :                          @161
-  2590: 03                       unlikely
+  2590: 02                       unlikely
   2591: 33 0c 51                 r12 = 0x51
   2594: 33 03 00 40 46 47        r3 = 0x47464000
   2600: 83 33 44 05              i32 r3 = r3 + 0x544
@@ -28754,7 +28754,7 @@ Initial program counter: 13
       :                          @162
   2613: 28 2f 10                 jump 6756
       :                          @163
-  2616: 03                       unlikely
+  2616: 02                       unlikely
   2617: 33 0c 52                 r12 = 0x52
   2620: 33 03 00 50 4a 4b        r3 = 0x4b4a5000
   2626: 83 33 48 f9              i32 r3 = r3 + 0xfffffffffffff948
@@ -28764,7 +28764,7 @@ Initial program counter: 13
       :                          @164
   2639: 28 15 10                 jump 6756
       :                          @165
-  2642: 03                       unlikely
+  2642: 02                       unlikely
   2643: 33 0c 53                 r12 = 0x53
   2646: 33 03 00 50 4e 4f        r3 = 0x4f4e5000
   2652: 83 33 4c fd              i32 r3 = r3 + 0xfffffffffffffd4c
@@ -28905,7 +28905,7 @@ Initial program counter: 13
   3076: 7c 5a 02                 r10 = u8 [r5 + 0x2]
   3079: ab a4 5d 0e              jump 6756 if r4 != r10
       :                          @182
-  3083: 03                       unlikely
+  3083: 02                       unlikely
   3084: 33 0c 5f                 r12 = 0x5f
   3087: 33 03 00 20 05           r3 = 0x52000
   3092: 83 33 15 fd              i32 r3 = r3 + 0xfffffffffffffd15
@@ -28916,7 +28916,7 @@ Initial program counter: 13
   3109: 7d 5a 01                 r10 = i8 [r5 + 0x1]
   3112: ab a4 3c 0e              jump 6756 if r4 != r10
       :                          @183
-  3116: 03                       unlikely
+  3116: 02                       unlikely
   3117: 33 0c 60                 r12 = 0x60
   3120: 33 03 00 40 05           r3 = 0x54000
   3125: 83 33 35 fd              i32 r3 = r3 + 0xfffffffffffffd35
@@ -28949,7 +28949,7 @@ Initial program counter: 13
   3217: 7e 5a 05                 r10 = u16 [r5 + 0x5]
   3220: ab a4 d0 0d              jump 6756 if r4 != r10
       :                          @186
-  3224: 03                       unlikely
+  3224: 02                       unlikely
   3225: 33 0c 63                 r12 = 0x63
   3228: 33 03 00 e0 de fe        r3 = 0xfffffffffedee000
   3234: 83 33 d7 fa              i32 r3 = r3 + 0xfffffffffffffad7
@@ -28964,7 +28964,7 @@ Initial program counter: 13
   3265: 7d 5a 07                 r10 = i8 [r5 + 0x7]
   3268: ab a4 a0 0d              jump 6756 if r4 != r10
       :                          @187
-  3272: 03                       unlikely
+  3272: 02                       unlikely
   3273: 33 0c 64                 r12 = 0x64
   3276: 33 03 00 00 ff fe        r3 = 0xfffffffffeff0000
   3282: 83 33 f7 fa              i32 r3 = r3 + 0xfffffffffffffaf7
@@ -29039,7 +29039,7 @@ Initial program counter: 13
   3527: 81 5a 08                 r10 = i32 [r5 + 0x8]
   3530: ab a4 9a 0c              jump 6756 if r4 != r10
       :                          @192
-  3534: 03                       unlikely
+  3534: 02                       unlikely
   3535: 33 0c 69                 r12 = 0x69
   3538: 33 03 00 f0 f3           r3 = 0xfffffffffff3f000
   3543: 83 33 73 03              i32 r3 = r3 + 0x373
@@ -29089,7 +29089,7 @@ Initial program counter: 13
   3688: 7c 5a 20                 r10 = u8 [r5 + 0x20]
   3691: ab a4 f9 0b              jump 6756 if r4 != r10
       :                          @197
-  3695: 03                       unlikely
+  3695: 02                       unlikely
   3696: 33 0c 6e                 r12 = 0x6e
   3699: 33 03 00 40 0f           r3 = 0xf4000
   3704: 83 33 2f ff              i32 r3 = r3 + 0xffffffffffffff2f
@@ -29100,7 +29100,7 @@ Initial program counter: 13
   3721: 7d 5a 1d                 r10 = i8 [r5 + 0x1d]
   3724: ab a4 d8 0b              jump 6756 if r4 != r10
       :                          @198
-  3728: 03                       unlikely
+  3728: 02                       unlikely
   3729: 33 0c 6f                 r12 = 0x6f
   3732: 33 03 00 80 0f           r3 = 0xf8000
   3737: 83 33 6f ff              i32 r3 = r3 + 0xffffffffffffff6f
@@ -29111,7 +29111,7 @@ Initial program counter: 13
   3755: 7c 5a 20                 r10 = u8 [r5 + 0x20]
   3758: ab a4 b6 0b              jump 6756 if r4 != r10
       :                          @199
-  3762: 03                       unlikely
+  3762: 02                       unlikely
   3763: 33 0c 70                 r12 = 0x70
   3766: 33 03 00 00 01           r3 = 0x10000
   3771: 83 33 fb fb              i32 r3 = r3 + 0xfffffffffffffbfb
@@ -29145,7 +29145,7 @@ Initial program counter: 13
   3866: 7d 5a 20                 r10 = i8 [r5 + 0x20]
   3869: ab a4 47 0b              jump 6756 if r4 != r10
       :                          @202
-  3873: 03                       unlikely
+  3873: 02                       unlikely
   3874: 33 0c 73                 r12 = 0x73
   3877: 33 03 00 e0 f0 00        r3 = 0xf0e000
   3883: 83 33 d1 00              i32 r3 = r3 + 0xd1
@@ -29283,7 +29283,7 @@ Initial program counter: 13
   4327: 7c 5a 40                 r10 = u8 [r5 + 0x40]
   4330: ab a4 7a 09              jump 6756 if r4 != r10
       :                          @214
-  4334: 03                       unlikely
+  4334: 02                       unlikely
   4335: 33 0c 7f                 r12 = 0x7f
   4338: 33 03 00 60 5a 5b        r3 = 0x5b5a6000
   4344: 83 33 58 f9              i32 r3 = r3 + 0xfffffffffffff958
@@ -29293,7 +29293,7 @@ Initial program counter: 13
   4359: 7f 5a 3f                 r10 = i16 [r5 + 0x3f]
   4362: ab a4 5a 09              jump 6756 if r4 != r10
       :                          @215
-  4366: 03                       unlikely
+  4366: 02                       unlikely
   4367: 33 0c 80 00              r12 = 0x80
   4371: 33 03 00 60 5e 5f        r3 = 0x5f5e6000
   4377: 83 33 5c fd              i32 r3 = r3 + 0xfffffffffffffd5c
@@ -29303,7 +29303,7 @@ Initial program counter: 13
   4392: 7e 5a 3f                 r10 = u16 [r5 + 0x3f]
   4395: ab a4 39 09              jump 6756 if r4 != r10
       :                          @216
-  4399: 03                       unlikely
+  4399: 02                       unlikely
   4400: 33 0c 81 00              r12 = 0x81
   4404: 33 03 00 d0 ce 00        r3 = 0xced000
   4410: 83 33 cb fc              i32 r3 = r3 + 0xfffffffffffffccb
@@ -29318,7 +29318,7 @@ Initial program counter: 13
   4441: 7d 5a 40                 r10 = i8 [r5 + 0x40]
   4444: ab a4 08 09              jump 6756 if r4 != r10
       :                          @217
-  4448: 03                       unlikely
+  4448: 02                       unlikely
   4449: 33 0c 82 00              r12 = 0x82
   4453: 33 03 00 e0 f6 06        r3 = 0x6f6e000
   4459: 83 33 d7 06              i32 r3 = r3 + 0x6d7
@@ -29393,7 +29393,7 @@ Initial program counter: 13
   4705: 81 5a 3e                 r10 = i32 [r5 + 0x3e]
   4708: ab a4 00 08              jump 6756 if r4 != r10
       :                          @222
-  4712: 03                       unlikely
+  4712: 02                       unlikely
   4713: 33 0c 87 00              r12 = 0x87
   4717: 33 03 00 30 2f ff        r3 = 0xffffffffff2f3000
   4723: 83 33 2b fd              i32 r3 = r3 + 0xfffffffffffffd2b
@@ -29411,7 +29411,7 @@ Initial program counter: 13
   4767: 80 5a 3f                 r10 = u32 [r5 + 0x3f]
   4770: ab a4 c2 07              jump 6756 if r4 != r10
       :                          @223
-  4774: 03                       unlikely
+  4774: 02                       unlikely
   4775: 33 0c 88 00              r12 = 0x88
   4779: 33 03 98 00              r3 = 0x98
   4783: 33 04 00 c0              r4 = 0xffffffffffffc000
@@ -29420,7 +29420,7 @@ Initial program counter: 13
   4794: 7f 5a 01                 r10 = i16 [r5 + 0x1]
   4797: ab a4 a7 07              jump 6756 if r4 != r10
       :                          @224
-  4801: 03                       unlikely
+  4801: 02                       unlikely
   4802: 33 0c 89 00              r12 = 0x89
   4806: 33 03 99 00              r3 = 0x99
   4810: 33 04 00 a0 00           r4 = 0xa000
@@ -29429,7 +29429,7 @@ Initial program counter: 13
   4822: 7e 5a 01                 r10 = u16 [r5 + 0x1]
   4825: ab a4 8b 07              jump 6756 if r4 != r10
       :                          @225
-  4829: 03                       unlikely
+  4829: 02                       unlikely
   4830: 33 0c 8a 00              r12 = 0x8a
   4834: 33 03 00 a0 00           r3 = 0xa000
   4839: 83 33 9a fb              i32 r3 = r3 + 0xfffffffffffffb9a
@@ -29439,7 +29439,7 @@ Initial program counter: 13
   4856: 81 5a 01                 r10 = i32 [r5 + 0x1]
   4859: ab a4 69 07              jump 6756 if r4 != r10
       :                          @226
-  4863: 03                       unlikely
+  4863: 02                       unlikely
   4864: 33 0c 8b 00              r12 = 0x8b
   4868: 33 03 00 a0 00           r3 = 0xa000
   4873: 83 33 9c fd              i32 r3 = r3 + 0xfffffffffffffd9c
@@ -29449,7 +29449,7 @@ Initial program counter: 13
   4890: 81 5a 02                 r10 = i32 [r5 + 0x2]
   4893: ab a4 47 07              jump 6756 if r4 != r10
       :                          @227
-  4897: 03                       unlikely
+  4897: 02                       unlikely
   4898: 33 0c 8c 00              r12 = 0x8c
   4902: 33 03 00 a0 00           r3 = 0xa000
   4907: 83 33 9e                 i32 r3 = r3 + 0xffffffffffffff9e
@@ -29459,7 +29459,7 @@ Initial program counter: 13
   4923: 81 5a 03                 r10 = i32 [r5 + 0x3]
   4926: ab a4 26 07              jump 6756 if r4 != r10
       :                          @228
-  4930: 03                       unlikely
+  4930: 02                       unlikely
   4931: 33 0c 8d 00              r12 = 0x8d
   4935: 33 03 a0 00              r3 = 0xa0
   4939: 33 04 00 f0 04           r4 = 0x4f000
@@ -29492,7 +29492,7 @@ Initial program counter: 13
   5036: 80 5a 03                 r10 = u32 [r5 + 0x3]
   5039: ab a4 b5 06              jump 6756 if r4 != r10
       :                          @231
-  5043: 03                       unlikely
+  5043: 02                       unlikely
   5044: 33 0c 90 00              r12 = 0x90
   5048: 33 03 a5 00              r3 = 0xa5
   5052: 33 04 00 00 0f ff        r4 = 0xffffffffff0f0000
@@ -29537,7 +29537,7 @@ Initial program counter: 13
   5193: 82 5a 03                 r10 = u64 [r5 + 0x3]
   5196: ab a4 18 06              jump 6756 if r4 != r10
       :                          @234
-  5200: 03                       unlikely
+  5200: 02                       unlikely
   5201: 33 0c 93 00              r12 = 0x93
   5205: 33 03 00 e0 0a           r3 = 0xae000
   5210: 83 33 cb fa              i32 r3 = r3 + 0xfffffffffffffacb
@@ -29555,7 +29555,7 @@ Initial program counter: 13
   5255: 82 5a 04                 r10 = u64 [r5 + 0x4]
   5258: ab a4 da 05              jump 6756 if r4 != r10
       :                          @235
-  5262: 03                       unlikely
+  5262: 02                       unlikely
   5263: 33 0c 94 00              r12 = 0x94
   5267: 33 03 00 20 0b           r3 = 0xb2000
   5272: 83 33 0b fb              i32 r3 = r3 + 0xfffffffffffffb0b
@@ -29573,7 +29573,7 @@ Initial program counter: 13
   5315: 82 5a 05                 r10 = u64 [r5 + 0x5]
   5318: ab a4 9e 05              jump 6756 if r4 != r10
       :                          @236
-  5322: 03                       unlikely
+  5322: 02                       unlikely
   5323: 33 0c 95 00              r12 = 0x95
   5327: 33 03 00 60 0b           r3 = 0xb6000
   5332: 83 33 4b fb              i32 r3 = r3 + 0xfffffffffffffb4b
@@ -29591,7 +29591,7 @@ Initial program counter: 13
   5377: 82 5a 06                 r10 = u64 [r5 + 0x6]
   5380: ab a4 60 05              jump 6756 if r4 != r10
       :                          @237
-  5384: 03                       unlikely
+  5384: 02                       unlikely
   5385: 33 0c 96 00              r12 = 0x96
   5389: 33 03 00 a0 0b           r3 = 0xba000
   5394: 83 33 8b fb              i32 r3 = r3 + 0xfffffffffffffb8b
@@ -29609,7 +29609,7 @@ Initial program counter: 13
   5438: 82 5a 07                 r10 = u64 [r5 + 0x7]
   5441: ab a4 23 05              jump 6756 if r4 != r10
       :                          @238
-  5445: 03                       unlikely
+  5445: 02                       unlikely
   5446: 33 0c 97 00              r12 = 0x97
   5450: 33 03 ba 00              r3 = 0xba
   5454: 33 04 00 30              r4 = 0x3000
@@ -29618,7 +29618,7 @@ Initial program counter: 13
   5465: 7f 5a 1f                 r10 = i16 [r5 + 0x1f]
   5468: ab a4 08 05              jump 6756 if r4 != r10
       :                          @239
-  5472: 03                       unlikely
+  5472: 02                       unlikely
   5473: 33 0c 98 00              r12 = 0x98
   5477: 33 03 bb 00              r3 = 0xbb
   5481: 33 04 00 c0 00           r4 = 0xc000
@@ -29627,7 +29627,7 @@ Initial program counter: 13
   5493: 7e 5a 1f                 r10 = u16 [r5 + 0x1f]
   5496: ab a4 ec 04              jump 6756 if r4 != r10
       :                          @240
-  5500: 03                       unlikely
+  5500: 02                       unlikely
   5501: 33 0c 99 00              r12 = 0x99
   5505: 33 03 00 c0 00           r3 = 0xc000
   5510: 83 33 bc fd              i32 r3 = r3 + 0xfffffffffffffdbc
@@ -29637,7 +29637,7 @@ Initial program counter: 13
   5527: 81 5a 1e                 r10 = i32 [r5 + 0x1e]
   5530: ab a4 ca 04              jump 6756 if r4 != r10
       :                          @241
-  5534: 03                       unlikely
+  5534: 02                       unlikely
   5535: 33 0c 9a 00              r12 = 0x9a
   5539: 33 03 00 c0 00           r3 = 0xc000
   5544: 83 33 be                 i32 r3 = r3 + 0xffffffffffffffbe
@@ -29647,7 +29647,7 @@ Initial program counter: 13
   5560: 81 5a 1e                 r10 = i32 [r5 + 0x1e]
   5563: ab a4 a9 04              jump 6756 if r4 != r10
       :                          @242
-  5567: 03                       unlikely
+  5567: 02                       unlikely
   5568: 33 0c 9b 00              r12 = 0x9b
   5572: 33 03 00 c0 00           r3 = 0xc000
   5577: 83 33 c0 01              i32 r3 = r3 + 0x1c0
@@ -29657,7 +29657,7 @@ Initial program counter: 13
   5594: 81 5a 1e                 r10 = i32 [r5 + 0x1e]
   5597: ab a4 87 04              jump 6756 if r4 != r10
       :                          @243
-  5601: 03                       unlikely
+  5601: 02                       unlikely
   5602: 33 0c 9c 00              r12 = 0x9c
   5606: 33 03 c2 00              r3 = 0xc2
   5610: 33 04 00 c0 c1 33        r4 = 0x33c1c000
@@ -29688,7 +29688,7 @@ Initial program counter: 13
   5701: 80 5a 1e                 r10 = u32 [r5 + 0x1e]
   5704: ab a4 1c 04              jump 6756 if r4 != r10
       :                          @246
-  5708: 03                       unlikely
+  5708: 02                       unlikely
   5709: 33 0c 9f 00              r12 = 0x9f
   5713: 33 03 c7 00              r3 = 0xc7
   5717: 33 04 00 f0 f1           r4 = 0xfffffffffff1f000
@@ -29733,7 +29733,7 @@ Initial program counter: 13
   5856: 82 5a 1b                 r10 = u64 [r5 + 0x1b]
   5859: ab a4 81 03              jump 6756 if r4 != r10
       :                          @249
-  5863: 03                       unlikely
+  5863: 02                       unlikely
   5864: 33 0c a2 00              r12 = 0xa2
   5868: 33 03 00 00 0d           r3 = 0xd0000
   5873: 83 33 ed fc              i32 r3 = r3 + 0xfffffffffffffced
@@ -29751,7 +29751,7 @@ Initial program counter: 13
   5917: 82 5a 1c                 r10 = u64 [r5 + 0x1c]
   5920: ab a4 44 03              jump 6756 if r4 != r10
       :                          @250
-  5924: 03                       unlikely
+  5924: 02                       unlikely
   5925: 33 0c a3 00              r12 = 0xa3
   5929: 33 03 00 40 0d           r3 = 0xd4000
   5934: 83 33 2d fd              i32 r3 = r3 + 0xfffffffffffffd2d
@@ -29769,7 +29769,7 @@ Initial program counter: 13
   5978: 82 5a 1d                 r10 = u64 [r5 + 0x1d]
   5981: ab a4 07 03              jump 6756 if r4 != r10
       :                          @251
-  5985: 03                       unlikely
+  5985: 02                       unlikely
   5986: 33 0c a4 00              r12 = 0xa4
   5990: 33 03 00 80 0d           r3 = 0xd8000
   5995: 83 33 6d fd              i32 r3 = r3 + 0xfffffffffffffd6d
@@ -29787,7 +29787,7 @@ Initial program counter: 13
   6039: 82 5a 1e                 r10 = u64 [r5 + 0x1e]
   6042: ab a4 ca 02              jump 6756 if r4 != r10
       :                          @252
-  6046: 03                       unlikely
+  6046: 02                       unlikely
   6047: 33 0c a5 00              r12 = 0xa5
   6051: 33 03 00 e0 06           r3 = 0x6e000
   6056: 83 33 d7 fe              i32 r3 = r3 + 0xfffffffffffffed7
@@ -29805,7 +29805,7 @@ Initial program counter: 13
   6101: 82 5a 1f                 r10 = u64 [r5 + 0x1f]
   6104: ab a4 8c 02              jump 6756 if r4 != r10
       :                          @253
-  6108: 03                       unlikely
+  6108: 02                       unlikely
   6109: 33 0c a6 00              r12 = 0xa6
   6113: 33 03 dc 00              r3 = 0xdc
   6117: 33 04 00 90              r4 = 0xffffffffffff9000
@@ -29814,7 +29814,7 @@ Initial program counter: 13
   6128: 7f 5a 3f                 r10 = i16 [r5 + 0x3f]
   6131: ab a4 71 02              jump 6756 if r4 != r10
       :                          @254
-  6135: 03                       unlikely
+  6135: 02                       unlikely
   6136: 33 0c a7 00              r12 = 0xa7
   6140: 33 03 dd 00              r3 = 0xdd
   6144: 33 04 00 e0 00           r4 = 0xe000
@@ -29823,7 +29823,7 @@ Initial program counter: 13
   6156: 7e 5a 3f                 r10 = u16 [r5 + 0x3f]
   6159: ab a4 55 02              jump 6756 if r4 != r10
       :                          @255
-  6163: 03                       unlikely
+  6163: 02                       unlikely
   6164: 33 0c a8 00              r12 = 0xa8
   6168: 33 03 00 e0 00           r3 = 0xe000
   6173: 83 33 de                 i32 r3 = r3 + 0xffffffffffffffde
@@ -29833,7 +29833,7 @@ Initial program counter: 13
   6188: 81 5a 3e                 r10 = i32 [r5 + 0x3e]
   6191: ab a4 35 02              jump 6756 if r4 != r10
       :                          @256
-  6195: 03                       unlikely
+  6195: 02                       unlikely
   6196: 33 0c a9 00              r12 = 0xa9
   6200: 33 03 00 e0 00           r3 = 0xe000
   6205: 83 33 e0 01              i32 r3 = r3 + 0x1e0
@@ -29843,7 +29843,7 @@ Initial program counter: 13
   6222: 81 5a 3e                 r10 = i32 [r5 + 0x3e]
   6225: ab a4 13 02              jump 6756 if r4 != r10
       :                          @257
-  6229: 03                       unlikely
+  6229: 02                       unlikely
   6230: 33 0c aa 00              r12 = 0xaa
   6234: 33 03 00 e0 00           r3 = 0xe000
   6239: 83 33 e2 03              i32 r3 = r3 + 0x3e2
@@ -29853,7 +29853,7 @@ Initial program counter: 13
   6256: 81 5a 3e                 r10 = i32 [r5 + 0x3e]
   6259: ab a4 f1 01              jump 6756 if r4 != r10
       :                          @258
-  6263: 03                       unlikely
+  6263: 02                       unlikely
   6264: 33 0c ab 00              r12 = 0xab
   6268: 33 03 e4 00              r3 = 0xe4
   6272: 33 04 00 a0 04           r4 = 0x4a000
@@ -29886,7 +29886,7 @@ Initial program counter: 13
   6369: 80 5a 3e                 r10 = u32 [r5 + 0x3e]
   6372: ab a4 80 01              jump 6756 if r4 != r10
       :                          @261
-  6376: 03                       unlikely
+  6376: 02                       unlikely
   6377: 33 0c ae 00              r12 = 0xae
   6381: 33 03 e9 00              r3 = 0xe9
   6385: 33 04 00 d0 d3           r4 = 0xffffffffffd3d000
@@ -29901,7 +29901,7 @@ Initial program counter: 13
   6417: 82 5a 39                 r10 = u64 [r5 + 0x39]
   6420: ab a4 50 01              jump 6756 if r4 != r10
       :                          @262
-  6424: 03                       unlikely
+  6424: 02                       unlikely
   6425: 33 0c af 00              r12 = 0xaf
   6429: 33 03 00 f0 00           r3 = 0xf000
   6434: 83 33 ea fb              i32 r3 = r3 + 0xfffffffffffffbea
@@ -29930,7 +29930,7 @@ Initial program counter: 13
   6517: 82 5a 3b                 r10 = u64 [r5 + 0x3b]
   6520: ab a4 ec 00              jump 6756 if r4 != r10
       :                          @264
-  6524: 03                       unlikely
+  6524: 02                       unlikely
   6525: 33 0c b1 00              r12 = 0xb1
   6529: 33 03 00 20 0f           r3 = 0xf2000
   6534: 83 33 0f ff              i32 r3 = r3 + 0xffffffffffffff0f
@@ -29948,7 +29948,7 @@ Initial program counter: 13
   6576: 82 5a 3c                 r10 = u64 [r5 + 0x3c]
   6579: ab a4 b1 00              jump 6756 if r4 != r10
       :                          @265
-  6583: 03                       unlikely
+  6583: 02                       unlikely
   6584: 33 0c b2 00              r12 = 0xb2
   6588: 33 03 00 60 0f           r3 = 0xf6000
   6593: 83 33 4f ff              i32 r3 = r3 + 0xffffffffffffff4f
@@ -29966,7 +29966,7 @@ Initial program counter: 13
   6636: 82 5a 3d                 r10 = u64 [r5 + 0x3d]
   6639: ab a4 75                 jump 6756 if r4 != r10
       :                          @266
-  6642: 03                       unlikely
+  6642: 02                       unlikely
   6643: 33 0c b3 00              r12 = 0xb3
   6647: 33 03 00 a0 0f           r3 = 0xfa000
   6652: 83 33 8f                 i32 r3 = r3 + 0xffffffffffffff8f
@@ -34941,7 +34941,7 @@ Initial program counter: 13
     38: 33 04 aa                 r4 = 0xffffffffffffffaa
     41: ab 4b 07 03              jump 816 if r11 != r4
       :                          @4
-    45: 03                       unlikely
+    45: 02                       unlikely
     46: 33 05 03                 r5 = 0x3
     49: 3a 01 00 00 01           r1 = u64 [0x10000]
     54: 33 00                    r0 = 0
@@ -34956,7 +34956,7 @@ Initial program counter: 13
     72: 33 04                    r4 = 0
     74: ab 4b e6 02              jump 816 if r11 != r4
       :                          @7
-    78: 03                       unlikely
+    78: 02                       unlikely
     79: 33 05 04                 r5 = 0x4
     82: 3a 01 00 00 01           r1 = u64 [0x10000]
     87: 33 00 00 f0              r0 = 0xfffffffffffff000
@@ -34973,7 +34973,7 @@ Initial program counter: 13
    114: 83 44 a0                 i32 r4 = r4 + 0xffffffffffffffa0
    117: ab 4b bb 02              jump 816 if r11 != r4
       :                          @10
-   121: 03                       unlikely
+   121: 02                       unlikely
    122: 33 05 05                 r5 = 0x5
    125: 3a 01 00 00 01           r1 = u64 [0x10000]
    130: 33 00 0a                 r0 = 0xa
@@ -34988,7 +34988,7 @@ Initial program counter: 13
    149: 33 04 0a                 r4 = 0xa
    152: ab 4b 98 02              jump 816 if r11 != r4
       :                          @13
-   156: 03                       unlikely
+   156: 02                       unlikely
    157: 33 05 06                 r5 = 0x6
    160: 3a 01 28 00 01           r1 = u64 [0x10028]
    165: 33 00 aa                 r0 = 0xffffffffffffffaa
@@ -35003,7 +35003,7 @@ Initial program counter: 13
    184: 33 04 aa                 r4 = 0xffffffffffffffaa
    187: ab 4b 75 02              jump 816 if r11 != r4
       :                          @16
-   191: 03                       unlikely
+   191: 02                       unlikely
    192: 33 05 07                 r5 = 0x7
    195: 3a 01 28 00 01           r1 = u64 [0x10028]
    200: 33 00                    r0 = 0
@@ -35018,7 +35018,7 @@ Initial program counter: 13
    218: 33 04                    r4 = 0
    220: ab 4b 54 02              jump 816 if r11 != r4
       :                          @19
-   224: 03                       unlikely
+   224: 02                       unlikely
    225: 33 05 08                 r5 = 0x8
    228: 3a 01 28 00 01           r1 = u64 [0x10028]
    233: 33 00 a0                 r0 = 0xffffffffffffffa0
@@ -35033,7 +35033,7 @@ Initial program counter: 13
    252: 33 04 a0                 r4 = 0xffffffffffffffa0
    255: ab 4b 31 02              jump 816 if r11 != r4
       :                          @22
-   259: 03                       unlikely
+   259: 02                       unlikely
    260: 33 05 09                 r5 = 0x9
    263: 3a 01 28 00 01           r1 = u64 [0x10028]
    268: 33 00 0a                 r0 = 0xa
@@ -35048,7 +35048,7 @@ Initial program counter: 13
    285: 33 04 0a                 r4 = 0xa
    288: ab 4b 10 02              jump 816 if r11 != r4
       :                          @25
-   292: 03                       unlikely
+   292: 02                       unlikely
    293: 33 05 0a                 r5 = 0xa
    296: 3a 00 50 00 01           r0 = u64 [0x10050]
    301: 33 01 00 50 34 12        r1 = 0x12345000
@@ -35059,7 +35059,7 @@ Initial program counter: 13
    319: 33 04 78                 r4 = 0x78
    322: ab 42 ee 01              jump 816 if r2 != r4
       :                          @26
-   326: 03                       unlikely
+   326: 02                       unlikely
    327: 33 05 0b                 r5 = 0xb
    330: 3a 00 50 00 01           r0 = u64 [0x10050]
    335: 33 01 00 30              r1 = 0x3000
@@ -35075,7 +35075,7 @@ Initial program counter: 13
    366: 33 03                    r3 = 0
    368: 01                       fallthrough
       :                          @28
-   369: 03                       unlikely
+   369: 02                       unlikely
    370: 33 0a dd                 r10 = 0xffffffffffffffdd
    373: 3a 09 00 00 01           r9 = u64 [0x10000]
    378: 78 9a                    u8 [r9 + 0] = a3
@@ -35091,7 +35091,7 @@ Initial program counter: 13
    401: 33 03                    r3 = 0
    403: 01                       fallthrough
       :                          @31
-   404: 03                       unlikely
+   404: 02                       unlikely
    405: 33 0a cd                 r10 = 0xffffffffffffffcd
    408: 3a 09 00 00 01           r9 = u64 [0x10000]
    413: 78 9a 01                 u8 [r9 + 0x1] = a3
@@ -35107,7 +35107,7 @@ Initial program counter: 13
    438: 33 03                    r3 = 0
    440: 01                       fallthrough
       :                          @34
-   441: 03                       unlikely
+   441: 02                       unlikely
    442: 33 0a cc                 r10 = 0xffffffffffffffcc
    445: 3a 09 00 00 01           r9 = u64 [0x10000]
    450: 78 9a 02                 u8 [r9 + 0x2] = a3
@@ -35123,7 +35123,7 @@ Initial program counter: 13
    475: 33 03                    r3 = 0
    477: 01                       fallthrough
       :                          @37
-   478: 03                       unlikely
+   478: 02                       unlikely
    479: 33 0a bc                 r10 = 0xffffffffffffffbc
    482: 3a 09 00 00 01           r9 = u64 [0x10000]
    487: 78 9a 03                 u8 [r9 + 0x3] = a3
@@ -35139,7 +35139,7 @@ Initial program counter: 13
    512: 33 03                    r3 = 0
    514: 01                       fallthrough
       :                          @40
-   515: 03                       unlikely
+   515: 02                       unlikely
    516: 33 0a bb                 r10 = 0xffffffffffffffbb
    519: 3a 09 00 00 01           r9 = u64 [0x10000]
    524: 78 9a 04                 u8 [r9 + 0x4] = a3
@@ -35155,7 +35155,7 @@ Initial program counter: 13
    549: 33 03                    r3 = 0
    551: 01                       fallthrough
       :                          @43
-   552: 03                       unlikely
+   552: 02                       unlikely
    553: 33 0a ab                 r10 = 0xffffffffffffffab
    556: 3a 09 00 00 01           r9 = u64 [0x10000]
    561: 78 9a 05                 u8 [r9 + 0x5] = a3
@@ -35171,7 +35171,7 @@ Initial program counter: 13
    586: 33 03                    r3 = 0
    588: 01                       fallthrough
       :                          @46
-   589: 03                       unlikely
+   589: 02                       unlikely
    590: 3a 01 00 00 01           r1 = u64 [0x10000]
    595: 33 00 33                 r0 = 0x33
    598: 78 10                    u8 [r1 + 0] = ra
@@ -35187,7 +35187,7 @@ Initial program counter: 13
    621: 33 03                    r3 = 0
    623: 01                       fallthrough
       :                          @49
-   624: 03                       unlikely
+   624: 02                       unlikely
    625: 3a 01 00 00 01           r1 = u64 [0x10000]
    630: 33 00 23                 r0 = 0x23
    633: 78 10 01                 u8 [r1 + 0x1] = ra
@@ -35203,7 +35203,7 @@ Initial program counter: 13
    658: 33 03                    r3 = 0
    660: 01                       fallthrough
       :                          @52
-   661: 03                       unlikely
+   661: 02                       unlikely
    662: 3a 01 00 00 01           r1 = u64 [0x10000]
    667: 33 00 22                 r0 = 0x22
    670: 78 10 02                 u8 [r1 + 0x2] = ra
@@ -35219,7 +35219,7 @@ Initial program counter: 13
    695: 33 03                    r3 = 0
    697: 01                       fallthrough
       :                          @55
-   698: 03                       unlikely
+   698: 02                       unlikely
    699: 3a 01 00 00 01           r1 = u64 [0x10000]
    704: 33 00 12                 r0 = 0x12
    707: 78 10 03                 u8 [r1 + 0x3] = ra
@@ -35235,7 +35235,7 @@ Initial program counter: 13
    731: 33 03                    r3 = 0
    733: 01                       fallthrough
       :                          @58
-   734: 03                       unlikely
+   734: 02                       unlikely
    735: 3a 01 00 00 01           r1 = u64 [0x10000]
    740: 33 00 11                 r0 = 0x11
    743: 78 10 04                 u8 [r1 + 0x4] = ra
@@ -35251,7 +35251,7 @@ Initial program counter: 13
    767: 33 03                    r3 = 0
    769: 01                       fallthrough
       :                          @61
-   770: 03                       unlikely
+   770: 02                       unlikely
    771: 3a 01 00 00 01           r1 = u64 [0x10000]
    776: 33 00 01                 r0 = 0x1
    779: 78 10 05                 u8 [r1 + 0x5] = ra
@@ -35263,7 +35263,7 @@ Initial program counter: 13
    794: 33 02 02                 r2 = 0x2
    797: ab 23 e5                 jump 770 if r3 != r2
       :                          @63
-   800: 03                       unlikely
+   800: 02                       unlikely
    801: 33 07 ef 00              r7 = 0xef
    805: 3a 08 00 00 01           r8 = u64 [0x10000]
    810: 78 87 03                 u8 [r8 + 0x3] = a0
@@ -35985,7 +35985,7 @@ Initial program counter: 13
     73: 95 44 aa 00              r4 = r4 + 0xaa
     77: ab 4b 38 05              jump 1413 if r11 != r4
       :                          @4
-    81: 03                       unlikely
+    81: 02                       unlikely
     82: 33 05 03                 r5 = 0x3
     85: 3a 01 00 00 01           r1 = u64 [0x10000]
     90: 33 00 00 00 d5           r0 = 0xffffffffffd50000
@@ -36014,7 +36014,7 @@ Initial program counter: 13
    156: 95 44 00 fa              r4 = r4 + 0xfffffffffffffa00
    160: ab 4b e5 04              jump 1413 if r11 != r4
       :                          @7
-   164: 03                       unlikely
+   164: 02                       unlikely
    165: 33 05 04                 r5 = 0x4
    168: 3a 01 00 00 01           r1 = u64 [0x10000]
    173: 33 00 00 00 55           r0 = 0x550000
@@ -36043,7 +36043,7 @@ Initial program counter: 13
    241: 95 44 a0 fa              r4 = r4 + 0xfffffffffffffaa0
    245: ab 4b 90 04              jump 1413 if r11 != r4
       :                          @10
-   249: 03                       unlikely
+   249: 02                       unlikely
    250: 33 05 05                 r5 = 0x5
    253: 3a 01 00 00 01           r1 = u64 [0x10000]
    258: 33 00 00 00 fd           r0 = 0xfffffffffffd0000
@@ -36072,7 +36072,7 @@ Initial program counter: 13
    323: 95 44 0a                 r4 = r4 + 0xa
    326: ab 4b 3f 04              jump 1413 if r11 != r4
       :                          @13
-   330: 03                       unlikely
+   330: 02                       unlikely
    331: 33 05 06                 r5 = 0x6
    334: 3a 01 28 00 01           r1 = u64 [0x10028]
    339: 33 00 00 00 55           r0 = 0x550000
@@ -36097,7 +36097,7 @@ Initial program counter: 13
    393: 95 44 aa 00              r4 = r4 + 0xaa
    397: ab 4b f8 03              jump 1413 if r11 != r4
       :                          @16
-   401: 03                       unlikely
+   401: 02                       unlikely
    402: 33 05 07                 r5 = 0x7
    405: 3a 01 28 00 01           r1 = u64 [0x10028]
    410: 33 00 00 00 d5           r0 = 0xffffffffffd50000
@@ -36126,7 +36126,7 @@ Initial program counter: 13
    476: 95 44 00 fa              r4 = r4 + 0xfffffffffffffa00
    480: ab 4b a5 03              jump 1413 if r11 != r4
       :                          @19
-   484: 03                       unlikely
+   484: 02                       unlikely
    485: 33 05 08                 r5 = 0x8
    488: 3a 01 28 00 01           r1 = u64 [0x10028]
    493: 33 00 00 00 55           r0 = 0x550000
@@ -36155,7 +36155,7 @@ Initial program counter: 13
    561: 95 44 a0 fa              r4 = r4 + 0xfffffffffffffaa0
    565: ab 4b 50 03              jump 1413 if r11 != r4
       :                          @22
-   569: 03                       unlikely
+   569: 02                       unlikely
    570: 33 05 09                 r5 = 0x9
    573: 3a 01 28 00 01           r1 = u64 [0x10028]
    578: 33 00 00 00 fd           r0 = 0xfffffffffffd0000
@@ -36184,7 +36184,7 @@ Initial program counter: 13
    641: 95 44 0a                 r4 = r4 + 0xa
    644: ab 4b 01 03              jump 1413 if r11 != r4
       :                          @25
-   648: 03                       unlikely
+   648: 02                       unlikely
    649: 33 05 0a                 r5 = 0xa
    652: 3a 00 50 00 01           r0 = u64 [0x10050]
    657: 33 01 00 70 24           r1 = 0x247000
@@ -36208,7 +36208,7 @@ Initial program counter: 13
    721: 95 44 78 06              r4 = r4 + 0x678
    725: ab 42 b0 02              jump 1413 if r2 != r4
       :                          @26
-   729: 03                       unlikely
+   729: 02                       unlikely
    730: 33 05 0b                 r5 = 0xb
    733: 3a 00 50 00 01           r0 = u64 [0x10050]
    738: 33 01 00 40 b0 00        r1 = 0xb04000
@@ -36339,7 +36339,7 @@ Initial program counter: 13
   1118: 33 07                    r7 = 0
   1120: 01                       fallthrough
       :                          @46
-  1121: 03                       unlikely
+  1121: 02                       unlikely
   1122: 3a 01 00 00 01           r1 = u64 [0x10000]
   1127: 33 00 00 20 11           r0 = 0x112000
   1132: 83 00 33 02              i32 r0 = r0 + 0x233
@@ -36357,7 +36357,7 @@ Initial program counter: 13
   1165: 33 07                    r7 = 0
   1167: 01                       fallthrough
       :                          @49
-  1168: 03                       unlikely
+  1168: 02                       unlikely
   1169: 3a 01 00 00 01           r1 = u64 [0x10000]
   1174: 33 00 00 10 01 30        r0 = 0x30011000
   1180: 83 00 23 02              i32 r0 = r0 + 0x223
@@ -36375,7 +36375,7 @@ Initial program counter: 13
   1216: 33 07                    r7 = 0
   1218: 01                       fallthrough
       :                          @52
-  1219: 03                       unlikely
+  1219: 02                       unlikely
   1220: 3a 01 00 00 01           r1 = u64 [0x10000]
   1225: 33 00 00 10 00 33        r0 = 0x33001000
   1231: 83 00 22 01              i32 r0 = r0 + 0x122
@@ -36393,7 +36393,7 @@ Initial program counter: 13
   1267: 33 07                    r7 = 0
   1269: 01                       fallthrough
       :                          @55
-  1270: 03                       unlikely
+  1270: 02                       unlikely
   1271: 3a 01 00 00 01           r1 = u64 [0x10000]
   1276: 33 00 00 00 30 23        r0 = 0x23300000
   1282: 83 00 12 01              i32 r0 = r0 + 0x112
@@ -36411,7 +36411,7 @@ Initial program counter: 13
   1317: 33 07                    r7 = 0
   1319: 01                       fallthrough
       :                          @58
-  1320: 03                       unlikely
+  1320: 02                       unlikely
   1321: 3a 01 00 00 01           r1 = u64 [0x10000]
   1326: 33 00 00 00 33 22        r0 = 0x22330000
   1332: 83 00 11                 i32 r0 = r0 + 0x11
@@ -36429,7 +36429,7 @@ Initial program counter: 13
   1365: 33 07                    r7 = 0
   1367: 01                       fallthrough
       :                          @61
-  1368: 03                       unlikely
+  1368: 02                       unlikely
   1369: 3a 01 00 00 01           r1 = u64 [0x10000]
   1374: 33 00 00 30 23 12        r0 = 0x12233000
   1380: 83 00 01                 i32 r0 = r0 + 0x1
@@ -37299,7 +37299,7 @@ Initial program counter: 13
     39: 33 04 aa 00              r4 = 0xaa
     43: ab 4b ad 03              jump 984 if r11 != r4
       :                          @4
-    47: 03                       unlikely
+    47: 02                       unlikely
     48: 33 05 03                 r5 = 0x3
     51: 3a 01 00 00 01           r1 = u64 [0x10000]
     56: 33 00 00 b0              r0 = 0xffffffffffffb000
@@ -37316,7 +37316,7 @@ Initial program counter: 13
     84: 83 44 00 fa              i32 r4 = r4 + 0xfffffffffffffa00
     88: ab 4b 80 03              jump 984 if r11 != r4
       :                          @7
-    92: 03                       unlikely
+    92: 02                       unlikely
     93: 33 05 04                 r5 = 0x4
     96: 3a 01 00 00 01           r1 = u64 [0x10000]
    101: 33 00 00 10 ef be        r0 = 0xffffffffbeef1000
@@ -37333,7 +37333,7 @@ Initial program counter: 13
    133: 83 44 a0 fa              i32 r4 = r4 + 0xfffffffffffffaa0
    137: ab 4b 4f 03              jump 984 if r11 != r4
       :                          @10
-   141: 03                       unlikely
+   141: 02                       unlikely
    142: 33 05 05                 r5 = 0x5
    145: 3a 01 00 00 01           r1 = u64 [0x10000]
    150: 33 00 00 a0              r0 = 0xffffffffffffa000
@@ -37350,7 +37350,7 @@ Initial program counter: 13
    177: 83 44 0a                 i32 r4 = r4 + 0xa
    180: ab 4b 24 03              jump 984 if r11 != r4
       :                          @13
-   184: 03                       unlikely
+   184: 02                       unlikely
    185: 33 05 06                 r5 = 0x6
    188: 3a 01 28 00 01           r1 = u64 [0x10028]
    193: 33 00 aa 00              r0 = 0xaa
@@ -37365,7 +37365,7 @@ Initial program counter: 13
    213: 33 04 aa 00              r4 = 0xaa
    217: ab 4b ff 02              jump 984 if r11 != r4
       :                          @16
-   221: 03                       unlikely
+   221: 02                       unlikely
    222: 33 05 07                 r5 = 0x7
    225: 3a 01 28 00 01           r1 = u64 [0x10028]
    230: 33 00 00 b0              r0 = 0xffffffffffffb000
@@ -37382,7 +37382,7 @@ Initial program counter: 13
    258: 83 44 00 fa              i32 r4 = r4 + 0xfffffffffffffa00
    262: ab 4b d2 02              jump 984 if r11 != r4
       :                          @19
-   266: 03                       unlikely
+   266: 02                       unlikely
    267: 33 05 08                 r5 = 0x8
    270: 3a 01 28 00 01           r1 = u64 [0x10028]
    275: 33 00 00 10              r0 = 0x1000
@@ -37399,7 +37399,7 @@ Initial program counter: 13
    303: 83 44 a0 fa              i32 r4 = r4 + 0xfffffffffffffaa0
    307: ab 4b a5 02              jump 984 if r11 != r4
       :                          @22
-   311: 03                       unlikely
+   311: 02                       unlikely
    312: 33 05 09                 r5 = 0x9
    315: 3a 01 28 00 01           r1 = u64 [0x10028]
    320: 33 00 00 a0              r0 = 0xffffffffffffa000
@@ -37416,7 +37416,7 @@ Initial program counter: 13
    345: 83 44 0a                 i32 r4 = r4 + 0xa
    348: ab 4b 7c 02              jump 984 if r11 != r4
       :                          @25
-   352: 03                       unlikely
+   352: 02                       unlikely
    353: 33 05 0a                 r5 = 0xa
    356: 3a 00 50 00 01           r0 = u64 [0x10050]
    361: 33 01 00 50 34 12        r1 = 0x12345000
@@ -37428,7 +37428,7 @@ Initial program counter: 13
    383: 83 44 78 06              i32 r4 = r4 + 0x678
    387: ab 42 55 02              jump 984 if r2 != r4
       :                          @26
-   391: 03                       unlikely
+   391: 02                       unlikely
    392: 33 05 0b                 r5 = 0xb
    395: 3a 00 50 00 01           r0 = u64 [0x10050]
    400: 33 01 00 30              r1 = 0x3000
@@ -37547,7 +37547,7 @@ Initial program counter: 13
    710: 33 03                    r3 = 0
    712: 01                       fallthrough
       :                          @46
-   713: 03                       unlikely
+   713: 02                       unlikely
    714: 3a 01 00 00 01           r1 = u64 [0x10000]
    719: 33 00 00 20              r0 = 0x2000
    723: 83 00 33 02              i32 r0 = r0 + 0x233
@@ -37565,7 +37565,7 @@ Initial program counter: 13
    755: 33 03                    r3 = 0
    757: 01                       fallthrough
       :                          @49
-   758: 03                       unlikely
+   758: 02                       unlikely
    759: 3a 01 00 00 01           r1 = u64 [0x10000]
    764: 33 00 00 10              r0 = 0x1000
    768: 83 00 23 02              i32 r0 = r0 + 0x223
@@ -37583,7 +37583,7 @@ Initial program counter: 13
    802: 33 03                    r3 = 0
    804: 01                       fallthrough
       :                          @52
-   805: 03                       unlikely
+   805: 02                       unlikely
    806: 3a 01 00 00 01           r1 = u64 [0x10000]
    811: 33 00 00 10              r0 = 0x1000
    815: 83 00 22 01              i32 r0 = r0 + 0x122
@@ -37601,7 +37601,7 @@ Initial program counter: 13
    849: 33 03                    r3 = 0
    851: 01                       fallthrough
       :                          @55
-   852: 03                       unlikely
+   852: 02                       unlikely
    853: 3a 01 00 00 01           r1 = u64 [0x10000]
    858: 33 00 12 01              r0 = 0x112
    862: 79 10 06                 u16 [r1 + 0x6] = r0
@@ -37617,7 +37617,7 @@ Initial program counter: 13
    887: 33 03                    r3 = 0
    889: 01                       fallthrough
       :                          @58
-   890: 03                       unlikely
+   890: 02                       unlikely
    891: 3a 01 00 00 01           r1 = u64 [0x10000]
    896: 33 00 11                 r0 = 0x11
    899: 79 10 08                 u16 [r1 + 0x8] = r0
@@ -37633,7 +37633,7 @@ Initial program counter: 13
    923: 33 03                    r3 = 0
    925: 01                       fallthrough
       :                          @61
-   926: 03                       unlikely
+   926: 02                       unlikely
    927: 3a 01 00 00 01           r1 = u64 [0x10000]
    932: 33 00 00 30              r0 = 0x3000
    936: 83 00 01                 i32 r0 = r0 + 0x1
@@ -55592,7 +55592,7 @@ Initial program counter: 13
     51: 83 44 aa 00              i32 r4 = r4 + 0xaa
     55: ab 4b 00 04              jump 1079 if r11 != r4
       :                          @4
-    59: 03                       unlikely
+    59: 02                       unlikely
     60: 33 05 03                 r5 = 0x3
     63: 3a 01 00 00 01           r1 = u64 [0x10000]
     68: 33 00 00 b0 00 aa        r0 = 0xffffffffaa00b000
@@ -55609,7 +55609,7 @@ Initial program counter: 13
    100: 83 44 00 fa              i32 r4 = r4 + 0xfffffffffffffa00
    104: ab 4b cf 03              jump 1079 if r11 != r4
       :                          @7
-   108: 03                       unlikely
+   108: 02                       unlikely
    109: 33 05 04                 r5 = 0x4
    112: 3a 01 00 00 01           r1 = u64 [0x10000]
    117: 33 00 00 10 a0 0a        r0 = 0xaa01000
@@ -55626,7 +55626,7 @@ Initial program counter: 13
    149: 83 44 a0 fa              i32 r4 = r4 + 0xfffffffffffffaa0
    153: ab 4b 9e 03              jump 1079 if r11 != r4
       :                          @10
-   157: 03                       unlikely
+   157: 02                       unlikely
    158: 33 05 05                 r5 = 0x5
    161: 3a 01 00 00 01           r1 = u64 [0x10000]
    166: 33 00 00 a0 0a a0        r0 = 0xffffffffa00aa000
@@ -55643,7 +55643,7 @@ Initial program counter: 13
    197: 83 44 0a                 i32 r4 = r4 + 0xa
    200: ab 4b 6f 03              jump 1079 if r11 != r4
       :                          @13
-   204: 03                       unlikely
+   204: 02                       unlikely
    205: 33 05 06                 r5 = 0x6
    208: 3a 01 28 00 01           r1 = u64 [0x10028]
    213: 33 00 00 00 aa 00        r0 = 0xaa0000
@@ -55660,7 +55660,7 @@ Initial program counter: 13
    245: 83 44 aa 00              i32 r4 = r4 + 0xaa
    249: ab 4b 3e 03              jump 1079 if r11 != r4
       :                          @16
-   253: 03                       unlikely
+   253: 02                       unlikely
    254: 33 05 07                 r5 = 0x7
    257: 3a 01 28 00 01           r1 = u64 [0x10028]
    262: 33 00 00 b0 00 aa        r0 = 0xffffffffaa00b000
@@ -55677,7 +55677,7 @@ Initial program counter: 13
    294: 83 44 00 fa              i32 r4 = r4 + 0xfffffffffffffa00
    298: ab 4b 0d 03              jump 1079 if r11 != r4
       :                          @19
-   302: 03                       unlikely
+   302: 02                       unlikely
    303: 33 05 08                 r5 = 0x8
    306: 3a 01 28 00 01           r1 = u64 [0x10028]
    311: 33 00 00 10 a0 0a        r0 = 0xaa01000
@@ -55694,7 +55694,7 @@ Initial program counter: 13
    343: 83 44 a0 fa              i32 r4 = r4 + 0xfffffffffffffaa0
    347: ab 4b dc 02              jump 1079 if r11 != r4
       :                          @22
-   351: 03                       unlikely
+   351: 02                       unlikely
    352: 33 05 09                 r5 = 0x9
    355: 3a 01 28 00 01           r1 = u64 [0x10028]
    360: 33 00 00 a0 0a a0        r0 = 0xffffffffa00aa000
@@ -55711,7 +55711,7 @@ Initial program counter: 13
    389: 83 44 0a                 i32 r4 = r4 + 0xa
    392: ab 4b af 02              jump 1079 if r11 != r4
       :                          @25
-   396: 03                       unlikely
+   396: 02                       unlikely
    397: 33 05 0a                 r5 = 0xa
    400: 3a 00 50 00 01           r0 = u64 [0x10050]
    405: 33 01 00 50 34 12        r1 = 0x12345000
@@ -55723,7 +55723,7 @@ Initial program counter: 13
    429: 83 44 78 06              i32 r4 = r4 + 0x678
    433: ab 42 86 02              jump 1079 if r2 != r4
       :                          @26
-   437: 03                       unlikely
+   437: 02                       unlikely
    438: 33 05 0b                 r5 = 0xb
    441: 3a 00 50 00 01           r0 = u64 [0x10050]
    446: 33 01 00 30 21 58        r1 = 0x58213000
@@ -55842,7 +55842,7 @@ Initial program counter: 13
    784: 33 07                    r7 = 0
    786: 01                       fallthrough
       :                          @46
-   787: 03                       unlikely
+   787: 02                       unlikely
    788: 3a 01 00 00 01           r1 = u64 [0x10000]
    793: 33 00 00 20 11           r0 = 0x112000
    798: 83 00 33 02              i32 r0 = r0 + 0x233
@@ -55860,7 +55860,7 @@ Initial program counter: 13
    831: 33 07                    r7 = 0
    833: 01                       fallthrough
       :                          @49
-   834: 03                       unlikely
+   834: 02                       unlikely
    835: 3a 01 00 00 01           r1 = u64 [0x10000]
    840: 33 00 00 10 01 30        r0 = 0x30011000
    846: 83 00 23 02              i32 r0 = r0 + 0x223
@@ -55878,7 +55878,7 @@ Initial program counter: 13
    882: 33 07                    r7 = 0
    884: 01                       fallthrough
       :                          @52
-   885: 03                       unlikely
+   885: 02                       unlikely
    886: 3a 01 00 00 01           r1 = u64 [0x10000]
    891: 33 00 00 10 00 33        r0 = 0x33001000
    897: 83 00 22 01              i32 r0 = r0 + 0x122
@@ -55896,7 +55896,7 @@ Initial program counter: 13
    933: 33 07                    r7 = 0
    935: 01                       fallthrough
       :                          @55
-   936: 03                       unlikely
+   936: 02                       unlikely
    937: 3a 01 00 00 01           r1 = u64 [0x10000]
    942: 33 00 00 00 30 23        r0 = 0x23300000
    948: 83 00 12 01              i32 r0 = r0 + 0x112
@@ -55914,7 +55914,7 @@ Initial program counter: 13
    983: 33 07                    r7 = 0
    985: 01                       fallthrough
       :                          @58
-   986: 03                       unlikely
+   986: 02                       unlikely
    987: 3a 01 00 00 01           r1 = u64 [0x10000]
    992: 33 00 00 00 33 22        r0 = 0x22330000
    998: 83 00 11                 i32 r0 = r0 + 0x11
@@ -55932,7 +55932,7 @@ Initial program counter: 13
   1031: 33 07                    r7 = 0
   1033: 01                       fallthrough
       :                          @61
-  1034: 03                       unlikely
+  1034: 02                       unlikely
   1035: 3a 01 00 00 01           r1 = u64 [0x10000]
   1040: 33 00 00 30 23 12        r0 = 0x12233000
   1046: 83 00 01                 i32 r0 = r0 + 0x1
@@ -58232,7 +58232,7 @@ Initial program counter: 13
     25: 33 04 03                 r4 = 0x3
     28: ab 4b c6 00              jump 226 if r11 != r4
       :                          @2
-    32: 03                       unlikely
+    32: 02                       unlikely
     33: 33 05 03                 r5 = 0x3
     36: 33 08 ec                 r8 = 0xffffffffffffffec
     39: 33 09 06                 r9 = 0x6
@@ -58240,7 +58240,7 @@ Initial program counter: 13
     45: 33 04 fd                 r4 = 0xfffffffffffffffd
     48: ab 4b b2 00              jump 226 if r11 != r4
       :                          @3
-    52: 03                       unlikely
+    52: 02                       unlikely
     53: 33 05 04                 r5 = 0x4
     56: 33 08 14                 r8 = 0x14
     59: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -58248,7 +58248,7 @@ Initial program counter: 13
     65: 33 04 fd                 r4 = 0xfffffffffffffffd
     68: ab 4b 9e 00              jump 226 if r11 != r4
       :                          @4
-    72: 03                       unlikely
+    72: 02                       unlikely
     73: 33 05 05                 r5 = 0x5
     76: 33 08 ec                 r8 = 0xffffffffffffffec
     79: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -58256,7 +58256,7 @@ Initial program counter: 13
     85: 33 04 03                 r4 = 0x3
     88: ab 4b 8a 00              jump 226 if r11 != r4
       :                          @5
-    92: 03                       unlikely
+    92: 02                       unlikely
     93: 33 05 06                 r5 = 0x6
     96: 33 08 ff                 r8 = 0xffffffffffffffff
     99: 97 88 3f                 r8 = r8 << 0x3f
@@ -58266,7 +58266,7 @@ Initial program counter: 13
    111: 97 44 3f                 r4 = r4 << 0x3f
    114: ab 4b 70                 jump 226 if r11 != r4
       :                          @6
-   117: 03                       unlikely
+   117: 02                       unlikely
    118: 33 05 07                 r5 = 0x7
    121: 33 08 ff                 r8 = 0xffffffffffffffff
    124: 97 88 3f                 r8 = r8 << 0x3f
@@ -58276,7 +58276,7 @@ Initial program counter: 13
    136: 97 44 3f                 r4 = r4 << 0x3f
    139: ab 4b 57                 jump 226 if r11 != r4
       :                          @7
-   142: 03                       unlikely
+   142: 02                       unlikely
    143: 33 05 08                 r5 = 0x8
    146: 33 08 ff                 r8 = 0xffffffffffffffff
    149: 97 88 3f                 r8 = r8 << 0x3f
@@ -58285,7 +58285,7 @@ Initial program counter: 13
    157: 33 04 ff                 r4 = 0xffffffffffffffff
    160: ab 4b 42                 jump 226 if r11 != r4
       :                          @8
-   163: 03                       unlikely
+   163: 02                       unlikely
    164: 33 05 09                 r5 = 0x9
    167: 33 08 01                 r8 = 0x1
    170: 33 09                    r9 = 0
@@ -58293,7 +58293,7 @@ Initial program counter: 13
    175: 33 04 ff                 r4 = 0xffffffffffffffff
    178: ab 4b 30                 jump 226 if r11 != r4
       :                          @9
-   181: 03                       unlikely
+   181: 02                       unlikely
    182: 33 05 0a                 r5 = 0xa
    185: 33 08                    r8 = 0
    187: 33 09                    r9 = 0
@@ -58301,7 +58301,7 @@ Initial program counter: 13
    192: 33 04 ff                 r4 = 0xffffffffffffffff
    195: ab 4b 1f                 jump 226 if r11 != r4
       :                          @10
-   198: 03                       unlikely
+   198: 02                       unlikely
    199: 33 05 0b                 r5 = 0xb
    202: 33 08 ff                 r8 = 0xffffffffffffffff
    205: 97 88 3f                 r8 = r8 << 0x3f
@@ -58504,7 +58504,7 @@ Initial program counter: 13
     25: 33 04 03                 r4 = 0x3
     28: ab 4b c1 00              jump 221 if r11 != r4
       :                          @2
-    32: 03                       unlikely
+    32: 02                       unlikely
     33: 33 05 03                 r5 = 0x3
     36: 33 08 ec                 r8 = 0xffffffffffffffec
     39: 33 09 06                 r9 = 0x6
@@ -58519,7 +58519,7 @@ Initial program counter: 13
     72: 95 44 a7 fa              r4 = r4 + 0xfffffffffffffaa7
     76: ab 4b 91 00              jump 221 if r11 != r4
       :                          @3
-    80: 03                       unlikely
+    80: 02                       unlikely
     81: 33 05 04                 r5 = 0x4
     84: 33 08 14                 r8 = 0x14
     87: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -58527,7 +58527,7 @@ Initial program counter: 13
     93: 33 04                    r4 = 0
     95: ab 4b 7e                 jump 221 if r11 != r4
       :                          @4
-    98: 03                       unlikely
+    98: 02                       unlikely
     99: 33 05 05                 r5 = 0x5
    102: 33 08 ec                 r8 = 0xffffffffffffffec
    105: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -58535,7 +58535,7 @@ Initial program counter: 13
    111: 33 04                    r4 = 0
    113: ab 4b 6c                 jump 221 if r11 != r4
       :                          @5
-   116: 03                       unlikely
+   116: 02                       unlikely
    117: 33 05 06                 r5 = 0x6
    120: 33 08 ff                 r8 = 0xffffffffffffffff
    123: 97 88 3f                 r8 = r8 << 0x3f
@@ -58545,7 +58545,7 @@ Initial program counter: 13
    135: 97 44 3f                 r4 = r4 << 0x3f
    138: ab 4b 53                 jump 221 if r11 != r4
       :                          @6
-   141: 03                       unlikely
+   141: 02                       unlikely
    142: 33 05 07                 r5 = 0x7
    145: 33 08 ff                 r8 = 0xffffffffffffffff
    148: 97 88 3f                 r8 = r8 << 0x3f
@@ -58554,7 +58554,7 @@ Initial program counter: 13
    157: 33 04                    r4 = 0
    159: ab 4b 3e                 jump 221 if r11 != r4
       :                          @7
-   162: 03                       unlikely
+   162: 02                       unlikely
    163: 33 05 08                 r5 = 0x8
    166: 33 08 ff                 r8 = 0xffffffffffffffff
    169: 97 88 3f                 r8 = r8 << 0x3f
@@ -58563,7 +58563,7 @@ Initial program counter: 13
    177: 33 04 ff                 r4 = 0xffffffffffffffff
    180: ab 4b 29                 jump 221 if r11 != r4
       :                          @8
-   183: 03                       unlikely
+   183: 02                       unlikely
    184: 33 05 09                 r5 = 0x9
    187: 33 08 01                 r8 = 0x1
    190: 33 09                    r9 = 0
@@ -58571,7 +58571,7 @@ Initial program counter: 13
    195: 33 04 ff                 r4 = 0xffffffffffffffff
    198: ab 4b 17                 jump 221 if r11 != r4
       :                          @9
-   201: 03                       unlikely
+   201: 02                       unlikely
    202: 33 05 0a                 r5 = 0xa
    205: 33 08                    r8 = 0
    207: 33 09                    r9 = 0
@@ -58762,7 +58762,7 @@ Initial program counter: 13
     25: 33 04 03                 r4 = 0x3
     28: ab 4b b2 00              jump 206 if r11 != r4
       :                          @2
-    32: 03                       unlikely
+    32: 02                       unlikely
     33: 33 05 03                 r5 = 0x3
     36: 33 08 01                 r8 = 0x1
     39: 97 88 20                 r8 = r8 << 0x20
@@ -58773,7 +58773,7 @@ Initial program counter: 13
     57: 83 44 a7 fa              i32 r4 = r4 + 0xfffffffffffffaa7
     61: ab 4b 91 00              jump 206 if r11 != r4
       :                          @3
-    65: 03                       unlikely
+    65: 02                       unlikely
     66: 33 05 04                 r5 = 0x4
     69: 33 08 14                 r8 = 0x14
     72: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -58781,7 +58781,7 @@ Initial program counter: 13
     78: 33 04                    r4 = 0
     80: ab 4b 7e                 jump 206 if r11 != r4
       :                          @4
-    83: 03                       unlikely
+    83: 02                       unlikely
     84: 33 05 05                 r5 = 0x5
     87: 33 08 ec                 r8 = 0xffffffffffffffec
     90: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -58789,7 +58789,7 @@ Initial program counter: 13
     96: 33 04                    r4 = 0
     98: ab 4b 6c                 jump 206 if r11 != r4
       :                          @5
-   101: 03                       unlikely
+   101: 02                       unlikely
    102: 33 05 06                 r5 = 0x6
    105: 33 08 00 00 00 80        r8 = 0xffffffff80000000
    111: 33 09 01                 r9 = 0x1
@@ -58797,7 +58797,7 @@ Initial program counter: 13
    117: 33 04 00 00 00 80        r4 = 0xffffffff80000000
    123: ab 4b 53                 jump 206 if r11 != r4
       :                          @6
-   126: 03                       unlikely
+   126: 02                       unlikely
    127: 33 05 07                 r5 = 0x7
    130: 33 08 00 00 00 80        r8 = 0xffffffff80000000
    136: 33 09 ff                 r9 = 0xffffffffffffffff
@@ -58805,7 +58805,7 @@ Initial program counter: 13
    142: 33 04                    r4 = 0
    144: ab 4b 3e                 jump 206 if r11 != r4
       :                          @7
-   147: 03                       unlikely
+   147: 02                       unlikely
    148: 33 05 08                 r5 = 0x8
    151: 33 08 00 00 00 80        r8 = 0xffffffff80000000
    157: 33 09                    r9 = 0
@@ -58813,7 +58813,7 @@ Initial program counter: 13
    162: 33 04 ff                 r4 = 0xffffffffffffffff
    165: ab 4b 29                 jump 206 if r11 != r4
       :                          @8
-   168: 03                       unlikely
+   168: 02                       unlikely
    169: 33 05 09                 r5 = 0x9
    172: 33 08 01                 r8 = 0x1
    175: 33 09                    r9 = 0
@@ -58821,7 +58821,7 @@ Initial program counter: 13
    180: 33 04 ff                 r4 = 0xffffffffffffffff
    183: ab 4b 17                 jump 206 if r11 != r4
       :                          @9
-   186: 03                       unlikely
+   186: 02                       unlikely
    187: 33 05 0a                 r5 = 0xa
    190: 33 08                    r8 = 0
    192: 33 09                    r9 = 0
@@ -59004,7 +59004,7 @@ Initial program counter: 13
     25: 33 04 03                 r4 = 0x3
     28: ab 4b c6 00              jump 226 if r11 != r4
       :                          @2
-    32: 03                       unlikely
+    32: 02                       unlikely
     33: 33 05 03                 r5 = 0x3
     36: 33 08 ec                 r8 = 0xffffffffffffffec
     39: 33 09 06                 r9 = 0x6
@@ -59012,7 +59012,7 @@ Initial program counter: 13
     45: 33 04 fd                 r4 = 0xfffffffffffffffd
     48: ab 4b b2 00              jump 226 if r11 != r4
       :                          @3
-    52: 03                       unlikely
+    52: 02                       unlikely
     53: 33 05 04                 r5 = 0x4
     56: 33 08 14                 r8 = 0x14
     59: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -59020,7 +59020,7 @@ Initial program counter: 13
     65: 33 04 fd                 r4 = 0xfffffffffffffffd
     68: ab 4b 9e 00              jump 226 if r11 != r4
       :                          @4
-    72: 03                       unlikely
+    72: 02                       unlikely
     73: 33 05 05                 r5 = 0x5
     76: 33 08 ec                 r8 = 0xffffffffffffffec
     79: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -59028,7 +59028,7 @@ Initial program counter: 13
     85: 33 04 03                 r4 = 0x3
     88: ab 4b 8a 00              jump 226 if r11 != r4
       :                          @5
-    92: 03                       unlikely
+    92: 02                       unlikely
     93: 33 05 06                 r5 = 0x6
     96: 33 08 00 00 00 80        r8 = 0xffffffff80000000
    102: 33 09 01                 r9 = 0x1
@@ -59036,7 +59036,7 @@ Initial program counter: 13
    108: 33 04 00 00 00 80        r4 = 0xffffffff80000000
    114: ab 4b 70                 jump 226 if r11 != r4
       :                          @6
-   117: 03                       unlikely
+   117: 02                       unlikely
    118: 33 05 07                 r5 = 0x7
    121: 33 08 00 00 00 80        r8 = 0xffffffff80000000
    127: 33 09 ff                 r9 = 0xffffffffffffffff
@@ -59044,7 +59044,7 @@ Initial program counter: 13
    133: 33 04 00 00 00 80        r4 = 0xffffffff80000000
    139: ab 4b 57                 jump 226 if r11 != r4
       :                          @7
-   142: 03                       unlikely
+   142: 02                       unlikely
    143: 33 05 08                 r5 = 0x8
    146: 33 08 00 00 00 80        r8 = 0xffffffff80000000
    152: 33 09                    r9 = 0
@@ -59052,7 +59052,7 @@ Initial program counter: 13
    157: 33 04 ff                 r4 = 0xffffffffffffffff
    160: ab 4b 42                 jump 226 if r11 != r4
       :                          @8
-   163: 03                       unlikely
+   163: 02                       unlikely
    164: 33 05 09                 r5 = 0x9
    167: 33 08 01                 r8 = 0x1
    170: 33 09                    r9 = 0
@@ -59060,7 +59060,7 @@ Initial program counter: 13
    175: 33 04 ff                 r4 = 0xffffffffffffffff
    178: ab 4b 30                 jump 226 if r11 != r4
       :                          @9
-   181: 03                       unlikely
+   181: 02                       unlikely
    182: 33 05 0a                 r5 = 0xa
    185: 33 08                    r8 = 0
    187: 33 09                    r9 = 0
@@ -59068,7 +59068,7 @@ Initial program counter: 13
    192: 33 04 ff                 r4 = 0xffffffffffffffff
    195: ab 4b 1f                 jump 226 if r11 != r4
       :                          @10
-   198: 03                       unlikely
+   198: 02                       unlikely
    199: 33 05 0b                 r5 = 0xb
    202: 33 08 00 00 00 80        r8 = 0xffffffff80000000
    208: 33 09 02                 r9 = 0x2
@@ -64173,7 +64173,7 @@ Initial program counter: 13
     25: 33 04 02                 r4 = 0x2
     28: ab 4b a5 00              jump 193 if r11 != r4
       :                          @2
-    32: 03                       unlikely
+    32: 02                       unlikely
     33: 33 05 03                 r5 = 0x3
     36: 33 08 ec                 r8 = 0xffffffffffffffec
     39: 33 09 06                 r9 = 0x6
@@ -64181,7 +64181,7 @@ Initial program counter: 13
     45: 33 04 fe                 r4 = 0xfffffffffffffffe
     48: ab 4b 91 00              jump 193 if r11 != r4
       :                          @3
-    52: 03                       unlikely
+    52: 02                       unlikely
     53: 33 05 04                 r5 = 0x4
     56: 33 08 14                 r8 = 0x14
     59: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -64189,7 +64189,7 @@ Initial program counter: 13
     65: 33 04 02                 r4 = 0x2
     68: ab 4b 7d                 jump 193 if r11 != r4
       :                          @4
-    71: 03                       unlikely
+    71: 02                       unlikely
     72: 33 05 05                 r5 = 0x5
     75: 33 08 ec                 r8 = 0xffffffffffffffec
     78: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -64197,7 +64197,7 @@ Initial program counter: 13
     84: 33 04 fe                 r4 = 0xfffffffffffffffe
     87: ab 4b 6a                 jump 193 if r11 != r4
       :                          @5
-    90: 03                       unlikely
+    90: 02                       unlikely
     91: 33 05 06                 r5 = 0x6
     94: 33 08 ff                 r8 = 0xffffffffffffffff
     97: 97 88 3f                 r8 = r8 << 0x3f
@@ -64206,7 +64206,7 @@ Initial program counter: 13
    106: 33 04                    r4 = 0
    108: ab 4b 55                 jump 193 if r11 != r4
       :                          @6
-   111: 03                       unlikely
+   111: 02                       unlikely
    112: 33 05 07                 r5 = 0x7
    115: 33 08 ff                 r8 = 0xffffffffffffffff
    118: 97 88 3f                 r8 = r8 << 0x3f
@@ -64215,7 +64215,7 @@ Initial program counter: 13
    127: 33 04                    r4 = 0
    129: ab 4b 40                 jump 193 if r11 != r4
       :                          @7
-   132: 03                       unlikely
+   132: 02                       unlikely
    133: 33 05 08                 r5 = 0x8
    136: 33 08 ff                 r8 = 0xffffffffffffffff
    139: 97 88 3f                 r8 = r8 << 0x3f
@@ -64225,7 +64225,7 @@ Initial program counter: 13
    150: 97 44 3f                 r4 = r4 << 0x3f
    153: ab 4b 28                 jump 193 if r11 != r4
       :                          @8
-   156: 03                       unlikely
+   156: 02                       unlikely
    157: 33 05 09                 r5 = 0x9
    160: 33 08 01                 r8 = 0x1
    163: 33 09                    r9 = 0
@@ -64233,7 +64233,7 @@ Initial program counter: 13
    168: 33 04 01                 r4 = 0x1
    171: ab 4b 16                 jump 193 if r11 != r4
       :                          @9
-   174: 03                       unlikely
+   174: 02                       unlikely
    175: 33 05 0a                 r5 = 0xa
    178: 33 08                    r8 = 0
    180: 33 09                    r9 = 0
@@ -64415,7 +64415,7 @@ Initial program counter: 13
     25: 33 04 02                 r4 = 0x2
     28: ab 4b aa 00              jump 198 if r11 != r4
       :                          @2
-    32: 03                       unlikely
+    32: 02                       unlikely
     33: 33 05 03                 r5 = 0x3
     36: 33 08 ec                 r8 = 0xffffffffffffffec
     39: 33 09 06                 r9 = 0x6
@@ -64423,7 +64423,7 @@ Initial program counter: 13
     45: 33 04 02                 r4 = 0x2
     48: ab 4b 96 00              jump 198 if r11 != r4
       :                          @3
-    52: 03                       unlikely
+    52: 02                       unlikely
     53: 33 05 04                 r5 = 0x4
     56: 33 08 14                 r8 = 0x14
     59: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -64431,7 +64431,7 @@ Initial program counter: 13
     65: 33 04 14                 r4 = 0x14
     68: ab 4b 82 00              jump 198 if r11 != r4
       :                          @4
-    72: 03                       unlikely
+    72: 02                       unlikely
     73: 33 05 05                 r5 = 0x5
     76: 33 08 ec                 r8 = 0xffffffffffffffec
     79: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -64439,7 +64439,7 @@ Initial program counter: 13
     85: 33 04 ec                 r4 = 0xffffffffffffffec
     88: ab 4b 6e                 jump 198 if r11 != r4
       :                          @5
-    91: 03                       unlikely
+    91: 02                       unlikely
     92: 33 05 06                 r5 = 0x6
     95: 33 08 ff                 r8 = 0xffffffffffffffff
     98: 97 88 3f                 r8 = r8 << 0x3f
@@ -64448,7 +64448,7 @@ Initial program counter: 13
    107: 33 04                    r4 = 0
    109: ab 4b 59                 jump 198 if r11 != r4
       :                          @6
-   112: 03                       unlikely
+   112: 02                       unlikely
    113: 33 05 07                 r5 = 0x7
    116: 33 08 ff                 r8 = 0xffffffffffffffff
    119: 97 88 3f                 r8 = r8 << 0x3f
@@ -64458,7 +64458,7 @@ Initial program counter: 13
    131: 97 44 3f                 r4 = r4 << 0x3f
    134: ab 4b 40                 jump 198 if r11 != r4
       :                          @7
-   137: 03                       unlikely
+   137: 02                       unlikely
    138: 33 05 08                 r5 = 0x8
    141: 33 08 ff                 r8 = 0xffffffffffffffff
    144: 97 88 3f                 r8 = r8 << 0x3f
@@ -64468,7 +64468,7 @@ Initial program counter: 13
    155: 97 44 3f                 r4 = r4 << 0x3f
    158: ab 4b 28                 jump 198 if r11 != r4
       :                          @8
-   161: 03                       unlikely
+   161: 02                       unlikely
    162: 33 05 09                 r5 = 0x9
    165: 33 08 01                 r8 = 0x1
    168: 33 09                    r9 = 0
@@ -64476,7 +64476,7 @@ Initial program counter: 13
    173: 33 04 01                 r4 = 0x1
    176: ab 4b 16                 jump 198 if r11 != r4
       :                          @9
-   179: 03                       unlikely
+   179: 02                       unlikely
    180: 33 05 0a                 r5 = 0xa
    183: 33 08                    r8 = 0
    185: 33 09                    r9 = 0
@@ -64659,7 +64659,7 @@ Initial program counter: 13
     25: 33 04 02                 r4 = 0x2
     28: ab 4b aa 00              jump 198 if r11 != r4
       :                          @2
-    32: 03                       unlikely
+    32: 02                       unlikely
     33: 33 05 03                 r5 = 0x3
     36: 33 08 ec                 r8 = 0xffffffffffffffec
     39: 33 09 06                 r9 = 0x6
@@ -64667,7 +64667,7 @@ Initial program counter: 13
     45: 33 04 02                 r4 = 0x2
     48: ab 4b 96 00              jump 198 if r11 != r4
       :                          @3
-    52: 03                       unlikely
+    52: 02                       unlikely
     53: 33 05 04                 r5 = 0x4
     56: 33 08 14                 r8 = 0x14
     59: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -64675,7 +64675,7 @@ Initial program counter: 13
     65: 33 04 14                 r4 = 0x14
     68: ab 4b 82 00              jump 198 if r11 != r4
       :                          @4
-    72: 03                       unlikely
+    72: 02                       unlikely
     73: 33 05 05                 r5 = 0x5
     76: 33 08 ec                 r8 = 0xffffffffffffffec
     79: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -64683,7 +64683,7 @@ Initial program counter: 13
     85: 33 04 ec                 r4 = 0xffffffffffffffec
     88: ab 4b 6e                 jump 198 if r11 != r4
       :                          @5
-    91: 03                       unlikely
+    91: 02                       unlikely
     92: 33 05 06                 r5 = 0x6
     95: 33 08 00 00 00 80        r8 = 0xffffffff80000000
    101: 33 09 01                 r9 = 0x1
@@ -64691,7 +64691,7 @@ Initial program counter: 13
    107: 33 04                    r4 = 0
    109: ab 4b 59                 jump 198 if r11 != r4
       :                          @6
-   112: 03                       unlikely
+   112: 02                       unlikely
    113: 33 05 07                 r5 = 0x7
    116: 33 08 00 00 00 80        r8 = 0xffffffff80000000
    122: 33 09 ff                 r9 = 0xffffffffffffffff
@@ -64699,7 +64699,7 @@ Initial program counter: 13
    128: 33 04 00 00 00 80        r4 = 0xffffffff80000000
    134: ab 4b 40                 jump 198 if r11 != r4
       :                          @7
-   137: 03                       unlikely
+   137: 02                       unlikely
    138: 33 05 08                 r5 = 0x8
    141: 33 08 00 00 00 80        r8 = 0xffffffff80000000
    147: 33 09                    r9 = 0
@@ -64707,7 +64707,7 @@ Initial program counter: 13
    152: 33 04 00 00 00 80        r4 = 0xffffffff80000000
    158: ab 4b 28                 jump 198 if r11 != r4
       :                          @8
-   161: 03                       unlikely
+   161: 02                       unlikely
    162: 33 05 09                 r5 = 0x9
    165: 33 08 01                 r8 = 0x1
    168: 33 09                    r9 = 0
@@ -64715,7 +64715,7 @@ Initial program counter: 13
    173: 33 04 01                 r4 = 0x1
    176: ab 4b 16                 jump 198 if r11 != r4
       :                          @9
-   179: 03                       unlikely
+   179: 02                       unlikely
    180: 33 05 0a                 r5 = 0xa
    183: 33 08                    r8 = 0
    185: 33 09                    r9 = 0
@@ -64893,7 +64893,7 @@ Initial program counter: 13
     25: 33 04 02                 r4 = 0x2
     28: ab 4b ba 00              jump 214 if r11 != r4
       :                          @2
-    32: 03                       unlikely
+    32: 02                       unlikely
     33: 33 05 03                 r5 = 0x3
     36: 33 08 ec                 r8 = 0xffffffffffffffec
     39: 33 09 06                 r9 = 0x6
@@ -64901,7 +64901,7 @@ Initial program counter: 13
     45: 33 04 fe                 r4 = 0xfffffffffffffffe
     48: ab 4b a6 00              jump 214 if r11 != r4
       :                          @3
-    52: 03                       unlikely
+    52: 02                       unlikely
     53: 33 05 04                 r5 = 0x4
     56: 33 08 14                 r8 = 0x14
     59: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -64909,7 +64909,7 @@ Initial program counter: 13
     65: 33 04 02                 r4 = 0x2
     68: ab 4b 92 00              jump 214 if r11 != r4
       :                          @4
-    72: 03                       unlikely
+    72: 02                       unlikely
     73: 33 05 05                 r5 = 0x5
     76: 33 08 ec                 r8 = 0xffffffffffffffec
     79: 33 09 fa                 r9 = 0xfffffffffffffffa
@@ -64917,7 +64917,7 @@ Initial program counter: 13
     85: 33 04 fe                 r4 = 0xfffffffffffffffe
     88: ab 4b 7e                 jump 214 if r11 != r4
       :                          @5
-    91: 03                       unlikely
+    91: 02                       unlikely
     92: 33 05 06                 r5 = 0x6
     95: 33 08 00 00 00 80        r8 = 0xffffffff80000000
    101: 33 09 01                 r9 = 0x1
@@ -64925,7 +64925,7 @@ Initial program counter: 13
    107: 33 04                    r4 = 0
    109: ab 4b 69                 jump 214 if r11 != r4
       :                          @6
-   112: 03                       unlikely
+   112: 02                       unlikely
    113: 33 05 07                 r5 = 0x7
    116: 33 08 00 00 00 80        r8 = 0xffffffff80000000
    122: 33 09 ff                 r9 = 0xffffffffffffffff
@@ -64933,7 +64933,7 @@ Initial program counter: 13
    128: 33 04                    r4 = 0
    130: ab 4b 54                 jump 214 if r11 != r4
       :                          @7
-   133: 03                       unlikely
+   133: 02                       unlikely
    134: 33 05 08                 r5 = 0x8
    137: 33 08 00 00 00 80        r8 = 0xffffffff80000000
    143: 33 09                    r9 = 0
@@ -64941,7 +64941,7 @@ Initial program counter: 13
    148: 33 04 00 00 00 80        r4 = 0xffffffff80000000
    154: ab 4b 3c                 jump 214 if r11 != r4
       :                          @8
-   157: 03                       unlikely
+   157: 02                       unlikely
    158: 33 05 09                 r5 = 0x9
    161: 33 08 01                 r8 = 0x1
    164: 33 09                    r9 = 0
@@ -64949,7 +64949,7 @@ Initial program counter: 13
    169: 33 04 01                 r4 = 0x1
    172: ab 4b 2a                 jump 214 if r11 != r4
       :                          @9
-   175: 03                       unlikely
+   175: 02                       unlikely
    176: 33 05 0a                 r5 = 0xa
    179: 33 08                    r8 = 0
    181: 33 09                    r9 = 0
@@ -64957,7 +64957,7 @@ Initial program counter: 13
    186: 33 04                    r4 = 0
    188: ab 4b 1a                 jump 214 if r11 != r4
       :                          @10
-   191: 03                       unlikely
+   191: 02                       unlikely
    192: 33 05 0b                 r5 = 0xb
    195: 33 08 97 f8              r8 = 0xfffffffffffff897
    199: 33 09                    r9 = 0
@@ -66291,31 +66291,31 @@ Initial program counter: 13
      // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
-    18: 68 0b                    r11 = clz r0
+    18: 67 0b                    r11 = clz r0
     20: 33 04 40                 r4 = 0x40
     23: ab 4b fb 01              jump 530 if r11 != r4
       :                          @2
     27: 33 05 03                 r5 = 0x3
     30: 33 00 01                 r0 = 0x1
-    33: 68 0b                    r11 = clz r0
+    33: 67 0b                    r11 = clz r0
     35: 33 04 3f                 r4 = 0x3f
     38: ab 4b ec 01              jump 530 if r11 != r4
       :                          @3
     42: 33 05 04                 r5 = 0x4
     45: 33 00 03                 r0 = 0x3
-    48: 68 0b                    r11 = clz r0
+    48: 67 0b                    r11 = clz r0
     50: 33 04 3e                 r4 = 0x3e
     53: ab 4b dd 01              jump 530 if r11 != r4
       :                          @4
     57: 33 05 05                 r5 = 0x5
     60: 33 00 00 80              r0 = 0xffffffffffff8000
-    64: 68 0b                    r11 = clz r0
+    64: 67 0b                    r11 = clz r0
     66: 33 04                    r4 = 0
     68: ab 4b ce 01              jump 530 if r11 != r4
       :                          @5
     72: 33 05 06                 r5 = 0x6
     75: 33 00 00 00 80 00        r0 = 0x800000
-    81: 68 0b                    r11 = clz r0
+    81: 67 0b                    r11 = clz r0
     83: 33 04 28                 r4 = 0x28
     86: ab 4b bc 01              jump 530 if r11 != r4
       :                          @6
@@ -66324,34 +66324,34 @@ Initial program counter: 13
     96: 97 00 21                 r0 = r0 << 0x21
     99: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
    102: 97 00 0f                 r0 = r0 << 0xf
-   105: 68 0b                    r11 = clz r0
+   105: 67 0b                    r11 = clz r0
    107: 33 04 0d                 r4 = 0xd
    110: ab 4b a4 01              jump 530 if r11 != r4
       :                          @7
    114: 33 05 08                 r5 = 0x8
    117: 33 00 00 80 00           r0 = 0x8000
    122: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   125: 68 0b                    r11 = clz r0
+   125: 67 0b                    r11 = clz r0
    127: 33 04 31                 r4 = 0x31
    130: ab 4b 90 01              jump 530 if r11 != r4
       :                          @8
    134: 33 05 09                 r5 = 0x9
    137: 33 00 00 00 00 80        r0 = 0xffffffff80000000
    143: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   146: 68 0b                    r11 = clz r0
+   146: 67 0b                    r11 = clz r0
    148: 33 04 21                 r4 = 0x21
    151: ab 4b 7b 01              jump 530 if r11 != r4
       :                          @9
    155: 33 05 0a                 r5 = 0xa
    158: 33 00 00 00 08           r0 = 0x80000
    163: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   166: 68 0b                    r11 = clz r0
+   166: 67 0b                    r11 = clz r0
    168: 33 04 2d                 r4 = 0x2d
    171: ab 4b 67 01              jump 530 if r11 != r4
       :                          @10
    175: 33 05 0b                 r5 = 0xb
    178: 33 00 00 00 00 80        r0 = 0xffffffff80000000
-   184: 68 0b                    r11 = clz r0
+   184: 67 0b                    r11 = clz r0
    186: 33 04                    r4 = 0
    188: ab 4b 56 01              jump 530 if r11 != r4
       :                          @11
@@ -66361,20 +66361,20 @@ Initial program counter: 13
    205: 97 00 0d                 r0 = r0 << 0xd
    208: 95 00 f5 01              r0 = r0 + 0x1f5
    212: 97 00 0c                 r0 = r0 << 0xc
-   215: 68 0b                    r11 = clz r0
+   215: 67 0b                    r11 = clz r0
    217: 33 04 08                 r4 = 0x8
    220: ab 4b 36 01              jump 530 if r11 != r4
       :                          @12
    224: 33 05 0d                 r5 = 0xd
    227: 33 00 ff                 r0 = 0xffffffffffffffff
    230: 97 00 3f                 r0 = r0 << 0x3f
-   233: 68 0b                    r11 = clz r0
+   233: 67 0b                    r11 = clz r0
    235: 33 04                    r4 = 0
    237: ab 4b 25 01              jump 530 if r11 != r4
       :                          @13
    241: 33 05 0e                 r5 = 0xe
    244: 33 00 0e                 r0 = 0xe
-   247: 68 0b                    r11 = clz r0
+   247: 67 0b                    r11 = clz r0
    249: 33 04 3c                 r4 = 0x3c
    252: ab 4b 16 01              jump 530 if r11 != r4
       :                          @14
@@ -66386,19 +66386,19 @@ Initial program counter: 13
    271: 95 00 01 04              r0 = r0 + 0x401
    275: 97 00 0c                 r0 = r0 << 0xc
    278: 95 00 41 03              r0 = r0 + 0x341
-   282: 68 0b                    r11 = clz r0
+   282: 67 0b                    r11 = clz r0
    284: 33 04                    r4 = 0
    286: ab 4b f4 00              jump 530 if r11 != r4
       :                          @15
    290: 33 05 10                 r5 = 0x10
    293: 33 00 0d                 r0 = 0xd
-   296: 68 00                    r0 = clz r0
+   296: 67 00                    r0 = clz r0
    298: 33 04 3c                 r4 = 0x3c
    301: ab 40 e5 00              jump 530 if r0 != r4
       :                          @16
    305: 33 05 11                 r5 = 0x11
    308: 33 00 0b                 r0 = 0xb
-   311: 68 00                    r0 = clz r0
+   311: 67 00                    r0 = clz r0
    313: 33 04 3c                 r4 = 0x3c
    316: ab 40 d6 00              jump 530 if r0 != r4
       :                          @17
@@ -66407,7 +66407,7 @@ Initial program counter: 13
    325: 01                       fallthrough
       :                          @18
    326: 33 00 0d                 r0 = 0xd
-   329: 68 0b                    r11 = clz r0
+   329: 67 0b                    r11 = clz r0
    331: 64 b3                    r3 = r11
    333: 95 aa 01                 r10 = r10 + 0x1
    336: 33 02 02                 r2 = 0x2
@@ -66421,7 +66421,7 @@ Initial program counter: 13
    354: 01                       fallthrough
       :                          @21
    355: 33 00 13                 r0 = 0x13
-   358: 68 0b                    r11 = clz r0
+   358: 67 0b                    r11 = clz r0
    360: 64 b3                    r3 = r11
    362: 95 aa 01                 r10 = r10 + 0x1
    365: 33 02 02                 r2 = 0x2
@@ -66435,7 +66435,7 @@ Initial program counter: 13
    383: 01                       fallthrough
       :                          @24
    384: 33 00 22                 r0 = 0x22
-   387: 68 0b                    r11 = clz r0
+   387: 67 0b                    r11 = clz r0
    389: 64 b3                    r3 = r11
    391: 95 aa 01                 r10 = r10 + 0x1
    394: 33 02 02                 r2 = 0x2
@@ -66446,19 +66446,19 @@ Initial program counter: 13
       :                          @26
    406: 33 05 15                 r5 = 0x15
    409: 33 00 00 80 0f 07        r0 = 0x70f8000
-   415: 68 0b                    r11 = clz r0
+   415: 67 0b                    r11 = clz r0
    417: 33 04 25                 r4 = 0x25
    420: ab 4b 6e                 jump 530 if r11 != r4
       :                          @27
    423: 33 05 16                 r5 = 0x16
    426: 33 00 00 80 00 08        r0 = 0x8008000
-   432: 68 0b                    r11 = clz r0
+   432: 67 0b                    r11 = clz r0
    434: 33 04 24                 r4 = 0x24
    437: ab 4b 5d                 jump 530 if r11 != r4
       :                          @28
    440: 33 05 17                 r5 = 0x17
    443: 33 00 00 80 00 18        r0 = 0x18008000
-   449: 68 0b                    r11 = clz r0
+   449: 67 0b                    r11 = clz r0
    451: 33 04 23                 r4 = 0x23
    454: ab 4b 4c                 jump 530 if r11 != r4
       :                          @29
@@ -66467,7 +66467,7 @@ Initial program counter: 13
    465: 83 00 01                 i32 r0 = r0 + 0x1
    468: 97 00 0f                 r0 = r0 << 0xf
    471: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   474: 68 0b                    r11 = clz r0
+   474: 67 0b                    r11 = clz r0
    476: 33 04 1e                 r4 = 0x1e
    479: ab 4b 33                 jump 530 if r11 != r4
       :                          @30
@@ -66475,7 +66475,7 @@ Initial program counter: 13
    485: 33 00 0f                 r0 = 0xf
    488: 97 00 1f                 r0 = r0 << 0x1f
    491: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   494: 68 0b                    r11 = clz r0
+   494: 67 0b                    r11 = clz r0
    496: 33 04 1d                 r4 = 0x1d
    499: ab 4b 1f                 jump 530 if r11 != r4
       :                          @31
@@ -66484,7 +66484,7 @@ Initial program counter: 13
    510: 83 00 01                 i32 r0 = r0 + 0x1
    513: 97 00 13                 r0 = r0 << 0x13
    516: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   519: 68 0b                    r11 = clz r0
+   519: 67 0b                    r11 = clz r0
    521: 33 04 1c                 r4 = 0x1c
    524: ab 4b 06                 jump 530 if r11 != r4
       :                          @32
@@ -66874,19 +66874,19 @@ Initial program counter: 13
      // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
-    18: 69 0b                    i32 r11 = clz r0
+    18: 68 0b                    i32 r11 = clz r0
     20: 33 04 20                 r4 = 0x20
     23: ab 4b db 01              jump 498 if r11 != r4
       :                          @2
     27: 33 05 03                 r5 = 0x3
     30: 33 00 01                 r0 = 0x1
-    33: 69 0b                    i32 r11 = clz r0
+    33: 68 0b                    i32 r11 = clz r0
     35: 33 04 1f                 r4 = 0x1f
     38: ab 4b cc 01              jump 498 if r11 != r4
       :                          @3
     42: 33 05 04                 r5 = 0x4
     45: 33 00 03                 r0 = 0x3
-    48: 69 0b                    i32 r11 = clz r0
+    48: 68 0b                    i32 r11 = clz r0
     50: 33 04 1e                 r4 = 0x1e
     53: ab 4b bd 01              jump 498 if r11 != r4
       :                          @4
@@ -66894,13 +66894,13 @@ Initial program counter: 13
     60: 33 00 00 00 02           r0 = 0x20000
     65: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
     68: 97 00 0f                 r0 = r0 << 0xf
-    71: 69 0b                    i32 r11 = clz r0
+    71: 68 0b                    i32 r11 = clz r0
     73: 33 04                    r4 = 0
     75: ab 4b a7 01              jump 498 if r11 != r4
       :                          @5
     79: 33 05 06                 r5 = 0x6
     82: 33 00 00 00 80 00        r0 = 0x800000
-    88: 69 0b                    i32 r11 = clz r0
+    88: 68 0b                    i32 r11 = clz r0
     90: 33 04 08                 r4 = 0x8
     93: ab 4b 95 01              jump 498 if r11 != r4
       :                          @6
@@ -66908,72 +66908,72 @@ Initial program counter: 13
    100: 33 00 00 00 02           r0 = 0x20000
    105: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
    108: 97 00 0f                 r0 = r0 << 0xf
-   111: 69 0b                    i32 r11 = clz r0
+   111: 68 0b                    i32 r11 = clz r0
    113: 33 04                    r4 = 0
    115: ab 4b 7f 01              jump 498 if r11 != r4
       :                          @7
    119: 33 05 08                 r5 = 0x8
    122: 33 00 00 80 00           r0 = 0x8000
    127: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   130: 69 0b                    i32 r11 = clz r0
+   130: 68 0b                    i32 r11 = clz r0
    132: 33 04 11                 r4 = 0x11
    135: ab 4b 6b 01              jump 498 if r11 != r4
       :                          @8
    139: 33 05 09                 r5 = 0x9
    142: 33 00 00 00 00 80        r0 = 0xffffffff80000000
    148: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   151: 69 0b                    i32 r11 = clz r0
+   151: 68 0b                    i32 r11 = clz r0
    153: 33 04 01                 r4 = 0x1
    156: ab 4b 56 01              jump 498 if r11 != r4
       :                          @9
    160: 33 05 0a                 r5 = 0xa
    163: 33 00 00 00 08           r0 = 0x80000
    168: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   171: 69 0b                    i32 r11 = clz r0
+   171: 68 0b                    i32 r11 = clz r0
    173: 33 04 0d                 r4 = 0xd
    176: ab 4b 42 01              jump 498 if r11 != r4
       :                          @10
    180: 33 05 0b                 r5 = 0xb
    183: 33 00 01                 r0 = 0x1
    186: 97 00 1f                 r0 = r0 << 0x1f
-   189: 69 0b                    i32 r11 = clz r0
+   189: 68 0b                    i32 r11 = clz r0
    191: 33 04                    r4 = 0
    193: ab 4b 31 01              jump 498 if r11 != r4
       :                          @11
    197: 33 05 0c                 r5 = 0xc
    200: 33 00 00 50 1f 12        r0 = 0x121f5000
-   206: 69 0b                    i32 r11 = clz r0
+   206: 68 0b                    i32 r11 = clz r0
    208: 33 04 03                 r4 = 0x3
    211: ab 4b 1f 01              jump 498 if r11 != r4
       :                          @12
    215: 33 05 0d                 r5 = 0xd
    218: 33 00 00 00 00 04        r0 = 0x4000000
-   224: 69 0b                    i32 r11 = clz r0
+   224: 68 0b                    i32 r11 = clz r0
    226: 33 04 05                 r4 = 0x5
    229: ab 4b 0d 01              jump 498 if r11 != r4
       :                          @13
    233: 33 05 0e                 r5 = 0xe
    236: 33 00 0e                 r0 = 0xe
-   239: 69 0b                    i32 r11 = clz r0
+   239: 68 0b                    i32 r11 = clz r0
    241: 33 04 1c                 r4 = 0x1c
    244: ab 4b fe 00              jump 498 if r11 != r4
       :                          @14
    248: 33 05 0f                 r5 = 0xf
    251: 33 00 00 10 40 20        r0 = 0x20401000
    257: 83 00 41 03              i32 r0 = r0 + 0x341
-   261: 69 0b                    i32 r11 = clz r0
+   261: 68 0b                    i32 r11 = clz r0
    263: 33 04 02                 r4 = 0x2
    266: ab 4b e8 00              jump 498 if r11 != r4
       :                          @15
    270: 33 05 10                 r5 = 0x10
    273: 33 00 0d                 r0 = 0xd
-   276: 69 00                    i32 r0 = clz r0
+   276: 68 00                    i32 r0 = clz r0
    278: 33 04 1c                 r4 = 0x1c
    281: ab 40 d9 00              jump 498 if r0 != r4
       :                          @16
    285: 33 05 11                 r5 = 0x11
    288: 33 00 0b                 r0 = 0xb
-   291: 69 00                    i32 r0 = clz r0
+   291: 68 00                    i32 r0 = clz r0
    293: 33 04 1c                 r4 = 0x1c
    296: ab 40 ca 00              jump 498 if r0 != r4
       :                          @17
@@ -66982,7 +66982,7 @@ Initial program counter: 13
    305: 01                       fallthrough
       :                          @18
    306: 33 00 0d                 r0 = 0xd
-   309: 69 0b                    i32 r11 = clz r0
+   309: 68 0b                    i32 r11 = clz r0
    311: 64 b3                    r3 = r11
    313: 95 aa 01                 r10 = r10 + 0x1
    316: 33 02 02                 r2 = 0x2
@@ -66996,7 +66996,7 @@ Initial program counter: 13
    334: 01                       fallthrough
       :                          @21
    335: 33 00 13                 r0 = 0x13
-   338: 69 0b                    i32 r11 = clz r0
+   338: 68 0b                    i32 r11 = clz r0
    340: 64 b3                    r3 = r11
    342: 95 aa 01                 r10 = r10 + 0x1
    345: 33 02 02                 r2 = 0x2
@@ -67010,7 +67010,7 @@ Initial program counter: 13
    363: 01                       fallthrough
       :                          @24
    364: 33 00 22                 r0 = 0x22
-   367: 69 0b                    i32 r11 = clz r0
+   367: 68 0b                    i32 r11 = clz r0
    369: 64 b3                    r3 = r11
    371: 95 aa 01                 r10 = r10 + 0x1
    374: 33 02 02                 r2 = 0x2
@@ -67021,40 +67021,40 @@ Initial program counter: 13
       :                          @26
    386: 33 05 15                 r5 = 0x15
    389: 33 00 00 80 0f 07        r0 = 0x70f8000
-   395: 69 0b                    i32 r11 = clz r0
+   395: 68 0b                    i32 r11 = clz r0
    397: 33 04 05                 r4 = 0x5
    400: ab 4b 62                 jump 498 if r11 != r4
       :                          @27
    403: 33 05 16                 r5 = 0x16
    406: 33 00 00 80 00 08        r0 = 0x8008000
-   412: 69 0b                    i32 r11 = clz r0
+   412: 68 0b                    i32 r11 = clz r0
    414: 33 04 04                 r4 = 0x4
    417: ab 4b 51                 jump 498 if r11 != r4
       :                          @28
    420: 33 05 17                 r5 = 0x17
    423: 33 00 00 80 00 18        r0 = 0x18008000
-   429: 69 0b                    i32 r11 = clz r0
+   429: 68 0b                    i32 r11 = clz r0
    431: 33 04 03                 r4 = 0x3
    434: ab 4b 40                 jump 498 if r11 != r4
       :                          @29
    437: 33 05 18                 r5 = 0x18
    440: 33 00 00 80 00           r0 = 0x8000
    445: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   448: 69 0b                    i32 r11 = clz r0
+   448: 68 0b                    i32 r11 = clz r0
    450: 33 04 11                 r4 = 0x11
    453: ab 4b 2d                 jump 498 if r11 != r4
       :                          @30
    456: 33 05 19                 r5 = 0x19
    459: 33 00 00 00 00 80        r0 = 0xffffffff80000000
    465: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   468: 69 0b                    i32 r11 = clz r0
+   468: 68 0b                    i32 r11 = clz r0
    470: 33 04 01                 r4 = 0x1
    473: ab 4b 19                 jump 498 if r11 != r4
       :                          @31
    476: 33 05 1a                 r5 = 0x1a
    479: 33 00 00 00 08           r0 = 0x80000
    484: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   487: 69 0b                    i32 r11 = clz r0
+   487: 68 0b                    i32 r11 = clz r0
    489: 33 04 0d                 r4 = 0xd
    492: ab 4b 06                 jump 498 if r11 != r4
       :                          @32
@@ -67431,31 +67431,31 @@ Initial program counter: 13
      // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
-    18: 66 0b                    r11 = cpop r0
+    18: 65 0b                    r11 = cpop r0
     20: 33 04                    r4 = 0
     22: ab 4b fe 01              jump 532 if r11 != r4
       :                          @2
     26: 33 05 03                 r5 = 0x3
     29: 33 00 01                 r0 = 0x1
-    32: 66 0b                    r11 = cpop r0
+    32: 65 0b                    r11 = cpop r0
     34: 33 04 01                 r4 = 0x1
     37: ab 4b ef 01              jump 532 if r11 != r4
       :                          @3
     41: 33 05 04                 r5 = 0x4
     44: 33 00 03                 r0 = 0x3
-    47: 66 0b                    r11 = cpop r0
+    47: 65 0b                    r11 = cpop r0
     49: 33 04 02                 r4 = 0x2
     52: ab 4b e0 01              jump 532 if r11 != r4
       :                          @4
     56: 33 05 05                 r5 = 0x5
     59: 33 00 00 80              r0 = 0xffffffffffff8000
-    63: 66 0b                    r11 = cpop r0
+    63: 65 0b                    r11 = cpop r0
     65: 33 04 31                 r4 = 0x31
     68: ab 4b d0 01              jump 532 if r11 != r4
       :                          @5
     72: 33 05 06                 r5 = 0x6
     75: 33 00 00 00 80 00        r0 = 0x800000
-    81: 66 0b                    r11 = cpop r0
+    81: 65 0b                    r11 = cpop r0
     83: 33 04 01                 r4 = 0x1
     86: ab 4b be 01              jump 532 if r11 != r4
       :                          @6
@@ -67464,34 +67464,34 @@ Initial program counter: 13
     96: 97 00 21                 r0 = r0 << 0x21
     99: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
    102: 97 00 0f                 r0 = r0 << 0xf
-   105: 66 0b                    r11 = cpop r0
+   105: 65 0b                    r11 = cpop r0
    107: 33 04 22                 r4 = 0x22
    110: ab 4b a6 01              jump 532 if r11 != r4
       :                          @7
    114: 33 05 08                 r5 = 0x8
    117: 33 00 00 80 00           r0 = 0x8000
    122: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   125: 66 0b                    r11 = cpop r0
+   125: 65 0b                    r11 = cpop r0
    127: 33 04 0f                 r4 = 0xf
    130: ab 4b 92 01              jump 532 if r11 != r4
       :                          @8
    134: 33 05 09                 r5 = 0x9
    137: 33 00 00 00 00 80        r0 = 0xffffffff80000000
    143: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   146: 66 0b                    r11 = cpop r0
+   146: 65 0b                    r11 = cpop r0
    148: 33 04 1f                 r4 = 0x1f
    151: ab 4b 7d 01              jump 532 if r11 != r4
       :                          @9
    155: 33 05 0a                 r5 = 0xa
    158: 33 00 00 00 08           r0 = 0x80000
    163: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   166: 66 0b                    r11 = cpop r0
+   166: 65 0b                    r11 = cpop r0
    168: 33 04 13                 r4 = 0x13
    171: ab 4b 69 01              jump 532 if r11 != r4
       :                          @10
    175: 33 05 0b                 r5 = 0xb
    178: 33 00 00 00 00 80        r0 = 0xffffffff80000000
-   184: 66 0b                    r11 = cpop r0
+   184: 65 0b                    r11 = cpop r0
    186: 33 04 21                 r4 = 0x21
    189: ab 4b 57 01              jump 532 if r11 != r4
       :                          @11
@@ -67501,20 +67501,20 @@ Initial program counter: 13
    206: 97 00 0d                 r0 = r0 << 0xd
    209: 95 00 f5 01              r0 = r0 + 0x1f5
    213: 97 00 0c                 r0 = r0 << 0xc
-   216: 66 0b                    r11 = cpop r0
+   216: 65 0b                    r11 = cpop r0
    218: 33 04 1b                 r4 = 0x1b
    221: ab 4b 37 01              jump 532 if r11 != r4
       :                          @12
    225: 33 05 0d                 r5 = 0xd
    228: 33 00 ff                 r0 = 0xffffffffffffffff
    231: 97 00 3f                 r0 = r0 << 0x3f
-   234: 66 0b                    r11 = cpop r0
+   234: 65 0b                    r11 = cpop r0
    236: 33 04 01                 r4 = 0x1
    239: ab 4b 25 01              jump 532 if r11 != r4
       :                          @13
    243: 33 05 0e                 r5 = 0xe
    246: 33 00 0e                 r0 = 0xe
-   249: 66 0b                    r11 = cpop r0
+   249: 65 0b                    r11 = cpop r0
    251: 33 04 03                 r4 = 0x3
    254: ab 4b 16 01              jump 532 if r11 != r4
       :                          @14
@@ -67526,19 +67526,19 @@ Initial program counter: 13
    273: 95 00 01 04              r0 = r0 + 0x401
    277: 97 00 0c                 r0 = r0 << 0xc
    280: 95 00 41 03              r0 = r0 + 0x341
-   284: 66 0b                    r11 = cpop r0
+   284: 65 0b                    r11 = cpop r0
    286: 33 04 0b                 r4 = 0xb
    289: ab 4b f3 00              jump 532 if r11 != r4
       :                          @15
    293: 33 05 10                 r5 = 0x10
    296: 33 00 0d                 r0 = 0xd
-   299: 66 00                    r0 = cpop r0
+   299: 65 00                    r0 = cpop r0
    301: 33 04 03                 r4 = 0x3
    304: ab 40 e4 00              jump 532 if r0 != r4
       :                          @16
    308: 33 05 11                 r5 = 0x11
    311: 33 00 0b                 r0 = 0xb
-   314: 66 00                    r0 = cpop r0
+   314: 65 00                    r0 = cpop r0
    316: 33 04 03                 r4 = 0x3
    319: ab 40 d5 00              jump 532 if r0 != r4
       :                          @17
@@ -67547,7 +67547,7 @@ Initial program counter: 13
    328: 01                       fallthrough
       :                          @18
    329: 33 00 0d                 r0 = 0xd
-   332: 66 0b                    r11 = cpop r0
+   332: 65 0b                    r11 = cpop r0
    334: 64 b3                    r3 = r11
    336: 95 aa 01                 r10 = r10 + 0x1
    339: 33 02 02                 r2 = 0x2
@@ -67561,7 +67561,7 @@ Initial program counter: 13
    357: 01                       fallthrough
       :                          @21
    358: 33 00 13                 r0 = 0x13
-   361: 66 0b                    r11 = cpop r0
+   361: 65 0b                    r11 = cpop r0
    363: 64 b3                    r3 = r11
    365: 95 aa 01                 r10 = r10 + 0x1
    368: 33 02 02                 r2 = 0x2
@@ -67575,7 +67575,7 @@ Initial program counter: 13
    386: 01                       fallthrough
       :                          @24
    387: 33 00 22                 r0 = 0x22
-   390: 66 0b                    r11 = cpop r0
+   390: 65 0b                    r11 = cpop r0
    392: 64 b3                    r3 = r11
    394: 95 aa 01                 r10 = r10 + 0x1
    397: 33 02 02                 r2 = 0x2
@@ -67586,19 +67586,19 @@ Initial program counter: 13
       :                          @26
    409: 33 05 15                 r5 = 0x15
    412: 33 00 00 80 7f           r0 = 0x7f8000
-   417: 66 0b                    r11 = cpop r0
+   417: 65 0b                    r11 = cpop r0
    419: 33 04 08                 r4 = 0x8
    422: ab 4b 6e                 jump 532 if r11 != r4
       :                          @27
    425: 33 05 16                 r5 = 0x16
    428: 33 00 00 80 80 00        r0 = 0x808000
-   434: 66 0b                    r11 = cpop r0
+   434: 65 0b                    r11 = cpop r0
    436: 33 04 02                 r4 = 0x2
    439: ab 4b 5d                 jump 532 if r11 != r4
       :                          @28
    442: 33 05 17                 r5 = 0x17
    445: 33 00 00 80 80 01        r0 = 0x1808000
-   451: 66 0b                    r11 = cpop r0
+   451: 65 0b                    r11 = cpop r0
    453: 33 04 03                 r4 = 0x3
    456: ab 4b 4c                 jump 532 if r11 != r4
       :                          @29
@@ -67607,7 +67607,7 @@ Initial program counter: 13
    467: 83 00 01                 i32 r0 = r0 + 0x1
    470: 97 00 0f                 r0 = r0 << 0xf
    473: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   476: 66 0b                    r11 = cpop r0
+   476: 65 0b                    r11 = cpop r0
    478: 33 04 11                 r4 = 0x11
    481: ab 4b 33                 jump 532 if r11 != r4
       :                          @30
@@ -67615,7 +67615,7 @@ Initial program counter: 13
    487: 33 00 0f                 r0 = 0xf
    490: 97 00 1f                 r0 = r0 << 0x1f
    493: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   496: 66 0b                    r11 = cpop r0
+   496: 65 0b                    r11 = cpop r0
    498: 33 04 22                 r4 = 0x22
    501: ab 4b 1f                 jump 532 if r11 != r4
       :                          @31
@@ -67624,7 +67624,7 @@ Initial program counter: 13
    512: 83 00 01                 i32 r0 = r0 + 0x1
    515: 97 00 13                 r0 = r0 << 0x13
    518: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   521: 66 0b                    r11 = cpop r0
+   521: 65 0b                    r11 = cpop r0
    523: 33 04 17                 r4 = 0x17
    526: ab 4b 06                 jump 532 if r11 != r4
       :                          @32
@@ -68014,19 +68014,19 @@ Initial program counter: 13
      // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
-    18: 67 0b                    i32 r11 = cpop r0
+    18: 66 0b                    i32 r11 = cpop r0
     20: 33 04                    r4 = 0
     22: ab 4b d9 01              jump 495 if r11 != r4
       :                          @2
     26: 33 05 03                 r5 = 0x3
     29: 33 00 01                 r0 = 0x1
-    32: 67 0b                    i32 r11 = cpop r0
+    32: 66 0b                    i32 r11 = cpop r0
     34: 33 04 01                 r4 = 0x1
     37: ab 4b ca 01              jump 495 if r11 != r4
       :                          @3
     41: 33 05 04                 r5 = 0x4
     44: 33 00 03                 r0 = 0x3
-    47: 67 0b                    i32 r11 = cpop r0
+    47: 66 0b                    i32 r11 = cpop r0
     49: 33 04 02                 r4 = 0x2
     52: ab 4b bb 01              jump 495 if r11 != r4
       :                          @4
@@ -68034,13 +68034,13 @@ Initial program counter: 13
     59: 33 00 00 00 02           r0 = 0x20000
     64: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
     67: 97 00 0f                 r0 = r0 << 0xf
-    70: 67 0b                    i32 r11 = cpop r0
+    70: 66 0b                    i32 r11 = cpop r0
     72: 33 04 11                 r4 = 0x11
     75: ab 4b a4 01              jump 495 if r11 != r4
       :                          @5
     79: 33 05 06                 r5 = 0x6
     82: 33 00 00 00 80 00        r0 = 0x800000
-    88: 67 0b                    i32 r11 = cpop r0
+    88: 66 0b                    i32 r11 = cpop r0
     90: 33 04 01                 r4 = 0x1
     93: ab 4b 92 01              jump 495 if r11 != r4
       :                          @6
@@ -68048,72 +68048,72 @@ Initial program counter: 13
    100: 33 00 00 00 08           r0 = 0x80000
    105: 83 00 fb                 i32 r0 = r0 + 0xfffffffffffffffb
    108: 97 00 0d                 r0 = r0 << 0xd
-   111: 67 0b                    i32 r11 = cpop r0
+   111: 66 0b                    i32 r11 = cpop r0
    113: 33 04 12                 r4 = 0x12
    116: ab 4b 7b 01              jump 495 if r11 != r4
       :                          @7
    120: 33 05 08                 r5 = 0x8
    123: 33 00 00 80 00           r0 = 0x8000
    128: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   131: 67 0b                    i32 r11 = cpop r0
+   131: 66 0b                    i32 r11 = cpop r0
    133: 33 04 0f                 r4 = 0xf
    136: ab 4b 67 01              jump 495 if r11 != r4
       :                          @8
    140: 33 05 09                 r5 = 0x9
    143: 33 00 00 00 00 80        r0 = 0xffffffff80000000
    149: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   152: 67 0b                    i32 r11 = cpop r0
+   152: 66 0b                    i32 r11 = cpop r0
    154: 33 04 1f                 r4 = 0x1f
    157: ab 4b 52 01              jump 495 if r11 != r4
       :                          @9
    161: 33 05 0a                 r5 = 0xa
    164: 33 00 00 00 08           r0 = 0x80000
    169: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   172: 67 0b                    i32 r11 = cpop r0
+   172: 66 0b                    i32 r11 = cpop r0
    174: 33 04 13                 r4 = 0x13
    177: ab 4b 3e 01              jump 495 if r11 != r4
       :                          @10
    181: 33 05 0b                 r5 = 0xb
    184: 33 00 01                 r0 = 0x1
    187: 97 00 1f                 r0 = r0 << 0x1f
-   190: 67 0b                    i32 r11 = cpop r0
+   190: 66 0b                    i32 r11 = cpop r0
    192: 33 04 01                 r4 = 0x1
    195: ab 4b 2c 01              jump 495 if r11 != r4
       :                          @11
    199: 33 05 0c                 r5 = 0xc
    202: 33 00 00 50 1f 12        r0 = 0x121f5000
-   208: 67 0b                    i32 r11 = cpop r0
+   208: 66 0b                    i32 r11 = cpop r0
    210: 33 04 09                 r4 = 0x9
    213: ab 4b 1a 01              jump 495 if r11 != r4
       :                          @12
    217: 33 05 0d                 r5 = 0xd
    220: 33 00                    r0 = 0
-   222: 67 0b                    i32 r11 = cpop r0
+   222: 66 0b                    i32 r11 = cpop r0
    224: 33 04                    r4 = 0
    226: ab 4b 0d 01              jump 495 if r11 != r4
       :                          @13
    230: 33 05 0e                 r5 = 0xe
    233: 33 00 0e                 r0 = 0xe
-   236: 67 0b                    i32 r11 = cpop r0
+   236: 66 0b                    i32 r11 = cpop r0
    238: 33 04 03                 r4 = 0x3
    241: ab 4b fe 00              jump 495 if r11 != r4
       :                          @14
    245: 33 05 0f                 r5 = 0xf
    248: 33 00 00 10 40 20        r0 = 0x20401000
    254: 83 00 41 03              i32 r0 = r0 + 0x341
-   258: 67 0b                    i32 r11 = cpop r0
+   258: 66 0b                    i32 r11 = cpop r0
    260: 33 04 07                 r4 = 0x7
    263: ab 4b e8 00              jump 495 if r11 != r4
       :                          @15
    267: 33 05 10                 r5 = 0x10
    270: 33 00 0d                 r0 = 0xd
-   273: 67 00                    i32 r0 = cpop r0
+   273: 66 00                    i32 r0 = cpop r0
    275: 33 04 03                 r4 = 0x3
    278: ab 40 d9 00              jump 495 if r0 != r4
       :                          @16
    282: 33 05 11                 r5 = 0x11
    285: 33 00 0b                 r0 = 0xb
-   288: 67 00                    i32 r0 = cpop r0
+   288: 66 00                    i32 r0 = cpop r0
    290: 33 04 03                 r4 = 0x3
    293: ab 40 ca 00              jump 495 if r0 != r4
       :                          @17
@@ -68122,7 +68122,7 @@ Initial program counter: 13
    302: 01                       fallthrough
       :                          @18
    303: 33 00 0d                 r0 = 0xd
-   306: 67 0b                    i32 r11 = cpop r0
+   306: 66 0b                    i32 r11 = cpop r0
    308: 64 b3                    r3 = r11
    310: 95 aa 01                 r10 = r10 + 0x1
    313: 33 02 02                 r2 = 0x2
@@ -68136,7 +68136,7 @@ Initial program counter: 13
    331: 01                       fallthrough
       :                          @21
    332: 33 00 13                 r0 = 0x13
-   335: 67 0b                    i32 r11 = cpop r0
+   335: 66 0b                    i32 r11 = cpop r0
    337: 64 b3                    r3 = r11
    339: 95 aa 01                 r10 = r10 + 0x1
    342: 33 02 02                 r2 = 0x2
@@ -68150,7 +68150,7 @@ Initial program counter: 13
    360: 01                       fallthrough
       :                          @24
    361: 33 00 22                 r0 = 0x22
-   364: 67 0b                    i32 r11 = cpop r0
+   364: 66 0b                    i32 r11 = cpop r0
    366: 64 b3                    r3 = r11
    368: 95 aa 01                 r10 = r10 + 0x1
    371: 33 02 02                 r2 = 0x2
@@ -68161,40 +68161,40 @@ Initial program counter: 13
       :                          @26
    383: 33 05 15                 r5 = 0x15
    386: 33 00 00 80 7f           r0 = 0x7f8000
-   391: 67 0b                    i32 r11 = cpop r0
+   391: 66 0b                    i32 r11 = cpop r0
    393: 33 04 08                 r4 = 0x8
    396: ab 4b 63                 jump 495 if r11 != r4
       :                          @27
    399: 33 05 16                 r5 = 0x16
    402: 33 00 00 80 80 00        r0 = 0x808000
-   408: 67 0b                    i32 r11 = cpop r0
+   408: 66 0b                    i32 r11 = cpop r0
    410: 33 04 02                 r4 = 0x2
    413: ab 4b 52                 jump 495 if r11 != r4
       :                          @28
    416: 33 05 17                 r5 = 0x17
    419: 33 00 00 80 80 01        r0 = 0x1808000
-   425: 67 0b                    i32 r11 = cpop r0
+   425: 66 0b                    i32 r11 = cpop r0
    427: 33 04 03                 r4 = 0x3
    430: ab 4b 41                 jump 495 if r11 != r4
       :                          @29
    433: 33 05 18                 r5 = 0x18
    436: 33 00 00 80 00 30        r0 = 0x30008000
    442: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   445: 67 0b                    i32 r11 = cpop r0
+   445: 66 0b                    i32 r11 = cpop r0
    447: 33 04 11                 r4 = 0x11
    450: ab 4b 2d                 jump 495 if r11 != r4
       :                          @30
    453: 33 05 19                 r5 = 0x19
    456: 33 00 00 00 00 78        r0 = 0x78000000
    462: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   465: 67 0b                    i32 r11 = cpop r0
+   465: 66 0b                    i32 r11 = cpop r0
    467: 33 04 1e                 r4 = 0x1e
    470: ab 4b 19                 jump 495 if r11 != r4
       :                          @31
    473: 33 05 1a                 r5 = 0x1a
    476: 33 00 00 00 08           r0 = 0x80000
    481: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   484: 67 0b                    i32 r11 = cpop r0
+   484: 66 0b                    i32 r11 = cpop r0
    486: 33 04 13                 r4 = 0x13
    489: ab 4b 06                 jump 495 if r11 != r4
       :                          @32
@@ -68571,31 +68571,31 @@ Initial program counter: 13
      // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
-    18: 6a 0b                    r11 = ctz r0
+    18: 69 0b                    r11 = ctz r0
     20: 33 04 40                 r4 = 0x40
     23: ab 4b f1 01              jump 520 if r11 != r4
       :                          @2
     27: 33 05 03                 r5 = 0x3
     30: 33 00 01                 r0 = 0x1
-    33: 6a 0b                    r11 = ctz r0
+    33: 69 0b                    r11 = ctz r0
     35: 33 04                    r4 = 0
     37: ab 4b e3 01              jump 520 if r11 != r4
       :                          @3
     41: 33 05 04                 r5 = 0x4
     44: 33 00 03                 r0 = 0x3
-    47: 6a 0b                    r11 = ctz r0
+    47: 69 0b                    r11 = ctz r0
     49: 33 04                    r4 = 0
     51: ab 4b d5 01              jump 520 if r11 != r4
       :                          @4
     55: 33 05 05                 r5 = 0x5
     58: 33 00 00 80              r0 = 0xffffffffffff8000
-    62: 6a 0b                    r11 = ctz r0
+    62: 69 0b                    r11 = ctz r0
     64: 33 04 0f                 r4 = 0xf
     67: ab 4b c5 01              jump 520 if r11 != r4
       :                          @5
     71: 33 05 06                 r5 = 0x6
     74: 33 00 00 00 80 00        r0 = 0x800000
-    80: 6a 0b                    r11 = ctz r0
+    80: 69 0b                    r11 = ctz r0
     82: 33 04 17                 r4 = 0x17
     85: ab 4b b3 01              jump 520 if r11 != r4
       :                          @6
@@ -68604,34 +68604,34 @@ Initial program counter: 13
     95: 97 00 21                 r0 = r0 << 0x21
     98: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
    101: 97 00 0f                 r0 = r0 << 0xf
-   104: 6a 0b                    r11 = ctz r0
+   104: 69 0b                    r11 = ctz r0
    106: 33 04 0f                 r4 = 0xf
    109: ab 4b 9b 01              jump 520 if r11 != r4
       :                          @7
    113: 33 05 08                 r5 = 0x8
    116: 33 00 00 80 00           r0 = 0x8000
    121: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   124: 6a 0b                    r11 = ctz r0
+   124: 69 0b                    r11 = ctz r0
    126: 33 04                    r4 = 0
    128: ab 4b 88 01              jump 520 if r11 != r4
       :                          @8
    132: 33 05 09                 r5 = 0x9
    135: 33 00 00 00 00 80        r0 = 0xffffffff80000000
    141: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   144: 6a 0b                    r11 = ctz r0
+   144: 69 0b                    r11 = ctz r0
    146: 33 04                    r4 = 0
    148: ab 4b 74 01              jump 520 if r11 != r4
       :                          @9
    152: 33 05 0a                 r5 = 0xa
    155: 33 00 00 00 08           r0 = 0x80000
    160: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   163: 6a 0b                    r11 = ctz r0
+   163: 69 0b                    r11 = ctz r0
    165: 33 04                    r4 = 0
    167: ab 4b 61 01              jump 520 if r11 != r4
       :                          @10
    171: 33 05 0b                 r5 = 0xb
    174: 33 00 00 00 00 80        r0 = 0xffffffff80000000
-   180: 6a 0b                    r11 = ctz r0
+   180: 69 0b                    r11 = ctz r0
    182: 33 04 1f                 r4 = 0x1f
    185: ab 4b 4f 01              jump 520 if r11 != r4
       :                          @11
@@ -68641,20 +68641,20 @@ Initial program counter: 13
    202: 97 00 0d                 r0 = r0 << 0xd
    205: 95 00 f5 01              r0 = r0 + 0x1f5
    209: 97 00 0c                 r0 = r0 << 0xc
-   212: 6a 0b                    r11 = ctz r0
+   212: 69 0b                    r11 = ctz r0
    214: 33 04 0c                 r4 = 0xc
    217: ab 4b 2f 01              jump 520 if r11 != r4
       :                          @12
    221: 33 05 0d                 r5 = 0xd
    224: 33 00 ff                 r0 = 0xffffffffffffffff
    227: 97 00 3f                 r0 = r0 << 0x3f
-   230: 6a 0b                    r11 = ctz r0
+   230: 69 0b                    r11 = ctz r0
    232: 33 04 3f                 r4 = 0x3f
    235: ab 4b 1d 01              jump 520 if r11 != r4
       :                          @13
    239: 33 05 0e                 r5 = 0xe
    242: 33 00 0e                 r0 = 0xe
-   245: 6a 0b                    r11 = ctz r0
+   245: 69 0b                    r11 = ctz r0
    247: 33 04 01                 r4 = 0x1
    250: ab 4b 0e 01              jump 520 if r11 != r4
       :                          @14
@@ -68666,19 +68666,19 @@ Initial program counter: 13
    269: 95 00 01 04              r0 = r0 + 0x401
    273: 97 00 0c                 r0 = r0 << 0xc
    276: 95 00 41 03              r0 = r0 + 0x341
-   280: 6a 0b                    r11 = ctz r0
+   280: 69 0b                    r11 = ctz r0
    282: 33 04                    r4 = 0
    284: ab 4b ec 00              jump 520 if r11 != r4
       :                          @15
    288: 33 05 10                 r5 = 0x10
    291: 33 00 0d                 r0 = 0xd
-   294: 6a 00                    r0 = ctz r0
+   294: 69 00                    r0 = ctz r0
    296: 33 04                    r4 = 0
    298: ab 40 de 00              jump 520 if r0 != r4
       :                          @16
    302: 33 05 11                 r5 = 0x11
    305: 33 00 0b                 r0 = 0xb
-   308: 6a 00                    r0 = ctz r0
+   308: 69 00                    r0 = ctz r0
    310: 33 04                    r4 = 0
    312: ab 40 d0 00              jump 520 if r0 != r4
       :                          @17
@@ -68687,7 +68687,7 @@ Initial program counter: 13
    321: 01                       fallthrough
       :                          @18
    322: 33 00 0d                 r0 = 0xd
-   325: 6a 0b                    r11 = ctz r0
+   325: 69 0b                    r11 = ctz r0
    327: 64 b3                    r3 = r11
    329: 95 aa 01                 r10 = r10 + 0x1
    332: 33 02 02                 r2 = 0x2
@@ -68701,7 +68701,7 @@ Initial program counter: 13
    349: 01                       fallthrough
       :                          @21
    350: 33 00 13                 r0 = 0x13
-   353: 6a 0b                    r11 = ctz r0
+   353: 69 0b                    r11 = ctz r0
    355: 64 b3                    r3 = r11
    357: 95 aa 01                 r10 = r10 + 0x1
    360: 33 02 02                 r2 = 0x2
@@ -68715,7 +68715,7 @@ Initial program counter: 13
    377: 01                       fallthrough
       :                          @24
    378: 33 00 22                 r0 = 0x22
-   381: 6a 0b                    r11 = ctz r0
+   381: 69 0b                    r11 = ctz r0
    383: 64 b3                    r3 = r11
    385: 95 aa 01                 r10 = r10 + 0x1
    388: 33 02 02                 r2 = 0x2
@@ -68726,19 +68726,19 @@ Initial program counter: 13
       :                          @26
    400: 33 05 15                 r5 = 0x15
    403: 33 00 00 80 7f           r0 = 0x7f8000
-   408: 6a 0b                    r11 = ctz r0
+   408: 69 0b                    r11 = ctz r0
    410: 33 04 0f                 r4 = 0xf
    413: ab 4b 6b                 jump 520 if r11 != r4
       :                          @27
    416: 33 05 16                 r5 = 0x16
    419: 33 00 00 80 80 00        r0 = 0x808000
-   425: 6a 0b                    r11 = ctz r0
+   425: 69 0b                    r11 = ctz r0
    427: 33 04 0f                 r4 = 0xf
    430: ab 4b 5a                 jump 520 if r11 != r4
       :                          @28
    433: 33 05 17                 r5 = 0x17
    436: 33 00 00 90 80 01        r0 = 0x1809000
-   442: 6a 0b                    r11 = ctz r0
+   442: 69 0b                    r11 = ctz r0
    444: 33 04 0c                 r4 = 0xc
    447: ab 4b 49                 jump 520 if r11 != r4
       :                          @29
@@ -68747,7 +68747,7 @@ Initial program counter: 13
    458: 83 00 01                 i32 r0 = r0 + 0x1
    461: 97 00 0f                 r0 = r0 << 0xf
    464: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   467: 6a 0b                    r11 = ctz r0
+   467: 69 0b                    r11 = ctz r0
    469: 33 04                    r4 = 0
    471: ab 4b 31                 jump 520 if r11 != r4
       :                          @30
@@ -68755,7 +68755,7 @@ Initial program counter: 13
    477: 33 00 0f                 r0 = 0xf
    480: 97 00 1f                 r0 = r0 << 0x1f
    483: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   486: 6a 0b                    r11 = ctz r0
+   486: 69 0b                    r11 = ctz r0
    488: 33 04                    r4 = 0
    490: ab 4b 1e                 jump 520 if r11 != r4
       :                          @31
@@ -68764,7 +68764,7 @@ Initial program counter: 13
    501: 83 00 01                 i32 r0 = r0 + 0x1
    504: 97 00 13                 r0 = r0 << 0x13
    507: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   510: 6a 0b                    r11 = ctz r0
+   510: 69 0b                    r11 = ctz r0
    512: 33 04                    r4 = 0
    514: ab 4b 06                 jump 520 if r11 != r4
       :                          @32
@@ -69152,19 +69152,19 @@ Initial program counter: 13
      // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
-    18: 6b 0b                    i32 r11 = ctz r0
+    18: 6a 0b                    i32 r11 = ctz r0
     20: 33 04 20                 r4 = 0x20
     23: ab 4b d0 01              jump 487 if r11 != r4
       :                          @2
     27: 33 05 03                 r5 = 0x3
     30: 33 00 01                 r0 = 0x1
-    33: 6b 0b                    i32 r11 = ctz r0
+    33: 6a 0b                    i32 r11 = ctz r0
     35: 33 04                    r4 = 0
     37: ab 4b c2 01              jump 487 if r11 != r4
       :                          @3
     41: 33 05 04                 r5 = 0x4
     44: 33 00 03                 r0 = 0x3
-    47: 6b 0b                    i32 r11 = ctz r0
+    47: 6a 0b                    i32 r11 = ctz r0
     49: 33 04                    r4 = 0
     51: ab 4b b4 01              jump 487 if r11 != r4
       :                          @4
@@ -69172,13 +69172,13 @@ Initial program counter: 13
     58: 33 00 00 00 02           r0 = 0x20000
     63: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
     66: 97 00 0f                 r0 = r0 << 0xf
-    69: 6b 0b                    i32 r11 = ctz r0
+    69: 6a 0b                    i32 r11 = ctz r0
     71: 33 04 0f                 r4 = 0xf
     74: ab 4b 9d 01              jump 487 if r11 != r4
       :                          @5
     78: 33 05 06                 r5 = 0x6
     81: 33 00 00 00 80 00        r0 = 0x800000
-    87: 6b 0b                    i32 r11 = ctz r0
+    87: 6a 0b                    i32 r11 = ctz r0
     89: 33 04 17                 r4 = 0x17
     92: ab 4b 8b 01              jump 487 if r11 != r4
       :                          @6
@@ -69186,73 +69186,73 @@ Initial program counter: 13
     99: 33 00 00 00 02           r0 = 0x20000
    104: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
    107: 97 00 0f                 r0 = r0 << 0xf
-   110: 6b 0b                    i32 r11 = ctz r0
+   110: 6a 0b                    i32 r11 = ctz r0
    112: 33 04 0f                 r4 = 0xf
    115: ab 4b 74 01              jump 487 if r11 != r4
       :                          @7
    119: 33 05 08                 r5 = 0x8
    122: 33 00 00 80 00           r0 = 0x8000
    127: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   130: 6b 0b                    i32 r11 = ctz r0
+   130: 6a 0b                    i32 r11 = ctz r0
    132: 33 04                    r4 = 0
    134: ab 4b 61 01              jump 487 if r11 != r4
       :                          @8
    138: 33 05 09                 r5 = 0x9
    141: 33 00 00 00 00 80        r0 = 0xffffffff80000000
    147: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   150: 6b 0b                    i32 r11 = ctz r0
+   150: 6a 0b                    i32 r11 = ctz r0
    152: 33 04                    r4 = 0
    154: ab 4b 4d 01              jump 487 if r11 != r4
       :                          @9
    158: 33 05 0a                 r5 = 0xa
    161: 33 00 00 00 08           r0 = 0x80000
    166: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   169: 6b 0b                    i32 r11 = ctz r0
+   169: 6a 0b                    i32 r11 = ctz r0
    171: 33 04                    r4 = 0
    173: ab 4b 3a 01              jump 487 if r11 != r4
       :                          @10
    177: 33 05 0b                 r5 = 0xb
    180: 33 00 01                 r0 = 0x1
    183: 97 00 1f                 r0 = r0 << 0x1f
-   186: 6b 0b                    i32 r11 = ctz r0
+   186: 6a 0b                    i32 r11 = ctz r0
    188: 33 04 1f                 r4 = 0x1f
    191: ab 4b 28 01              jump 487 if r11 != r4
       :                          @11
    195: 33 05 0c                 r5 = 0xc
    198: 33 00 00 50 1f 12        r0 = 0x121f5000
-   204: 6b 0b                    i32 r11 = ctz r0
+   204: 6a 0b                    i32 r11 = ctz r0
    206: 33 04 0c                 r4 = 0xc
    209: ab 4b 16 01              jump 487 if r11 != r4
       :                          @12
    213: 33 05 0d                 r5 = 0xd
    216: 33 00 03                 r0 = 0x3
    219: 97 00 1e                 r0 = r0 << 0x1e
-   222: 6b 0b                    i32 r11 = ctz r0
+   222: 6a 0b                    i32 r11 = ctz r0
    224: 33 04 1e                 r4 = 0x1e
    227: ab 4b 04 01              jump 487 if r11 != r4
       :                          @13
    231: 33 05 0e                 r5 = 0xe
    234: 33 00 0e                 r0 = 0xe
-   237: 6b 0b                    i32 r11 = ctz r0
+   237: 6a 0b                    i32 r11 = ctz r0
    239: 33 04 01                 r4 = 0x1
    242: ab 4b f5 00              jump 487 if r11 != r4
       :                          @14
    246: 33 05 0f                 r5 = 0xf
    249: 33 00 00 10 40 20        r0 = 0x20401000
    255: 83 00 41 03              i32 r0 = r0 + 0x341
-   259: 6b 0b                    i32 r11 = ctz r0
+   259: 6a 0b                    i32 r11 = ctz r0
    261: 33 04                    r4 = 0
    263: ab 4b e0 00              jump 487 if r11 != r4
       :                          @15
    267: 33 05 10                 r5 = 0x10
    270: 33 00 0d                 r0 = 0xd
-   273: 6b 00                    i32 r0 = ctz r0
+   273: 6a 00                    i32 r0 = ctz r0
    275: 33 04                    r4 = 0
    277: ab 40 d2 00              jump 487 if r0 != r4
       :                          @16
    281: 33 05 11                 r5 = 0x11
    284: 33 00 0b                 r0 = 0xb
-   287: 6b 00                    i32 r0 = ctz r0
+   287: 6a 00                    i32 r0 = ctz r0
    289: 33 04                    r4 = 0
    291: ab 40 c4 00              jump 487 if r0 != r4
       :                          @17
@@ -69261,7 +69261,7 @@ Initial program counter: 13
    300: 01                       fallthrough
       :                          @18
    301: 33 00 0d                 r0 = 0xd
-   304: 6b 0b                    i32 r11 = ctz r0
+   304: 6a 0b                    i32 r11 = ctz r0
    306: 64 b3                    r3 = r11
    308: 95 aa 01                 r10 = r10 + 0x1
    311: 33 02 02                 r2 = 0x2
@@ -69275,7 +69275,7 @@ Initial program counter: 13
    328: 01                       fallthrough
       :                          @21
    329: 33 00 13                 r0 = 0x13
-   332: 6b 0b                    i32 r11 = ctz r0
+   332: 6a 0b                    i32 r11 = ctz r0
    334: 64 b3                    r3 = r11
    336: 95 aa 01                 r10 = r10 + 0x1
    339: 33 02 02                 r2 = 0x2
@@ -69289,7 +69289,7 @@ Initial program counter: 13
    356: 01                       fallthrough
       :                          @24
    357: 33 00 22                 r0 = 0x22
-   360: 6b 0b                    i32 r11 = ctz r0
+   360: 6a 0b                    i32 r11 = ctz r0
    362: 64 b3                    r3 = r11
    364: 95 aa 01                 r10 = r10 + 0x1
    367: 33 02 02                 r2 = 0x2
@@ -69300,40 +69300,40 @@ Initial program counter: 13
       :                          @26
    379: 33 05 15                 r5 = 0x15
    382: 33 00 00 80 7f           r0 = 0x7f8000
-   387: 6b 0b                    i32 r11 = ctz r0
+   387: 6a 0b                    i32 r11 = ctz r0
    389: 33 04 0f                 r4 = 0xf
    392: ab 4b 5f                 jump 487 if r11 != r4
       :                          @27
    395: 33 05 16                 r5 = 0x16
    398: 33 00 00 80 80 00        r0 = 0x808000
-   404: 6b 0b                    i32 r11 = ctz r0
+   404: 6a 0b                    i32 r11 = ctz r0
    406: 33 04 0f                 r4 = 0xf
    409: ab 4b 4e                 jump 487 if r11 != r4
       :                          @28
    412: 33 05 17                 r5 = 0x17
    415: 33 00 00 90 80 01        r0 = 0x1809000
-   421: 6b 0b                    i32 r11 = ctz r0
+   421: 6a 0b                    i32 r11 = ctz r0
    423: 33 04 0c                 r4 = 0xc
    426: ab 4b 3d                 jump 487 if r11 != r4
       :                          @29
    429: 33 05 18                 r5 = 0x18
    432: 33 00 00 80 00           r0 = 0x8000
    437: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   440: 6b 0b                    i32 r11 = ctz r0
+   440: 6a 0b                    i32 r11 = ctz r0
    442: 33 04                    r4 = 0
    444: ab 4b 2b                 jump 487 if r11 != r4
       :                          @30
    447: 33 05 19                 r5 = 0x19
    450: 33 00 00 00 00 80        r0 = 0xffffffff80000000
    456: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   459: 6b 0b                    i32 r11 = ctz r0
+   459: 6a 0b                    i32 r11 = ctz r0
    461: 33 04                    r4 = 0
    463: ab 4b 18                 jump 487 if r11 != r4
       :                          @31
    466: 33 05 1a                 r5 = 0x1a
    469: 33 00 00 00 08           r0 = 0x80000
    474: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   477: 6b 0b                    i32 r11 = ctz r0
+   477: 6a 0b                    i32 r11 = ctz r0
    479: 33 04                    r4 = 0
    481: ab 4b 06                 jump 487 if r11 != r4
       :                          @32
@@ -78147,27 +78147,27 @@ Initial program counter: 13
      // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
-    18: 6f 0b                    r11 = reverse r0
+    18: 6e 0b                    r11 = reverse r0
     20: 33 04                    r4 = 0
     22: ab 4b 9e 02              jump 692 if r11 != r4
       :                          @2
     26: 33 05 03                 r5 = 0x3
     29: 33 00 01                 r0 = 0x1
-    32: 6f 0b                    r11 = reverse r0
+    32: 6e 0b                    r11 = reverse r0
     34: 33 04 01                 r4 = 0x1
     37: 97 44 38                 r4 = r4 << 0x38
     40: ab 4b 8c 02              jump 692 if r11 != r4
       :                          @3
     44: 33 05 04                 r5 = 0x4
     47: 33 00 03                 r0 = 0x3
-    50: 6f 0b                    r11 = reverse r0
+    50: 6e 0b                    r11 = reverse r0
     52: 33 04 03                 r4 = 0x3
     55: 97 44 38                 r4 = r4 << 0x38
     58: ab 4b 7a 02              jump 692 if r11 != r4
       :                          @4
     62: 33 05 05                 r5 = 0x5
     65: 33 00 00 80              r0 = 0xffffffffffff8000
-    69: 6f 0b                    r11 = reverse r0
+    69: 6e 0b                    r11 = reverse r0
     71: 33 04 81 00              r4 = 0x81
     75: 97 44 30                 r4 = r4 << 0x30
     78: 95 44 ff                 r4 = r4 + 0xffffffffffffffff
@@ -78175,7 +78175,7 @@ Initial program counter: 13
       :                          @5
     85: 33 05 06                 r5 = 0x6
     88: 33 00 00 00 80 00        r0 = 0x800000
-    94: 6f 0b                    r11 = reverse r0
+    94: 6e 0b                    r11 = reverse r0
     96: 33 04 01                 r4 = 0x1
     99: 97 44 2f                 r4 = r4 << 0x2f
    102: ab 4b 4e 02              jump 692 if r11 != r4
@@ -78185,7 +78185,7 @@ Initial program counter: 13
    112: 97 00 21                 r0 = r0 << 0x21
    115: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
    118: 97 00 0f                 r0 = r0 << 0xf
-   121: 6f 0b                    r11 = reverse r0
+   121: 6e 0b                    r11 = reverse r0
    123: 33 04 81 00              r4 = 0x81
    127: 97 44 20                 r4 = r4 << 0x20
    130: 95 44 ff                 r4 = r4 + 0xffffffffffffffff
@@ -78196,7 +78196,7 @@ Initial program counter: 13
    144: 33 05 08                 r5 = 0x8
    147: 33 00 00 80 00           r0 = 0x8000
    152: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   155: 6f 0b                    r11 = reverse r0
+   155: 6e 0b                    r11 = reverse r0
    157: 33 04 7f ff              r4 = 0xffffffffffffff7f
    161: 97 44 30                 r4 = r4 << 0x30
    164: ab 4b 10 02              jump 692 if r11 != r4
@@ -78204,7 +78204,7 @@ Initial program counter: 13
    168: 33 05 09                 r5 = 0x9
    171: 33 00 00 00 00 80        r0 = 0xffffffff80000000
    177: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   180: 6f 0b                    r11 = reverse r0
+   180: 6e 0b                    r11 = reverse r0
    182: 33 04 7f ff              r4 = 0xffffffffffffff7f
    186: 97 44 20                 r4 = r4 << 0x20
    189: ab 4b f7 01              jump 692 if r11 != r4
@@ -78212,14 +78212,14 @@ Initial program counter: 13
    193: 33 05 0a                 r5 = 0xa
    196: 33 00 00 00 08           r0 = 0x80000
    201: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   204: 6f 0b                    r11 = reverse r0
+   204: 6e 0b                    r11 = reverse r0
    206: 33 04 07 ff              r4 = 0xffffffffffffff07
    210: 97 44 28                 r4 = r4 << 0x28
    213: ab 4b df 01              jump 692 if r11 != r4
       :                          @10
    217: 33 05 0b                 r5 = 0xb
    220: 33 00 00 00 00 80        r0 = 0xffffffff80000000
-   226: 6f 0b                    r11 = reverse r0
+   226: 6e 0b                    r11 = reverse r0
    228: 33 04 81 00              r4 = 0x81
    232: 97 44 20                 r4 = r4 << 0x20
    235: 95 44 ff                 r4 = r4 + 0xffffffffffffffff
@@ -78231,7 +78231,7 @@ Initial program counter: 13
    255: 97 00 0d                 r0 = r0 << 0xd
    258: 95 00 f5 01              r0 = r0 + 0x1f5
    262: 97 00 0c                 r0 = r0 << 0xc
-   265: 6f 0b                    r11 = reverse r0
+   265: 6e 0b                    r11 = reverse r0
    267: 33 04 00 40 a0 00        r4 = 0xa04000
    273: 83 44 25 fe              i32 r4 = r4 + 0xfffffffffffffe25
    277: 97 44 0c                 r4 = r4 << 0xc
@@ -78243,13 +78243,13 @@ Initial program counter: 13
    295: 33 05 0d                 r5 = 0xd
    298: 33 00 ff                 r0 = 0xffffffffffffffff
    301: 97 00 3f                 r0 = r0 << 0x3f
-   304: 6f 0b                    r11 = reverse r0
+   304: 6e 0b                    r11 = reverse r0
    306: 33 04 80 00              r4 = 0x80
    310: ab 4b 7e 01              jump 692 if r11 != r4
       :                          @13
    314: 33 05 0e                 r5 = 0xe
    317: 33 00 0e                 r0 = 0xe
-   320: 6f 0b                    r11 = reverse r0
+   320: 6e 0b                    r11 = reverse r0
    322: 33 04 07                 r4 = 0x7
    325: 97 44 39                 r4 = r4 << 0x39
    328: ab 4b 6c 01              jump 692 if r11 != r4
@@ -78262,7 +78262,7 @@ Initial program counter: 13
    347: 95 00 01 04              r0 = r0 + 0x401
    351: 97 00 0c                 r0 = r0 << 0xc
    354: 95 00 41 03              r0 = r0 + 0x341
-   358: 6f 0b                    r11 = reverse r0
+   358: 6e 0b                    r11 = reverse r0
    360: 33 04 00 a0 08 02        r4 = 0x208a000
    366: 83 44 01 fa              i32 r4 = r4 + 0xfffffffffffffa01
    370: 97 44 0d                 r4 = r4 << 0xd
@@ -78273,14 +78273,14 @@ Initial program counter: 13
       :                          @15
    387: 33 05 10                 r5 = 0x10
    390: 33 00 0d                 r0 = 0xd
-   393: 6f 00                    r0 = reverse r0
+   393: 6e 00                    r0 = reverse r0
    395: 33 04 0d                 r4 = 0xd
    398: 97 44 38                 r4 = r4 << 0x38
    401: ab 40 23 01              jump 692 if r0 != r4
       :                          @16
    405: 33 05 11                 r5 = 0x11
    408: 33 00 0b                 r0 = 0xb
-   411: 6f 00                    r0 = reverse r0
+   411: 6e 00                    r0 = reverse r0
    413: 33 04 0b                 r4 = 0xb
    416: 97 44 38                 r4 = r4 << 0x38
    419: ab 40 11 01              jump 692 if r0 != r4
@@ -78290,7 +78290,7 @@ Initial program counter: 13
    428: 01                       fallthrough
       :                          @18
    429: 33 00 0d                 r0 = 0xd
-   432: 6f 0b                    r11 = reverse r0
+   432: 6e 0b                    r11 = reverse r0
    434: 64 b3                    r3 = r11
    436: 95 aa 01                 r10 = r10 + 0x1
    439: 33 02 02                 r2 = 0x2
@@ -78305,7 +78305,7 @@ Initial program counter: 13
    460: 01                       fallthrough
       :                          @21
    461: 33 00 13                 r0 = 0x13
-   464: 6f 0b                    r11 = reverse r0
+   464: 6e 0b                    r11 = reverse r0
    466: 64 b3                    r3 = r11
    468: 95 aa 01                 r10 = r10 + 0x1
    471: 33 02 02                 r2 = 0x2
@@ -78320,7 +78320,7 @@ Initial program counter: 13
    492: 01                       fallthrough
       :                          @24
    493: 33 00 22                 r0 = 0x22
-   496: 6f 0b                    r11 = reverse r0
+   496: 6e 0b                    r11 = reverse r0
    498: 64 b3                    r3 = r11
    500: 95 aa 01                 r10 = r10 + 0x1
    503: 33 02 02                 r2 = 0x2
@@ -78332,7 +78332,7 @@ Initial program counter: 13
       :                          @26
    519: 33 05 15                 r5 = 0x15
    522: 33 00 00 80 7f           r0 = 0x7f8000
-   527: 6f 0b                    r11 = reverse r0
+   527: 6e 0b                    r11 = reverse r0
    529: 33 04 00 80 00           r4 = 0x8000
    534: 83 44 7f                 i32 r4 = r4 + 0x7f
    537: 97 44 28                 r4 = r4 << 0x28
@@ -78340,14 +78340,14 @@ Initial program counter: 13
       :                          @27
    544: 33 05 16                 r5 = 0x16
    547: 33 00 00 80 80 00        r0 = 0x808000
-   553: 6f 0b                    r11 = reverse r0
+   553: 6e 0b                    r11 = reverse r0
    555: 33 04 01 01              r4 = 0x101
    559: 97 44 2f                 r4 = r4 << 0x2f
    562: ab 4b 82 00              jump 692 if r11 != r4
       :                          @28
    566: 33 05 17                 r5 = 0x17
    569: 33 00 00 80 80 01        r0 = 0x1808000
-   575: 6f 0b                    r11 = reverse r0
+   575: 6e 0b                    r11 = reverse r0
    577: 33 04 00 80 80 00        r4 = 0x808000
    583: 83 44 01                 i32 r4 = r4 + 0x1
    586: 97 44 20                 r4 = r4 << 0x20
@@ -78358,7 +78358,7 @@ Initial program counter: 13
    600: 83 00 01                 i32 r0 = r0 + 0x1
    603: 97 00 0f                 r0 = r0 << 0xf
    606: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   609: 6f 0b                    r11 = reverse r0
+   609: 6e 0b                    r11 = reverse r0
    611: 33 04 7f ff              r4 = 0xffffffffffffff7f
    615: 97 44 18                 r4 = r4 << 0x18
    618: 95 44 03                 r4 = r4 + 0x3
@@ -78369,7 +78369,7 @@ Initial program counter: 13
    630: 33 00 0f                 r0 = 0xf
    633: 97 00 1f                 r0 = r0 << 0x1f
    636: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   639: 6f 0b                    r11 = reverse r0
+   639: 6e 0b                    r11 = reverse r0
    641: 33 04 00 80              r4 = 0xffffffffffff8000
    645: 83 44 07 ff              i32 r4 = r4 + 0xffffffffffffff07
    649: 97 44 18                 r4 = r4 << 0x18
@@ -78380,7 +78380,7 @@ Initial program counter: 13
    663: 83 00 01                 i32 r0 = r0 + 0x1
    666: 97 00 13                 r0 = r0 << 0x13
    669: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   672: 6f 0b                    r11 = reverse r0
+   672: 6e 0b                    r11 = reverse r0
    674: 33 04 00 00 07 ff        r4 = 0xffffffffff070000
    680: 83 44 0f                 i32 r4 = r4 + 0xf
    683: 97 44 18                 r4 = r4 << 0x18
@@ -85214,31 +85214,31 @@ Initial program counter: 13
      // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
-    18: 6c 0b                    r11 = sext8 r0
+    18: 6b 0b                    r11 = sext8 r0
     20: 33 04                    r4 = 0
     22: ab 4b f5 01              jump 523 if r11 != r4
       :                          @2
     26: 33 05 03                 r5 = 0x3
     29: 33 00 01                 r0 = 0x1
-    32: 6c 0b                    r11 = sext8 r0
+    32: 6b 0b                    r11 = sext8 r0
     34: 33 04 01                 r4 = 0x1
     37: ab 4b e6 01              jump 523 if r11 != r4
       :                          @3
     41: 33 05 04                 r5 = 0x4
     44: 33 00 03                 r0 = 0x3
-    47: 6c 0b                    r11 = sext8 r0
+    47: 6b 0b                    r11 = sext8 r0
     49: 33 04 03                 r4 = 0x3
     52: ab 4b d7 01              jump 523 if r11 != r4
       :                          @4
     56: 33 05 05                 r5 = 0x5
     59: 33 00 00 80              r0 = 0xffffffffffff8000
-    63: 6c 0b                    r11 = sext8 r0
+    63: 6b 0b                    r11 = sext8 r0
     65: 33 04                    r4 = 0
     67: ab 4b c8 01              jump 523 if r11 != r4
       :                          @5
     71: 33 05 06                 r5 = 0x6
     74: 33 00 00 00 80 00        r0 = 0x800000
-    80: 6c 0b                    r11 = sext8 r0
+    80: 6b 0b                    r11 = sext8 r0
     82: 33 04                    r4 = 0
     84: ab 4b b7 01              jump 523 if r11 != r4
       :                          @6
@@ -85247,34 +85247,34 @@ Initial program counter: 13
     94: 97 00 21                 r0 = r0 << 0x21
     97: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
    100: 97 00 0f                 r0 = r0 << 0xf
-   103: 6c 0b                    r11 = sext8 r0
+   103: 6b 0b                    r11 = sext8 r0
    105: 33 04                    r4 = 0
    107: ab 4b a0 01              jump 523 if r11 != r4
       :                          @7
    111: 33 05 08                 r5 = 0x8
    114: 33 00 00 80 00           r0 = 0x8000
    119: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   122: 6c 0b                    r11 = sext8 r0
+   122: 6b 0b                    r11 = sext8 r0
    124: 33 04 ff                 r4 = 0xffffffffffffffff
    127: ab 4b 8c 01              jump 523 if r11 != r4
       :                          @8
    131: 33 05 09                 r5 = 0x9
    134: 33 00 00 00 00 80        r0 = 0xffffffff80000000
    140: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   143: 6c 0b                    r11 = sext8 r0
+   143: 6b 0b                    r11 = sext8 r0
    145: 33 04 ff                 r4 = 0xffffffffffffffff
    148: ab 4b 77 01              jump 523 if r11 != r4
       :                          @9
    152: 33 05 0a                 r5 = 0xa
    155: 33 00 00 00 08           r0 = 0x80000
    160: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   163: 6c 0b                    r11 = sext8 r0
+   163: 6b 0b                    r11 = sext8 r0
    165: 33 04 ff                 r4 = 0xffffffffffffffff
    168: ab 4b 63 01              jump 523 if r11 != r4
       :                          @10
    172: 33 05 0b                 r5 = 0xb
    175: 33 00 00 00 00 80        r0 = 0xffffffff80000000
-   181: 6c 0b                    r11 = sext8 r0
+   181: 6b 0b                    r11 = sext8 r0
    183: 33 04                    r4 = 0
    185: ab 4b 52 01              jump 523 if r11 != r4
       :                          @11
@@ -85284,20 +85284,20 @@ Initial program counter: 13
    202: 97 00 0d                 r0 = r0 << 0xd
    205: 95 00 f5 01              r0 = r0 + 0x1f5
    209: 97 00 0c                 r0 = r0 << 0xc
-   212: 6c 0b                    r11 = sext8 r0
+   212: 6b 0b                    r11 = sext8 r0
    214: 33 04                    r4 = 0
    216: ab 4b 33 01              jump 523 if r11 != r4
       :                          @12
    220: 33 05 0d                 r5 = 0xd
    223: 33 00 ff                 r0 = 0xffffffffffffffff
    226: 97 00 3f                 r0 = r0 << 0x3f
-   229: 6c 0b                    r11 = sext8 r0
+   229: 6b 0b                    r11 = sext8 r0
    231: 33 04                    r4 = 0
    233: ab 4b 22 01              jump 523 if r11 != r4
       :                          @13
    237: 33 05 0e                 r5 = 0xe
    240: 33 00 0e                 r0 = 0xe
-   243: 6c 0b                    r11 = sext8 r0
+   243: 6b 0b                    r11 = sext8 r0
    245: 33 04 0e                 r4 = 0xe
    248: ab 4b 13 01              jump 523 if r11 != r4
       :                          @14
@@ -85309,19 +85309,19 @@ Initial program counter: 13
    267: 95 00 01 04              r0 = r0 + 0x401
    271: 97 00 0c                 r0 = r0 << 0xc
    274: 95 00 41 03              r0 = r0 + 0x341
-   278: 6c 0b                    r11 = sext8 r0
+   278: 6b 0b                    r11 = sext8 r0
    280: 33 04 41                 r4 = 0x41
    283: ab 4b f0 00              jump 523 if r11 != r4
       :                          @15
    287: 33 05 10                 r5 = 0x10
    290: 33 00 0d                 r0 = 0xd
-   293: 6c 00                    r0 = sext8 r0
+   293: 6b 00                    r0 = sext8 r0
    295: 33 04 0d                 r4 = 0xd
    298: ab 40 e1 00              jump 523 if r0 != r4
       :                          @16
    302: 33 05 11                 r5 = 0x11
    305: 33 00 0b                 r0 = 0xb
-   308: 6c 00                    r0 = sext8 r0
+   308: 6b 00                    r0 = sext8 r0
    310: 33 04 0b                 r4 = 0xb
    313: ab 40 d2 00              jump 523 if r0 != r4
       :                          @17
@@ -85330,7 +85330,7 @@ Initial program counter: 13
    322: 01                       fallthrough
       :                          @18
    323: 33 00 0d                 r0 = 0xd
-   326: 6c 0b                    r11 = sext8 r0
+   326: 6b 0b                    r11 = sext8 r0
    328: 64 b3                    r3 = r11
    330: 95 aa 01                 r10 = r10 + 0x1
    333: 33 02 02                 r2 = 0x2
@@ -85344,7 +85344,7 @@ Initial program counter: 13
    351: 01                       fallthrough
       :                          @21
    352: 33 00 13                 r0 = 0x13
-   355: 6c 0b                    r11 = sext8 r0
+   355: 6b 0b                    r11 = sext8 r0
    357: 64 b3                    r3 = r11
    359: 95 aa 01                 r10 = r10 + 0x1
    362: 33 02 02                 r2 = 0x2
@@ -85358,7 +85358,7 @@ Initial program counter: 13
    380: 01                       fallthrough
       :                          @24
    381: 33 00 22                 r0 = 0x22
-   384: 6c 0b                    r11 = sext8 r0
+   384: 6b 0b                    r11 = sext8 r0
    386: 64 b3                    r3 = r11
    388: 95 aa 01                 r10 = r10 + 0x1
    391: 33 02 02                 r2 = 0x2
@@ -85369,19 +85369,19 @@ Initial program counter: 13
       :                          @26
    403: 33 05 15                 r5 = 0x15
    406: 33 00 00 80 7f           r0 = 0x7f8000
-   411: 6c 0b                    r11 = sext8 r0
+   411: 6b 0b                    r11 = sext8 r0
    413: 33 04                    r4 = 0
    415: ab 4b 6c                 jump 523 if r11 != r4
       :                          @27
    418: 33 05 16                 r5 = 0x16
    421: 33 00 00 80 80 00        r0 = 0x808000
-   427: 6c 0b                    r11 = sext8 r0
+   427: 6b 0b                    r11 = sext8 r0
    429: 33 04                    r4 = 0
    431: ab 4b 5c                 jump 523 if r11 != r4
       :                          @28
    434: 33 05 17                 r5 = 0x17
    437: 33 00 00 80 80 01        r0 = 0x1808000
-   443: 6c 0b                    r11 = sext8 r0
+   443: 6b 0b                    r11 = sext8 r0
    445: 33 04                    r4 = 0
    447: ab 4b 4c                 jump 523 if r11 != r4
       :                          @29
@@ -85390,7 +85390,7 @@ Initial program counter: 13
    458: 83 00 01                 i32 r0 = r0 + 0x1
    461: 97 00 0f                 r0 = r0 << 0xf
    464: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   467: 6c 0b                    r11 = sext8 r0
+   467: 6b 0b                    r11 = sext8 r0
    469: 33 04 ff                 r4 = 0xffffffffffffffff
    472: ab 4b 33                 jump 523 if r11 != r4
       :                          @30
@@ -85398,7 +85398,7 @@ Initial program counter: 13
    478: 33 00 0f                 r0 = 0xf
    481: 97 00 1f                 r0 = r0 << 0x1f
    484: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   487: 6c 0b                    r11 = sext8 r0
+   487: 6b 0b                    r11 = sext8 r0
    489: 33 04 ff                 r4 = 0xffffffffffffffff
    492: ab 4b 1f                 jump 523 if r11 != r4
       :                          @31
@@ -85407,7 +85407,7 @@ Initial program counter: 13
    503: 83 00 01                 i32 r0 = r0 + 0x1
    506: 97 00 13                 r0 = r0 << 0x13
    509: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   512: 6c 0b                    r11 = sext8 r0
+   512: 6b 0b                    r11 = sext8 r0
    514: 33 04 ff                 r4 = 0xffffffffffffffff
    517: ab 4b 06                 jump 523 if r11 != r4
       :                          @32
@@ -85797,31 +85797,31 @@ Initial program counter: 13
      // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
-    18: 6d 0b                    r11 = sext16 r0
+    18: 6c 0b                    r11 = sext16 r0
     20: 33 04                    r4 = 0
     22: ab 4b 11 02              jump 551 if r11 != r4
       :                          @2
     26: 33 05 03                 r5 = 0x3
     29: 33 00 01                 r0 = 0x1
-    32: 6d 0b                    r11 = sext16 r0
+    32: 6c 0b                    r11 = sext16 r0
     34: 33 04 01                 r4 = 0x1
     37: ab 4b 02 02              jump 551 if r11 != r4
       :                          @3
     41: 33 05 04                 r5 = 0x4
     44: 33 00 03                 r0 = 0x3
-    47: 6d 0b                    r11 = sext16 r0
+    47: 6c 0b                    r11 = sext16 r0
     49: 33 04 03                 r4 = 0x3
     52: ab 4b f3 01              jump 551 if r11 != r4
       :                          @4
     56: 33 05 05                 r5 = 0x5
     59: 33 00 00 80              r0 = 0xffffffffffff8000
-    63: 6d 0b                    r11 = sext16 r0
+    63: 6c 0b                    r11 = sext16 r0
     65: 33 04 00 80              r4 = 0xffffffffffff8000
     69: ab 4b e2 01              jump 551 if r11 != r4
       :                          @5
     73: 33 05 06                 r5 = 0x6
     76: 33 00 00 00 80 00        r0 = 0x800000
-    82: 6d 0b                    r11 = sext16 r0
+    82: 6c 0b                    r11 = sext16 r0
     84: 33 04                    r4 = 0
     86: ab 4b d1 01              jump 551 if r11 != r4
       :                          @6
@@ -85830,14 +85830,14 @@ Initial program counter: 13
     96: 97 00 21                 r0 = r0 << 0x21
     99: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
    102: 97 00 0f                 r0 = r0 << 0xf
-   105: 6d 0b                    r11 = sext16 r0
+   105: 6c 0b                    r11 = sext16 r0
    107: 33 04 00 80              r4 = 0xffffffffffff8000
    111: ab 4b b8 01              jump 551 if r11 != r4
       :                          @7
    115: 33 05 08                 r5 = 0x8
    118: 33 00 00 80 00           r0 = 0x8000
    123: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   126: 6d 0b                    r11 = sext16 r0
+   126: 6c 0b                    r11 = sext16 r0
    128: 33 04 00 80 00           r4 = 0x8000
    133: 83 44 ff                 i32 r4 = r4 + 0xffffffffffffffff
    136: ab 4b 9f 01              jump 551 if r11 != r4
@@ -85845,20 +85845,20 @@ Initial program counter: 13
    140: 33 05 09                 r5 = 0x9
    143: 33 00 00 00 00 80        r0 = 0xffffffff80000000
    149: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   152: 6d 0b                    r11 = sext16 r0
+   152: 6c 0b                    r11 = sext16 r0
    154: 33 04 ff                 r4 = 0xffffffffffffffff
    157: ab 4b 8a 01              jump 551 if r11 != r4
       :                          @9
    161: 33 05 0a                 r5 = 0xa
    164: 33 00 00 00 08           r0 = 0x80000
    169: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   172: 6d 0b                    r11 = sext16 r0
+   172: 6c 0b                    r11 = sext16 r0
    174: 33 04 ff                 r4 = 0xffffffffffffffff
    177: ab 4b 76 01              jump 551 if r11 != r4
       :                          @10
    181: 33 05 0b                 r5 = 0xb
    184: 33 00 00 00 00 80        r0 = 0xffffffff80000000
-   190: 6d 0b                    r11 = sext16 r0
+   190: 6c 0b                    r11 = sext16 r0
    192: 33 04                    r4 = 0
    194: ab 4b 65 01              jump 551 if r11 != r4
       :                          @11
@@ -85868,20 +85868,20 @@ Initial program counter: 13
    211: 97 00 0d                 r0 = r0 << 0xd
    214: 95 00 f5 01              r0 = r0 + 0x1f5
    218: 97 00 0c                 r0 = r0 << 0xc
-   221: 6d 0b                    r11 = sext16 r0
+   221: 6c 0b                    r11 = sext16 r0
    223: 33 04 00 50              r4 = 0x5000
    227: ab 4b 44 01              jump 551 if r11 != r4
       :                          @12
    231: 33 05 0d                 r5 = 0xd
    234: 33 00 ff                 r0 = 0xffffffffffffffff
    237: 97 00 3f                 r0 = r0 << 0x3f
-   240: 6d 0b                    r11 = sext16 r0
+   240: 6c 0b                    r11 = sext16 r0
    242: 33 04                    r4 = 0
    244: ab 4b 33 01              jump 551 if r11 != r4
       :                          @13
    248: 33 05 0e                 r5 = 0xe
    251: 33 00 0e                 r0 = 0xe
-   254: 6d 0b                    r11 = sext16 r0
+   254: 6c 0b                    r11 = sext16 r0
    256: 33 04 0e                 r4 = 0xe
    259: ab 4b 24 01              jump 551 if r11 != r4
       :                          @14
@@ -85893,20 +85893,20 @@ Initial program counter: 13
    278: 95 00 01 04              r0 = r0 + 0x401
    282: 97 00 0c                 r0 = r0 << 0xc
    285: 95 00 41 03              r0 = r0 + 0x341
-   289: 6d 0b                    r11 = sext16 r0
+   289: 6c 0b                    r11 = sext16 r0
    291: 33 04 00 10              r4 = 0x1000
    295: 83 44 41 03              i32 r4 = r4 + 0x341
    299: ab 4b fc 00              jump 551 if r11 != r4
       :                          @15
    303: 33 05 10                 r5 = 0x10
    306: 33 00 0d                 r0 = 0xd
-   309: 6d 00                    r0 = sext16 r0
+   309: 6c 00                    r0 = sext16 r0
    311: 33 04 0d                 r4 = 0xd
    314: ab 40 ed 00              jump 551 if r0 != r4
       :                          @16
    318: 33 05 11                 r5 = 0x11
    321: 33 00 0b                 r0 = 0xb
-   324: 6d 00                    r0 = sext16 r0
+   324: 6c 00                    r0 = sext16 r0
    326: 33 04 0b                 r4 = 0xb
    329: ab 40 de 00              jump 551 if r0 != r4
       :                          @17
@@ -85915,7 +85915,7 @@ Initial program counter: 13
    338: 01                       fallthrough
       :                          @18
    339: 33 00 0d                 r0 = 0xd
-   342: 6d 0b                    r11 = sext16 r0
+   342: 6c 0b                    r11 = sext16 r0
    344: 64 b3                    r3 = r11
    346: 95 aa 01                 r10 = r10 + 0x1
    349: 33 02 02                 r2 = 0x2
@@ -85929,7 +85929,7 @@ Initial program counter: 13
    367: 01                       fallthrough
       :                          @21
    368: 33 00 13                 r0 = 0x13
-   371: 6d 0b                    r11 = sext16 r0
+   371: 6c 0b                    r11 = sext16 r0
    373: 64 b3                    r3 = r11
    375: 95 aa 01                 r10 = r10 + 0x1
    378: 33 02 02                 r2 = 0x2
@@ -85943,7 +85943,7 @@ Initial program counter: 13
    396: 01                       fallthrough
       :                          @24
    397: 33 00 22                 r0 = 0x22
-   400: 6d 0b                    r11 = sext16 r0
+   400: 6c 0b                    r11 = sext16 r0
    402: 64 b3                    r3 = r11
    404: 95 aa 01                 r10 = r10 + 0x1
    407: 33 02 02                 r2 = 0x2
@@ -85954,19 +85954,19 @@ Initial program counter: 13
       :                          @26
    420: 33 05 15                 r5 = 0x15
    423: 33 00 00 80 7f           r0 = 0x7f8000
-   428: 6d 0b                    r11 = sext16 r0
+   428: 6c 0b                    r11 = sext16 r0
    430: 33 04 00 80              r4 = 0xffffffffffff8000
    434: ab 4b 75                 jump 551 if r11 != r4
       :                          @27
    437: 33 05 16                 r5 = 0x16
    440: 33 00 00 80 80 00        r0 = 0x808000
-   446: 6d 0b                    r11 = sext16 r0
+   446: 6c 0b                    r11 = sext16 r0
    448: 33 04 00 80              r4 = 0xffffffffffff8000
    452: ab 4b 63                 jump 551 if r11 != r4
       :                          @28
    455: 33 05 17                 r5 = 0x17
    458: 33 00 00 80 80 01        r0 = 0x1808000
-   464: 6d 0b                    r11 = sext16 r0
+   464: 6c 0b                    r11 = sext16 r0
    466: 33 04 00 80              r4 = 0xffffffffffff8000
    470: ab 4b 51                 jump 551 if r11 != r4
       :                          @29
@@ -85975,7 +85975,7 @@ Initial program counter: 13
    481: 83 00 01                 i32 r0 = r0 + 0x1
    484: 97 00 0f                 r0 = r0 << 0xf
    487: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   490: 6d 0b                    r11 = sext16 r0
+   490: 6c 0b                    r11 = sext16 r0
    492: 33 04 00 80 00           r4 = 0x8000
    497: 83 44 ff                 i32 r4 = r4 + 0xffffffffffffffff
    500: ab 4b 33                 jump 551 if r11 != r4
@@ -85984,7 +85984,7 @@ Initial program counter: 13
    506: 33 00 0f                 r0 = 0xf
    509: 97 00 1f                 r0 = r0 << 0x1f
    512: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   515: 6d 0b                    r11 = sext16 r0
+   515: 6c 0b                    r11 = sext16 r0
    517: 33 04 ff                 r4 = 0xffffffffffffffff
    520: ab 4b 1f                 jump 551 if r11 != r4
       :                          @31
@@ -85993,7 +85993,7 @@ Initial program counter: 13
    531: 83 00 01                 i32 r0 = r0 + 0x1
    534: 97 00 13                 r0 = r0 << 0x13
    537: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   540: 6d 0b                    r11 = sext16 r0
+   540: 6c 0b                    r11 = sext16 r0
    542: 33 04 ff                 r4 = 0xffffffffffffffff
    545: ab 4b 06                 jump 551 if r11 != r4
       :                          @32
@@ -87549,31 +87549,31 @@ Initial program counter: 13
      // Start execution HERE:
     13: 33 05 02                 r5 = 0x2
     16: 33 00                    r0 = 0
-    18: 6e 0b                    r11 = zext16 r0
+    18: 6d 0b                    r11 = zext16 r0
     20: 33 04                    r4 = 0
     22: ab 4b 2b 02              jump 577 if r11 != r4
       :                          @2
     26: 33 05 03                 r5 = 0x3
     29: 33 00 01                 r0 = 0x1
-    32: 6e 0b                    r11 = zext16 r0
+    32: 6d 0b                    r11 = zext16 r0
     34: 33 04 01                 r4 = 0x1
     37: ab 4b 1c 02              jump 577 if r11 != r4
       :                          @3
     41: 33 05 04                 r5 = 0x4
     44: 33 00 03                 r0 = 0x3
-    47: 6e 0b                    r11 = zext16 r0
+    47: 6d 0b                    r11 = zext16 r0
     49: 33 04 03                 r4 = 0x3
     52: ab 4b 0d 02              jump 577 if r11 != r4
       :                          @4
     56: 33 05 05                 r5 = 0x5
     59: 33 00 00 80              r0 = 0xffffffffffff8000
-    63: 6e 0b                    r11 = zext16 r0
+    63: 6d 0b                    r11 = zext16 r0
     65: 33 04 00 80 00           r4 = 0x8000
     70: ab 4b fb 01              jump 577 if r11 != r4
       :                          @5
     74: 33 05 06                 r5 = 0x6
     77: 33 00 00 00 80 00        r0 = 0x800000
-    83: 6e 0b                    r11 = zext16 r0
+    83: 6d 0b                    r11 = zext16 r0
     85: 33 04                    r4 = 0
     87: ab 4b ea 01              jump 577 if r11 != r4
       :                          @6
@@ -87582,14 +87582,14 @@ Initial program counter: 13
     97: 97 00 21                 r0 = r0 << 0x21
    100: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
    103: 97 00 0f                 r0 = r0 << 0xf
-   106: 6e 0b                    r11 = zext16 r0
+   106: 6d 0b                    r11 = zext16 r0
    108: 33 04 00 80 00           r4 = 0x8000
    113: ab 4b d0 01              jump 577 if r11 != r4
       :                          @7
    117: 33 05 08                 r5 = 0x8
    120: 33 00 00 80 00           r0 = 0x8000
    125: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   128: 6e 0b                    r11 = zext16 r0
+   128: 6d 0b                    r11 = zext16 r0
    130: 33 04 00 80 00           r4 = 0x8000
    135: 83 44 ff                 i32 r4 = r4 + 0xffffffffffffffff
    138: ab 4b b7 01              jump 577 if r11 != r4
@@ -87597,7 +87597,7 @@ Initial program counter: 13
    142: 33 05 09                 r5 = 0x9
    145: 33 00 00 00 00 80        r0 = 0xffffffff80000000
    151: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   154: 6e 0b                    r11 = zext16 r0
+   154: 6d 0b                    r11 = zext16 r0
    156: 33 04 00 00 01           r4 = 0x10000
    161: 83 44 ff                 i32 r4 = r4 + 0xffffffffffffffff
    164: ab 4b 9d 01              jump 577 if r11 != r4
@@ -87605,14 +87605,14 @@ Initial program counter: 13
    168: 33 05 0a                 r5 = 0xa
    171: 33 00 00 00 08           r0 = 0x80000
    176: 83 00 ff                 i32 r0 = r0 + 0xffffffffffffffff
-   179: 6e 0b                    r11 = zext16 r0
+   179: 6d 0b                    r11 = zext16 r0
    181: 33 04 00 00 01           r4 = 0x10000
    186: 83 44 ff                 i32 r4 = r4 + 0xffffffffffffffff
    189: ab 4b 84 01              jump 577 if r11 != r4
       :                          @10
    193: 33 05 0b                 r5 = 0xb
    196: 33 00 00 00 00 80        r0 = 0xffffffff80000000
-   202: 6e 0b                    r11 = zext16 r0
+   202: 6d 0b                    r11 = zext16 r0
    204: 33 04                    r4 = 0
    206: ab 4b 73 01              jump 577 if r11 != r4
       :                          @11
@@ -87622,20 +87622,20 @@ Initial program counter: 13
    223: 97 00 0d                 r0 = r0 << 0xd
    226: 95 00 f5 01              r0 = r0 + 0x1f5
    230: 97 00 0c                 r0 = r0 << 0xc
-   233: 6e 0b                    r11 = zext16 r0
+   233: 6d 0b                    r11 = zext16 r0
    235: 33 04 00 50              r4 = 0x5000
    239: ab 4b 52 01              jump 577 if r11 != r4
       :                          @12
    243: 33 05 0d                 r5 = 0xd
    246: 33 00 ff                 r0 = 0xffffffffffffffff
    249: 97 00 3f                 r0 = r0 << 0x3f
-   252: 6e 0b                    r11 = zext16 r0
+   252: 6d 0b                    r11 = zext16 r0
    254: 33 04                    r4 = 0
    256: ab 4b 41 01              jump 577 if r11 != r4
       :                          @13
    260: 33 05 0e                 r5 = 0xe
    263: 33 00 0e                 r0 = 0xe
-   266: 6e 0b                    r11 = zext16 r0
+   266: 6d 0b                    r11 = zext16 r0
    268: 33 04 0e                 r4 = 0xe
    271: ab 4b 32 01              jump 577 if r11 != r4
       :                          @14
@@ -87647,20 +87647,20 @@ Initial program counter: 13
    290: 95 00 01 04              r0 = r0 + 0x401
    294: 97 00 0c                 r0 = r0 << 0xc
    297: 95 00 41 03              r0 = r0 + 0x341
-   301: 6e 0b                    r11 = zext16 r0
+   301: 6d 0b                    r11 = zext16 r0
    303: 33 04 00 10              r4 = 0x1000
    307: 83 44 41 03              i32 r4 = r4 + 0x341
    311: ab 4b 0a 01              jump 577 if r11 != r4
       :                          @15
    315: 33 05 10                 r5 = 0x10
    318: 33 00 0d                 r0 = 0xd
-   321: 6e 00                    r0 = zext16 r0
+   321: 6d 00                    r0 = zext16 r0
    323: 33 04 0d                 r4 = 0xd
    326: ab 40 fb 00              jump 577 if r0 != r4
       :                          @16
    330: 33 05 11                 r5 = 0x11
    333: 33 00 0b                 r0 = 0xb
-   336: 6e 00                    r0 = zext16 r0
+   336: 6d 00                    r0 = zext16 r0
    338: 33 04 0b                 r4 = 0xb
    341: ab 40 ec 00              jump 577 if r0 != r4
       :                          @17
@@ -87669,7 +87669,7 @@ Initial program counter: 13
    350: 01                       fallthrough
       :                          @18
    351: 33 00 0d                 r0 = 0xd
-   354: 6e 0b                    r11 = zext16 r0
+   354: 6d 0b                    r11 = zext16 r0
    356: 64 b3                    r3 = r11
    358: 95 aa 01                 r10 = r10 + 0x1
    361: 33 02 02                 r2 = 0x2
@@ -87683,7 +87683,7 @@ Initial program counter: 13
    379: 01                       fallthrough
       :                          @21
    380: 33 00 13                 r0 = 0x13
-   383: 6e 0b                    r11 = zext16 r0
+   383: 6d 0b                    r11 = zext16 r0
    385: 64 b3                    r3 = r11
    387: 95 aa 01                 r10 = r10 + 0x1
    390: 33 02 02                 r2 = 0x2
@@ -87697,7 +87697,7 @@ Initial program counter: 13
    408: 01                       fallthrough
       :                          @24
    409: 33 00 22                 r0 = 0x22
-   412: 6e 0b                    r11 = zext16 r0
+   412: 6d 0b                    r11 = zext16 r0
    414: 64 b3                    r3 = r11
    416: 95 aa 01                 r10 = r10 + 0x1
    419: 33 02 02                 r2 = 0x2
@@ -87708,19 +87708,19 @@ Initial program counter: 13
       :                          @26
    432: 33 05 15                 r5 = 0x15
    435: 33 00 00 80 7f           r0 = 0x7f8000
-   440: 6e 0b                    r11 = zext16 r0
+   440: 6d 0b                    r11 = zext16 r0
    442: 33 04 00 80 00           r4 = 0x8000
    447: ab 4b 82 00              jump 577 if r11 != r4
       :                          @27
    451: 33 05 16                 r5 = 0x16
    454: 33 00 00 80 80 00        r0 = 0x808000
-   460: 6e 0b                    r11 = zext16 r0
+   460: 6d 0b                    r11 = zext16 r0
    462: 33 04 00 80 00           r4 = 0x8000
    467: ab 4b 6e                 jump 577 if r11 != r4
       :                          @28
    470: 33 05 17                 r5 = 0x17
    473: 33 00 00 80 80 01        r0 = 0x1808000
-   479: 6e 0b                    r11 = zext16 r0
+   479: 6d 0b                    r11 = zext16 r0
    481: 33 04 00 80 00           r4 = 0x8000
    486: ab 4b 5b                 jump 577 if r11 != r4
       :                          @29
@@ -87729,7 +87729,7 @@ Initial program counter: 13
    497: 83 00 01                 i32 r0 = r0 + 0x1
    500: 97 00 0f                 r0 = r0 << 0xf
    503: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   506: 6e 0b                    r11 = zext16 r0
+   506: 6d 0b                    r11 = zext16 r0
    508: 33 04 00 80 00           r4 = 0x8000
    513: 83 44 ff                 i32 r4 = r4 + 0xffffffffffffffff
    516: ab 4b 3d                 jump 577 if r11 != r4
@@ -87738,7 +87738,7 @@ Initial program counter: 13
    522: 33 00 0f                 r0 = 0xf
    525: 97 00 1f                 r0 = r0 << 0x1f
    528: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   531: 6e 0b                    r11 = zext16 r0
+   531: 6d 0b                    r11 = zext16 r0
    533: 33 04 00 00 01           r4 = 0x10000
    538: 83 44 ff                 i32 r4 = r4 + 0xffffffffffffffff
    541: ab 4b 24                 jump 577 if r11 != r4
@@ -87748,7 +87748,7 @@ Initial program counter: 13
    552: 83 00 01                 i32 r0 = r0 + 0x1
    555: 97 00 13                 r0 = r0 << 0x13
    558: 95 00 ff                 r0 = r0 + 0xffffffffffffffff
-   561: 6e 0b                    r11 = zext16 r0
+   561: 6d 0b                    r11 = zext16 r0
    563: 33 04 00 00 01           r4 = 0x10000
    568: 83 44 ff                 i32 r4 = r4 + 0xffffffffffffffff
    571: ab 4b 06                 jump 577 if r11 != r4

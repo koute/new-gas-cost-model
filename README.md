@@ -8,5 +8,4 @@ This repository contains a draft of the new gas cost model for JAM.
   * The `integration-tests` directory contains much bigger, real-world test vectors; these are not meant to be executed and are only for testing the gas cost model, so they only contain `program` and `block-gas-costs` keys.
   * See `tests/TESTCASES.md` for gas cost model timeline charts, which should be useful for debugging.
   * The source of truth is currently the test vectors; if you find a discrepancy between the equations in the draft and the test vectors then the test vectors are most likely correct.
-  * The draft currently specifies two possible latency costs for memory access instructions; all of the test vectors here use the L2HIT costs.
   * I would suggest first starting with the `tests/programs/gas_*.json` (in particular, `gas_sequential_simple` and `gas_parallel_simple` tests), and work your way up from there; only do the programs from `integration-tests` last.
